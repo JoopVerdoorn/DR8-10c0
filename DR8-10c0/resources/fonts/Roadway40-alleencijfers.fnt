@@ -1,0 +1,17 @@
+info face="Roadway" size=40 bold=0 italic=0 charset="" unicode=1 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=1,1 outline=1
+common lineHeight=40 base=34 scaleW=256 scaleH=256 pages=1 packed=0 alphaChnl=1 redChnl=0 greenChnl=0 blueChnl=0
+page id=0 file="Roadway40-alleencijfers_0.png"
+chars count=13
+char id=45   x=169   y=0     width=9     height=5     xoffset=-1    yoffset=18    xadvance=7     page=0  chnl=15
+char id=46   x=179   y=0     width=7     height=5     xoffset=0     yoffset=30    xadvance=6     page=0  chnl=15
+char id=48   x=0     y=0     width=16    height=29    xoffset=0     yoffset=6     xadvance=15    page=0  chnl=15
+char id=49   x=151   y=0     width=9     height=28    xoffset=0     yoffset=7     xadvance=10    page=0  chnl=15
+char id=50   x=17    y=0     width=16    height=29    xoffset=0     yoffset=6     xadvance=15    page=0  chnl=15
+char id=51   x=86    y=0     width=16    height=28    xoffset=-1    yoffset=7     xadvance=14    page=0  chnl=15
+char id=52   x=50    y=0     width=17    height=28    xoffset=-1    yoffset=7     xadvance=15    page=0  chnl=15
+char id=53   x=136   y=0     width=14    height=28    xoffset=0     yoffset=7     xadvance=14    page=0  chnl=15
+char id=54   x=34    y=0     width=15    height=29    xoffset=0     yoffset=6     xadvance=15    page=0  chnl=15
+char id=55   x=103   y=0     width=16    height=28    xoffset=-1    yoffset=7     xadvance=14    page=0  chnl=15
+char id=56   x=68    y=0     width=17    height=28    xoffset=-1    yoffset=7     xadvance=15    page=0  chnl=15
+char id=57   x=120   y=0     width=15    height=28    xoffset=0     yoffset=7     xadvance=15    page=0  chnl=15
+char id=58   x=161   y=0     width=7     height=17    xoffset=0     yoffset=12    xadvance=7     page=0  chnl=15

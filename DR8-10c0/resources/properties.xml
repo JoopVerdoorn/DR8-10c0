@@ -2,7 +2,7 @@
 	<fonts>
     	<font id="Garmin1" filename="fonts/Roadway40-alleencijfers.fnt" antialias="true"/>
     	<font id="Garmin2" filename="fonts/Roadway43-alleencijfers.fnt" antialias="true"/>
-    	<font id="Garmin3" filename="fonts/Roadway62-alleencijfers.fnt" antialias="true"/>
+    	<font id="Garmin3" filename="fonts/Roadway47-alleencijfers.fnt" antialias="true"/>
 	</fonts>
   <properties>
     <property id="pUpperLeftMetric" type="number">0</property>
@@ -57,7 +57,7 @@
     <!-- Beta name:
     <string id="AppName">Datarun premium with 8 to 10 metrics, main version</string>
     -->
-    <string id="AppVersion">2.20</string>
+    <string id="AppVersion">0.81</string>
     <string id="lDummysetting4version">Version 2.20 of Datarun premium with 8 to 10 metrics, main version (dummy setting)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>

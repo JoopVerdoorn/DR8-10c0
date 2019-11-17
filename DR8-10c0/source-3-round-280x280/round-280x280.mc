@@ -35,12 +35,12 @@ class DeviceView extends PowerView {
         dc.drawLine(0,   145, 280, 145);
         dc.drawLine(3,   201,  277, 201);
         dc.drawLine(62, 257, 218, 257);
-//! tot hier gekomen
+
         //! Vertical dividers
-        dc.drawLine(119, 29,  119, 77);
-        dc.drawLine(73,  77,  73,  173);
-        dc.drawLine(164, 77,  164, 173);
-        dc.drawLine(119, 173, 119, 219);
+        dc.drawLine(139, 34,  139, 90);
+        dc.drawLine(85,  90,  85,  202);
+        dc.drawLine(191, 90,  191, 202);
+        dc.drawLine(139, 202, 139, 256);
 
 		//! Display metrics
         dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
@@ -54,25 +54,25 @@ class DeviceView extends PowerView {
 
 		for (var i = 1; i < 11; ++i) {
 	    	if ( i == 1 ) {			//!upper row, left
-	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"074,058,075,026,062,073,034");
+	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"086,068,088,030,072,085,040");
 	       	} else if ( i == 2 ) {	//!upper row, right
-	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"165,058,177,127,062,167,034");
+	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"193,068,207,148,072,195,040");
 	       	} else if ( i == 3 ) {  //!middle row, left
-	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"036,106,000,000,000,036,082");
+	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"042,124,000,000,000,042,096");
 	       	} else if ( i == 4 ) {	//!middle row, middle
-	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"118,105,000,000,000,118,082");
+	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"138,123,000,000,000,138,096");
 	       	} else if ( i == 5 ) {  //!middle row, right
-	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"202,107,000,000,000,201,082");
+	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"236,125,000,000,000,235,096");
 	       	} else if ( i == 6 ) {	//!lower row, left
-	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"036,154,000,000,000,036,130");
+	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"042,180,000,000,000,042,152");
 	       	} else if ( i == 7 ) {	//!lower row, right
-	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"118,154,000,000,000,118,130");
+	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"138,180,000,000,000,138,152");
 	       	} else if ( i == 8 ) {  //!middle row, right
-	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"202,154,000,000,000,201,130");
+	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"236,180,000,000,000,235,152");
 	       	} else if ( i == 9 ) {	//!lower row, left
-	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"074,201,075,026,189,080,178");
+	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"095,236,099,044,231,093,208");
 	       	} else if ( i == 10 ) {	//!lower row, right
-	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"165,201,177,127,189,157,178");
+	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"184,236,195,141,240,183,208");
        		}       	
 		}
 		

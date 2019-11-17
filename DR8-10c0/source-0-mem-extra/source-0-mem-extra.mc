@@ -477,43 +477,43 @@ class ExtramemView extends DatarunpremiumView {
 			for (var i = 1; i < 11; ++i) {
 			   	if ( i == 1 ) {			//!upper row, left    	
 	    			if (disablelabel1 == false) {
-	    				Coloring(dc,i,fieldValue[i],"018,029,100,014");
+	    				Coloring(dc,i,fieldValue[i],"021,034,117,016");
 	    			}	    		
 		   		} else if ( i == 2 ) {	//!upper row, right
 		   			if (disablelabel2 == false) {
-		   				Coloring(dc,i,fieldValue[i],"120,029,100,014");
+		   				Coloring(dc,i,fieldValue[i],"140,034,117,016");
 		   			}
 		       	} else if ( i == 3 ) {  //!uppermiddle row, left
 		    		if (disablelabel3 == false) {
-		    			Coloring(dc,i,fieldValue[i],"003,077,072,014");
+		    			Coloring(dc,i,fieldValue[i],"004,090,084,016");
 		    		}
 			   	} else if ( i == 4 ) {	//!uppermiddle row, middle
 		 			if (disablelabel4 == false) {
-		 				Coloring(dc,i,fieldValue[i],"074,077,099,014");
+		 				Coloring(dc,i,fieldValue[i],"086,090,116,016");
 		 			}
 		      	} else if ( i == 5 ) {  //!uppermiddle row, right
 		    		if (disablelabel5 == false) {
-		    			Coloring(dc,i,fieldValue[i],"165,077,083,014");
+		    			Coloring(dc,i,fieldValue[i],"193,090,097,016");
 		    		}
 			   	} else if ( i == 6 ) {	//!lowermiddle row, left
 		   			if (disablelabel6 == false) {
-		   				Coloring(dc,i,fieldValue[i],"000,125,075,014");
+		   				Coloring(dc,i,fieldValue[i],"000,146,088,016");
 		   			}
 		      	} else if ( i == 7 ) {	//!lowermiddle row, middle
 		    		if (disablelabel7 == false) {
-		    			Coloring(dc,i,fieldValue[i],"074,125,099,014");
+		    			Coloring(dc,i,fieldValue[i],"086,146,116,016");
 		    		}
 		      	} else if ( i == 8 ) {  //!lowermiddle row, right
 		    		if (disablelabel8 == false) {
-		    			Coloring(dc,i,fieldValue[i],"165,125,083,014");
+		    			Coloring(dc,i,fieldValue[i],"193,146,097,016");
 		    		}
 			   	} else if ( i == 9 ) {	//!lower row, left
 		   			if (disablelabel9 == false) {
-		   				Coloring(dc,i,fieldValue[i],"010,173,108,014");
+		   				Coloring(dc,i,fieldValue[i],"012,202,126,016");
 		   			}
 		      	} else if ( i == 10 ) {	//!lower row, right
 		    		if (disablelabel10 == false) {
-		    			Coloring(dc,i,fieldValue[i],"120,173,108,014");		    		}
+		    			Coloring(dc,i,fieldValue[i],"140,202,126,016");		    		}
 	    		}  	
 			}	
 		} else {

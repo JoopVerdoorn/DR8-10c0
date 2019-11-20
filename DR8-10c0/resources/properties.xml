@@ -3,6 +3,9 @@
     	<font id="Garmin1" filename="fonts/Roadway40-alleencijfers.fnt" antialias="true"/>
     	<font id="Garmin2" filename="fonts/Roadway43-alleencijfers.fnt" antialias="true"/>
     	<font id="Garmin3" filename="fonts/Roadway47-alleencijfers.fnt" antialias="true"/>
+    	<font id="Garmin1big" filename="fonts/Roadway53-alleencijfers.fnt" antialias="true"/>
+    	<font id="Garmin2big" filename="fonts/Roadway57-alleencijfers.fnt" antialias="true"/>
+    	<font id="Garmin3big" filename="fonts/Roadway62-alleencijfers.fnt" antialias="true"/>
 	</fonts>
   <properties>
     <property id="pUpperLeftMetric" type="number">0</property>
@@ -15,6 +18,8 @@
     <property id="pLowerMiddleRightMetric" type="number">51</property> 
     <property id="pBottomLeftMetric" type="number">20</property>
     <property id="pBottomRightMetric" type="number">22</property>
+    <property id="pUpperMiddleRowBig" type="boolean">false</property>
+    <property id="pLowerMiddleRowBig" type="boolean">false</property>
     <property id="pETAfromLap" type="boolean">true</property>
     <property id="pRacedistance" type="number">42195</property>
     <property id="pRacetime" type="string">03:59:48</property>
@@ -57,8 +62,8 @@
     <!-- Beta name:
     <string id="AppName">Datarun premium with 8 to 10 metrics, main version</string>
     -->
-    <string id="AppVersion">0.81</string>
-    <string id="lDummysetting4version">Version 2.20 of Datarun premium with 8 to 10 metrics, main version (dummy setting)</string>
+    <string id="AppVersion">0.82</string>
+    <string id="lDummysetting4version">Version 0.82 of Datarun premium with 8 to 10 metrics (Datarun ultimate), main version (dummy setting)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>
 	<string id="lPaceMenu">___Pace items___</string>
@@ -88,6 +93,8 @@
     <string id="lLowerMiddleRightMetric">Lower middle right field</string>
     <string id="lBottomLeftMetric">Bottom left field</string>
     <string id="lBottomRightMetric">Bottom right field</string>
+    <string id="lUpperMiddleRowBig">Don't show middle field of upper middle right field and enlarge the other 2 fields</string>
+    <string id="lLowerMiddleRowBig">Don't show middle field of lower middle right field and enlarge the other 2 fields</string>
     <string id="lClockFieldMetric">Metric in upper clock/lap field</string>
     <string id="lETAfromLap">Calculation of ETA based on elapsed time of last lap, instead of total average speed </string>
     <string id="lCurrentPace">Current pace</string>
@@ -578,6 +585,9 @@
         <listEntry value="53">@Strings.lElevationLoss</listEntry>      
         </settingConfig>
     </setting>
+    <setting propertyKey="@Properties.pUpperMiddleRowBig" title="@Strings.lUpperMiddleRowBig">
+      <settingConfig type="boolean" required="true" />
+    </setting>
     <setting propertyKey="@Properties.pUpperMiddleMiddleMetric" title="@Strings.lUpperMiddleMiddleMetric">
       <settingConfig type="list" required="true">
         <listEntry value="991">@Strings.lDistanceMenu</listEntry>
@@ -862,6 +872,9 @@
         <listEntry value="52">@Strings.lElevationGain</listEntry>
         <listEntry value="53">@Strings.lElevationLoss</listEntry>      
         </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.pLowerMiddleRowBig" title="@Strings.lLowerMiddleRowBig">
+      <settingConfig type="boolean" required="true" />
     </setting>
     <setting propertyKey="@Properties.pLowerMiddleMiddleMetric" title="@Strings.lLowerMiddleMiddleMetric">
       <settingConfig type="list" required="true">

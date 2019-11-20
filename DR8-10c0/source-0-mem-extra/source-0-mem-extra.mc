@@ -528,37 +528,58 @@ class ExtramemView extends DatarunpremiumView {
 		   			}
 		       	} else if ( i == 3 ) {  //!uppermiddle row, left
 		    		if (disablelabel3 == false) {
-		    			Coloring(dc,i,fieldValue[i],"003,077,072,014");
+		    			if (uUpperMiddleRowBig == false) {
+		    				Coloring(dc,i,fieldValue[i],"003,077,072,014");
+		    			} else {
+		    				Coloring(dc,i,fieldValue[i],"000,077,030,047");
+		    			}
 		    		}
 			   	} else if ( i == 4 ) {	//!uppermiddle row, middle
 		 			if (disablelabel4 == false) {
-		 				Coloring(dc,i,fieldValue[i],"074,077,099,014");
+		 				if (uUpperMiddleRowBig == false) {
+		 					Coloring(dc,i,fieldValue[i],"074,077,099,014");
+		 				}
 		 			}
 		      	} else if ( i == 5 ) {  //!uppermiddle row, right
 		    		if (disablelabel5 == false) {
-		    			Coloring(dc,i,fieldValue[i],"165,077,083,014");
+		    			if (uUpperMiddleRowBig == false) {
+		    				Coloring(dc,i,fieldValue[i],"165,077,083,014");
+		    			} else {
+		    				Coloring(dc,i,fieldValue[i],"215,077,035,047");
+		    			}
 		    		}
 			   	} else if ( i == 6 ) {	//!lowermiddle row, left
 		   			if (disablelabel6 == false) {
-		   				Coloring(dc,i,fieldValue[i],"000,125,075,014");
+		   				if (uLowerMiddleRowBig == false) {
+		   					Coloring(dc,i,fieldValue[i],"000,125,075,014");
+		   				} else {
+		   					Coloring(dc,i,fieldValue[i],"000,125,030,047");
+		   				}
 		   			}
 		      	} else if ( i == 7 ) {	//!lowermiddle row, middle
 		    		if (disablelabel7 == false) {
-		    			Coloring(dc,i,fieldValue[i],"074,125,099,014");
+		    			if (uLowerMiddleRowBig == false) {
+		    				Coloring(dc,i,fieldValue[i],"074,125,099,014");
+		    			}
 		    		}
 		      	} else if ( i == 8 ) {  //!lowermiddle row, right
 		    		if (disablelabel8 == false) {
-		    			Coloring(dc,i,fieldValue[i],"165,125,083,014");
+		    			if (uLowerMiddleRowBig == false) {
+		    				Coloring(dc,i,fieldValue[i],"165,125,083,014");
+		    			} else {
+		    				Coloring(dc,i,fieldValue[i],"215,125,035,047");
+		    			}
 		    		}
 			   	} else if ( i == 9 ) {	//!lower row, left
 		   			if (disablelabel9 == false) {
-		   				Coloring(dc,i,fieldValue[i],"010,173,108,014");
+		   				Coloring(dc,i,fieldValue[i],"033,205,085,014");
 		   			}
 		      	} else if ( i == 10 ) {	//!lower row, right
 		    		if (disablelabel10 == false) {
-		    			Coloring(dc,i,fieldValue[i],"120,173,108,014");
+		    			Coloring(dc,i,fieldValue[i],"120,205,080,014");
 		    		}
-	    		}			}	
+	    		}
+	    	}	
 		}
 
 

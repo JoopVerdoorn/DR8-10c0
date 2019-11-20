@@ -59,18 +59,13 @@ class DatarunpremiumView extends Ui.DataField {
 
     hidden var uBacklight                   = false;
 
-    hidden var uUpperLeftMetric            = 0;    //! Timer is default
-    hidden var uUpperRightMetric           = 4;    //! Distance is default
-    hidden var uMiddleLeftMetric           = 45;    //! HR is default
-    hidden var uMiddleMiddleMetric           = 8;    //! Pace is default    
-    hidden var uMiddleRightMetric           = 50;    //! Cadence is default
-    hidden var uBottomLeftMetric            = 10;    //! Power is default
-    hidden var uBottomRightMetric           = 20;    //! Lap power is default
     hidden var uRequiredPower		 		= "000:999";
     hidden var uWarningFreq		 			= 5;
     hidden var uAlertbeep			 		= false;
 	hidden var uNoAlerts 					= false;
 	hidden var PowerWarning 				= 0;
+	hidden var uUpperMiddleRowBig 			= false;
+	hidden var uLowerMiddleRowBig 			= false;
     
     hidden var mStartStopPushed             = 0;    //! Timer value when the start/stop button was last pushed
 
@@ -119,7 +114,9 @@ class DatarunpremiumView extends Ui.DataField {
          metric[7]  	= mApp.getProperty("pLowerMiddleMiddleMetric"); 
     	 metric[8]		= mApp.getProperty("pLowerMiddleRightMetric");
          metric[9]   	= mApp.getProperty("pBottomLeftMetric");
-         metric[10]  	= mApp.getProperty("pBottomRightMetric");              
+         metric[10]  	= mApp.getProperty("pBottomRightMetric");
+         uUpperMiddleRowBig  = mApp.getProperty("pUpperMiddleRowBig");
+		 uLowerMiddleRowBig  = mApp.getProperty("pLowerMiddleRowBig");
          uRoundedPace        = mApp.getProperty("pRoundedPace");
          uBacklight          = mApp.getProperty("pBacklight");
          umyNumber			 = mApp.getProperty("myNumber");

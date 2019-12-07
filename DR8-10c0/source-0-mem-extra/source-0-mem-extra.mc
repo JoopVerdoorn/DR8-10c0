@@ -507,7 +507,7 @@ class ExtramemView extends DatarunpremiumView {
 		       	} else if ( i == 3 ) {  //!uppermiddle row, left
 		    		if (disablelabel3 == false) {
 		    			if (uUpperMiddleRowBig == false) {
-		    				Coloring(dc,i,fieldValue[i],"004,090,084,016");
+		    				Coloring(dc,i,fieldValue[i],"004,090,082,016");
 		    			} else {
 		    				Coloring(dc,i,fieldValue[i],"000,090,035,055");
 		    			}
@@ -515,13 +515,13 @@ class ExtramemView extends DatarunpremiumView {
 			   	} else if ( i == 4 ) {	//!uppermiddle row, middle
 		 			if (disablelabel4 == false) {
 		 				if (uUpperMiddleRowBig == false) {
-		 					Coloring(dc,i,fieldValue[i],"086,090,116,016");
+		 					Coloring(dc,i,fieldValue[i],"086,090,105,016");
 		 				}
 		 			}
 		      	} else if ( i == 5 ) {  //!uppermiddle row, right
 		    		if (disablelabel5 == false) {
 		    			if (uUpperMiddleRowBig == false) {
-		    				Coloring(dc,i,fieldValue[i],"193,090,097,016");
+		    				Coloring(dc,i,fieldValue[i],"191,090,097,016");
 		    			} else {
 		    				Coloring(dc,i,fieldValue[i],"251,090,041,055");
 		    			}
@@ -529,7 +529,7 @@ class ExtramemView extends DatarunpremiumView {
 			   	} else if ( i == 6 ) {	//!lowermiddle row, left
 		   			if (disablelabel6 == false) {
 		   				if (uLowerMiddleRowBig == false) {
-		   					Coloring(dc,i,fieldValue[i],"000,146,088,016");
+		   					Coloring(dc,i,fieldValue[i],"000,146,086,016");
 		   				} else {
 		   					Coloring(dc,i,fieldValue[i],"000,146,035,055");
 		   				}
@@ -537,13 +537,13 @@ class ExtramemView extends DatarunpremiumView {
 		      	} else if ( i == 7 ) {	//!lowermiddle row, middle
 		    		if (disablelabel7 == false) {
 		    			if (uLowerMiddleRowBig == false) {
-		    				Coloring(dc,i,fieldValue[i],"086,146,116,016");
+		    				Coloring(dc,i,fieldValue[i],"086,146,105,016");
 		    			}
 		    		}
 		      	} else if ( i == 8 ) {  //!lowermiddle row, right
 		    		if (disablelabel8 == false) {
 		    			if (uLowerMiddleRowBig == false) {
-		    				Coloring(dc,i,fieldValue[i],"193,146,097,016");
+		    				Coloring(dc,i,fieldValue[i],"191,146,097,016");
 		    			} else {
 		    				Coloring(dc,i,fieldValue[i],"251,146,041,055");
 		    			}

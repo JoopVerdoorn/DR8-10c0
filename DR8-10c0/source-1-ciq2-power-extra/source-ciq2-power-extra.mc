@@ -22,7 +22,7 @@ class CiqView extends ExtramemView {
 	var setPowerWarning 					= 0;
 	var Garminfont 							= Ui.loadResource(Rez.Fonts.Garmin1);
 	var Garminfontbig 						= Ui.loadResource(Rez.Fonts.Garmin1big);
-	hidden var Labelfont							= Graphics.FONT_XTINY;
+	hidden var Labelfont					= Graphics.FONT_XTINY;
 	var Power1 								= 0;
     var Power2 								= 0;
     var Power3 								= 0;	
@@ -417,24 +417,16 @@ class CiqView extends ExtramemView {
       			dc.drawText(xx, y, Garminfont, fTimer, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
       			dc.drawText(xl, yl, Labelfont,  fieldlabel, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
         } else {
-        	if ( counter == 3 or counter == 5) {
+        	if ( counter == 3 or counter == 5 or counter == 6 or counter == 8) {
         		if (uUpperMiddleRowBig == false) {
         			dc.drawText(x, y, Garminfont, fieldvalue, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
         			dc.drawText(xl, yl, Labelfont,  fieldlabel, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
         		} else {
         			dc.drawText(x, y, Garminfontbig, fieldvalue, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
-        			dc.drawText(xl, yl+7, Labelfont,  fieldlabel.substring(0,1) , Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
-       				dc.drawText(xl, yl+26, Graphics.FONT_XTINY,  fieldlabel.substring(1,2), Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
+        			dc.drawText(xl, yl, Labelfont,  fieldlabel.substring(0,1) , Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
+       				dc.drawText(xl, yl+17, Labelfont,  fieldlabel.substring(1,2), Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
+       				dc.drawText(xl, yl+34, Labelfont,  fieldlabel.substring(2,3), Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
         		}
-        	} else if ( counter == 6 or counter == 8 ) {
-	    		if (uLowerMiddleRowBig == false) {
-	    			dc.drawText(x, y, Garminfont, fieldvalue, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
-	    			dc.drawText(xl, yl, Labelfont,  fieldlabel, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
-	    		} else {
-	    			dc.drawText(x, y, Garminfontbig, fieldvalue, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
-	    			dc.drawText(xl, yl+7, Labelfont,  fieldlabel.substring(0,1) , Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
-       				dc.drawText(xl, yl+26, Labelfont,  fieldlabel.substring(1,2), Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
-	    		}
 	    	} else {
        			dc.drawText(x, y, Garminfont, fieldvalue, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
        			dc.drawText(xl, yl, Labelfont,  fieldlabel, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);

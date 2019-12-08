@@ -71,7 +71,7 @@ class DeviceView extends PowerView {
 	    		if (uUpperMiddleRowBig == false) {
 	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"042,124,000,000,000,042,096");
 	    		} else {
-	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"086,114,000,000,000,018,096");
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"086,114,000,000,000,018,099");
 	    		}
 	       	} else if ( i == 4 ) {	//!middle row, middle
 	    		if (uUpperMiddleRowBig == false) {
@@ -81,13 +81,13 @@ class DeviceView extends PowerView {
 	    		if (uUpperMiddleRowBig == false) {
 	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"236,124,000,000,000,235,096");
 	    		} else {
-	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"193,114,000,000,000,263,096");
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"193,114,000,000,000,263,099");
 	    		}
 	       	} else if ( i == 6 ) {	//!lower row, left
 	    		if (uLowerMiddleRowBig == false) {
 	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"042,180,000,000,000,042,152");
 	    		} else {
-	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"086,170,000,000,000,018,152");
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"086,170,000,000,000,018,155");
 	    		}
 	       	} else if ( i == 7 ) {	//!lower row, right
 	    		if (uLowerMiddleRowBig == false) {
@@ -97,7 +97,7 @@ class DeviceView extends PowerView {
 	    		if (uLowerMiddleRowBig == false) {
 	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"236,180,000,000,000,235,152");
 	    		} else {
-	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"193,170,000,000,000,263,152");
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"193,170,000,000,000,263,155");
 	    		}
 	       	} else if ( i == 9 ) {	//!lower row, left
 	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"086,218,096,039,222,093,247");

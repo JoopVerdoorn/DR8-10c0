@@ -6,6 +6,7 @@
     	<font id="Garmin1big" filename="fonts/Roadway53-alleencijfers.fnt" antialias="true"/>
     	<font id="Garmin2big" filename="fonts/Roadway57-alleencijfers.fnt" antialias="true"/>
     	<font id="Garmin3big" filename="fonts/Roadway62-alleencijfers.fnt" antialias="true"/>
+    	<font id="Labels1" filename="fonts/RobotoCondensed-Regular_16.fnt" antialias="true"/>
 	</fonts>
   <properties>
     <property id="pUpperLeftMetric" type="number">0</property>
@@ -43,6 +44,7 @@
     <property id="pClockFieldMetric" type="number">46</property>
     <property id="pFTP" type="number">250</property>
     <property id="pCP" type="number">250</property>
+    <property id="pGarminColors" type="boolean">false</property>
     <property id="pdisablelabel1" type="boolean">false</property>
     <property id="pdisablelabel2" type="boolean">false</property>
     <property id="pdisablelabel3" type="boolean">false</property>
@@ -58,11 +60,11 @@
 	
   <strings>
     <!-- Release name: -->
-    <string id="AppName">Datarun premium with 8 to 10 metrics, main version</string>
+    <string id="AppName">Datarun Ultimate, main version</string>
     <!-- Beta name:
-    <string id="AppName">Datarun premium with 8 to 10 metrics, main version</string>
+    <string id="AppName">Datarun Ultimate</string>
     -->
-    <string id="lDummysetting4version">Version 0.91 of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 0.92 of Datarun ultimate, main version (dummy setting)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>
 	<string id="lPaceMenu">___Pace items___</string>
@@ -163,6 +165,8 @@
 	<string id="lLEIndex">Current lap efficiency index</string>
 	<string id="lLLEFactor">Last lap average efficiency factor </string>
 	<string id="lLLEIndex">Last lap efficiency index</string>
+	<string id="lTemp">Current temperature</string>
+	<string id="lGarminColors">Use Garmin color scheme for label colors (not applicable for Palladino 10 powerzones)</string>
     <string id="lSPower">Current running power</string>
     <string id="lAsecPower">Power averaged over the last 3 seconds</string>
     <string id="lPowper5sec">Power averaged over the last 5 seconds</string>
@@ -382,6 +386,7 @@
         <listEntry value="51">@Strings.lAltitude</listEntry>
         <listEntry value="52">@Strings.lElevationGain</listEntry>
         <listEntry value="53">@Strings.lElevationLoss</listEntry>
+        <listEntry value="89">@Strings.lTemp</listEntry>
       </settingConfig>
     </setting>
     <setting propertyKey="@Properties.pUpperRightMetric" title="@Strings.lUpperRightMetric">
@@ -484,7 +489,9 @@
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
         <listEntry value="52">@Strings.lElevationGain</listEntry>
-        <listEntry value="53">@Strings.lElevationLoss</listEntry>      </settingConfig>
+        <listEntry value="53">@Strings.lElevationLoss</listEntry>
+        <listEntry value="89">@Strings.lTemp</listEntry>
+      </settingConfig>
     </setting>
 
     <setting propertyKey="@Properties.pUpperMiddleLeftMetric" title="@Strings.lUpperMiddleLeftMetric">
@@ -578,8 +585,9 @@
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
         <listEntry value="52">@Strings.lElevationGain</listEntry>
-        <listEntry value="53">@Strings.lElevationLoss</listEntry>      
-        </settingConfig>
+        <listEntry value="53">@Strings.lElevationLoss</listEntry>  
+        <listEntry value="89">@Strings.lTemp</listEntry>    
+       </settingConfig>
     </setting>
     <setting propertyKey="@Properties.pUpperMiddleRowBig" title="@Strings.lUpperMiddleRowBig">
       <settingConfig type="boolean" required="true" />
@@ -676,7 +684,8 @@
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
         <listEntry value="52">@Strings.lElevationGain</listEntry>
-        <listEntry value="53">@Strings.lElevationLoss</listEntry>      
+        <listEntry value="53">@Strings.lElevationLoss</listEntry>  
+        <listEntry value="89">@Strings.lTemp</listEntry>    
       </settingConfig>
     </setting>
     <setting propertyKey="@Properties.pUpperMiddleRightMetric" title="@Strings.lUpperMiddleRightMetric">
@@ -771,7 +780,8 @@
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
         <listEntry value="52">@Strings.lElevationGain</listEntry>
-        <listEntry value="53">@Strings.lElevationLoss</listEntry>      
+        <listEntry value="53">@Strings.lElevationLoss</listEntry>  
+        <listEntry value="89">@Strings.lTemp</listEntry>    
       </settingConfig>
     </setting>
 
@@ -866,8 +876,9 @@
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
         <listEntry value="52">@Strings.lElevationGain</listEntry>
-        <listEntry value="53">@Strings.lElevationLoss</listEntry>      
-        </settingConfig>
+        <listEntry value="53">@Strings.lElevationLoss</listEntry>   
+        <listEntry value="89">@Strings.lTemp</listEntry>   
+       </settingConfig>
     </setting>
     <setting propertyKey="@Properties.pLowerMiddleRowBig" title="@Strings.lLowerMiddleRowBig">
       <settingConfig type="boolean" required="true" />
@@ -964,7 +975,8 @@
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
         <listEntry value="52">@Strings.lElevationGain</listEntry>
-        <listEntry value="53">@Strings.lElevationLoss</listEntry>      
+        <listEntry value="53">@Strings.lElevationLoss</listEntry>  
+       <listEntry value="89">@Strings.lTemp</listEntry>    
       </settingConfig>
     </setting>
 
@@ -1060,7 +1072,8 @@
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
         <listEntry value="52">@Strings.lElevationGain</listEntry>
-        <listEntry value="53">@Strings.lElevationLoss</listEntry>      
+        <listEntry value="53">@Strings.lElevationLoss</listEntry> 
+        <listEntry value="89">@Strings.lTemp</listEntry>     
       </settingConfig>
     </setting>
     
@@ -1164,7 +1177,9 @@
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
         <listEntry value="52">@Strings.lElevationGain</listEntry>
-        <listEntry value="53">@Strings.lElevationLoss</listEntry>      </settingConfig>
+        <listEntry value="53">@Strings.lElevationLoss</listEntry>
+        <listEntry value="89">@Strings.lTemp</listEntry>
+      </settingConfig>
     </setting>
     <setting propertyKey="@Properties.pBottomRightMetric" title="@Strings.lBottomRightMetric">
       <settingConfig type="list" required="true">
@@ -1266,7 +1281,9 @@
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
         <listEntry value="52">@Strings.lElevationGain</listEntry>
-        <listEntry value="53">@Strings.lElevationLoss</listEntry>       </settingConfig>
+        <listEntry value="53">@Strings.lElevationLoss</listEntry>
+        <listEntry value="89">@Strings.lTemp</listEntry>
+       </settingConfig>
     </setting>
     <setting propertyKey="@Properties.pClockFieldMetric" title="@Strings.lClockFieldMetric">
       <settingConfig type="list" required="true">
@@ -1317,6 +1334,7 @@
         <listEntry value="51">@Strings.lAltitude</listEntry>
         <listEntry value="52">@Strings.lElevationGain</listEntry>
         <listEntry value="53">@Strings.lElevationLoss</listEntry>
+        <listEntry value="89">@Strings.lTemp</listEntry>
         
         <listEntry value="997">@Strings.lPIMenu</listEntry>
         <listEntry value="32">@Strings.lCEFactor</listEntry>
@@ -1326,6 +1344,9 @@
         <listEntry value="54">@Strings.lTEffect</listEntry>  
         <listEntry value="87">@Strings.lkCalories</listEntry>
       </settingConfig>
+    </setting>
+  	<setting propertyKey="@Properties.pGarminColors" title="@Strings.lGarminColors">
+      <settingConfig type="boolean" required="true" />
     </setting>
   	<setting propertyKey="@Properties.pdisablelabel1" title="@Strings.ldisablelabel1">
       <settingConfig type="boolean" required="true" />

@@ -100,15 +100,15 @@ class DeviceView extends PowerView {
 	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"179,158,000,000,000,244,141");
 	    		}
 	       	} else if ( i == 9 ) {	//!lower row, left
-	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"080,203,089,036,206,087,230");
+	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"080,203,089,036,206,087,229");
 	       	} else if ( i == 10 ) {	//!lower row, right
-	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"179,203,186,133,206,170,230");
+	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"179,203,186,133,206,170,229");
        		}       	
 		}
 		
 		//! Bottom battery indicator
 	 	var stats = Sys.getSystemStats();
-		var pwr = stats.battery;
+		var pwr = stats.battery;	
 		var mBattcolor = (pwr > 15) ? mColourFont : Graphics.COLOR_RED;
 		dc.setColor(mBattcolor, Graphics.COLOR_TRANSPARENT);
 		dc.fillRectangle(100, 240, 59, 16);
@@ -119,6 +119,13 @@ class DeviceView extends PowerView {
 		var Endstatuspwrbr = 55 - Math.round(pwr*0.55) ;
 		dc.fillRectangle(Startstatuspwrbr, 242, Endstatuspwrbr, 12);	
 
+		if ( pwr > 50 ) {
+			dc.drawText(114+16*(pwr-50)/50, 247, Graphics.FONT_XTINY, pwr.format("%0d") + "%", Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
+		} else{
+			dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
+			dc.drawText(143-17*(50-pwr)/50, 247, Graphics.FONT_XTINY, pwr.format("%0d") + "%", Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
+		}
+		
 	   } else {
 	   //! Display demo screen
 		dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);

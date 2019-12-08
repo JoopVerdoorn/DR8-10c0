@@ -117,7 +117,14 @@ class DeviceView extends PowerView {
 		dc.setColor(mColourBackGround, Graphics.COLOR_TRANSPARENT);
 		var Startstatuspwrbr = 110 + Math.round(pwr*0.58)  ;
 		var Endstatuspwrbr = 58 - Math.round(pwr*0.58) ;
-		dc.fillRectangle(Startstatuspwrbr, 261, Endstatuspwrbr, 14);	
+		dc.fillRectangle(Startstatuspwrbr, 261, Endstatuspwrbr, 14);
+
+		if ( pwr > 50 ) {
+			dc.drawText(123+17*(pwr-50)/50, 267, Graphics.FONT_XTINY, pwr.format("%0d") + "%", Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
+		} else{
+			dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
+			dc.drawText(154-16*(50-pwr)/50, 267, Graphics.FONT_XTINY, pwr.format("%0d") + "%", Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
+		}	
 
 	   } else {
 	   //! Display demo screen

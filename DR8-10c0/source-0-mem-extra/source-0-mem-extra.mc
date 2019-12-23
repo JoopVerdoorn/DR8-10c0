@@ -484,6 +484,68 @@ class ExtramemView extends DatarunpremiumView {
 			}
 			 
 
+		var ChartValue = 0;
+        var ChartLabel = "error";
+        var ChartFormat = "decimal";  
+		//!Choice for metric in Chart in bottom row
+        	if (uChartVariable == 8) {
+   	        	ChartValue = CurrentSpeedinmpersec;
+        	    ChartLabel = "Pace";
+            	ChartFormat = "pace";   
+	        } else if (uChartVariable == 40) {
+    	        ChartValue = (info.currentSpeed != null) ? 3.6*info.currentSpeed*1000/unitP : 0;
+        	    ChartLabel = "Speed";
+            	ChartFormat = "2decimal";   
+			} else if (uChartVariable == 50) {
+				ChartValue = (info.currentCadence != null) ? info.currentCadence : 0; 
+    	        ChartLabel = "Cadence";
+        	    ChartFormat = "0decimal";
+        	}  else if (uChartVariable == 61) {
+           		ChartValue = (info.currentCadence != null) ? Math.round(info.currentCadence/2) : 0;
+            	ChartLabel = "RCadence";
+            	ChartFormat = "0decimal"; 
+        	} else if (uChartVariable == 45) {
+    	        ChartValue = (info.currentHeartRate != null) ? info.currentHeartRate : 0;
+        	    ChartLabel = "HR";
+            	ChartFormat = "0decimal";
+        	} else if (uChartVariable == 20) {
+            	ChartValue = (info.currentPower != null) ? info.currentPower : 0;
+            	ChartLabel = "Power";
+            	ChartFormat = "power"; 
+			} else if (uChartVariable == 31) {
+	            ChartValue = CurrentEfficiencyIndex;
+    	        ChartLabel = "Cur EI";
+        	    ChartFormat = "2decimal";
+			} else if (uChartVariable == 32) {
+	            ChartValue = CurrentEfficiencyFactor;
+    	        ChartLabel = "Cur EF";
+        	    ChartFormat = "2decimal";
+			} else if (uChartVariable == 36) {
+	            ChartValue = CurrentPower2HRRatio;
+    	        ChartLabel = "C P2HR";
+        	    ChartFormat = "2decimal";
+			} else if (uChartVariable == 51) {
+		  		ChartValue = (info.altitude != null) ? Math.round(info.altitude).toNumber() : 0;
+		       	ChartLabel = "Altitude";
+		       	ChartFormat = "0decimal";        		
+			} else if (uChartVariable == 52) {
+           		ChartValue = valueAsc;
+            	ChartLabel = "EL gain";
+            	ChartFormat = "0decimal";
+        	}  else if (uChartVariable == 53) {
+           		ChartValue = valueDesc; 
+            	ChartLabel = "EL loss";
+            	ChartFormat = "0decimal";           	          	
+        	} else if (uChartVariable == 89) {
+    	        ChartValue = (sensorIter != null) ? sensorIter.next().data : 0;
+        	    ChartLabel = "Temp";
+            	ChartFormat = "1decimal";
+			}
+
+
+
+
+
 		//! Conditions for showing the demoscreen       
         if (uShowDemo == false) {
         	if (licenseOK == false && jTimertime > 900)  {
@@ -551,11 +613,15 @@ class ExtramemView extends DatarunpremiumView {
 		    		}
 			   	} else if ( i == 9 ) {	//!lower row, left
 		   			if (disablelabel9 == false) {
-		   				Coloring(dc,i,fieldValue[i],"036,222,092,015");
+		   				if (uGraphBottomRow == false) {
+		   					Coloring(dc,i,fieldValue[i],"036,222,092,015");
+		   				}
 		   			}
 		      	} else if ( i == 10 ) {	//!lower row, right
 		    		if (disablelabel10 == false) {
-		    			Coloring(dc,i,fieldValue[i],"130,222,095,015");
+		    			if (uGraphBottomRow == false) {
+		    				Coloring(dc,i,fieldValue[i],"130,222,095,015");
+		    			}
 		    		}
 	    		}	
 	    	}			
@@ -615,11 +681,15 @@ class ExtramemView extends DatarunpremiumView {
 		    		}
 			   	} else if ( i == 9 ) {	//!lower row, left
 		   			if (disablelabel9 == false) {
-		   				Coloring(dc,i,fieldValue[i],"039,240,099,016");
+		   				if (uGraphBottomRow == false) {
+		   					Coloring(dc,i,fieldValue[i],"039,240,099,016");
+		   				}
 		   			}
 		      	} else if ( i == 10 ) {	//!lower row, right
 		    		if (disablelabel10 == false) {
-		    			Coloring(dc,i,fieldValue[i],"140,240,105,016");
+		    			if (uGraphBottomRow == false) {
+		    				Coloring(dc,i,fieldValue[i],"140,240,105,016");
+		    			}
 		    		}
 	    		}
 	    	}
@@ -679,11 +749,15 @@ class ExtramemView extends DatarunpremiumView {
 		    		}
 			   	} else if ( i == 9 ) {	//!lower row, left
 		   			if (disablelabel9 == false) {
-		   				Coloring(dc,i,fieldValue[i],"033,205,085,014");
+		   				if (uGraphBottomRow == false) {
+		   					Coloring(dc,i,fieldValue[i],"033,205,085,014");
+		   				}
 		   			}
 		      	} else if ( i == 10 ) {	//!lower row, right
 		    		if (disablelabel10 == false) {
-		    			Coloring(dc,i,fieldValue[i],"120,205,085,014");
+		    			if (uGraphBottomRow == false) {
+		    				Coloring(dc,i,fieldValue[i],"120,205,085,014");
+		    			}
 		    		}
 	    		}
 	    	}	

@@ -100,32 +100,43 @@ class DatarunpremiumView extends Ui.DataField {
 	hidden var LastLapHeartrate				= 0;
 	hidden var AverageHeartrate 			= 0; 
 	hidden var mLapElapsedDistance 			= 0;
+	hidden var uGraphBottomRow				= false;
+	hidden var uGraphType		 			= 1;
+	hidden var uChartVariable		 		= 20;
+    hidden var uChartTimescale	 			= 1;
+    hidden var uChartVertscale	 			= 1;
 
     function initialize() {
          DataField.initialize();
 
          var mApp = Application.getApp();
-         metric[1]    	= mApp.getProperty("pUpperLeftMetric");
-         metric[2]   	= mApp.getProperty("pUpperRightMetric");
-    	 metric[3]   	= mApp.getProperty("pUpperMiddleLeftMetric");
-    	 metric[4] 		= mApp.getProperty("pUpperMiddleMiddleMetric");    
-    	 metric[5]		= mApp.getProperty("pUpperMiddleRightMetric");
-         metric[6]   	= mApp.getProperty("pLowerMiddleLeftMetric");
-         metric[7]  	= mApp.getProperty("pLowerMiddleMiddleMetric"); 
-    	 metric[8]		= mApp.getProperty("pLowerMiddleRightMetric");
-         metric[9]   	= mApp.getProperty("pBottomLeftMetric");
-         metric[10]  	= mApp.getProperty("pBottomRightMetric");
-         uUpperMiddleRowBig  = mApp.getProperty("pUpperMiddleRowBig");
-		 uLowerMiddleRowBig  = mApp.getProperty("pLowerMiddleRowBig");
-         uRoundedPace        = mApp.getProperty("pRoundedPace");
-         uBacklight          = mApp.getProperty("pBacklight");
-         umyNumber			 = mApp.getProperty("myNumber");
-         uShowDemo			 = mApp.getProperty("pShowDemo");
-         uMilClockAltern	 = mApp.getProperty("pMilClockAltern");
-         uRacedistance		 = mApp.getProperty("pRacedistance");
-         uRacetime			 = mApp.getProperty("pRacetime");
-         uETAfromLap		 = mApp.getProperty("pETAfromLap");
-         var uHrZones = UserProfile.getHeartRateZones(UserProfile.getCurrentSport());
+         metric[1]	    	= mApp.getProperty("pUpperLeftMetric");
+         metric[2]  	 	= mApp.getProperty("pUpperRightMetric");
+    	 metric[3]   		= mApp.getProperty("pUpperMiddleLeftMetric");
+    	 metric[4]	 		= mApp.getProperty("pUpperMiddleMiddleMetric");    
+    	 metric[5]			= mApp.getProperty("pUpperMiddleRightMetric");
+         metric[6]   		= mApp.getProperty("pLowerMiddleLeftMetric");
+         metric[7]	  		= mApp.getProperty("pLowerMiddleMiddleMetric"); 
+    	 metric[8]			= mApp.getProperty("pLowerMiddleRightMetric");
+         metric[9]   		= mApp.getProperty("pBottomLeftMetric");
+         metric[10]  		= mApp.getProperty("pBottomRightMetric");
+         uUpperMiddleRowBig = mApp.getProperty("pUpperMiddleRowBig");
+		 uLowerMiddleRowBig = mApp.getProperty("pLowerMiddleRowBig");
+         uRoundedPace       = mApp.getProperty("pRoundedPace");
+         uBacklight         = mApp.getProperty("pBacklight");
+         umyNumber			= mApp.getProperty("myNumber");
+         uShowDemo			= mApp.getProperty("pShowDemo");
+         uMilClockAltern	= mApp.getProperty("pMilClockAltern");
+         uRacedistance		= mApp.getProperty("pRacedistance");
+         uRacetime			= mApp.getProperty("pRacetime");
+         uETAfromLap		= mApp.getProperty("pETAfromLap");
+         var uHrZones 		= UserProfile.getHeartRateZones(UserProfile.getCurrentSport());
+         uGraphBottomRow 	= mApp.getProperty("pGraphBottomRow");
+         uGraphType		 	= mApp.getProperty("pGraphType");
+         uChartVariable 	= mApp.getProperty("pChartVariable");
+    	 uChartTimescale 	= mApp.getProperty("pChartTimescale");
+    	 uChartVertscale 	= mApp.getProperty("pChartVertscale");
+         
           	 
         if (System.getDeviceSettings().paceUnits == System.UNIT_STATUTE) {
             unitP = 1609.344;

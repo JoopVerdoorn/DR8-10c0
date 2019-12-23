@@ -33,6 +33,8 @@ class CiqView extends ExtramemView {
     var Power8 								= 0;
     var Power9 								= 0;
     var Power10								= 0;
+    hidden var CurrentEfficiencyIndex		= 0;
+    hidden var CurrentPower2HRRatio			= 0;
 		
     function initialize() {
         ExtramemView.initialize();
@@ -108,12 +110,12 @@ class CiqView extends ExtramemView {
 		//!Calculate HR-metrics
 		var info = Activity.getActivityInfo();
 		
-		var CurrentEfficiencyIndex   	= (info.currentPower != null && info.currentPower != 0) ? Averagespeedinmper3sec*60/info.currentPower : 0;
+		CurrentEfficiencyIndex   		= (info.currentPower != null && info.currentPower != 0) ? Averagespeedinmper3sec*60/info.currentPower : 0;
 		var AverageEfficiencyIndex   	= (info.averageSpeed != null && AveragePower != 0) ? info.averageSpeed*60/AveragePower : 0;
 		var LapEfficiencyIndex   		= (LapPower != 0) ? mLapSpeed*60/LapPower : 0;  
 		var LastLapEfficiencyIndex   	= (LastLapPower != 0) ? mLastLapSpeed*60/LastLapPower : 0;  
 
-		var CurrentPower2HRRatio 		= 0.00; 				
+		CurrentPower2HRRatio 			= 0.00; 				
 		if (info.currentPower != null && info.currentHeartRate != null && info.currentHeartRate != 0) {
 			CurrentPower2HRRatio 		= (0.00001 + info.currentPower)/info.currentHeartRate;
 		}

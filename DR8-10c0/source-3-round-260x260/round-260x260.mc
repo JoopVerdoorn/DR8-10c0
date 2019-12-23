@@ -50,7 +50,9 @@ class DeviceView extends PowerView {
         } else {
         	dc.drawLine(129, 135,  129, 187);
         }
-        dc.drawLine(129, 187, 129, 237);
+        if (uGraphBottomRow == false) {
+        	dc.drawLine(129, 187, 129, 237);
+        }        
 
 		//! Display metrics
         dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
@@ -100,9 +102,13 @@ class DeviceView extends PowerView {
 	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"179,158,000,000,000,244,142");
 	    		}
 	       	} else if ( i == 9 ) {	//!lower row, left
-	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"080,203,089,036,206,087,229");
+	    		if (uGraphBottomRow == false) {
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"080,203,089,036,206,087,229");
+	    		}
 	       	} else if ( i == 10 ) {	//!lower row, right
-	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"179,203,186,133,206,170,229");
+	    		if (uGraphBottomRow == false) {
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"179,203,186,133,206,170,229");
+	    		}
        		}       	
 		}
 		

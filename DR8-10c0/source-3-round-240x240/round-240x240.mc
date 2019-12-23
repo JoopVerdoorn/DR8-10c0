@@ -111,6 +111,12 @@ class DeviceView extends PowerView {
 	    		}
        		}       	
 		}
+			
+		//! Display chart/graphic
+		if (uGraphBottomRow == true and jTimertime > 0) {
+			dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
+			drawChart(dc,"240x240",150,"total");
+		}
 		
 		if (jTimertime == 0) {
 	    	if (ID0 != 3624 and ID0 != 3588 and ID0 != 3762 and ID0 != 3761 and ID0 != 3757 and ID0 != 3758 and ID0 != 3759) {

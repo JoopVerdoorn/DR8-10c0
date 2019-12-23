@@ -52,7 +52,8 @@ class ExtramemView extends DatarunpremiumView {
 	var currentCadence						= 0;
 	var LapCadence							= 0;
 	var LastLapCadence						= 0;
-	var AverageCadence 						= 0; 	
+	var AverageCadence 						= 0;
+	hidden var ChartValue 					= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,]; 	
 	
     function initialize() {
         DatarunpremiumView.initialize();
@@ -484,60 +485,59 @@ class ExtramemView extends DatarunpremiumView {
 			}
 			 
 
-		var ChartValue = 0;
         var ChartLabel = "error";
         var ChartFormat = "decimal";  
 		//!Choice for metric in Chart in bottom row
         	if (uChartVariable == 8) {
-   	        	ChartValue = CurrentSpeedinmpersec;
+   	        	ChartValue[jTimertime] = CurrentSpeedinmpersec;
         	    ChartLabel = "Pace";
             	ChartFormat = "pace";   
 	        } else if (uChartVariable == 40) {
-    	        ChartValue = (info.currentSpeed != null) ? 3.6*info.currentSpeed*1000/unitP : 0;
+    	        ChartValue[jTimertime] = (info.currentSpeed != null) ? 3.6*info.currentSpeed*1000/unitP : 0;
         	    ChartLabel = "Speed";
             	ChartFormat = "2decimal";   
 			} else if (uChartVariable == 50) {
-				ChartValue = (info.currentCadence != null) ? info.currentCadence : 0; 
+				ChartValue[jTimertime] = (info.currentCadence != null) ? info.currentCadence : 0; 
     	        ChartLabel = "Cadence";
         	    ChartFormat = "0decimal";
         	}  else if (uChartVariable == 61) {
-           		ChartValue = (info.currentCadence != null) ? Math.round(info.currentCadence/2) : 0;
+           		ChartValue[jTimertime] = (info.currentCadence != null) ? Math.round(info.currentCadence/2) : 0;
             	ChartLabel = "RCadence";
             	ChartFormat = "0decimal"; 
         	} else if (uChartVariable == 45) {
-    	        ChartValue = (info.currentHeartRate != null) ? info.currentHeartRate : 0;
+    	        ChartValue[jTimertime] = (info.currentHeartRate != null) ? info.currentHeartRate : 0;
         	    ChartLabel = "HR";
             	ChartFormat = "0decimal";
         	} else if (uChartVariable == 20) {
-            	ChartValue = (info.currentPower != null) ? info.currentPower : 0;
+            	ChartValue[jTimertime] = (info.currentPower != null) ? info.currentPower : 0;
             	ChartLabel = "Power";
             	ChartFormat = "power"; 
 			} else if (uChartVariable == 31) {
-	            ChartValue = CurrentEfficiencyIndex;
+	            ChartValue[jTimertime] = CurrentEfficiencyIndex;
     	        ChartLabel = "Cur EI";
         	    ChartFormat = "2decimal";
 			} else if (uChartVariable == 32) {
-	            ChartValue = CurrentEfficiencyFactor;
+	            ChartValue[jTimertime] = CurrentEfficiencyFactor;
     	        ChartLabel = "Cur EF";
         	    ChartFormat = "2decimal";
 			} else if (uChartVariable == 36) {
-	            ChartValue = CurrentPower2HRRatio;
+	            ChartValue[jTimertime] = CurrentPower2HRRatio;
     	        ChartLabel = "C P2HR";
         	    ChartFormat = "2decimal";
 			} else if (uChartVariable == 51) {
-		  		ChartValue = (info.altitude != null) ? Math.round(info.altitude).toNumber() : 0;
+		  		ChartValue[jTimertime] = (info.altitude != null) ? Math.round(info.altitude).toNumber() : 0;
 		       	ChartLabel = "Altitude";
 		       	ChartFormat = "0decimal";        		
 			} else if (uChartVariable == 52) {
-           		ChartValue = valueAsc;
+           		ChartValue[jTimertime] = valueAsc;
             	ChartLabel = "EL gain";
             	ChartFormat = "0decimal";
         	}  else if (uChartVariable == 53) {
-           		ChartValue = valueDesc; 
+           		ChartValue[jTimertime] = valueDesc; 
             	ChartLabel = "EL loss";
             	ChartFormat = "0decimal";           	          	
         	} else if (uChartVariable == 89) {
-    	        ChartValue = (sensorIter != null) ? sensorIter.next().data : 0;
+    	        ChartValue[jTimertime] = (sensorIter != null) ? sensorIter.next().data : 0;
         	    ChartLabel = "Temp";
             	ChartFormat = "1decimal";
 			}
@@ -1052,7 +1052,29 @@ class ExtramemView extends DatarunpremiumView {
 		dc.setColor(mfillColour, Graphics.COLOR_TRANSPARENT);
         dc.fillRectangle(x, y, w, h);
 	}	
+	
+	//!Chart function
+	function drawChart(dc,displaydim,charttimescale,chartvertscale) {
+		var maxchartvalue = 300;
+	var horChartlength = 120;
+	var vertChartheight = 40;
+	var x_startpointChart = 60;
+	var y_startpointChart = 215;
+	var i = 0;
+
+	if (displaydim.equals("240x240" ) == true) {
+		horChartlength = 120;
+		vertChartheight = 53;
+		x_startpointChart = 60;
+		y_startpointChart = 215;
+	}
+	for (i = 0; i < jTimertime; ++i) { 
+		dc.drawLine(x_startpointChart+horChartlength-i , y_startpointChart , x_startpointChart+horChartlength-i , y_startpointChart-ChartValue[i]*vertChartheight/maxchartvalue);
+	}
+}	
 }
+
+
 
 //! Create a method to get the SensorHistoryIterator object
 function getIterator() {

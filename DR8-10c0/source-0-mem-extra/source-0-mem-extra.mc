@@ -52,8 +52,10 @@ class ExtramemView extends DatarunpremiumView {
 	var currentCadence						= 0;
 	var LapCadence							= 0;
 	var LastLapCadence						= 0;
-	var AverageCadence 						= 0;
-	hidden var ChartValue 					= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,]; 	
+	var AverageCadence 						= 0; 
+	hidden var ChartValue 					= new [175];	
+	hidden var MaxChartValue				= 0;
+	hidden var MinChartValue				= 0.01;
 	
     function initialize() {
         DatarunpremiumView.initialize();
@@ -541,9 +543,12 @@ class ExtramemView extends DatarunpremiumView {
         	    ChartLabel = "Temp";
             	ChartFormat = "1decimal";
 			}
-
-
-
+		
+		//!Determine minumum and maximum ChartValue 
+		if (ChartValue[jTimertime]>0) {
+			MinChartValue = (ChartValue[jTimertime]<MinChartValue) ? ChartValue[jTimertime] : MinChartValue; 
+		}
+		MaxChartValue = (ChartValue[jTimertime]>MaxChartValue) ? ChartValue[jTimertime] : MaxChartValue; 
 
 
 		//! Conditions for showing the demoscreen       
@@ -1054,24 +1059,15 @@ class ExtramemView extends DatarunpremiumView {
 	}	
 	
 	//!Chart function
-	function drawChart(dc,displaydim,charttimescale,chartvertscale) {
+	function drawChart(dc,charttimescale,chartverttscale,horChartlength,vertChartheight,x_startpointChart,y_startpointChart) {
 		var maxchartvalue = 300;
-	var horChartlength = 120;
-	var vertChartheight = 40;
-	var x_startpointChart = 60;
-	var y_startpointChart = 215;
-	var i = 0;
 
-	if (displaydim.equals("240x240" ) == true) {
-		horChartlength = 120;
-		vertChartheight = 53;
-		x_startpointChart = 60;
-		y_startpointChart = 215;
-	}
-	for (i = 0; i < jTimertime; ++i) { 
-		dc.drawLine(x_startpointChart+horChartlength-i , y_startpointChart , x_startpointChart+horChartlength-i , y_startpointChart-ChartValue[i]*vertChartheight/maxchartvalue);
-	}
-}	
+		var i = 0;
+		for (i = 0; i < jTimertime; ++i) { 
+			dc.drawLine(x_startpointChart+horChartlength-jTimertime+i , y_startpointChart , x_startpointChart+horChartlength-jTimertime+i , y_startpointChart-ChartValue[i]*vertChartheight/maxchartvalue);
+		}
+	
+   }	
 }
 
 

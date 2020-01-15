@@ -52,10 +52,7 @@ class ExtramemView extends DatarunpremiumView {
 	var currentCadence						= 0;
 	var LapCadence							= 0;
 	var LastLapCadence						= 0;
-	var AverageCadence 						= 0; 
-	hidden var ChartValue 					= new [175];	
-	hidden var MaxChartValue				= 0;
-	hidden var MinChartValue				= 0.01;
+	var AverageCadence 						= 0; 	
 	
     function initialize() {
         DatarunpremiumView.initialize();
@@ -487,70 +484,6 @@ class ExtramemView extends DatarunpremiumView {
 			}
 			 
 
-        var ChartLabel = "error";
-        var ChartFormat = "decimal";  
-		//!Choice for metric in Chart in bottom row
-        	if (uChartVariable == 8) {
-   	        	ChartValue[jTimertime] = CurrentSpeedinmpersec;
-        	    ChartLabel = "Pace";
-            	ChartFormat = "pace";   
-	        } else if (uChartVariable == 40) {
-    	        ChartValue[jTimertime] = (info.currentSpeed != null) ? 3.6*info.currentSpeed*1000/unitP : 0;
-        	    ChartLabel = "Speed";
-            	ChartFormat = "2decimal";   
-			} else if (uChartVariable == 50) {
-				ChartValue[jTimertime] = (info.currentCadence != null) ? info.currentCadence : 0; 
-    	        ChartLabel = "Cadence";
-        	    ChartFormat = "0decimal";
-        	}  else if (uChartVariable == 61) {
-           		ChartValue[jTimertime] = (info.currentCadence != null) ? Math.round(info.currentCadence/2) : 0;
-            	ChartLabel = "RCadence";
-            	ChartFormat = "0decimal"; 
-        	} else if (uChartVariable == 45) {
-    	        ChartValue[jTimertime] = (info.currentHeartRate != null) ? info.currentHeartRate : 0;
-        	    ChartLabel = "HR";
-            	ChartFormat = "0decimal";
-        	} else if (uChartVariable == 20) {
-            	ChartValue[jTimertime] = (info.currentPower != null) ? info.currentPower : 0;
-            	ChartLabel = "Power";
-            	ChartFormat = "power"; 
-			} else if (uChartVariable == 31) {
-	            ChartValue[jTimertime] = CurrentEfficiencyIndex;
-    	        ChartLabel = "Cur EI";
-        	    ChartFormat = "2decimal";
-			} else if (uChartVariable == 32) {
-	            ChartValue[jTimertime] = CurrentEfficiencyFactor;
-    	        ChartLabel = "Cur EF";
-        	    ChartFormat = "2decimal";
-			} else if (uChartVariable == 36) {
-	            ChartValue[jTimertime] = CurrentPower2HRRatio;
-    	        ChartLabel = "C P2HR";
-        	    ChartFormat = "2decimal";
-			} else if (uChartVariable == 51) {
-		  		ChartValue[jTimertime] = (info.altitude != null) ? Math.round(info.altitude).toNumber() : 0;
-		       	ChartLabel = "Altitude";
-		       	ChartFormat = "0decimal";        		
-			} else if (uChartVariable == 52) {
-           		ChartValue[jTimertime] = valueAsc;
-            	ChartLabel = "EL gain";
-            	ChartFormat = "0decimal";
-        	}  else if (uChartVariable == 53) {
-           		ChartValue[jTimertime] = valueDesc; 
-            	ChartLabel = "EL loss";
-            	ChartFormat = "0decimal";           	          	
-        	} else if (uChartVariable == 89) {
-    	        ChartValue[jTimertime] = (sensorIter != null) ? sensorIter.next().data : 0;
-        	    ChartLabel = "Temp";
-            	ChartFormat = "1decimal";
-			}
-		
-		//!Determine minumum and maximum ChartValue 
-		if (ChartValue[jTimertime]>0) {
-			MinChartValue = (ChartValue[jTimertime]<MinChartValue) ? ChartValue[jTimertime] : MinChartValue; 
-		}
-		MaxChartValue = (ChartValue[jTimertime]>MaxChartValue) ? ChartValue[jTimertime] : MaxChartValue; 
-
-
 		//! Conditions for showing the demoscreen       
         if (uShowDemo == false) {
         	if (licenseOK == false && jTimertime > 900)  {
@@ -618,15 +551,11 @@ class ExtramemView extends DatarunpremiumView {
 		    		}
 			   	} else if ( i == 9 ) {	//!lower row, left
 		   			if (disablelabel9 == false) {
-		   				if (uGraphBottomRow == false) {
-		   					Coloring(dc,i,fieldValue[i],"036,222,092,015");
-		   				}
+		   				Coloring(dc,i,fieldValue[i],"036,222,092,015");
 		   			}
 		      	} else if ( i == 10 ) {	//!lower row, right
 		    		if (disablelabel10 == false) {
-		    			if (uGraphBottomRow == false) {
-		    				Coloring(dc,i,fieldValue[i],"130,222,095,015");
-		    			}
+		    			Coloring(dc,i,fieldValue[i],"130,222,095,015");
 		    		}
 	    		}	
 	    	}			
@@ -686,15 +615,11 @@ class ExtramemView extends DatarunpremiumView {
 		    		}
 			   	} else if ( i == 9 ) {	//!lower row, left
 		   			if (disablelabel9 == false) {
-		   				if (uGraphBottomRow == false) {
-		   					Coloring(dc,i,fieldValue[i],"039,240,099,016");
-		   				}
+		   				Coloring(dc,i,fieldValue[i],"039,240,099,016");
 		   			}
 		      	} else if ( i == 10 ) {	//!lower row, right
 		    		if (disablelabel10 == false) {
-		    			if (uGraphBottomRow == false) {
-		    				Coloring(dc,i,fieldValue[i],"140,240,105,016");
-		    			}
+		    			Coloring(dc,i,fieldValue[i],"140,240,105,016");
 		    		}
 	    		}
 	    	}
@@ -754,15 +679,11 @@ class ExtramemView extends DatarunpremiumView {
 		    		}
 			   	} else if ( i == 9 ) {	//!lower row, left
 		   			if (disablelabel9 == false) {
-		   				if (uGraphBottomRow == false) {
-		   					Coloring(dc,i,fieldValue[i],"033,205,085,014");
-		   				}
+		   				Coloring(dc,i,fieldValue[i],"033,205,085,014");
 		   			}
 		      	} else if ( i == 10 ) {	//!lower row, right
 		    		if (disablelabel10 == false) {
-		    			if (uGraphBottomRow == false) {
-		    				Coloring(dc,i,fieldValue[i],"120,205,085,014");
-		    			}
+		    			Coloring(dc,i,fieldValue[i],"120,205,085,014");
 		    		}
 	    		}
 	    	}	
@@ -1057,20 +978,7 @@ class ExtramemView extends DatarunpremiumView {
 		dc.setColor(mfillColour, Graphics.COLOR_TRANSPARENT);
         dc.fillRectangle(x, y, w, h);
 	}	
-	
-	//!Chart function
-	function drawChart(dc,charttimescale,chartverttscale,horChartlength,vertChartheight,x_startpointChart,y_startpointChart) {
-		var maxchartvalue = 300;
-
-		var i = 0;
-		for (i = 0; i < jTimertime; ++i) { 
-			dc.drawLine(x_startpointChart+horChartlength-jTimertime+i , y_startpointChart , x_startpointChart+horChartlength-jTimertime+i , y_startpointChart-ChartValue[i]*vertChartheight/maxchartvalue);
-		}
-	
-   }	
 }
-
-
 
 //! Create a method to get the SensorHistoryIterator object
 function getIterator() {

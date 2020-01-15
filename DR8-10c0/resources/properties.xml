@@ -55,11 +55,7 @@
     <property id="pdisablelabel8" type="boolean">false</property>
     <property id="pdisablelabel9" type="boolean">false</property>
     <property id="pdisablelabel10" type="boolean">false</property>
-    <property id="pGraphBottomRow" type="boolean">false</property>
-    <property id="pGraphType" type="number">1</property>
-    <property id="pChartVariable" type="number">20</property>
-    <property id="pChartTimescale" type="number">1</property>
-    <property id="pChartVertscale" type="number">1</property>
+    <property id="pWeight" type="number">70</property>
   </properties>
 
 	
@@ -224,24 +220,12 @@
     <string id="lApercMaxHR">Average HR in percentage of MaxHR</string>	
     <string id="lkCalories">Used kilocalories</string>
     <string id="lLLPaceper100m">Pace of last lap in seconds per 100 meter (for track running)</string>
-    <string id="lGraphBottomRow">Replace metrics in bottom row with graphic</string>
-	<string id="lGraphType">Graphic type bottom row</string>
-	<string id="lPowergauge">Gauge (not yet available)</string>
-	<string id="lColumnchart">Column chart</string>
-	<string id="lLinechart">Linechart (not yet available)</string>
-	<string id="lChartVariable">Variable to be used in chart</string>
-	<string id="lChartTimescale">Timescale to be used in chart (not for gauge)</string>
-	<string id="lChartVertscale">Vertical scale to be used in chart (not for gauge)</string>  
-	<string id="lChartTime230min">Time scale of 2:30 minutes to be used in chart (not in gauge)</string>
-	<string id="lChartTime5min">Time scale of 5 minutes to be used in chart (not in gauge)</string>
-	<string id="lChartTime10min">Time scale of 10 minutes to be used in chart (not in gauge)</string>
-	<string id="lChartTime20min">Time scale of 20 minutes to be used in chart (not in gauge)</string>
-	<string id="lChartTime40min">Time scale of 40 minutes to be used in chart (not in gauge)</string>
-	<string id="lChartTime1hour">Time scale of 1 hour to be used in chart (not in gauge)</string>  
-	<string id="lChartTime2hour">Time scale of 2 hour to be used in chart (not in gauge)</string>
-	<string id="lChartTimeauto">Automatic time scale to be used in chart (not in gauge)</string>
-	<string id="lTotalValueChartscale">Vertical scale based on total metric values, to be used in chart (not in gauge)</string>
-	<string id="lMinmaxChartscale">Automatic vertical scale from minimum value until maximum value, to be used in chart (not in gauge)</string>
+    <string id="lWeight">Weight in kilo's (needed for running efficiency as used by Steve Palladino)</string>
+    <string id="lCurRE">Current running efficiency (as used by Steve Palladino)</string>
+    <string id="l3secRE">Rolling average over the last 3 seconds of running efficiency (as used by Steve Palladino)</string>
+    <string id="l5secRE">Rolling average over the last 5 seconds of running efficiency (as used by Steve Palladino)</string>
+    <string id="lLapE">Lap running efficiency (as used by Steve Palladino)</string>
+    <string id="lAverRE">Average running efficiency (as used by Steve Palladino)</string>
  </strings>
 
   <settings>
@@ -279,6 +263,9 @@
       <settingConfig type="numeric"  required="true"/>
     </setting>
     <setting propertyKey="@Properties.pCP" title="@Strings.lCP">
+      <settingConfig type="numeric"  required="true"/>
+    </setting>      
+    <setting propertyKey="@Properties.pWeight" title="@Strings.lWeight">
       <settingConfig type="numeric"  required="true"/>
     </setting>      
     <setting propertyKey="@Properties.pRequiredPower" title="@Strings.lRequiredPower">
@@ -404,6 +391,11 @@
         <listEntry value="28">@Strings.lLEFactor</listEntry>
         <listEntry value="29">@Strings.lLLEFactor</listEntry>
         <listEntry value="30">@Strings.lAEFactor</listEntry>
+        <listEntry value="93">@Strings.lCurRE</listEntry>
+        <listEntry value="94">@Strings.l3secRE</listEntry>
+        <listEntry value="95">@Strings.l5secRE</listEntry>
+        <listEntry value="96">@Strings.lLapE</listEntry>
+        <listEntry value="98">@Strings.lAverRE</listEntry>
         <listEntry value="36">@Strings.lCP2HRratio</listEntry>
         <listEntry value="33">@Strings.lLP2HRratio</listEntry>
         <listEntry value="34">@Strings.lLLP2HRratio</listEntry>
@@ -512,6 +504,11 @@
         <listEntry value="28">@Strings.lLEFactor</listEntry>
         <listEntry value="29">@Strings.lLLEFactor</listEntry>
         <listEntry value="30">@Strings.lAEFactor</listEntry>
+        <listEntry value="93">@Strings.lCurRE</listEntry>
+        <listEntry value="94">@Strings.l3secRE</listEntry>
+        <listEntry value="95">@Strings.l5secRE</listEntry>
+        <listEntry value="96">@Strings.lLapE</listEntry>
+        <listEntry value="98">@Strings.lAverRE</listEntry>
         <listEntry value="36">@Strings.lCP2HRratio</listEntry>
         <listEntry value="33">@Strings.lLP2HRratio</listEntry>
         <listEntry value="34">@Strings.lLLP2HRratio</listEntry>
@@ -613,6 +610,11 @@
         <listEntry value="28">@Strings.lLEFactor</listEntry>
         <listEntry value="29">@Strings.lLLEFactor</listEntry>
         <listEntry value="30">@Strings.lAEFactor</listEntry>
+        <listEntry value="93">@Strings.lCurRE</listEntry>
+        <listEntry value="94">@Strings.l3secRE</listEntry>
+        <listEntry value="95">@Strings.l5secRE</listEntry>
+        <listEntry value="96">@Strings.lLapE</listEntry>
+        <listEntry value="98">@Strings.lAverRE</listEntry>
         <listEntry value="36">@Strings.lCP2HRratio</listEntry>
         <listEntry value="33">@Strings.lLP2HRratio</listEntry>
         <listEntry value="34">@Strings.lLLP2HRratio</listEntry>
@@ -718,6 +720,11 @@
         <listEntry value="28">@Strings.lLEFactor</listEntry>
         <listEntry value="29">@Strings.lLLEFactor</listEntry>
         <listEntry value="30">@Strings.lAEFactor</listEntry>
+        <listEntry value="93">@Strings.lCurRE</listEntry>
+        <listEntry value="94">@Strings.l3secRE</listEntry>
+        <listEntry value="95">@Strings.l5secRE</listEntry>
+        <listEntry value="96">@Strings.lLapE</listEntry>
+        <listEntry value="98">@Strings.lAverRE</listEntry>
         <listEntry value="36">@Strings.lCP2HRratio</listEntry>
         <listEntry value="33">@Strings.lLP2HRratio</listEntry>
         <listEntry value="34">@Strings.lLLP2HRratio</listEntry>
@@ -820,6 +827,11 @@
         <listEntry value="28">@Strings.lLEFactor</listEntry>
         <listEntry value="29">@Strings.lLLEFactor</listEntry>
         <listEntry value="30">@Strings.lAEFactor</listEntry>
+        <listEntry value="93">@Strings.lCurRE</listEntry>
+        <listEntry value="94">@Strings.l3secRE</listEntry>
+        <listEntry value="95">@Strings.l5secRE</listEntry>
+        <listEntry value="96">@Strings.lLapE</listEntry>
+        <listEntry value="98">@Strings.lAverRE</listEntry>
         <listEntry value="36">@Strings.lCP2HRratio</listEntry>
         <listEntry value="33">@Strings.lLP2HRratio</listEntry>
         <listEntry value="34">@Strings.lLLP2HRratio</listEntry>
@@ -923,6 +935,11 @@
         <listEntry value="28">@Strings.lLEFactor</listEntry>
         <listEntry value="29">@Strings.lLLEFactor</listEntry>
         <listEntry value="30">@Strings.lAEFactor</listEntry>
+        <listEntry value="93">@Strings.lCurRE</listEntry>
+        <listEntry value="94">@Strings.l3secRE</listEntry>
+        <listEntry value="95">@Strings.l5secRE</listEntry>
+        <listEntry value="96">@Strings.lLapE</listEntry>
+        <listEntry value="98">@Strings.lAverRE</listEntry>
         <listEntry value="36">@Strings.lCP2HRratio</listEntry>
         <listEntry value="33">@Strings.lLP2HRratio</listEntry>
         <listEntry value="34">@Strings.lLLP2HRratio</listEntry>
@@ -1028,6 +1045,11 @@
         <listEntry value="28">@Strings.lLEFactor</listEntry>
         <listEntry value="29">@Strings.lLLEFactor</listEntry>
         <listEntry value="30">@Strings.lAEFactor</listEntry>
+        <listEntry value="93">@Strings.lCurRE</listEntry>
+        <listEntry value="94">@Strings.l3secRE</listEntry>
+        <listEntry value="95">@Strings.l5secRE</listEntry>
+        <listEntry value="96">@Strings.lLapE</listEntry>
+        <listEntry value="98">@Strings.lAverRE</listEntry>
         <listEntry value="36">@Strings.lCP2HRratio</listEntry>
         <listEntry value="33">@Strings.lLP2HRratio</listEntry>
         <listEntry value="34">@Strings.lLLP2HRratio</listEntry>
@@ -1131,6 +1153,11 @@
         <listEntry value="28">@Strings.lLEFactor</listEntry>
         <listEntry value="29">@Strings.lLLEFactor</listEntry>
         <listEntry value="30">@Strings.lAEFactor</listEntry>
+        <listEntry value="93">@Strings.lCurRE</listEntry>
+        <listEntry value="94">@Strings.l3secRE</listEntry>
+        <listEntry value="95">@Strings.l5secRE</listEntry>
+        <listEntry value="96">@Strings.lLapE</listEntry>
+        <listEntry value="98">@Strings.lAverRE</listEntry>
         <listEntry value="36">@Strings.lCP2HRratio</listEntry>
         <listEntry value="33">@Strings.lLP2HRratio</listEntry>
         <listEntry value="34">@Strings.lLLP2HRratio</listEntry>
@@ -1148,54 +1175,7 @@
         <listEntry value="89">@Strings.lTemp</listEntry>     
       </settingConfig>
     </setting>
-
-    <setting propertyKey="@Properties.pGraphBottomRow" title="@Strings.lGraphBottomRow">
-      <settingConfig type="boolean" required="true" />
-    </setting>
-        <setting propertyKey="@Properties.pGraphType" title="@Strings.lGraphType">
-      <settingConfig type="list" required="true">
-        <listEntry value="0">@Strings.lPowergauge</listEntry>
-        <listEntry value="1">@Strings.lColumnchart</listEntry>
-        <listEntry value="2">@Strings.lLinechart</listEntry>
-      </settingConfig>
-    </setting>
-    <setting propertyKey="@Properties.pChartVariable" title="@Strings.lChartVariable">
-      <settingConfig type="list" required="true">
-        <listEntry value="8">@Strings.lCurrentPace</listEntry>
-        <listEntry value="40">@Strings.lCurrentSpeed</listEntry>
-		<listEntry value="50">@Strings.lCadence</listEntry>        
-        <listEntry value="61">@Strings.lRCadence</listEntry>
-        <listEntry value="45">@Strings.lHeartrate</listEntry>
-        <listEntry value="20">@Strings.lSPower</listEntry>
-        <listEntry value="31">@Strings.lCEIndex</listEntry>
-        <listEntry value="32">@Strings.lCEFactor</listEntry>
-        <listEntry value="36">@Strings.lCP2HRratio</listEntry>
-        <listEntry value="51">@Strings.lAltitude</listEntry>
-        <listEntry value="52">@Strings.lElevationGain</listEntry>
-        <listEntry value="53">@Strings.lElevationLoss</listEntry> 
-        <listEntry value="89">@Strings.lTemp</listEntry>     
-      </settingConfig>
-    </setting> 
-    <setting propertyKey="@Properties.pChartTimescale" title="@Strings.lChartTimescale">
-      <settingConfig type="list" required="true">
-        <listEntry value="0">@Strings.lChartTime230min</listEntry>
-        <listEntry value="2">@Strings.lChartTime5min</listEntry>
-        <listEntry value="3">@Strings.lChartTime10min</listEntry>
-        <listEntry value="4">@Strings.lChartTime20min</listEntry>
-        <listEntry value="5">@Strings.lChartTime40min</listEntry>
-        <listEntry value="6">@Strings.lChartTime1hour</listEntry>
-        <listEntry value="7">@Strings.lChartTime2hour</listEntry>
-        <listEntry value="8">@Strings.lChartTimeauto</listEntry>
-      </settingConfig>
-    </setting>   	
-    <setting propertyKey="@Properties.pChartVertscale" title="@Strings.lChartVertscale">
-      <settingConfig type="list" required="true">
-        <listEntry value="0">@Strings.lTotalValueChartscale</listEntry>
-        <listEntry value="1">@Strings.lMinmaxChartscale</listEntry>
-      </settingConfig>
-    </setting>   
-
-        
+    
     <setting propertyKey="@Properties.pBottomLeftMetric" title="@Strings.lBottomLeftMetric">
       <settingConfig type="list" required="true">
         <listEntry value="990">@Strings.lTimeMenu</listEntry>
@@ -1287,6 +1267,11 @@
         <listEntry value="28">@Strings.lLEFactor</listEntry>
         <listEntry value="29">@Strings.lLLEFactor</listEntry>
         <listEntry value="30">@Strings.lAEFactor</listEntry>
+        <listEntry value="93">@Strings.lCurRE</listEntry>
+        <listEntry value="94">@Strings.l3secRE</listEntry>
+        <listEntry value="95">@Strings.l5secRE</listEntry>
+        <listEntry value="96">@Strings.lLapE</listEntry>
+        <listEntry value="98">@Strings.lAverRE</listEntry>
         <listEntry value="36">@Strings.lCP2HRratio</listEntry>
         <listEntry value="33">@Strings.lLP2HRratio</listEntry>
         <listEntry value="34">@Strings.lLLP2HRratio</listEntry>
@@ -1395,6 +1380,11 @@
         <listEntry value="28">@Strings.lLEFactor</listEntry>
         <listEntry value="29">@Strings.lLLEFactor</listEntry>
         <listEntry value="30">@Strings.lAEFactor</listEntry>
+        <listEntry value="93">@Strings.lCurRE</listEntry>
+        <listEntry value="94">@Strings.l3secRE</listEntry>
+        <listEntry value="95">@Strings.l5secRE</listEntry>
+        <listEntry value="96">@Strings.lLapE</listEntry>
+        <listEntry value="98">@Strings.lAverRE</listEntry>
         <listEntry value="36">@Strings.lCP2HRratio</listEntry>
         <listEntry value="33">@Strings.lLP2HRratio</listEntry>
         <listEntry value="34">@Strings.lLLP2HRratio</listEntry>

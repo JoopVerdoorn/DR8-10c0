@@ -50,9 +50,7 @@ class DeviceView extends PowerView {
         } else {
         	dc.drawLine(119, 125,  119, 173);
         }
-        if (uGraphBottomRow == false) {
-        	dc.drawLine(119, 173, 119, 219);
-        }
+        dc.drawLine(119, 173, 119, 219);
         
 		//! Display metrics
         dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
@@ -102,20 +100,10 @@ class DeviceView extends PowerView {
 	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"165,146,000,000,000,225,131");
 	    		}
 	       	} else if ( i == 9 ) {	//!lower row, left
-	    		if (uGraphBottomRow == false) {
-	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"074,187,082,033,190,080,213");
-	    		}
+	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"074,187,082,033,190,080,213");
 	       	} else if ( i == 10 ) {	//!lower row, right
-	    		if (uGraphBottomRow == false) {
-	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"165,187,172,123,190,157,213");
-	    		}
+	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"165,187,172,123,190,157,213");
        		}       	
-		}
-			
-		//! Display chart/graphic
-		if (uGraphBottomRow == true and jTimertime > 0) {
-			dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
-			drawChart(dc,150,"total",120,40,60,215);
 		}
 		
 		if (jTimertime == 0) {

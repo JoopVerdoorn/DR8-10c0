@@ -34,6 +34,8 @@ class CiqView extends ExtramemView {
     var Power9 								= 0;
     var Power10								= 0;
     var uWeight								= 70;
+    var uLfont240big						= true;
+    hidden var labelFontOffset				= 0; 
 		
     function initialize() {
         ExtramemView.initialize();
@@ -45,6 +47,10 @@ class CiqView extends ExtramemView {
 		uFTP		 	 = mApp.getProperty("pFTP");
 		uCP		 	 	 = mApp.getProperty("pCP");
 		uWeight			 = mApp.getProperty("pWeight");
+		uLfont240big 	 = mApp.getProperty("pLfont240big");
+		
+		labelFontOffset = (uLfont240big == true) ? 2 : 0;
+		
 		i = 0; 
 	    for (i = 1; i < 11; ++i) {		
 			if (metric[i] == 57 or metric[i] == 58 or metric[i] == 59) {
@@ -64,7 +70,11 @@ class CiqView extends ExtramemView {
 		if (ID0 == 3801 or ID0 == 4026 or ID0 == 3802 or ID0 == 4027) {
 			Labelfont = Graphics.FONT_XTINY;
 		} else {
-			Labelfont = Ui.loadResource(Rez.Fonts.Labels1);
+			if (uLfont240big == true) {
+				Labelfont = Graphics.FONT_XTINY;
+			} else {
+				Labelfont = Ui.loadResource(Rez.Fonts.Labels1);
+			}
 		}
     }
 
@@ -472,9 +482,9 @@ class CiqView extends ExtramemView {
        				dc.drawText(xl, yl+17, Labelfont,  fieldlabel.substring(1,2), Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
        				dc.drawText(xl, yl+34, Labelfont,  fieldlabel.substring(2,3), Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
         		}
-	    	} else {
+	    	} else {	    	
        			dc.drawText(x, y, Garminfont, fieldvalue, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
-       			dc.drawText(xl, yl, Labelfont,  fieldlabel, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
+       			dc.drawText(xl, yl-labelFontOffset, Labelfont,  fieldlabel, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
        		}
         }        
         mColourFont = originalFontcolor;

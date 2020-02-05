@@ -66,7 +66,7 @@
     <!-- Beta name:
     <string id="AppName">Datarun Ultimate</string>
     -->
-    <string id="lDummysetting4version">Version 1.00 of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 1.01 of Datarun ultimate, main version (dummy setting)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>
 	<string id="lPaceMenu">___Pace items___</string>
@@ -195,6 +195,12 @@
     <string id="lLLP2HRratio">Last lap power to heartrate ratio</string>
     <string id="lAP2HRratio">Average power to heartrate ratio</string>
 	<string id="lSPowerzone">Current powerzone</string>
+	<string id="l3secPowerzone">Powerzone over the last 3 seconds</string>
+	<string id="l5secPowerzone">Powerzone over the last 5 seconds</string>
+	<string id="l10secPowerzone">Powerzone over the last 10 seconds</string>
+	<string id="lLapPowerzone">Powerzone for the current lap</string>
+	<string id="lLLapPowerzone">Powerzone for the last lap</string>
+	<string id="lAverPowerzone">Powerzone based on overall average power</string>
 	<string id="lpercFTP">Current power in percentage of FTP</string>
     <string id="lpercFTP3s">Power averaged over 3 seconds in percentage of FTP</string>
     <string id="lLpercFTP">Lap power in percentage of FTP</string>
@@ -370,13 +376,19 @@
 
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
-        <listEntry value="21">@Strings.lAsecPower</listEntry>
         <listEntry value="37">@Strings.lPowper300km</listEntry>
+        <listEntry value="99">@Strings.l3secPowerzone</listEntry>
         <listEntry value="70">@Strings.lPowper5sec</listEntry>
+        <listEntry value="100">@Strings.l5secPowerzone</listEntry>
         <listEntry value="39">@Strings.lPowper10sec</listEntry>
+        <listEntry value="101">@Strings.l10secPowerzone</listEntry>
+        <listEntry value="21">@Strings.lAsecPower</listEntry>
         <listEntry value="22">@Strings.lLPower</listEntry>
+        <listEntry value="102">@Strings.lLapPowerzone</listEntry>
         <listEntry value="23">@Strings.lLLPower</listEntry>
+        <listEntry value="103">@Strings.lLLapPowerzone</listEntry>
         <listEntry value="24">@Strings.lAPower</listEntry>
+        <listEntry value="104">@Strings.lAverPowerzone</listEntry>
         <listEntry value="80">@Strings.lMaxPwr</listEntry>
         <listEntry value="71">@Strings.lpercFTP</listEntry>
         <listEntry value="73">@Strings.lLpercFTP</listEntry>
@@ -483,13 +495,19 @@
 
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
-        <listEntry value="21">@Strings.lAsecPower</listEntry>
         <listEntry value="37">@Strings.lPowper300km</listEntry>
+        <listEntry value="99">@Strings.l3secPowerzone</listEntry>
         <listEntry value="70">@Strings.lPowper5sec</listEntry>
+        <listEntry value="100">@Strings.l5secPowerzone</listEntry>
         <listEntry value="39">@Strings.lPowper10sec</listEntry>
+        <listEntry value="101">@Strings.l10secPowerzone</listEntry>
+        <listEntry value="21">@Strings.lAsecPower</listEntry>
         <listEntry value="22">@Strings.lLPower</listEntry>
+        <listEntry value="102">@Strings.lLapPowerzone</listEntry>
         <listEntry value="23">@Strings.lLLPower</listEntry>
+        <listEntry value="103">@Strings.lLLapPowerzone</listEntry>
         <listEntry value="24">@Strings.lAPower</listEntry>
+        <listEntry value="104">@Strings.lAverPowerzone</listEntry>
         <listEntry value="80">@Strings.lMaxPwr</listEntry>
         <listEntry value="71">@Strings.lpercFTP</listEntry>
         <listEntry value="73">@Strings.lLpercFTP</listEntry>
@@ -589,13 +607,19 @@
 
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
-        <listEntry value="21">@Strings.lAsecPower</listEntry>
         <listEntry value="37">@Strings.lPowper300km</listEntry>
+        <listEntry value="99">@Strings.l3secPowerzone</listEntry>
         <listEntry value="70">@Strings.lPowper5sec</listEntry>
+        <listEntry value="100">@Strings.l5secPowerzone</listEntry>
         <listEntry value="39">@Strings.lPowper10sec</listEntry>
+        <listEntry value="101">@Strings.l10secPowerzone</listEntry>
+        <listEntry value="21">@Strings.lAsecPower</listEntry>
         <listEntry value="22">@Strings.lLPower</listEntry>
+        <listEntry value="102">@Strings.lLapPowerzone</listEntry>
         <listEntry value="23">@Strings.lLLPower</listEntry>
+        <listEntry value="103">@Strings.lLLapPowerzone</listEntry>
         <listEntry value="24">@Strings.lAPower</listEntry>
+        <listEntry value="104">@Strings.lAverPowerzone</listEntry>
         <listEntry value="80">@Strings.lMaxPwr</listEntry>
         <listEntry value="71">@Strings.lpercFTP</listEntry>
         <listEntry value="73">@Strings.lLpercFTP</listEntry>
@@ -699,13 +723,19 @@
 
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
-        <listEntry value="21">@Strings.lAsecPower</listEntry>
         <listEntry value="37">@Strings.lPowper300km</listEntry>
+        <listEntry value="99">@Strings.l3secPowerzone</listEntry>
         <listEntry value="70">@Strings.lPowper5sec</listEntry>
+        <listEntry value="100">@Strings.l5secPowerzone</listEntry>
         <listEntry value="39">@Strings.lPowper10sec</listEntry>
+        <listEntry value="101">@Strings.l10secPowerzone</listEntry>
+        <listEntry value="21">@Strings.lAsecPower</listEntry>
         <listEntry value="22">@Strings.lLPower</listEntry>
+        <listEntry value="102">@Strings.lLapPowerzone</listEntry>
         <listEntry value="23">@Strings.lLLPower</listEntry>
+        <listEntry value="103">@Strings.lLLapPowerzone</listEntry>
         <listEntry value="24">@Strings.lAPower</listEntry>
+        <listEntry value="104">@Strings.lAverPowerzone</listEntry>
         <listEntry value="80">@Strings.lMaxPwr</listEntry>
         <listEntry value="71">@Strings.lpercFTP</listEntry>
         <listEntry value="73">@Strings.lLpercFTP</listEntry>
@@ -806,13 +836,19 @@
 
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
-        <listEntry value="21">@Strings.lAsecPower</listEntry>
         <listEntry value="37">@Strings.lPowper300km</listEntry>
+        <listEntry value="99">@Strings.l3secPowerzone</listEntry>
         <listEntry value="70">@Strings.lPowper5sec</listEntry>
+        <listEntry value="100">@Strings.l5secPowerzone</listEntry>
         <listEntry value="39">@Strings.lPowper10sec</listEntry>
+        <listEntry value="101">@Strings.l10secPowerzone</listEntry>
+        <listEntry value="21">@Strings.lAsecPower</listEntry>
         <listEntry value="22">@Strings.lLPower</listEntry>
+        <listEntry value="102">@Strings.lLapPowerzone</listEntry>
         <listEntry value="23">@Strings.lLLPower</listEntry>
+        <listEntry value="103">@Strings.lLLapPowerzone</listEntry>
         <listEntry value="24">@Strings.lAPower</listEntry>
+        <listEntry value="104">@Strings.lAverPowerzone</listEntry>
         <listEntry value="80">@Strings.lMaxPwr</listEntry>
         <listEntry value="71">@Strings.lpercFTP</listEntry>
         <listEntry value="73">@Strings.lLpercFTP</listEntry>
@@ -914,13 +950,19 @@
 
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
-        <listEntry value="21">@Strings.lAsecPower</listEntry>
         <listEntry value="37">@Strings.lPowper300km</listEntry>
+        <listEntry value="99">@Strings.l3secPowerzone</listEntry>
         <listEntry value="70">@Strings.lPowper5sec</listEntry>
+        <listEntry value="100">@Strings.l5secPowerzone</listEntry>
         <listEntry value="39">@Strings.lPowper10sec</listEntry>
+        <listEntry value="101">@Strings.l10secPowerzone</listEntry>
+        <listEntry value="21">@Strings.lAsecPower</listEntry>
         <listEntry value="22">@Strings.lLPower</listEntry>
+        <listEntry value="102">@Strings.lLapPowerzone</listEntry>
         <listEntry value="23">@Strings.lLLPower</listEntry>
+        <listEntry value="103">@Strings.lLLapPowerzone</listEntry>
         <listEntry value="24">@Strings.lAPower</listEntry>
+        <listEntry value="104">@Strings.lAverPowerzone</listEntry>
         <listEntry value="80">@Strings.lMaxPwr</listEntry>
         <listEntry value="71">@Strings.lpercFTP</listEntry>
         <listEntry value="73">@Strings.lLpercFTP</listEntry>
@@ -1024,13 +1066,19 @@
 
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
-        <listEntry value="21">@Strings.lAsecPower</listEntry>
         <listEntry value="37">@Strings.lPowper300km</listEntry>
+        <listEntry value="99">@Strings.l3secPowerzone</listEntry>
         <listEntry value="70">@Strings.lPowper5sec</listEntry>
+        <listEntry value="100">@Strings.l5secPowerzone</listEntry>
         <listEntry value="39">@Strings.lPowper10sec</listEntry>
+        <listEntry value="101">@Strings.l10secPowerzone</listEntry>
+        <listEntry value="21">@Strings.lAsecPower</listEntry>
         <listEntry value="22">@Strings.lLPower</listEntry>
+        <listEntry value="102">@Strings.lLapPowerzone</listEntry>
         <listEntry value="23">@Strings.lLLPower</listEntry>
+        <listEntry value="103">@Strings.lLLapPowerzone</listEntry>
         <listEntry value="24">@Strings.lAPower</listEntry>
+        <listEntry value="104">@Strings.lAverPowerzone</listEntry>
         <listEntry value="80">@Strings.lMaxPwr</listEntry>
         <listEntry value="71">@Strings.lpercFTP</listEntry>
         <listEntry value="73">@Strings.lLpercFTP</listEntry>
@@ -1132,13 +1180,19 @@
 
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
-        <listEntry value="21">@Strings.lAsecPower</listEntry>
         <listEntry value="37">@Strings.lPowper300km</listEntry>
+        <listEntry value="99">@Strings.l3secPowerzone</listEntry>
         <listEntry value="70">@Strings.lPowper5sec</listEntry>
+        <listEntry value="100">@Strings.l5secPowerzone</listEntry>
         <listEntry value="39">@Strings.lPowper10sec</listEntry>
+        <listEntry value="101">@Strings.l10secPowerzone</listEntry>
+        <listEntry value="21">@Strings.lAsecPower</listEntry>
         <listEntry value="22">@Strings.lLPower</listEntry>
+        <listEntry value="102">@Strings.lLapPowerzone</listEntry>
         <listEntry value="23">@Strings.lLLPower</listEntry>
+        <listEntry value="103">@Strings.lLLapPowerzone</listEntry>
         <listEntry value="24">@Strings.lAPower</listEntry>
+        <listEntry value="104">@Strings.lAverPowerzone</listEntry>
         <listEntry value="80">@Strings.lMaxPwr</listEntry>
         <listEntry value="71">@Strings.lpercFTP</listEntry>
         <listEntry value="73">@Strings.lLpercFTP</listEntry>
@@ -1246,13 +1300,19 @@
 
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
-        <listEntry value="21">@Strings.lAsecPower</listEntry>
         <listEntry value="37">@Strings.lPowper300km</listEntry>
+        <listEntry value="99">@Strings.l3secPowerzone</listEntry>
         <listEntry value="70">@Strings.lPowper5sec</listEntry>
+        <listEntry value="100">@Strings.l5secPowerzone</listEntry>
         <listEntry value="39">@Strings.lPowper10sec</listEntry>
+        <listEntry value="101">@Strings.l10secPowerzone</listEntry>
+        <listEntry value="21">@Strings.lAsecPower</listEntry>
         <listEntry value="22">@Strings.lLPower</listEntry>
+        <listEntry value="102">@Strings.lLapPowerzone</listEntry>
         <listEntry value="23">@Strings.lLLPower</listEntry>
+        <listEntry value="103">@Strings.lLLapPowerzone</listEntry>
         <listEntry value="24">@Strings.lAPower</listEntry>
+        <listEntry value="104">@Strings.lAverPowerzone</listEntry>
         <listEntry value="80">@Strings.lMaxPwr</listEntry>
         <listEntry value="71">@Strings.lpercFTP</listEntry>
         <listEntry value="73">@Strings.lLpercFTP</listEntry>
@@ -1358,14 +1418,19 @@
         <listEntry value="20">@Strings.lSPower</listEntry>
 
         <listEntry value="57">@Strings.lNPower</listEntry>
-        <listEntry value="38">@Strings.lSPowerzone</listEntry>
-        <listEntry value="21">@Strings.lAsecPower</listEntry>
         <listEntry value="37">@Strings.lPowper300km</listEntry>
+        <listEntry value="99">@Strings.l3secPowerzone</listEntry>
         <listEntry value="70">@Strings.lPowper5sec</listEntry>
+        <listEntry value="100">@Strings.l5secPowerzone</listEntry>
         <listEntry value="39">@Strings.lPowper10sec</listEntry>
+        <listEntry value="101">@Strings.l10secPowerzone</listEntry>
+        <listEntry value="21">@Strings.lAsecPower</listEntry>
         <listEntry value="22">@Strings.lLPower</listEntry>
+        <listEntry value="102">@Strings.lLapPowerzone</listEntry>
         <listEntry value="23">@Strings.lLLPower</listEntry>
+        <listEntry value="103">@Strings.lLLapPowerzone</listEntry>
         <listEntry value="24">@Strings.lAPower</listEntry>
+        <listEntry value="104">@Strings.lAverPowerzone</listEntry>
         <listEntry value="80">@Strings.lMaxPwr</listEntry>
         <listEntry value="71">@Strings.lpercFTP</listEntry>
         <listEntry value="73">@Strings.lLpercFTP</listEntry>

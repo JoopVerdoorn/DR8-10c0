@@ -1,14 +1,33 @@
 using Toybox.WatchUi as Ui;
+using Toybox.Application.Storage;
+using Toybox.Background;
+using Toybox.Communications;
+using Toybox.System;
 
 class DR810c0App extends Toybox.Application.AppBase {
+	hidden var temp;
+	
     function initialize() {
         AppBase.initialize();
     }
 
-    //! Return the initial view of your application here
-    function getInitialView() {
-        return [ new DeviceView() ];  
-    }
+
+//! Return the initial view of your application here
+	function getInitialView() {
+		if(Toybox.System has :ServiceDelegate) {
+			Background.registerForTemporalEvent(new Time.Duration(5 * 60));
+		}
+   	return [ new DeviceView() ];
+	}
+
+	function onBackgroundData(data) {
+		temp=data;
+		Storage.setValue("mytemp", temp);	
+	}
+
+	function getServiceDelegate(){
+		return [new TempBgServiceDelegate()];
+	}
 }
 
 class DatarunpremiumView extends Ui.DataField {
@@ -101,9 +120,9 @@ class DatarunpremiumView extends Ui.DataField {
 	hidden var AverageHeartrate 			= 0; 
 	hidden var mLapElapsedDistance 			= 0;
 
-    function initialize() {
+	function initialize() {
          DataField.initialize();
-
+    	
          var mApp = Application.getApp();
          metric[1]    	= mApp.getProperty("pUpperLeftMetric");
          metric[2]   	= mApp.getProperty("pUpperRightMetric");
@@ -153,6 +172,7 @@ class DatarunpremiumView extends Ui.DataField {
         licenseOK = (umyNumber == mtest) ? true : false;
     }
 
+
     //! Timer transitions from stopped to running state
     function onTimerStart() {
         startStopPushed();
@@ -193,7 +213,7 @@ class DatarunpremiumView extends Ui.DataField {
     }
     
     //!! this is called whenever the screen needs to be updated
-    function onUpdate(dc) {
+    function onUpdate(dc) {	
         //! Calculate lap (HR) time
 		var info = Activity.getActivityInfo();
 
@@ -410,5 +430,6 @@ class DatarunpremiumView extends Ui.DataField {
     	}
     	return val + (val >> 5);
 	}    
-
 }
+
+

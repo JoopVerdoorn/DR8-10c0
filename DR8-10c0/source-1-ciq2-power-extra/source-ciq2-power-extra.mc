@@ -23,6 +23,7 @@ class CiqView extends ExtramemView {
 	var Garminfont 							= Ui.loadResource(Rez.Fonts.Garmin1);
 	var Garminfontbig 						= Ui.loadResource(Rez.Fonts.Garmin1big);
 	hidden var Labelfont					= Graphics.FONT_XTINY;
+	hidden var Labelfont2 					= Ui.loadResource(Rez.Fonts.Labels1);
 	var Power1 								= 0;
     var Power2 								= 0;
     var Power3 								= 0;	
@@ -36,6 +37,7 @@ class CiqView extends ExtramemView {
     var uWeight								= 70;
     var uLfont240big						= true;
     hidden var labelFontOffset				= 0; 
+    
 		
     function initialize() {
         ExtramemView.initialize();

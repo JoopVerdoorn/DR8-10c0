@@ -127,10 +127,10 @@ class DeviceView extends PowerView {
 		dc.fillRectangle(Startstatuspwrbr, 224, Endstatuspwrbr, 11);	
 		
 		if ( pwr > 50 ) {
-			dc.drawText(105+15*(pwr-50)/50, 229, Labelfont, pwr.format("%0d") + "%", Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
+			dc.drawText(105+15*(pwr-50)/50, 229, Labelfont2, pwr.format("%0d") + "%", Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
 		} else{
 			dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
-			dc.drawText(132-12*(50-pwr)/50, 229, Labelfont, pwr.format("%0d") + "%", Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
+			dc.drawText(132-12*(50-pwr)/50, 229, Labelfont2, pwr.format("%0d") + "%", Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
 		}
 
 	   } else {

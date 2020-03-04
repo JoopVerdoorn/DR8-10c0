@@ -1,6 +1,7 @@
 using Toybox.SensorHistory;
 using Toybox.Lang;
 using Toybox.System;
+using Toybox.Application.Storage;
 
 class ExtramemView extends DatarunpremiumView {   
 	hidden var uHrZones   			        = [ 93, 111, 130, 148, 167, 185 ];	
@@ -53,6 +54,7 @@ class ExtramemView extends DatarunpremiumView {
 	var LapCadence							= 0;
 	var LastLapCadence						= 0;
 	var AverageCadence 						= 0; 	
+	var tempeTemp 							= 0;
 	
     function initialize() {
         DatarunpremiumView.initialize();
@@ -77,6 +79,8 @@ class ExtramemView extends DatarunpremiumView {
 	function onUpdate(dc) {
 		//! call the parent onUpdate to do the base logic
 		DatarunpremiumView.onUpdate(dc);
+		
+		tempeTemp = (Storage.getValue("mytemp") != null) ? Storage.getValue("mytemp") : 0;
 
     	//! Setup back- and foregroundcolours
 		if (uBlackBackground == true ){
@@ -267,6 +271,10 @@ class ExtramemView extends DatarunpremiumView {
 			} else if (metric[i] == 92) {
 	            fieldValue[i] = AverageCadence;
     	        fieldLabel[i] = "Avg Cad";
+        	    fieldFormat[i] = "0decimal";
+        	} else if (metric[i] == 105) {
+	            fieldValue[i] = tempeTemp;
+    	        fieldLabel[i] = "Tempe T";
         	    fieldFormat[i] = "0decimal";
 			} 
 		}
@@ -471,18 +479,21 @@ class ExtramemView extends DatarunpremiumView {
             	CFMFormat = "1decimal";
             } else if (uClockFieldMetric == 90) {
     	        CFMValue = LapCadence;
-        	    CFMValue = "Lap Cad";
-            	CFMValue = "0decimal";
+        	    CFMLabel = "Lap Cad";
+            	CFMFormat = "0decimal";
 			} else if (uClockFieldMetric == 91) {
     	        CFMValue = LastLapCadence;
-        	    CFMValue = "LL Cad";
-            	CFMValue = "0decimal";
+        	    CFMLabel = "LL Cad";
+            	CFMFormat = "0decimal";
 			} else if (uClockFieldMetric == 92) {
 	            CFMValue = AverageCadence;
-    	        CFMValue = "Avg Cad";
-        	    CFMValue = "0decimal";
-			}
-			 
+    	        CFMLabel = "Avg Cad";
+        	    CFMFormat = "0decimal";
+        	} else if (uClockFieldMetric == 105) {
+	            CFMValue = tempeTemp;
+    	        CFMLabel = "Tempe T";
+        	    CFMFormat = "0decimal";
+			}		 
 
 		//! Conditions for showing the demoscreen       
         if (uShowDemo == false) {
@@ -987,4 +998,17 @@ function getIterator() {
         return Toybox.SensorHistory.getTemperatureHistory({});
     }
     return null;
+}
+
+(:background)
+class TempBgServiceDelegate extends Toybox.System.ServiceDelegate {
+
+	function initialize() {
+		System.ServiceDelegate.initialize();
+	}
+
+	function onTemporalEvent() {
+		var si=Sensor.getInfo();
+		Background.exit(si.temperature);
+	}
 }

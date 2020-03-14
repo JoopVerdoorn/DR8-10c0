@@ -11,6 +11,7 @@ class CiqView extends ExtramemView {
 	var uFTP								= 250;    
 	var uCP									= 250;
 	var RSS									= 0;
+	var RSSNew								= 0;
 	hidden var FilteredCurPower				= 0;
 	var sum4thPowers						= 0;
 	var fourthPowercounter 					= 0;
@@ -101,7 +102,16 @@ class CiqView extends ExtramemView {
             runPower 		 = (info.currentPower != null) ? info.currentPower : 0;
 			mElapsedPower    = mElapsedPower + runPower;
 			lastsrunPower 	 = runPower;
-			RSS 			 = (info.currentPower != null) ? RSS + 0.03 * Math.pow(((runPower+0.001)/uCP),3.5) : RSS; 			             
+			RSS 			 = (uCP != 0) ? RSS + 0.03 * Math.pow(((runPower+0.001)/uCP),3.5) : RSS; 			             
+			if (uCP != 0) {
+				if ((runPower+0.001)/uCP < 0.5 ) {
+					RSSNew = RSSNew + 0.0026516504294491;
+				} else if ((runPower+0.001)/uCP > 1.5 ) {
+					RSSNew = RSSNew + 0.1240054182283927;
+				} else {
+					RSSNew = RSSNew + + 0.03 * Math.pow(((runPower+0.001)/uCP),3.5);
+				}
+			}				
         }
 	}
 
@@ -367,6 +377,10 @@ class CiqView extends ExtramemView {
 			} else if (metric[i] == 60) {
 	            fieldValue[i] = RSS;
     	        fieldLabel[i] = "RSS";
+        	    fieldFormat[i] = "0decimal";
+			} else if (metric[i] == 106) {
+	            fieldValue[i] = RSSNew;
+    	        fieldLabel[i] = "RSS New";
         	    fieldFormat[i] = "0decimal";
 			} else if (metric[i] == 93) {
 				if (info.currentPower != null and info.currentPower != 0) {

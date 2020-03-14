@@ -57,6 +57,7 @@
     <property id="pdisablelabel10" type="boolean">false</property>
     <property id="pWeight" type="number">70</property>
     <property id="pLfont240big" type="boolean">true</property>
+    <property id="ptempunits" type="boolean">false</property>
   </properties>
 
 	
@@ -66,7 +67,7 @@
     <!-- Beta name:
     <string id="AppName">Datarun Ultimate</string>
     -->
-    <string id="lDummysetting4version">Version 1.02 of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 1.03 of Datarun ultimate, main version (dummy setting)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>
 	<string id="lPaceMenu">___Pace items___</string>
@@ -141,6 +142,7 @@
 	<string id="lIntensityFactor">Intensity Factor</string>
 	<string id="lTTS">Training Stress Score</string>
 	<string id="lRSS">Running Stress Score</string>
+	<string id="lRSSNew">Running Stress Score, new way of calculating</string>
     <string id="lRequiredPower">Boundaries for warning signal, a format required like (227:284)</string> 
     <string id="lWarningFreq">Frequency for the warning signal for operating out of powerzone</string>
     <string id="lAlertbeep">Play sound as warning signal for operating out of powerzone</string> 
@@ -235,6 +237,7 @@
     <string id="lLapE">Lap Running Effectiveness (as used by Steve Palladino)</string>
     <string id="lAverRE">Average Running Effectiveness (as used by Steve Palladino)</string>
     <string id="lLfont240big">Use large label font for smaller watch diameter (Fenix 5+, FR945, Fenix 6s etc)</string>
+    <string id="ltempunits">Use Fahrenheit instead of Celsius for temperature metrics (Celsius is default)</string>
  </strings>
 
   <settings>
@@ -294,6 +297,9 @@
     </setting>
     <setting propertyKey="@Properties.pRacetime" title="@Strings.lRacetimeTitle">
       <settingConfig type="alphaNumeric"  required="true"/>
+    </setting>
+    <setting propertyKey="@Properties.ptempunits" title="@Strings.ltempunits">
+      <settingConfig type="boolean" required="true" />
     </setting>
     <setting propertyKey="@Properties.prolavPacmaxsecs" title="@Strings.lrolavPacmaxsecs">
       <settingConfig type="numeric" errorMessage="@Strings.lrolavPacmaxsecsError" />
@@ -422,6 +428,7 @@
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
         <listEntry value="59">@Strings.lTTS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
+        <listEntry value="106">@Strings.lRSSNew</listEntry>
 
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
@@ -541,6 +548,7 @@
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
         <listEntry value="59">@Strings.lTTS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
+        <listEntry value="106">@Strings.lRSSNew</listEntry>
 
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
@@ -653,6 +661,7 @@
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
         <listEntry value="59">@Strings.lTTS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
+        <listEntry value="106">@Strings.lRSSNew</listEntry>
 
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
@@ -769,6 +778,7 @@
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
         <listEntry value="59">@Strings.lTTS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
+        <listEntry value="106">@Strings.lRSSNew</listEntry>
 
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
@@ -882,6 +892,7 @@
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
         <listEntry value="59">@Strings.lTTS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
+        <listEntry value="106">@Strings.lRSSNew</listEntry>
 
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
@@ -996,6 +1007,7 @@
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
         <listEntry value="59">@Strings.lTTS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
+        <listEntry value="106">@Strings.lRSSNew</listEntry>
 
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
@@ -1112,6 +1124,7 @@
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
         <listEntry value="59">@Strings.lTTS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
+        <listEntry value="106">@Strings.lRSSNew</listEntry>
 
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
@@ -1226,6 +1239,7 @@
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
         <listEntry value="59">@Strings.lTTS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
+        <listEntry value="106">@Strings.lRSSNew</listEntry>
 
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
@@ -1346,6 +1360,7 @@
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
         <listEntry value="59">@Strings.lTTS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
+        <listEntry value="106">@Strings.lRSSNew</listEntry>
 
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
@@ -1465,6 +1480,7 @@
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
         <listEntry value="59">@Strings.lTTS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
+        <listEntry value="106">@Strings.lRSSNew</listEntry>
 
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>

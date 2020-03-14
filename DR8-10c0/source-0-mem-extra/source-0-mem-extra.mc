@@ -55,6 +55,7 @@ class ExtramemView extends DatarunpremiumView {
 	var LastLapCadence						= 0;
 	var AverageCadence 						= 0; 	
 	var tempeTemp 							= 0;
+	var utempunits							= false;
 	
     function initialize() {
         DatarunpremiumView.initialize();
@@ -64,6 +65,7 @@ class ExtramemView extends DatarunpremiumView {
 		uBlackBackground    				= mApp.getProperty("pBlackBackground");
 		uGarminColors						= mApp.getProperty("pGarminColors");
         uHrZones 							= UserProfile.getHeartRateZones(UserProfile.getCurrentSport());
+        utempunits	 						= mApp.getProperty("ptempunits");
         disablelabel1 						= mApp.getProperty("pdisablelabel1");
 		disablelabel2 						= mApp.getProperty("pdisablelabel2");
 		disablelabel3 						= mApp.getProperty("pdisablelabel3");
@@ -258,6 +260,7 @@ class ExtramemView extends DatarunpremiumView {
             	fieldFormat[i] = "0decimal";
             } else if (metric[i] == 89) {
     	        fieldValue[i] = (sensorIter != null) ? sensorIter.next().data : 0;
+    	        fieldValue[i] = (utempunits == false) ? fieldValue[i] : fieldValue[i]*1.8+32; 
         	    fieldLabel[i] = "Temp";
             	fieldFormat[i] = "1decimal";
             } else if (metric[i] == 90) {
@@ -274,6 +277,7 @@ class ExtramemView extends DatarunpremiumView {
         	    fieldFormat[i] = "0decimal";
         	} else if (metric[i] == 105) {
 	            fieldValue[i] = tempeTemp;
+	            fieldValue[i] = (utempunits == false) ? fieldValue[i] : fieldValue[i]*1.8+32;
     	        fieldLabel[i] = "Tempe T";
         	    fieldFormat[i] = "0decimal";
 			} 
@@ -475,6 +479,7 @@ class ExtramemView extends DatarunpremiumView {
         	    CFMFormat = "1decimal";
         	} else if (uClockFieldMetric == 89) {
     	        CFMValue = (sensorIter != null) ? sensorIter.next().data : 0;
+    	        CFMValue = (utempunits == false) ? CFMValue : CFMValue*1.8+32;
         	    CFMLabel = "Temp";
             	CFMFormat = "1decimal";
             } else if (uClockFieldMetric == 90) {
@@ -491,6 +496,7 @@ class ExtramemView extends DatarunpremiumView {
         	    CFMFormat = "0decimal";
         	} else if (uClockFieldMetric == 105) {
 	            CFMValue = tempeTemp;
+	            CFMValue = (utempunits == false) ? CFMValue : CFMValue*1.8+32;
     	        CFMLabel = "Tempe T";
         	    CFMFormat = "0decimal";
 			}		 

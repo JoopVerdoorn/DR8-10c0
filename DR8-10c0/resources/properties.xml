@@ -67,7 +67,7 @@
     <!-- Beta name:
     <string id="AppName">Datarun Ultimate</string>
     -->
-    <string id="lDummysetting4version">Version 1.03 of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 1.03b of Datarun ultimate, main version (dummy setting)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>
 	<string id="lPaceMenu">___Pace items___</string>
@@ -142,7 +142,6 @@
 	<string id="lIntensityFactor">Intensity Factor</string>
 	<string id="lTTS">Training Stress Score</string>
 	<string id="lRSS">Running Stress Score</string>
-	<string id="lRSSNew">Running Stress Score, new way of calculating</string>
     <string id="lRequiredPower">Boundaries for warning signal, a format required like (227:284)</string> 
     <string id="lWarningFreq">Frequency for the warning signal for operating out of powerzone</string>
     <string id="lAlertbeep">Play sound as warning signal for operating out of powerzone</string> 
@@ -428,7 +427,7 @@
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
         <listEntry value="59">@Strings.lTTS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
-        <listEntry value="106">@Strings.lRSSNew</listEntry>
+        
 
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
@@ -548,7 +547,7 @@
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
         <listEntry value="59">@Strings.lTTS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
-        <listEntry value="106">@Strings.lRSSNew</listEntry>
+        
 
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
@@ -661,7 +660,7 @@
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
         <listEntry value="59">@Strings.lTTS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
-        <listEntry value="106">@Strings.lRSSNew</listEntry>
+        
 
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
@@ -778,7 +777,7 @@
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
         <listEntry value="59">@Strings.lTTS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
-        <listEntry value="106">@Strings.lRSSNew</listEntry>
+        
 
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
@@ -892,7 +891,7 @@
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
         <listEntry value="59">@Strings.lTTS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
-        <listEntry value="106">@Strings.lRSSNew</listEntry>
+        
 
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
@@ -1007,7 +1006,7 @@
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
         <listEntry value="59">@Strings.lTTS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
-        <listEntry value="106">@Strings.lRSSNew</listEntry>
+        
 
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
@@ -1124,7 +1123,7 @@
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
         <listEntry value="59">@Strings.lTTS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
-        <listEntry value="106">@Strings.lRSSNew</listEntry>
+        
 
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
@@ -1239,7 +1238,7 @@
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
         <listEntry value="59">@Strings.lTTS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
-        <listEntry value="106">@Strings.lRSSNew</listEntry>
+        
 
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
@@ -1360,7 +1359,7 @@
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
         <listEntry value="59">@Strings.lTTS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
-        <listEntry value="106">@Strings.lRSSNew</listEntry>
+        
 
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>
@@ -1480,7 +1479,7 @@
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
         <listEntry value="59">@Strings.lTTS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
-        <listEntry value="106">@Strings.lRSSNew</listEntry>
+        
 
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>

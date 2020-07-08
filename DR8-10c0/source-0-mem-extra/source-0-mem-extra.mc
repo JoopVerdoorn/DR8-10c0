@@ -161,7 +161,8 @@ class ExtramemView extends DatarunpremiumView {
         VertPace2 								= VertPace1;
         VertPace1								= CurrentVertSpeedinmpersec; 
 		var AverageVertspeedinmper5sec= (VertPace1+VertPace2+VertPace3+VertPace4+VertPace5)/5;
-		
+System.println("valueDesc " + valueDesc);
+System.println("valueAsc " + valueAsc);		
 		var sensorIter = getIterator();
 		maxHR = uHrZones[5];
 		var i = 0; 

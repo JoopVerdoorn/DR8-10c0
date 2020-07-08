@@ -78,7 +78,7 @@
     <!-- Beta name:
     <string id="AppName">Datarun Ultimate</string>
     -->
-    <string id="lDummysetting4version">Version 1.04c of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 1.05 of Datarun ultimate, main version (dummy setting)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>
 	<string id="lPaceMenu">___Pace items___</string>
@@ -161,7 +161,8 @@
 	<string id="lPaceper3km">Pace averaged over the last 3 seconds</string>
 	<string id="lPaceper5km">Pace averaged over the last 5 seconds</string>
 	<string id="lPaceper300km">Pace averaged over the last .. seconds (max is 300 seconds)</string>
-	<string id="lVertpace">Vertical speed averaged over the last 5 seconds </string>
+	<string id="lVertpace">Vertical speed averaged over the last 5 seconds (in meters/seconds or feet/seconds depending on watch settings)</string>
+	<string id="lVertpacekm">Vertical speed in meters/seconds averaged over the last 5 seconds </string>
 	<string id="lrolavPacmaxsecs">Pace or/and speed averaged over the last ... seconds (max is 300 seconds)</string>
 	<string id="lrolavPacmaxsecsError">This needs to be a number from 2 too 300</string>
 	<string id="lPaceper100m">Pace in seconds per 100 meter (for track running)</string>

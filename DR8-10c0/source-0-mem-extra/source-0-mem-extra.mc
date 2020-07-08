@@ -56,6 +56,10 @@ class ExtramemView extends DatarunpremiumView {
 	var AverageCadence 						= 0; 	
 	var tempeTemp 							= 0;
 	var utempunits							= false;
+	var valueAsclast						= 0;
+	var valueDesclast						= 0;
+	var Diff1 								= 0;
+	var Diff2 								= 0;
 	
     function initialize() {
         DatarunpremiumView.initialize();
@@ -152,9 +156,13 @@ class ExtramemView extends DatarunpremiumView {
 		//! Calculate vertical speed
 		var valueDesc = (info.totalDescent != null) ? info.totalDescent : 0;
         valueDesc = (unitD == 1609.344) ? valueDesc*3.2808 : valueDesc;
+        Diff1 = valueDesc - valueDesclast;
 		var valueAsc = (info.totalAscent != null) ? info.totalAscent : 0;
         valueAsc = (unitD == 1609.344) ? valueAsc*3.2808 : valueAsc;
-        var CurrentVertSpeedinmpersec = valueAsc-valueDesc;
+        Diff2 = valueAsc - valueAsclast;
+        valueDesclast = valueDesc;
+        valueAsclast = valueAsc;
+        var CurrentVertSpeedinmpersec = Diff2-Diff1;
 		VertPace5 								= VertPace4;
 		VertPace4 								= VertPace3;
 		VertPace3 								= VertPace2;
@@ -163,6 +171,9 @@ class ExtramemView extends DatarunpremiumView {
 		var AverageVertspeedinmper5sec= (VertPace1+VertPace2+VertPace3+VertPace4+VertPace5)/5;
 System.println("valueDesc " + valueDesc);
 System.println("valueAsc " + valueAsc);		
+System.println("Diff1 " + Diff1);
+System.println("Diff2 " + Diff2);
+System.println("_______________________________________");
 		var sensorIter = getIterator();
 		maxHR = uHrZones[5];
 		var i = 0; 

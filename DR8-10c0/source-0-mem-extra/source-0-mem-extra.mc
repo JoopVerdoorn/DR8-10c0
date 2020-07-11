@@ -287,7 +287,11 @@ class ExtramemView extends DatarunpremiumView {
 	            fieldValue[i] = tempeTemp;
 	            fieldValue[i] = (utempunits == false) ? fieldValue[i] : fieldValue[i]*1.8+32;
     	        fieldLabel[i] = "Tempe T";
-        	    fieldFormat[i] = "0decimal";
+        	    fieldFormat[i] = "1decimal";
+        	}  else if (metric[i] == 108) {
+           		fieldValue[i] = (unitD == 1609.344) ? AverageVertspeedinmper5sec*3.2808*3600 : AverageVertspeedinmper5sec*3600;
+            	fieldLabel[i] = "VAM";
+            	fieldFormat[i] = "0decimal";
 			} 
 		}
 
@@ -507,6 +511,10 @@ class ExtramemView extends DatarunpremiumView {
 	            CFMValue = (utempunits == false) ? CFMValue : CFMValue*1.8+32;
     	        CFMLabel = "Tempe T";
         	    CFMFormat = "0decimal";
+        	}  else if (uClockFieldMetric == 108) {
+           		CFMValue = (unitD == 1609.344) ? AverageVertspeedinmper5sec*3.2808*3600 : AverageVertspeedinmper5sec*3600;
+            	CFMLabel = "VAM";
+            	CFMFormat = "0decimal";
 			}		 
 
 		//! Conditions for showing the demoscreen       

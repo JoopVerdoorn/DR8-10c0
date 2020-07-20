@@ -510,7 +510,7 @@ class ExtramemView extends DatarunpremiumView {
 	            CFMValue = tempeTemp;
 	            CFMValue = (utempunits == false) ? CFMValue : CFMValue*1.8+32;
     	        CFMLabel = "Tempe T";
-        	    CFMFormat = "0decimal";
+        	    CFMFormat = "1decimal";
         	}  else if (uClockFieldMetric == 108) {
            		CFMValue = (unitD == 1609.344) ? AverageVertspeedinmper5sec*3.2808*3600 : AverageVertspeedinmper5sec*3600;
             	CFMLabel = "VAM";

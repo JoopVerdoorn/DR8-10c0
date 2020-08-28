@@ -64,9 +64,17 @@ class DeviceView extends PowerView {
 
 		for (var i = 1; i < 11; ++i) {
 	    	if ( i == 1 ) {			//!upper row, left
-	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"074,058,075,026,062,073,035");
+	    		if ( fieldFormat[i].equals("time") == true and fieldValue[i] > 36000) { 
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"074,058,084,020,062,073,035");
+	    		} else {
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"074,058,075,026,062,073,035");
+	    		}
 	       	} else if ( i == 2 ) {	//!upper row, right
-	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"165,058,177,127,062,167,035");
+	    		if ( fieldFormat[i].equals("time") == true and fieldValue[i] > 36000) { 
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"165,058,184,120,062,167,035");
+	    		} else {
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"165,058,177,127,062,167,035");
+	    		}
 	       	} else if ( i == 3 ) {  //!middle row, left
 	       		if (uUpperMiddleRowBig == false) {
 	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"036,106,000,000,000,036,083");
@@ -100,9 +108,17 @@ class DeviceView extends PowerView {
 	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"165,146,000,000,000,225,131");
 	    		}
 	       	} else if ( i == 9 ) {	//!lower row, left
-	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"074,187,082,033,190,080,213");
+	    		if ( fieldFormat[i].equals("time") == true and fieldValue[i] > 36000) { 
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"074,187,088,025,190,080,213");
+	    		} else {
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"074,187,082,033,190,080,213");
+	    		}
 	       	} else if ( i == 10 ) {	//!lower row, right
-	    		Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"165,187,172,123,190,157,213");
+	    		if ( fieldFormat[i].equals("time") == true and fieldValue[i] > 36000) { 
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"165,187,180,117,190,157,213");
+	    		} else {
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"165,187,172,123,190,157,213");
+	    		}
        		}       	
 		}
 		

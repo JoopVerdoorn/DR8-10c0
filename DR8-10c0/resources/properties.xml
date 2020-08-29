@@ -78,14 +78,14 @@
     <!-- Beta name:
     <string id="AppName">Datarun Ultimate</string>
     -->
-    <string id="lDummysetting4version">Version 1.06e of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 1.10 of Datarun ultimate, main version (dummy setting)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>
 	<string id="lPaceMenu">___Pace items___</string>
 	<string id="lETAMenu">___ETA items___</string>
 	<string id="lSpeedMenu">___Speed items___</string>
 	<string id="lHRMenu">___Heartrate items___</string>
-	<string id="lCadenceMenu">___Cadence items___</string>
+	<string id="lCadenceMenu">___Cadence and other running dynamics items___</string>
 	<string id="lSPowerMenu">___Power items___</string>
 	<string id="lPIMenu">___Performance indicator items___</string>
 	<string id="lAltitudeMenu">___Altitude and temperature items___</string>
@@ -161,8 +161,8 @@
 	<string id="lPaceper3km">Pace averaged over the last 3 seconds</string>
 	<string id="lPaceper5km">Pace averaged over the last 5 seconds</string>
 	<string id="lPaceper300km">Pace averaged over the last .. seconds (max is 300 seconds)</string>
-	<string id="lVertpace">Vertical speed averaged over the last 5 seconds (in meters/seconds or feet/seconds depending on watch settings)</string>
-	<string id="lVAM">Vertical speed averaged over the last 5 seconds (in meters/hour or feet/hour depending on watch settings)</string>
+	<string id="lVertpace">Vertical speed averaged over the last 30 seconds (in meters/seconds or feet/seconds depending on watch settings)</string>
+	<string id="lVAM">Vertical speed averaged over the last 30 seconds (in meters/hour or feet/hour depending on watch settings)</string>
 	<string id="lVertpacekm">Vertical speed in meters/seconds averaged over the last 5 seconds </string>
 	<string id="lrolavPacmaxsecs">Pace or/and speed averaged over the last ... seconds (max is 300 seconds)</string>
 	<string id="lrolavPacmaxsecsError">This needs to be a number from 2 too 300</string>
@@ -271,6 +271,13 @@
     <string id="lManPwrAlticorrect">Correction based on manual set altitude</string>
     <string id="lRealAltitude">Current altitude, for power correction based on altitude</string>
     <string id="lFTPAltitude">Altitude at which Critical power or FTP is determined, for power correction based on altitude</string>
+    <string id="lgroundContactBalance">RunningDynamics instantaneous ground contact balance (0 - 100%, requires running pod, HRM-run or HRM-tri)</string>
+    <string id="lgroundContactTime">RunningDynamics instantaneous ground contact time (in milliseconds, requires running pod, HRM-run or HRM-tri)</string>
+    <string id="lstanceTime">RunningDynamics % ground contact time/stance time (0 - 100%, requires running pod, HRM-run or HRM-tri)</string>
+    <string id="lstepCoun">RunningDynamics step count (rolls over!, 0 - 127 steps, requires running pod, HRM-run or HRM-tri)</string>
+    <string id="lstepLength">RunningDynamics step length (in meters or feet depending on watch settings , requires running pod, HRM-run or HRM-tri)</string>
+    <string id="lverticalOscillation">RunningDynamics instantaneous vertical oscillation (in mm, requires running pod, HRM-run or HRM-tri)</string>
+    <string id="lverticalRatio">RunningDynamics vertical ratio (0 - 100%, requires running pod, HRM-run or HRM-tri)</string>
  </strings>
 
   <settings>
@@ -437,6 +444,13 @@
         <listEntry value="90">@Strings.lLapCadence</listEntry>
         <listEntry value="91">@Strings.lLLCadence</listEntry>
         <listEntry value="92">@Strings.lAveraCadence</listEntry>
+        <listEntry value="109">@Strings.lgroundContactBalance</listEntry>
+        <listEntry value="110">@Strings.lgroundContactTime</listEntry>
+        <listEntry value="111">@Strings.lstanceTime</listEntry>
+        <listEntry value="112">@Strings.lstepCoun</listEntry>
+        <listEntry value="113">@Strings.lstepLength</listEntry>
+        <listEntry value="114">@Strings.lverticalOscillation</listEntry>
+        <listEntry value="115">@Strings.lverticalRatio</listEntry>
 
         <listEntry value="993">@Strings.lETAMenu</listEntry>
         <listEntry value="13">@Strings.lETArequiredpace</listEntry>
@@ -559,6 +573,13 @@
         <listEntry value="90">@Strings.lLapCadence</listEntry>
         <listEntry value="91">@Strings.lLLCadence</listEntry>
         <listEntry value="92">@Strings.lAveraCadence</listEntry>
+        <listEntry value="109">@Strings.lgroundContactBalance</listEntry>
+        <listEntry value="110">@Strings.lgroundContactTime</listEntry>
+        <listEntry value="111">@Strings.lstanceTime</listEntry>
+        <listEntry value="112">@Strings.lstepCoun</listEntry>
+        <listEntry value="113">@Strings.lstepLength</listEntry>
+        <listEntry value="114">@Strings.lverticalOscillation</listEntry>
+        <listEntry value="115">@Strings.lverticalRatio</listEntry>
 
         <listEntry value="993">@Strings.lETAMenu</listEntry>
         <listEntry value="13">@Strings.lETArequiredpace</listEntry>
@@ -675,7 +696,14 @@
         <listEntry value="61">@Strings.lRCadence</listEntry>
         <listEntry value="90">@Strings.lLapCadence</listEntry>
         <listEntry value="91">@Strings.lLLCadence</listEntry>
-        <listEntry value="92">@Strings.lAveraCadence</listEntry>        
+        <listEntry value="92">@Strings.lAveraCadence</listEntry>     
+        <listEntry value="109">@Strings.lgroundContactBalance</listEntry>
+        <listEntry value="110">@Strings.lgroundContactTime</listEntry>
+        <listEntry value="111">@Strings.lstanceTime</listEntry>
+        <listEntry value="112">@Strings.lstepCoun</listEntry>
+        <listEntry value="113">@Strings.lstepLength</listEntry>
+        <listEntry value="114">@Strings.lverticalOscillation</listEntry>
+        <listEntry value="115">@Strings.lverticalRatio</listEntry>   
         
         <listEntry value="993">@Strings.lETAMenu</listEntry>
         <listEntry value="13">@Strings.lETArequiredpace</listEntry>
@@ -793,7 +821,14 @@
         <listEntry value="61">@Strings.lRCadence</listEntry>
         <listEntry value="90">@Strings.lLapCadence</listEntry>
         <listEntry value="91">@Strings.lLLCadence</listEntry>
-        <listEntry value="92">@Strings.lAveraCadence</listEntry>        
+        <listEntry value="92">@Strings.lAveraCadence</listEntry> 
+        <listEntry value="109">@Strings.lgroundContactBalance</listEntry>
+        <listEntry value="110">@Strings.lgroundContactTime</listEntry>
+        <listEntry value="111">@Strings.lstanceTime</listEntry>
+        <listEntry value="112">@Strings.lstepCoun</listEntry>
+        <listEntry value="113">@Strings.lstepLength</listEntry>
+        <listEntry value="114">@Strings.lverticalOscillation</listEntry>
+        <listEntry value="115">@Strings.lverticalRatio</listEntry>       
         
         <listEntry value="993">@Strings.lETAMenu</listEntry>
         <listEntry value="13">@Strings.lETArequiredpace</listEntry>
@@ -908,7 +943,14 @@
         <listEntry value="61">@Strings.lRCadence</listEntry>
         <listEntry value="90">@Strings.lLapCadence</listEntry>
         <listEntry value="91">@Strings.lLLCadence</listEntry>
-        <listEntry value="92">@Strings.lAveraCadence</listEntry>        
+        <listEntry value="92">@Strings.lAveraCadence</listEntry>  
+        <listEntry value="109">@Strings.lgroundContactBalance</listEntry>
+        <listEntry value="110">@Strings.lgroundContactTime</listEntry>
+        <listEntry value="111">@Strings.lstanceTime</listEntry>
+        <listEntry value="112">@Strings.lstepCoun</listEntry>
+        <listEntry value="113">@Strings.lstepLength</listEntry>
+        <listEntry value="114">@Strings.lverticalOscillation</listEntry>
+        <listEntry value="115">@Strings.lverticalRatio</listEntry>      
         
         <listEntry value="993">@Strings.lETAMenu</listEntry>
         <listEntry value="13">@Strings.lETArequiredpace</listEntry>
@@ -1024,7 +1066,14 @@
         <listEntry value="61">@Strings.lRCadence</listEntry>
         <listEntry value="90">@Strings.lLapCadence</listEntry>
         <listEntry value="91">@Strings.lLLCadence</listEntry>
-        <listEntry value="92">@Strings.lAveraCadence</listEntry>        
+        <listEntry value="92">@Strings.lAveraCadence</listEntry>  
+        <listEntry value="109">@Strings.lgroundContactBalance</listEntry>
+        <listEntry value="110">@Strings.lgroundContactTime</listEntry>
+        <listEntry value="111">@Strings.lstanceTime</listEntry>
+        <listEntry value="112">@Strings.lstepCoun</listEntry>
+        <listEntry value="113">@Strings.lstepLength</listEntry>
+        <listEntry value="114">@Strings.lverticalOscillation</listEntry>
+        <listEntry value="115">@Strings.lverticalRatio</listEntry>      
         
         <listEntry value="993">@Strings.lETAMenu</listEntry>
         <listEntry value="13">@Strings.lETArequiredpace</listEntry>
@@ -1142,7 +1191,14 @@
         <listEntry value="61">@Strings.lRCadence</listEntry>
         <listEntry value="90">@Strings.lLapCadence</listEntry>
         <listEntry value="91">@Strings.lLLCadence</listEntry>
-        <listEntry value="92">@Strings.lAveraCadence</listEntry>        
+        <listEntry value="92">@Strings.lAveraCadence</listEntry>  
+        <listEntry value="109">@Strings.lgroundContactBalance</listEntry>
+        <listEntry value="110">@Strings.lgroundContactTime</listEntry>
+        <listEntry value="111">@Strings.lstanceTime</listEntry>
+        <listEntry value="112">@Strings.lstepCoun</listEntry>
+        <listEntry value="113">@Strings.lstepLength</listEntry>
+        <listEntry value="114">@Strings.lverticalOscillation</listEntry>
+        <listEntry value="115">@Strings.lverticalRatio</listEntry>      
         
         <listEntry value="993">@Strings.lETAMenu</listEntry>
         <listEntry value="13">@Strings.lETArequiredpace</listEntry>
@@ -1258,7 +1314,14 @@
         <listEntry value="61">@Strings.lRCadence</listEntry>
         <listEntry value="90">@Strings.lLapCadence</listEntry>
         <listEntry value="91">@Strings.lLLCadence</listEntry>
-        <listEntry value="92">@Strings.lAveraCadence</listEntry>        
+        <listEntry value="92">@Strings.lAveraCadence</listEntry>   
+        <listEntry value="109">@Strings.lgroundContactBalance</listEntry>
+        <listEntry value="110">@Strings.lgroundContactTime</listEntry>
+        <listEntry value="111">@Strings.lstanceTime</listEntry>
+        <listEntry value="112">@Strings.lstepCoun</listEntry>
+        <listEntry value="113">@Strings.lstepLength</listEntry>
+        <listEntry value="114">@Strings.lverticalOscillation</listEntry>
+        <listEntry value="115">@Strings.lverticalRatio</listEntry>     
         
         <listEntry value="993">@Strings.lETAMenu</listEntry>
         <listEntry value="13">@Strings.lETArequiredpace</listEntry>
@@ -1381,6 +1444,13 @@
         <listEntry value="90">@Strings.lLapCadence</listEntry>
         <listEntry value="91">@Strings.lLLCadence</listEntry>
         <listEntry value="92">@Strings.lAveraCadence</listEntry>
+        <listEntry value="109">@Strings.lgroundContactBalance</listEntry>
+        <listEntry value="110">@Strings.lgroundContactTime</listEntry>
+        <listEntry value="111">@Strings.lstanceTime</listEntry>
+        <listEntry value="112">@Strings.lstepCoun</listEntry>
+        <listEntry value="113">@Strings.lstepLength</listEntry>
+        <listEntry value="114">@Strings.lverticalOscillation</listEntry>
+        <listEntry value="115">@Strings.lverticalRatio</listEntry>
 
         <listEntry value="993">@Strings.lETAMenu</listEntry>
         <listEntry value="13">@Strings.lETArequiredpace</listEntry>
@@ -1503,6 +1573,13 @@
         <listEntry value="90">@Strings.lLapCadence</listEntry>
         <listEntry value="91">@Strings.lLLCadence</listEntry>
         <listEntry value="92">@Strings.lAveraCadence</listEntry>
+        <listEntry value="109">@Strings.lgroundContactBalance</listEntry>
+        <listEntry value="110">@Strings.lgroundContactTime</listEntry>
+        <listEntry value="111">@Strings.lstanceTime</listEntry>
+        <listEntry value="112">@Strings.lstepCoun</listEntry>
+        <listEntry value="113">@Strings.lstepLength</listEntry>
+        <listEntry value="114">@Strings.lverticalOscillation</listEntry>
+        <listEntry value="115">@Strings.lverticalRatio</listEntry>
 
         <listEntry value="993">@Strings.lETAMenu</listEntry>
         <listEntry value="13">@Strings.lETArequiredpace</listEntry>
@@ -1620,6 +1697,13 @@
         <listEntry value="90">@Strings.lLapCadence</listEntry>
         <listEntry value="91">@Strings.lLLCadence</listEntry>
         <listEntry value="92">@Strings.lAveraCadence</listEntry>
+        <listEntry value="109">@Strings.lgroundContactBalance</listEntry>
+        <listEntry value="110">@Strings.lgroundContactTime</listEntry>
+        <listEntry value="111">@Strings.lstanceTime</listEntry>
+        <listEntry value="112">@Strings.lstepCoun</listEntry>
+        <listEntry value="113">@Strings.lstepLength</listEntry>
+        <listEntry value="114">@Strings.lverticalOscillation</listEntry>
+        <listEntry value="115">@Strings.lverticalRatio</listEntry>
         
         <listEntry value="995">@Strings.lHRMenu</listEntry>
         <listEntry value="45">@Strings.lHeartrate</listEntry>

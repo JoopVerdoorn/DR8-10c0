@@ -1790,42 +1790,58 @@
 <entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="652" pc="268482595" symbol="Formatting"/>
 <entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="653" pc="268482650" symbol="Formatting"/>
 <entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="655" pc="268482708" symbol="Formatting"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="656" pc="268482761" symbol="Formatting"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="657" pc="268482775" symbol="Formatting"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="658" pc="268482830" symbol="Formatting"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="660" pc="268482897" symbol="Formatting"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="661" pc="268482952" symbol="Formatting"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="662" pc="268483026" symbol="Formatting"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="663" pc="268483106" symbol="Formatting"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="666" pc="268483189" symbol="Formatting"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="667" pc="268483244" symbol="Formatting"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="670" pc="268483308" symbol="Formatting"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="671" pc="268483318" symbol="Formatting"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="38" lineNum="674" pc="268483353" symbol="hashfunction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="38" lineNum="675" pc="268483357" symbol="hashfunction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="38" lineNum="676" pc="268483364" symbol="hashfunction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="38" lineNum="677" pc="268483377" symbol="hashfunction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="38" lineNum="678" pc="268483401" symbol="hashfunction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="38" lineNum="680" pc="268483430" symbol="hashfunction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="683" pc="268483444" symbol="Lapaction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="684" pc="268483448" symbol="Lapaction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="685" pc="268483467" symbol="Lapaction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="686" pc="268483492" symbol="Lapaction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="687" pc="268483538" symbol="Lapaction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="688" pc="268483575" symbol="Lapaction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="690" pc="268483591" symbol="Lapaction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="691" pc="268483616" symbol="Lapaction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="692" pc="268483662" symbol="Lapaction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="693" pc="268483678" symbol="Lapaction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="695" pc="268483694" symbol="Lapaction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="696" pc="268483719" symbol="Lapaction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="697" pc="268483765" symbol="Lapaction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="698" pc="268483781" symbol="Lapaction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="700" pc="268483797" symbol="Lapaction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="701" pc="268483822" symbol="Lapaction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="702" pc="268483868" symbol="Lapaction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="703" pc="268483884" symbol="Lapaction"/>
-<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="705" pc="268483900" symbol="Lapaction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="656" pc="268482739" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="657" pc="268482792" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="658" pc="268482847" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="659" pc="268482921" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="660" pc="268483001" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="662" pc="268483084" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="663" pc="268483139" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="665" pc="268483206" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="666" pc="268483220" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="667" pc="268483245" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="668" pc="268483300" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="669" pc="268483374" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="670" pc="268483454" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="672" pc="268483537" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="673" pc="268483592" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="675" pc="268483659" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="676" pc="268483673" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="677" pc="268483698" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="678" pc="268483753" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="679" pc="268483827" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="680" pc="268483907" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="682" pc="268483990" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="683" pc="268484045" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="686" pc="268484112" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="687" pc="268484167" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="690" pc="268484231" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="37" lineNum="691" pc="268484241" symbol="Formatting"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="38" lineNum="694" pc="268484276" symbol="hashfunction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="38" lineNum="695" pc="268484280" symbol="hashfunction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="38" lineNum="696" pc="268484287" symbol="hashfunction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="38" lineNum="697" pc="268484300" symbol="hashfunction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="38" lineNum="698" pc="268484324" symbol="hashfunction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="38" lineNum="700" pc="268484353" symbol="hashfunction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="703" pc="268484367" symbol="Lapaction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="704" pc="268484371" symbol="Lapaction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="705" pc="268484390" symbol="Lapaction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="706" pc="268484415" symbol="Lapaction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="707" pc="268484461" symbol="Lapaction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="708" pc="268484498" symbol="Lapaction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="710" pc="268484514" symbol="Lapaction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="711" pc="268484539" symbol="Lapaction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="712" pc="268484585" symbol="Lapaction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="713" pc="268484601" symbol="Lapaction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="715" pc="268484617" symbol="Lapaction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="716" pc="268484642" symbol="Lapaction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="717" pc="268484688" symbol="Lapaction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="718" pc="268484704" symbol="Lapaction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="720" pc="268484720" symbol="Lapaction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="721" pc="268484745" symbol="Lapaction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="722" pc="268484791" symbol="Lapaction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="723" pc="268484807" symbol="Lapaction"/>
+<entry filename="C:\\Users\\Joop\\git\\DR8-10c0\\DR8-10c0\\source-1-ciq2-power-extra\\source-ciq2-power-extra.mc" id="39" lineNum="725" pc="268484823" symbol="Lapaction"/>
 </pcToLineNum>
 <symbolTable>
 <entry field="true" id="299" symbol="lCadence"/>
@@ -2393,26 +2409,26 @@
 <entry endPc="268482705" name="fTimerSecs" stackId="17" startPc="268482392"/>
 <entry endPc="268482705" name="fTimer" stackId="18" startPc="268482392"/>
 <entry endPc="268482705" name="xx" stackId="19" startPc="268482392"/>
-<entry endPc="268483352" name="xms" stackId="11" startPc="268480986"/>
-<entry endPc="268483352" name="yl" stackId="15" startPc="268480986"/>
-<entry endPc="268483352" name="Temp" stackId="8" startPc="268480986"/>
-<entry endPc="268483352" name="yh" stackId="13" startPc="268480986"/>
-<entry endPc="268483352" name="xl" stackId="14" startPc="268480986"/>
-<entry endPc="268483352" name="y" stackId="10" startPc="268480986"/>
-<entry endPc="268483352" name="xh" stackId="12" startPc="268480986"/>
-<entry endPc="268483352" name="originalFontcolor" stackId="7" startPc="268480986"/>
-<entry endPc="268483352" name="x" stackId="9" startPc="268480986"/>
-<entry endPc="268483353" name="fieldformat" stackId="4" startPc="268480982"/>
-<entry endPc="268483353" name="fieldvalue" stackId="3" startPc="268480982"/>
-<entry endPc="268483353" name="counter" stackId="2" startPc="268480982"/>
-<entry endPc="268483353" name="dc" stackId="1" startPc="268480982"/>
-<entry endPc="268483353" name="CorString" stackId="6" startPc="268480982"/>
-<entry endPc="268483353" name="fieldlabel" stackId="5" startPc="268480982"/>
-<entry endPc="268483430" name="i" stackId="4" startPc="268483401"/>
-<entry endPc="268483443" name="bytes" stackId="3" startPc="268483357"/>
-<entry endPc="268483443" name="val" stackId="2" startPc="268483357"/>
-<entry endPc="268483444" name="string" stackId="1" startPc="268483353"/>
-<entry endPc="268483919" name="info" stackId="1" startPc="268483448"/>
+<entry endPc="268484275" name="xms" stackId="11" startPc="268480986"/>
+<entry endPc="268484275" name="yl" stackId="15" startPc="268480986"/>
+<entry endPc="268484275" name="Temp" stackId="8" startPc="268480986"/>
+<entry endPc="268484275" name="yh" stackId="13" startPc="268480986"/>
+<entry endPc="268484275" name="xl" stackId="14" startPc="268480986"/>
+<entry endPc="268484275" name="y" stackId="10" startPc="268480986"/>
+<entry endPc="268484275" name="xh" stackId="12" startPc="268480986"/>
+<entry endPc="268484275" name="originalFontcolor" stackId="7" startPc="268480986"/>
+<entry endPc="268484275" name="x" stackId="9" startPc="268480986"/>
+<entry endPc="268484276" name="fieldformat" stackId="4" startPc="268480982"/>
+<entry endPc="268484276" name="fieldvalue" stackId="3" startPc="268480982"/>
+<entry endPc="268484276" name="counter" stackId="2" startPc="268480982"/>
+<entry endPc="268484276" name="dc" stackId="1" startPc="268480982"/>
+<entry endPc="268484276" name="CorString" stackId="6" startPc="268480982"/>
+<entry endPc="268484276" name="fieldlabel" stackId="5" startPc="268480982"/>
+<entry endPc="268484353" name="i" stackId="4" startPc="268484324"/>
+<entry endPc="268484366" name="bytes" stackId="3" startPc="268484280"/>
+<entry endPc="268484366" name="val" stackId="2" startPc="268484280"/>
+<entry endPc="268484367" name="string" stackId="1" startPc="268484276"/>
+<entry endPc="268484842" name="info" stackId="1" startPc="268484371"/>
 </localVars>
 <annotations/>
 <dataEntryOffsetMappings>

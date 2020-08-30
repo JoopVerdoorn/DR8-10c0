@@ -62,6 +62,7 @@ class ExtramemView extends DatarunpremiumView {
 	var valueDesclast						= 0;
 	var Diff1 								= 0;
 	var Diff2 								= 0;
+	hidden var startTime;
 	
     function initialize() {
         DatarunpremiumView.initialize();
@@ -337,6 +338,12 @@ class ExtramemView extends DatarunpremiumView {
 				fieldValue[i] = (Ant.RunningDynamicsData.verticalRatio != null) ? Ant.RunningDynamicsData.verticalRatio : 0;
 				fieldLabel[i] = "VertRat";
             	fieldFormat[i] = "1decimal";
+            } else if (metric[i] == 116) {			
+				var myTime = Toybox.System.getClockTime();
+				startTime = (jTimertime > 0) ? startTime : myTime; 
+				fieldValue[i] = (myTime.hour.toNumber()*3600 + myTime.min.toNumber()*60 + myTime.sec.toNumber()) - (startTime.hour.toNumber()*3600 + startTime.min.toNumber()*60 + startTime.sec.toNumber());
+				fieldLabel[i] = "ElapsT";
+            	fieldFormat[i] = "time";
             }
 		}
 

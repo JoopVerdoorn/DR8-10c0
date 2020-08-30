@@ -112,6 +112,7 @@ class CiqView extends ExtramemView {
              Attention.backlight(true);
         }
 		//! We only do some calculations if the timer is running
+		startTime = (jTimertime == 0) ? Toybox.System.getClockTime() : startTime;
 		if (mTimerRunning) {  
 			jTimertime 		 = jTimertime + 1;
 			//!Calculate lapheartrate

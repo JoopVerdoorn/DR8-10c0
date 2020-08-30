@@ -109,15 +109,15 @@ class DeviceView extends PowerView {
 	    		}
 	       	} else if ( i == 9 ) {	//!lower row, left
 	    		if ( fieldFormat[i].equals("time") == true and fieldValue[i] > 36000) { 
-	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"074,187,088,025,190,080,213");
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"074,187,088,025,190,080,212");
 	    		} else {
-	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"074,187,082,033,190,080,213");
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"074,187,082,033,190,080,212");
 	    		}
 	       	} else if ( i == 10 ) {	//!lower row, right
 	    		if ( fieldFormat[i].equals("time") == true and fieldValue[i] > 36000) { 
-	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"165,187,180,117,190,157,213");
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"165,187,180,117,190,157,212");
 	    		} else {
-	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"165,187,172,123,190,157,213");
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"165,187,172,123,190,157,212");
 	    		}
        		}       	
 		}

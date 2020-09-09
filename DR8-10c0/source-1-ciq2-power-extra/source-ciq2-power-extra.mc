@@ -122,6 +122,31 @@ class CiqView extends ExtramemView {
             mCadenceTime	 = (info.currentCadence != null) ? mCadenceTime+1 : mCadenceTime;
             mElapsedCadence= (info.currentCadence != null) ? mElapsedCadence + info.currentCadence : mElapsedCadence;
 
+	        //! Calculate vertical speed
+    	    valueDesc = (info.totalDescent != null) ? info.totalDescent : 0;
+        	Diff1 = valueDesc - valueDesclast;
+	        valueDesc = (unitD == 1609.344) ? valueDesc*3.2808 : valueDesc;
+    	    valueAsc = (info.totalAscent != null) ? info.totalAscent : 0;
+        	Diff2 = valueAsc - valueAsclast;        
+	        valueAsc = (unitD == 1609.344) ? valueAsc*3.2808 : valueAsc;
+    	    valueDesclast = valueDesc;
+        	valueAsclast = valueAsc;
+	        CurrentVertSpeedinmpersec = Diff2-Diff1;
+    	    for (i = 1; i < 11; ++i) {
+	    	    if (metric[i] == 67 or metric[i] == 108) {
+					VertPace[1]	= CurrentVertSpeedinmpersec;
+					for (var j = 1; j < 31; ++j) {			
+						VertPace[j] = VertPace[j+1];
+						totalVertPace = VertPace[j] + totalVertPace;
+					}
+					if (jTimertime>0) {		
+						AverageVertspeedinmper30sec= (jTimertime<31) ? totalVertPace/jTimertime : totalVertPace/30;
+						totalVertPace = 0;
+					}
+				}
+			}
+
+
 			//! Calculate temperature compensation, B-variables reference cell number from cells of conversion excelsheet  		
             var B6 = 22; 			//! is cell B6
             if (uPwrTempcorrect == 0 and uPwrHumidcorrect == 0 and uPwrAlticorrect == 0) {

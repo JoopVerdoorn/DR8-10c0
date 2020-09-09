@@ -78,7 +78,7 @@
     <!-- Beta name:
     <string id="AppName">Datarun Ultimate</string>
     -->
-    <string id="lDummysetting4version">Version 1.11 of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 1.11c of Datarun ultimate, main version (dummy setting)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>
 	<string id="lPaceMenu">___Pace items___</string>
@@ -91,7 +91,7 @@
 	<string id="lAltitudeMenu">___Altitude and temperature items___</string>
     <string id="lTimerDisplay">Timer field</string>
     <string id="lTimerTimer">Timer</string>
-    <string id="lElapsed">Elapsed time (actual time minus start of timer moment)</string>
+    <string id="lElapsed">NOT YET WORKING, Elapsed time (actual time minus start of timer moment)</string>
     <string id="lTimerLap">Current lap time</string>
     <string id="lTimerLastLap">Last lap time</string>
     <string id="lTimerAvgLap">Average lap time</string>
@@ -272,13 +272,13 @@
     <string id="lManPwrAlticorrect">Correction based on manual set altitude</string>
     <string id="lRealAltitude">Current altitude, for power correction based on altitude</string>
     <string id="lFTPAltitude">Altitude at which Critical power or FTP is determined, for power correction based on altitude</string>
-    <string id="lgroundContactBalance">RunningDynamics instantaneous ground contact balance (0 - 100%, requires running pod, HRM-run or HRM-tri)</string>
-    <string id="lgroundContactTime">RunningDynamics instantaneous ground contact time (in milliseconds, requires running pod, HRM-run or HRM-tri)</string>
-    <string id="lstanceTime">RunningDynamics % ground contact time/stance time (0 - 100%, requires running pod, HRM-run or HRM-tri)</string>
-    <string id="lstepCoun">RunningDynamics step count (rolls over!, 0 - 127 steps, requires running pod, HRM-run or HRM-tri)</string>
-    <string id="lstepLength">RunningDynamics step length (in meters or feet depending on watch settings , requires running pod, HRM-run or HRM-tri)</string>
-    <string id="lverticalOscillation">RunningDynamics instantaneous vertical oscillation (in mm, requires running pod, HRM-run or HRM-tri)</string>
-    <string id="lverticalRatio">RunningDynamics vertical ratio (0 - 100%, requires running pod, HRM-run or HRM-tri)</string>
+    <string id="lgroundContactBalance">NOT YET WORKING, RunningDynamics instantaneous ground contact balance (0 - 100%, requires running pod, HRM-run or HRM-tri)</string>
+    <string id="lgroundContactTime">NOT YET WORKING, RunningDynamics instantaneous ground contact time (in milliseconds, requires running pod, HRM-run or HRM-tri)</string>
+    <string id="lstanceTime">NOT YET WORKING, RunningDynamics % ground contact time/stance time (0 - 100%, requires running pod, HRM-run or HRM-tri)</string>
+    <string id="lstepCoun">NOT YET WORKING, RunningDynamics step count (rolls over!, 0 - 127 steps, requires running pod, HRM-run or HRM-tri)</string>
+    <string id="lstepLength">NOT YET WORKING, RunningDynamics step length (in meters or feet depending on watch settings , requires running pod, HRM-run or HRM-tri)</string>
+    <string id="lverticalOscillation">NOT YET WORKING, RunningDynamics instantaneous vertical oscillation (in mm, requires running pod, HRM-run or HRM-tri)</string>
+    <string id="lverticalRatio">NOT YET WORKING, RunningDynamics vertical ratio (0 - 100%, requires running pod, HRM-run or HRM-tri)</string>
  </strings>
 
   <settings>

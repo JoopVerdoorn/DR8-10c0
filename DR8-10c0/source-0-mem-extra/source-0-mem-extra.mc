@@ -104,6 +104,8 @@ class ExtramemView extends DatarunpremiumView {
 		disablelabel9 						= mApp.getProperty("pdisablelabel9");
 		disablelabel10 						= mApp.getProperty("pdisablelabel10");
 		
+		startTime = Toybox.System.getClockTime();
+		
 		if(Toybox.AntPlus has :RunningDynamics) {
     		dynamics = new Toybox.AntPlus.RunningDynamics(null);
 		}

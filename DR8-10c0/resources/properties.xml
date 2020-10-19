@@ -74,11 +74,11 @@
 	
   <strings>
     <!-- Release name: -->
-    <string id="AppName">Datarun Ultimate, test version</string>
+    <string id="AppName">Datarun Ultimate, main version</string>
     <!-- Beta name:
     <string id="AppName">Datarun Ultimate</string>
     -->
-    <string id="lDummysetting4version">Version 2.00b of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 2.00c of Datarun ultimate, main version (dummy setting)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>
 	<string id="lPaceMenu">___Pace items___</string>

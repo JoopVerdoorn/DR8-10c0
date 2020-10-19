@@ -72,7 +72,6 @@ class CiqView extends ExtramemView {
 		
 		labelFontOffset = (uLfont240big == true) ? 1 : 0;
 		
-		i = 0;	
 		for (i = 1; i < 11; ++i) {
 			Power[i] = 0;
 		}
@@ -276,7 +275,102 @@ class CiqView extends ExtramemView {
 				} else {
 					RSS = RSS + + 0.03 * Math.pow(((runPower+0.001)/uCP),3.5);
 				}
-			}				
+			}
+			
+			if (dynamics != null) {
+	 		    var data = dynamics.getRunningDynamics(); 
+	 		    if (data != null) {
+	    			groundContactBalance = data.groundContactBalance;
+    				groundContactTime = data.groundContactTime;  
+    				stanceTime = data.stanceTime;
+    				stepCount = data.stepCount;
+    				stepLength = data.stepLength;
+    				verticalOscillation = data.verticalOscillation;
+    				verticalRatio = data.verticalRatio;
+    			}
+    		}
+    		
+    		for (i = 1; i < 11; ++i) {
+    			if (metric[i] == 109) {  
+    				rollgroundContactBalance[10] 								= rollgroundContactBalance[9];
+	        		rollgroundContactBalance[9] 								= rollgroundContactBalance[8];
+    	    		rollgroundContactBalance[8] 								= rollgroundContactBalance[7];
+        			rollgroundContactBalance[7] 								= rollgroundContactBalance[6];
+        			rollgroundContactBalance[6] 								= rollgroundContactBalance[5];
+        			rollgroundContactBalance[5] 								= rollgroundContactBalance[4];
+ 		       		rollgroundContactBalance[4] 								= rollgroundContactBalance[3];
+        			rollgroundContactBalance[3] 								= rollgroundContactBalance[2];
+        			rollgroundContactBalance[2] 								= rollgroundContactBalance[1];
+        			rollgroundContactBalance[1] 								= groundContactBalance;
+					AveragerollgroundContactBalance10sec	= (groundContactBalance[1]+rollgroundContactBalance[2]+rollgroundContactBalance[3]+rollgroundContactBalance[4]+rollgroundContactBalance[5]+rollgroundContactBalance[6]+rollgroundContactBalance[7]+rollgroundContactBalance[8]+rollgroundContactBalance[9]+rollgroundContactBalance[10])/10;
+    			}
+    			if (metric[i] == 110) {
+    				rollgroundContactTime[10] 						= rollgroundContactTime[9];
+	        		rollgroundContactTime[9] 						= rollgroundContactTime[8];
+    	    		rollgroundContactTime[8] 						= rollgroundContactTime[7];
+        			rollgroundContactTime[7] 						= rollgroundContactTime[6];
+        			rollgroundContactTime[6] 						= rollgroundContactTime[5];
+        			rollgroundContactTime[5] 						= rollgroundContactTime[4];
+ 		       		rollgroundContactTime[4] 						= rollgroundContactTime[3];
+        			rollgroundContactTime[3] 						= rollgroundContactTime[2];
+        			rollgroundContactTime[2] 						= rollgroundContactTime[1];
+        			rollgroundContactTime[1] 						= groundContactTime;
+					AveragerollgroundContactTime10sec	= (groundContactTime[1]+rollgroundContactTime[2]+rollgroundContactTime[3]+rollgroundContactTime[4]+rollgroundContactTime[5]+rollgroundContactTime[6]+rollgroundContactTime[7]+rollgroundContactTime[8]+rollgroundContactTime[9]+rollgroundContactTime[10])/10;	
+    			}
+    			if (metric[i] == 111) {
+    				rollstanceTime[10] 								= rollstanceTime[9];
+	        		rollstanceTime[9] 								= rollstanceTime[8];
+    	    		rollstanceTime[8] 								= rollstanceTime[7];
+        			rollstanceTime[7] 								= rollstanceTime[6];
+        			rollstanceTime[6] 								= rollstanceTime[5];
+        			rollstanceTime[5] 								= rollstanceTime[4];
+ 		       		rollstanceTime[4] 								= rollstanceTime[3];
+        			rollstanceTime[3] 								= rollstanceTime[2];
+        			rollstanceTime[2] 								= rollstanceTime[1];
+        			rollstanceTime[1] 								= stanceTime;
+					AveragerollstanceTime10sec	= (stanceTime[1]+rollstanceTime[2]+rollstanceTime[3]+rollstanceTime[4]+rollstanceTime[5]+rollstanceTime[6]+rollstanceTime[7]+rollstanceTime[8]+rollstanceTime[9]+rollstanceTime[10])/10;
+    			}
+    			if (metric[i] == 113) {
+    				rollstepLength[10] 								= rollstepLength[9];
+	        		rollstepLength[9] 								= rollstepLength[8];
+    	    		rollstepLength[8] 								= rollstepLength[7];
+        			rollstepLength[7] 								= rollstepLength[6];
+        			rollstepLength[6] 								= rollstepLength[5];
+        			rollstepLength[5] 								= rollstepLength[4];
+ 		       		rollstepLength[4] 								= rollstepLength[3];
+        			rollstepLength[3] 								= rollstepLength[2];
+        			rollstepLength[2] 								= rollstepLength[1];
+        			rollstepLength[1] 								= stepLength;
+					AveragerollstepLength10sec	= (stepLength[1]+rollstepLength[2]+rollstepLength[3]+rollstepLength[4]+rollstepLength[5]+rollstepLength[6]+rollstepLength[7]+rollstepLength[8]+rollstepLength[9]+rollstepLength[10])/10; 
+    			}
+    			if (metric[i] == 114) { 
+    				rollverticalOscillation[10] 					= rollverticalOscillation[9];
+	        		rollverticalOscillation[9] 						= rollverticalOscillation[8];
+    	    		rollverticalOscillation[8] 						= rollverticalOscillation[7];
+        			rollverticalOscillation[7] 						= rollverticalOscillation[6];
+        			rollverticalOscillation[6] 						= rollverticalOscillation[5];
+        			rollverticalOscillation[5] 						= rollverticalOscillation[4];
+ 		       		rollverticalOscillation[4] 						= rollverticalOscillation[3];
+        			rollverticalOscillation[3] 						= rollverticalOscillation[2];
+        			rollverticalOscillation[2] 						= rollverticalOscillation[1];
+        			rollverticalOscillation[1] 						= verticalOscillation;
+					AveragerollverticalOscillation10sec	= (verticalOscillation[1]+rollverticalOscillation[2]+rollverticalOscillation[3]+rollverticalOscillation[4]+rollverticalOscillation[5]+rollverticalOscillation[6]+rollverticalOscillation[7]+rollverticalOscillation[8]+rollverticalOscillation[9]+rollverticalOscillation[10])/10;
+    			}
+    			if (metric[i] == 115) {
+    				rollverticalRatio[10] 							= rollverticalRatio[9];
+	        		rollverticalRatio[9] 							= rollverticalRatio[8];
+    	    		rollverticalRatio[8] 							= rollverticalRatio[7];
+        			rollverticalRatio[7] 							= rollverticalRatio[6];
+        			rollverticalRatio[6] 							= rollverticalRatio[5];
+        			rollverticalRatio[5] 							= rollverticalRatio[4];
+ 		       		rollverticalRatio[4] 							= rollverticalRatio[3];
+        			rollverticalRatio[3] 							= rollverticalRatio[2];
+        			rollverticalRatio[2] 							= rollverticalRatio[1];
+        			rollverticalRatio[1] 							= verticalRatio;
+					AveragerollverticalRatio10sec	= (verticalRatio[1]+rollverticalRatio[2]+rollverticalRatio[3]+rollverticalRatio[4]+rollverticalRatio[5]+rollverticalRatio[6]+rollverticalRatio[7]+rollverticalRatio[8]+rollverticalRatio[9]+rollverticalRatio[10])/10;
+				}
+    		}
+    						
         }
 	}
 
@@ -320,7 +414,7 @@ class CiqView extends ExtramemView {
         		Power[4] 								= Power[3];
         		Power[3] 								= Power[2];
         		Power[2] 								= Power[1];
-				AveragePower10sec	= (Power1+Power[2]+Power[3]+Power[4]+Power[5]+Power[6]+Power[7]+Power[8]+Power[9]+Power[10])/10;
+				AveragePower10sec	= (Power[1]+Power[2]+Power[3]+Power[4]+Power[5]+Power[6]+Power[7]+Power[8]+Power[9]+Power[10])/10;
 				AveragePower5sec	= (Power[1]+Power[2]+Power[3]+Power[4]+Power[5])/5;
 				AveragePower3sec	= (Power[1]+Power[2]+Power[3])/3;
 			}

@@ -3,18 +3,6 @@ using Toybox.Lang;
 using Toybox.System;
 using Toybox.Application.Storage;
 
-class RunDynamicsListen extends Toybox.AntPlus.RunningDynamicsListener {
-	var dynamics;
-	
-	function initialize() {
-		RunningDynamicsListener.initialize();
-	}
-	
-	function onRunningDynamicsUpdate(data) {
-		dynamics = data;	
-	}
-}
-
 class ExtramemView extends DatarunpremiumView {   
 	hidden var uHrZones   			        = [ 93, 111, 130, 148, 167, 185 ];	
 	hidden var uPowerZones                  = "184:Z1:227:Z2:255:Z3:284:Z4:326:Z5:369";
@@ -69,13 +57,32 @@ class ExtramemView extends DatarunpremiumView {
 	var AverageCadence 						= 0; 	
 	var tempeTemp 							= 0;
 	var utempunits							= false;
-	hidden var valueDesc 							= 0;
-	hidden var valueAsc 							= 0; 
-	hidden var valueAsclast						= 0;
-	hidden var valueDesclast						= 0;
-	hidden var Diff1 								= 0;
-	hidden var Diff2 								= 0;
+	hidden var valueDesc 					= 0;
+	hidden var valueAsc 					= 0; 
+	hidden var valueAsclast					= 0;
+	hidden var valueDesclast				= 0;
+	hidden var Diff1 						= 0;
+	hidden var Diff2 						= 0;
 	hidden var startTime;
+	hidden var groundContactBalance			= 0;
+	hidden var rollgroundContactBalance		= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+	hidden var AveragerollgroundContactBalance10sec= 0;
+	hidden var groundContactTime			= 0;
+	hidden var rollgroundContactTime		= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+	hidden var AveragerollgroundContactTime10sec= 0;
+	hidden var stanceTime					= 0;
+	hidden var rollstanceTime				= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+	hidden var AveragerollstanceTime10sec	= 0;
+	hidden var stepCount					= 0;
+	hidden var stepLength					= 0;
+	hidden var rollstepLength				= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+	hidden var AveragerollstepLength10sec	= 0;
+	hidden var verticalOscillation			= 0;
+	hidden var rollverticalOscillation		= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+	hidden var AveragerollverticalOscillation10sec= 0;
+	hidden var verticalRatio				= 0;
+	hidden var rollverticalRatio			= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+	hidden var AveragerollverticalRatio10sec= 0;
 	
     function initialize() {
         DatarunpremiumView.initialize();
@@ -98,27 +105,26 @@ class ExtramemView extends DatarunpremiumView {
 		disablelabel10 						= mApp.getProperty("pdisablelabel10");
 		
 		if(Toybox.AntPlus has :RunningDynamics) {
-			listen = new RunDynamicsListen();
-    		dynamics = new Toybox.AntPlus.RunningDynamics(listen);
+    		dynamics = new Toybox.AntPlus.RunningDynamics(null);
 		}
 		
 		for (var i = 1; i<33; ++i) {
 				VertPace[i] = 0; 
 		}
+		
+		for (i = 1; i < 11; ++i) {
+			rollgroundContactBalance[i] = 0;
+			rollgroundContactTime[i] = 0;
+			rollstanceTime[i] = 0;
+			rollstepLength[i] = 0;
+			rollverticalOscillation[i] = 0;
+			rollverticalRatio[i] = 0;
+		}
     }
 
 	function onUpdate(dc) {
 		//! call the parent onUpdate to do the base logic
-		DatarunpremiumView.onUpdate(dc);
-
-if(listen != null) {
-    var dyna = listen.dynamics;
-//!System.println(dyna);    
-    // Etc.
-}
-
-
-		
+		DatarunpremiumView.onUpdate(dc);		
 		tempeTemp = (Storage.getValue("mytemp") != null) ? Storage.getValue("mytemp") : 0;
 
     	//! Setup back- and foregroundcolours
@@ -184,6 +190,9 @@ if(listen != null) {
         mRacemin = mRacemin.toNumber();
         mRacesec = mRacesec.toNumber();
         mRacetime = mRacehour*3600 + mRacemin*60 + mRacesec;
+
+
+
 	
 		//! Options for metrics
 		var sensorIter = getIterator();
@@ -309,39 +318,32 @@ if(listen != null) {
             	fieldLabel[i] = "VAM";
             	fieldFormat[i] = "1decimal";
 			} else if (metric[i] == 109) {			
-fieldValue[i]=1;
-//!				fieldValue[i] = (Ant.RunningDynamicsData.groundContactBalance != null) ? Ant.RunningDynamicsData.groundContactBalance : 0;
+				fieldValue[i] = AveragerollgroundContactBalance10sec;
 				fieldLabel[i] = "GBalance";
             	fieldFormat[i] = "1decimal"; 
             } else if (metric[i] == 110) {			
-fieldValue[i]=1;
-//!				fieldValue[i] = (Ant.RunningDynamicsData.groundContactTime != null) ? Ant.RunningDynamicsData.groundContactTime : 0;
+				fieldValue[i] = AveragerollgroundContactTime10sec;
 				fieldLabel[i] = "GCTime";
             	fieldFormat[i] = "0decimal";
             } else if (metric[i] == 111) {			
-fieldValue[i]=1;
-//!				fieldValue[i] = (Ant.RunningDynamicsData.stanceTime != null) ? Ant.RunningDynamicsData.stanceTime : 0;
+				fieldValue[i] = AveragerollstanceTime10sec;
 				fieldLabel[i] = "StanceT%";
             	fieldFormat[i] = "1decimal"; 	
             } else if (metric[i] == 112) {			
-fieldValue[i]=1;
-//!				fieldValue[i] = (Ant.RunningDynamicsData.stepCount != null) ? Ant.RunningDynamicsData.stepCount : 0;
+				fieldValue[i] = stepCount;
 				fieldLabel[i] = "StanceT%";
             	fieldFormat[i] = "1decimal";
             } else if (metric[i] == 113) {			
-fieldValue[i]=1;
-//!				fieldValue[i] = (Ant.RunningDynamicsData.stepLength != null) ? Ant.RunningDynamicsData.stepLength : 0;
+				fieldValue[i] = AveragerollstepLength10sec;
 				fieldValue[i] = (unitD == 1609.344) ? fieldValue[i]*3.2808/1000 : fieldValue[i]/1000;
 				fieldLabel[i] = "StepL";
             	fieldFormat[i] = "2decimal";
             } else if (metric[i] == 114) {			
-fieldValue[i]=1;
-//!				fieldValue[i] = (Ant.RunningDynamicsListener != null) ? Ant.RunningDynamicsListener : 0;
+				fieldValue[i] = AveragerollverticalOscillation10sec;
 				fieldLabel[i] = "VertOsc";
             	fieldFormat[i] = "1decimal";
             } else if (metric[i] == 115) {			
-fieldValue[i]=1;
-//!				fieldValue[i] = (Ant.RunningDynamicsData.verticalRatio != null) ? Ant.RunningDynamicsData.verticalRatio : 0;
+				fieldValue[i] = AveragerollverticalRatio10sec;
 				fieldLabel[i] = "VertRat";
             	fieldFormat[i] = "1decimal";
             } else if (metric[i] == 116) {			
@@ -574,32 +576,32 @@ fieldValue[i]=1;
             	CFMLabel = "VAM";
             	CFMFormat = "0decimal";
             } else if (uClockFieldMetric == 109) {			
-				CFMValue = (Ant.RunningDynamicsData.groundContactBalance != null) ? Ant.RunningDynamicsData.groundContactBalance : 0;
+				CFMValue = AveragerollgroundContactBalance10sec;
 				CFMLabel = "GBalance";
             	CFMFormat = "1decimal"; 
             } else if (uClockFieldMetric == 110) {			
-				CFMValue = (Ant.RunningDynamicsData.groundContactTime != null) ? Ant.RunningDynamicsData.groundContactTime : 0;
+				CFMValue = AveragerollgroundContactTime10sec;
 				CFMLabel = "GCTime";
             	CFMFormat = "0decimal";
             } else if (uClockFieldMetric == 111) {			
-				CFMValue = (Ant.RunningDynamicsData.stanceTime != null) ? Ant.RunningDynamicsData.stanceTime : 0;
+				CFMValue = AveragerollstanceTime10sec;
 				CFMLabel = "StanceT%";
             	CFMFormat = "1decimal"; 	
             } else if (uClockFieldMetric == 112) {			
-				CFMValue = (Ant.RunningDynamicsData.stepCount != null) ? Ant.RunningDynamicsData.stepCount : 0;
+				CFMValue = stepCount;
 				CFMLabel = "StanceT%";
             	CFMFormat = "1decimal";
             } else if (uClockFieldMetric == 113) {			
-				CFMValue = (Ant.RunningDynamicsData.stepLength != null) ? Ant.RunningDynamicsData.stepLength : 0;
+				CFMValue = AveragerollstepLength10sec;
 				CFMValue = (unitD == 1609.344) ? CFMValue*3.2808/1000 : CFMValue/1000;
 				CFMLabel = "StepL";
             	CFMFormat = "2decimal";
             } else if (uClockFieldMetric == 114) {			
-				CFMValue = (Ant.RunningDynamicsData.verticalOscillation != null) ? Ant.RunningDynamicsData.verticalOscillation : 0;
+				CFMValue = AveragerollverticalOscillation10sec;
 				CFMLabel = "VertOsc";
             	CFMFormat = "1decimal";
             } else if (uClockFieldMetric == 115) {			
-				CFMValue = (Ant.RunningDynamicsData.verticalRatio != null) ? Ant.RunningDynamicsData.verticalRatio : 0;
+				CFMValue = AveragerollverticalRatio10sec;
 				CFMLabel = "VertRat";
             	CFMFormat = "1decimal";
 			}		 

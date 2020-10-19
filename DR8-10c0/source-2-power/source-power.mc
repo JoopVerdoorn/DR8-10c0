@@ -70,13 +70,13 @@ class PowerView extends CiqView {
         if (currentPowertest > 0) {
             if (currentPowertest > 0) {
             	//! Calculate average power
+        		Power3 								= Power2;
+        		Power2 								= Power1;
 				if (info.currentPower != null) {
         			Power1								= runPower; 
         		} else {
         			Power1								= 0;
 				}
-        		Power3 								= Power2;
-        		Power2 								= Power1;
 				AveragePower3sec= (Power1+Power2+Power3)/3;
 			}
  		}

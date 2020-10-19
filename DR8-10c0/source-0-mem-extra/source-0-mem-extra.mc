@@ -329,10 +329,6 @@ class ExtramemView extends DatarunpremiumView {
 				fieldValue[i] = AveragerollstanceTime10sec;
 				fieldLabel[i] = "StanceT%";
             	fieldFormat[i] = "1decimal"; 	
-            } else if (metric[i] == 112) {			
-				fieldValue[i] = stepCount;
-				fieldLabel[i] = "StanceT%";
-            	fieldFormat[i] = "1decimal";
             } else if (metric[i] == 113) {			
 				fieldValue[i] = AveragerollstepLength10sec;
 				fieldValue[i] = (unitD == 1609.344) ? fieldValue[i]*3.2808/1000 : fieldValue[i]/1000;
@@ -348,7 +344,6 @@ class ExtramemView extends DatarunpremiumView {
             	fieldFormat[i] = "1decimal";
             } else if (metric[i] == 116) {			
 				var myTime = Toybox.System.getClockTime();
-				startTime = (jTimertime > 0) ? startTime : myTime; 
 				fieldValue[i] = (myTime.hour.toNumber()*3600 + myTime.min.toNumber()*60 + myTime.sec.toNumber()) - (startTime.hour.toNumber()*3600 + startTime.min.toNumber()*60 + startTime.sec.toNumber());
 				fieldLabel[i] = "ElapsT";
             	fieldFormat[i] = "time";

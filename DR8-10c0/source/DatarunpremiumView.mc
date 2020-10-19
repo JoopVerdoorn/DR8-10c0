@@ -171,46 +171,6 @@ class DatarunpremiumView extends Ui.DataField {
         CCode = CCode % 346421 + 53263;   
         licenseOK = (umyNumber == mtest) ? true : false;     
     }
-
-
-    //! Timer transitions from stopped to running state
-    function onTimerStart() {
-        startStopPushed();
-        mTimerRunning = true;
-    }
-
-
-    //! Timer transitions from running to stopped state
-    function onTimerStop() {
-        startStopPushed();
-        mTimerRunning = false;
-    }
-
-
-    //! Timer transitions from paused to running state (i.e. resume from Auto Pause is triggered)
-    function onTimerResume() {
-        mTimerRunning = true;
-    }
-
-
-    //! Timer transitions from running to paused state (i.e. Auto Pause is triggered)
-    function onTimerPause() {
-        mTimerRunning = false;
-    }
-
-    
-    //! Start/stop button was pushed - emulated via timer start/stop
-    function startStopPushed() {     
-    	var info = Activity.getActivityInfo();   
-        var doublePressTimeMs = null;
-        if ( mStartStopPushed > 0  &&  info.elapsedTime > 0 ) {
-            doublePressTimeMs = info.elapsedTime - mStartStopPushed;
-        }
-        if ( doublePressTimeMs != null  &&  doublePressTimeMs < 5000 ) {
-            uNoAlerts = !uNoAlerts;
-        }
-        mStartStopPushed = (info.elapsedTime != null) ? info.elapsedTime : 0;
-    }
     
     //!! this is called whenever the screen needs to be updated
     function onUpdate(dc) {	

@@ -83,9 +83,16 @@ class ExtramemView extends DatarunpremiumView {
 	hidden var verticalRatio				= 0;
 	hidden var rollverticalRatio			= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 	hidden var AveragerollverticalRatio10sec= 0;
+	var utempcalibration					= 0;
+	var hrRest;
 	
     function initialize() {
         DatarunpremiumView.initialize();
+		
+		var uProfile = Toybox.UserProfile.getProfile();
+		hrRest = (uProfile.restingHeartRate != null) ? uProfile.restingHeartRate : 50;	
+		hrRest = stringOrNumber(hrRest);
+		
 		var mApp 		 					= Application.getApp();
 		uClockFieldMetric 					= mApp.getProperty("pClockFieldMetric");
 		rolavPacmaxsecs  					= mApp.getProperty("prolavPacmaxsecs");
@@ -312,13 +319,13 @@ class ExtramemView extends DatarunpremiumView {
         	    fieldFormat[i] = "0decimal";
         	} else if (metric[i] == 105) {
 	            fieldValue[i] = tempeTemp;
-	            fieldValue[i] = (utempunits == false) ? fieldValue[i] : fieldValue[i]*1.8+32;
+	            fieldValue[i] = (utempunits == false) ? fieldValue[i]+utempcalibration : fieldValue[i]*1.8+32+utempcalibration;
     	        fieldLabel[i] = "Tempe T";
         	    fieldFormat[i] = "1decimal";
         	} else if (metric[i] == 108) {
            		fieldValue[i] = (unitD == 1609.344) ? AverageVertspeedinmper30sec*3.2808*3600 : AverageVertspeedinmper30sec*3600;
             	fieldLabel[i] = "VAM";
-            	fieldFormat[i] = "1decimal";
+            	fieldFormat[i] = "0decimal";
 			} else if (metric[i] == 109) {			
 				fieldValue[i] = AveragerollgroundContactBalance10sec;
 				fieldLabel[i] = "GBalance";
@@ -346,7 +353,9 @@ class ExtramemView extends DatarunpremiumView {
             	fieldFormat[i] = "1decimal";
             } else if (metric[i] == 116) {			
 				var myTime = Toybox.System.getClockTime();
-				fieldValue[i] = (myTime.hour.toNumber()*3600 + myTime.min.toNumber()*60 + myTime.sec.toNumber()) - (startTime.hour.toNumber()*3600 + startTime.min.toNumber()*60 + startTime.sec.toNumber());
+				fieldValue[i] = (jTimertime == 0) ? 0 : (myTime.hour.toNumber()*3600 + myTime.min.toNumber()*60 + myTime.sec.toNumber()) - (startTime.hour.toNumber()*3600 + startTime.min.toNumber()*60 + startTime.sec.toNumber());
+				var elapsTcorr = (jTimertime == 5 and info.timerTime != null) ? (fieldValue[i] - info.timerTime/1000) : 0;
+				fieldValue[i] = fieldValue[i] - elapsTcorr;
 				fieldLabel[i] = "ElapsT";
             	fieldFormat[i] = "time";
             }
@@ -565,7 +574,7 @@ class ExtramemView extends DatarunpremiumView {
         	    CFMFormat = "0decimal";
         	} else if (uClockFieldMetric == 105) {
 	            CFMValue = tempeTemp;
-	            CFMValue = (utempunits == false) ? CFMValue : CFMValue*1.8+32;
+	            CFMValue = (utempunits == false) ? CFMValue+utempcalibration : CFMValue*1.8+32+utempcalibration;
     	        CFMLabel = "Tempe T";
         	    CFMFormat = "1decimal";
         	}  else if (uClockFieldMetric == 108) {
@@ -892,6 +901,7 @@ class ExtramemView extends DatarunpremiumView {
         var y = CorString.substring(4, 7);
         var w = CorString.substring(8, 11);
         var h = CorString.substring(12, 15);
+        var baseline = 0;
         x = x.toNumber();
         y = y.toNumber();
         w = w.toNumber();
@@ -910,6 +920,7 @@ class ExtramemView extends DatarunpremiumView {
             mZ4under = uHrZones[3];
             mZ5under = uHrZones[4];
             mZ5upper = uHrZones[5];
+            baseline = hrRest;
             if (uGarminColors == true) {
         		Z1color = Graphics.COLOR_LT_GRAY;
         		Z2color = Graphics.COLOR_BLUE;
@@ -990,6 +1001,7 @@ class ExtramemView extends DatarunpremiumView {
             mZ5under = 99999999;
             mZ5upper = 99999999; 
         }
+
         mZone[counter] = 0;
         if (testvalue >= mZ5upper) {
             mfillColour = Z6color;
@@ -1010,10 +1022,10 @@ class ExtramemView extends DatarunpremiumView {
 			mfillColour = Z1color;        
 			mZone[counter] = Math.round(10*(1+(testvalue-mZ1under+0.00001)/(mZ2under-mZ1under+0.00001)))/10;
 		} else {
-			mfillColour = mColourBackGround;        
-            mZone[counter] = 0;
+			mZone[counter] = Math.round(10*((testvalue-baseline+0.00001)/(mZ1under-baseline+0.00001)))/10;  
+			mfillColour = mColourBackGround;      
 		}		
-
+       
 		if ( PalPowerzones == true) {
 		  if (metric[counter] == 20 or metric[counter] == 21 or metric[counter] == 22 or metric[counter] == 23 or metric[counter] == 24 or metric[counter] == 37 or metric[counter] == 38  or metric[counter] == 99 or metric[counter] == 100 or metric[counter] == 101 or metric[counter] == 102 or metric[counter] == 103 or metric[counter] == 104) {  //! Power=20, Powerzone=38, Pwr 5s=21, L Power=22, L-1 Pwr=23, A Power=24		
         	mZ1under = uPower10Zones.substring(0, 3);
@@ -1076,7 +1088,7 @@ class ExtramemView extends DatarunpremiumView {
                     mZone[counter] = Math.round(10*(1+(testvalue-mZ1under+0.00001)/(mZ2under-mZ1under+0.00001)))/10;
                 } else {
                     mfillColour = Graphics.COLOR_LT_GRAY;        //! (Z0)
-                    mZone[counter] = 0;
+                    mZone[counter] = Math.round(10*((testvalue-baseline+0.00001)/(mZ1under-baseline+0.00001)))/10;
                 }
 		 	  }
 		   }
@@ -1107,6 +1119,16 @@ function getIterator() {
         return Toybox.SensorHistory.getTemperatureHistory({});
     }
     return null;
+}
+
+function stringOrNumber(valueorcharacter) {
+	if (valueorcharacter instanceof Toybox.Lang.Number) {
+		//!process Number	
+		return valueorcharacter;
+	} else {
+		//!process String	
+		return 50;
+	}
 }
 
 (:background)

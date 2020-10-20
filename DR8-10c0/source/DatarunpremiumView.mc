@@ -45,15 +45,12 @@ class DatarunpremiumView extends Ui.DataField {
 	hidden var uMilClockAltern = 0;
 	hidden var uShowDemo = false;
 	hidden var umyNumber = 26429769;
-	var uBlackBackground 					= false;
-	
+	var uBlackBackground 					= false;	
 	hidden var mtest = 63869733;
-	hidden var jTimertime = 0;
-	
+	hidden var jTimertime = 0;	
 	hidden var fieldValue = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 	hidden var fieldLabel = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 	hidden var fieldFormat = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];	
-
     var Averagespeedinmper3sec 			= 0;
     var Averagespeedinmper5sec 			= 0;
     hidden var mColour;
@@ -61,7 +58,6 @@ class DatarunpremiumView extends Ui.DataField {
 	hidden var mColourFont1;
     hidden var mColourLine;
     hidden var mColourBackGround;
-   
     hidden var mLapTimerTime   = 0;
 	hidden var mElapsedDistance				= 0;
     hidden var mTimerRunning                = false;	
@@ -72,29 +68,23 @@ class DatarunpremiumView extends Ui.DataField {
     var Pace3 								= 0;
 	var Pace4 								= 0;
     var Pace5 								= 0;
-
     var CurrentSpeedinmpersec		= 0;
     var uRoundedPace                 = true;
-
     hidden var uBacklight                   = false;
-
     hidden var uRequiredPower		 		= "000:999";
     hidden var uWarningFreq		 			= 5;
     hidden var uAlertbeep			 		= false;
 	hidden var uNoAlerts 					= false;
 	hidden var PowerWarning 				= 0;
 	hidden var uUpperMiddleRowBig 			= false;
-	hidden var uLowerMiddleRowBig 			= false;
-    
+	hidden var uLowerMiddleRowBig 			= false;    
     hidden var mStartStopPushed             = 0;    //! Timer value when the start/stop button was last pushed
-
     hidden var mPrevElapsedDistance         = 0;
     hidden var uRacedistance                = 42195;
     hidden var uRacetime					= "03:59:48";
 	hidden var mRacetime  					= 0;
 	var mETA								= 0;
-	var uETAfromLap 						= true;
-	
+	var uETAfromLap 						= true;	
     hidden var mLastLapDistMarker           = 0;
     hidden var mLastLapTimeMarker           = 0;
     hidden var mLastLapStoppedTimeMarker    = 0;
@@ -104,8 +94,7 @@ class DatarunpremiumView extends Ui.DataField {
     hidden var mLapSpeed 					= 0;
     hidden var mLastLapSpeed 				= 0;
 	hidden var mLaps                        = 1;           
-	hidden var metric 						= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-	
+	hidden var metric 						= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];	
     hidden var mElapsedHeartrate   			= 0;
 	hidden var mLastLapHeartrateMarker      = 0;    
     hidden var mCurrentHeartrate    		= 0; 
@@ -122,7 +111,7 @@ class DatarunpremiumView extends Ui.DataField {
 
 	function initialize() {
          DataField.initialize();
-    	
+    	          
          var mApp = Application.getApp();
          metric[1]    	= mApp.getProperty("pUpperLeftMetric");
          metric[2]   	= mApp.getProperty("pUpperRightMetric");
@@ -145,6 +134,11 @@ class DatarunpremiumView extends Ui.DataField {
          uRacetime			 = mApp.getProperty("pRacetime");
          uETAfromLap		 = mApp.getProperty("pETAfromLap");
          var uHrZones = UserProfile.getHeartRateZones(UserProfile.getCurrentSport());
+
+System.println (uHrZones );        
+        
+ 
+
           	 
         if (System.getDeviceSettings().paceUnits == System.UNIT_STATUTE) {
             unitP = 1609.344;

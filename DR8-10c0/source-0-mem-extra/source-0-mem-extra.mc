@@ -100,6 +100,7 @@ class ExtramemView extends DatarunpremiumView {
 		uGarminColors						= mApp.getProperty("pGarminColors");
         uHrZones 							= UserProfile.getHeartRateZones(UserProfile.getCurrentSport());
         utempunits	 						= mApp.getProperty("ptempunits");
+        utempcalibration    				= mApp.getProperty("pTempeCalibration")/10;
         disablelabel1 						= mApp.getProperty("pdisablelabel1");
 		disablelabel2 						= mApp.getProperty("pdisablelabel2");
 		disablelabel3 						= mApp.getProperty("pdisablelabel3");

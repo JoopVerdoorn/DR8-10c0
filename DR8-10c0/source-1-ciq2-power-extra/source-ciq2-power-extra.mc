@@ -37,7 +37,8 @@ class CiqView extends ExtramemView {
     var uFTPHumid 							= 70;
     var uRealAltitude 						= 2;
     var uFTPAltitude 						= 200;
-    
+    var currentStepInfo 					;
+    var stepTargetsAvailable				= false;
 		
     function initialize() {
         ExtramemView.initialize();
@@ -526,6 +527,18 @@ class CiqView extends ExtramemView {
 		mTTS = (uFTP != 0) ? (jTimertime * mNormalizedPow * mIntensityFactor)/(uFTP * 3600) * 100 : 999;
 
 		
+		//! Check workout information, from a workout created in Garmin connect
+		if (Activity has :getCurrentWorkoutStep) {
+			currentStepInfo = Toybox.Activity.getCurrentWorkoutStep();
+			if (currentStepInfo has :step) {
+	            if (currentStepInfo.step instanceof Toybox.Activity.WorkoutStep) {
+    	            stepTargetsAvailable = true;
+        	    } else {
+            	    stepTargetsAvailable = false;
+	            }
+    	    }
+    	}		
+		
 		dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
 		
 		i = 0; 
@@ -730,7 +743,42 @@ class CiqView extends ExtramemView {
 	            fieldValue[i] = (uOnlyPwrCorrFactor == false) ? uPowerTarget : uPowerTarget/PwrCorrFactor;
     	        fieldLabel[i] = "Ptarget";
         	    fieldFormat[i] = "power";
+        	} else if (metric[i] == 117) {
+	            if (stepTargetsAvailable == true) {
+	            	fieldValue[i] = (currentStepInfo.step.activeStep has :targetValueLow) ? currentStepInfo.step.activeStep.targetValueLow-1000 : 885 ;
+	            } else {
+	            	fieldValue[i] = 995;
+	            }
+    	        fieldLabel[i] = "Ltarget";
+        	    fieldFormat[i] = "power";
+        	} else if (metric[i] == 118) {
+	            if (stepTargetsAvailable == true) {
+	            	fieldValue[i] = (currentStepInfo.step.activeStep has :targetValueLow) ? currentStepInfo.step.activeStep.targetValueHigh-1000 : 886 ;
+    	        } else {
+	            	fieldValue[i] = 996;
+	            }
+	            fieldLabel[i] = "Htarget";
+        	    fieldFormat[i] = "power";
+        	} else if (metric[i] == 119) {
+	            if (stepTargetsAvailable == true) {
+	            	fieldValue[i] = (currentStepInfo.step.activeStep has :targetValueLow) ? currentStepInfo.step.activeStep.targetValueLow-1000 : 887 ;
+	            } else {
+	            	fieldValue[i] = 997;
+	            }
+	            fieldValue[i] = (uFTP != 0) ? fieldValue[i]*100/uFTP : 0;
+    	        fieldLabel[i] = "L%target";
+        	    fieldFormat[i] = "power";
+        	} else if (metric[i] == 120) {
+	            if (stepTargetsAvailable == true) {
+	            	fieldValue[i] = (currentStepInfo.step.activeStep has :targetValueHigh) ? currentStepInfo.step.activeStep.targetValueHigh-1000 : 888 ;
+	            } else {
+	            	fieldValue[i] = 998;
+	            }
+	            fieldValue[i] = (uFTP != 0) ? fieldValue[i]*100/uFTP : 0;
+    	        fieldLabel[i] = "H%target";
+        	    fieldFormat[i] = "power";
         	} 
+
         	//!einde invullen field metrics
 		}
 		//! Conditions for showing the demoscreen       

@@ -79,7 +79,7 @@
     <!-- Beta name:
     <string id="AppName">Datarun Ultimate</string>
     -->
-    <string id="lDummysetting4version">Version 2.02 of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 2.02b of Datarun ultimate, main version (dummy setting)</string>
     <string id="lTempeCalibration">Calibration factor for Tempe temperature in tenths of degrees (3 means 0.3 added, -4 means 0.4 subtracted)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>
@@ -280,10 +280,6 @@
     <string id="lstepLength">RunningDynamics step length (requires running, in meters or feet depending on watch settings , requires running pod, HRM-run or HRM-tri)</string>
     <string id="lverticalOscillation">RunningDynamics instantaneous vertical oscillation (in mm, requires running pod, HRM-run or HRM-tri)</string>
     <string id="lverticalRatio">RunningDynamics vertical ratio (0 - 100%, requires running pod, HRM-run or HRM-tri)</string>
-    <string id="lLtarget">Lower power boundary of a workout step, from Training peaks etc, not corrected for temperature etc</string> 
-    <string id="lHtarget">Upper power boundary of a workout step, from Training peaks etc, not corrected for temperature etc</string>
-    <string id="lLperctarget">Lower power boundary of a workout step in % van FTP, from Training peaks etc, not corrected for temperature etc</string> 
-    <string id="lHperctarget">Upper power boundary of a workout step in % van FTP, from Training peaks etc, not corrected for temperature etc</string>
  </strings>
 
   <settings>
@@ -480,10 +476,6 @@
         <listEntry value="996">@Strings.lSPowerMenu</listEntry>
         <listEntry value="107">@Strings.lPtargetcorrect</listEntry>
         <listEntry value="106">@Strings.lCalcPwrTempcorrect</listEntry>
-        <listEntry value="117">@Strings.lLtarget</listEntry>
-        <listEntry value="118">@Strings.lHtarget</listEntry>
-        <listEntry value="119">@Strings.lLperctarget</listEntry>
-        <listEntry value="120">@Strings.lHperctarget</listEntry>
         <listEntry value="20">@Strings.lSPower</listEntry>
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
@@ -613,10 +605,6 @@
         <listEntry value="996">@Strings.lSPowerMenu</listEntry>
         <listEntry value="107">@Strings.lPtargetcorrect</listEntry>
         <listEntry value="106">@Strings.lCalcPwrTempcorrect</listEntry>
-        <listEntry value="117">@Strings.lLtarget</listEntry>
-        <listEntry value="118">@Strings.lHtarget</listEntry>
-        <listEntry value="119">@Strings.lLperctarget</listEntry>
-        <listEntry value="120">@Strings.lHperctarget</listEntry>
         <listEntry value="20">@Strings.lSPower</listEntry>
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
@@ -738,10 +726,6 @@
         <listEntry value="996">@Strings.lSPowerMenu</listEntry>
         <listEntry value="107">@Strings.lPtargetcorrect</listEntry>
         <listEntry value="106">@Strings.lCalcPwrTempcorrect</listEntry>
-        <listEntry value="117">@Strings.lLtarget</listEntry>
-        <listEntry value="118">@Strings.lHtarget</listEntry>
-        <listEntry value="119">@Strings.lLperctarget</listEntry>
-        <listEntry value="120">@Strings.lHperctarget</listEntry>
         <listEntry value="20">@Strings.lSPower</listEntry>
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
@@ -866,10 +850,6 @@
         <listEntry value="996">@Strings.lSPowerMenu</listEntry>
         <listEntry value="107">@Strings.lPtargetcorrect</listEntry>
         <listEntry value="106">@Strings.lCalcPwrTempcorrect</listEntry>
-        <listEntry value="117">@Strings.lLtarget</listEntry>
-        <listEntry value="118">@Strings.lHtarget</listEntry>
-        <listEntry value="119">@Strings.lLperctarget</listEntry>
-        <listEntry value="120">@Strings.lHperctarget</listEntry>
         <listEntry value="20">@Strings.lSPower</listEntry>
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
@@ -991,10 +971,6 @@
         <listEntry value="996">@Strings.lSPowerMenu</listEntry>
         <listEntry value="107">@Strings.lPtargetcorrect</listEntry>
         <listEntry value="106">@Strings.lCalcPwrTempcorrect</listEntry>
-        <listEntry value="117">@Strings.lLtarget</listEntry>
-        <listEntry value="118">@Strings.lHtarget</listEntry>
-        <listEntry value="119">@Strings.lLperctarget</listEntry>
-        <listEntry value="120">@Strings.lHperctarget</listEntry>
         <listEntry value="20">@Strings.lSPower</listEntry>
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
@@ -1117,10 +1093,6 @@
         <listEntry value="996">@Strings.lSPowerMenu</listEntry>
         <listEntry value="107">@Strings.lPtargetcorrect</listEntry>
         <listEntry value="106">@Strings.lCalcPwrTempcorrect</listEntry>
-        <listEntry value="117">@Strings.lLtarget</listEntry>
-        <listEntry value="118">@Strings.lHtarget</listEntry>
-        <listEntry value="119">@Strings.lLperctarget</listEntry>
-        <listEntry value="120">@Strings.lHperctarget</listEntry>
         <listEntry value="20">@Strings.lSPower</listEntry>
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
@@ -1245,10 +1217,6 @@
         <listEntry value="996">@Strings.lSPowerMenu</listEntry>
         <listEntry value="107">@Strings.lPtargetcorrect</listEntry>
         <listEntry value="106">@Strings.lCalcPwrTempcorrect</listEntry>
-        <listEntry value="117">@Strings.lLtarget</listEntry>
-        <listEntry value="118">@Strings.lHtarget</listEntry>
-        <listEntry value="119">@Strings.lLperctarget</listEntry>
-        <listEntry value="120">@Strings.lHperctarget</listEntry>
         <listEntry value="20">@Strings.lSPower</listEntry>
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
@@ -1371,10 +1339,6 @@
         <listEntry value="996">@Strings.lSPowerMenu</listEntry>
         <listEntry value="107">@Strings.lPtargetcorrect</listEntry>
         <listEntry value="106">@Strings.lCalcPwrTempcorrect</listEntry>
-        <listEntry value="117">@Strings.lLtarget</listEntry>
-        <listEntry value="118">@Strings.lHtarget</listEntry>
-        <listEntry value="119">@Strings.lLperctarget</listEntry>
-        <listEntry value="120">@Strings.lHperctarget</listEntry>
         <listEntry value="20">@Strings.lSPower</listEntry>
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
@@ -1506,10 +1470,6 @@
         <listEntry value="996">@Strings.lSPowerMenu</listEntry>
         <listEntry value="107">@Strings.lPtargetcorrect</listEntry>
         <listEntry value="106">@Strings.lCalcPwrTempcorrect</listEntry>
-        <listEntry value="117">@Strings.lLtarget</listEntry>
-        <listEntry value="118">@Strings.lHtarget</listEntry>
-        <listEntry value="119">@Strings.lLperctarget</listEntry>
-        <listEntry value="120">@Strings.lHperctarget</listEntry>
         <listEntry value="20">@Strings.lSPower</listEntry>
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
@@ -1639,10 +1599,6 @@
         <listEntry value="996">@Strings.lSPowerMenu</listEntry>
         <listEntry value="107">@Strings.lPtargetcorrect</listEntry>
         <listEntry value="106">@Strings.lCalcPwrTempcorrect</listEntry>
-        <listEntry value="117">@Strings.lLtarget</listEntry>
-        <listEntry value="118">@Strings.lHtarget</listEntry>
-        <listEntry value="119">@Strings.lLperctarget</listEntry>
-        <listEntry value="120">@Strings.lHperctarget</listEntry>
         <listEntry value="20">@Strings.lSPower</listEntry>
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>

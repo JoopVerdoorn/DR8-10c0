@@ -37,6 +37,8 @@ class CiqView extends ExtramemView {
     var uFTPHumid 							= 70;
     var uRealAltitude 						= 2;
     var uFTPAltitude 						= 200;
+    var workoutTarget 						;
+    var hasWorkoutStep 						= false;
     
 		
     function initialize() {
@@ -298,7 +300,7 @@ class CiqView extends ExtramemView {
 					PwrCorrFactor = 1- (B24 - B25) - (B39-B38)/100;
 				}
 			}
-           	
+        	
             //!Calculate lappower
             mPowerTime		 = (info.currentPower != null) ? mPowerTime+1 : mPowerTime;
             if (uOnlyPwrCorrFactor == false) {
@@ -525,6 +527,12 @@ class CiqView extends ExtramemView {
 		mIntensityFactor = (uFTP != 0) ? mNormalizedPow / uFTP : 0;
 		mTTS = (uFTP != 0) ? (jTimertime * mNormalizedPow * mIntensityFactor)/(uFTP * 3600) * 100 : 999;
 
+		if (Activity has :getCurrentWorkoutStep) {
+			workoutTarget = Toybox.Activity.getCurrentWorkoutStep();
+			hasWorkoutStep = true;
+		} else {
+			hasWorkoutStep = false;
+		}
 		
 		dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
 		
@@ -729,6 +737,40 @@ class CiqView extends ExtramemView {
         	} else if (metric[i] == 107) {
 	            fieldValue[i] = (uOnlyPwrCorrFactor == false) ? uPowerTarget : uPowerTarget/PwrCorrFactor;
     	        fieldLabel[i] = "Ptarget";
+        	    fieldFormat[i] = "power";
+        	} else if (metric[i] == 117) {
+	            if (hasWorkoutStep == true) {
+		            fieldValue[i] = (workoutTarget != null) ? (workoutTarget.step.targetValueLow.toNumber() - 1000)/PwrCorrFactor : 0;
+        		} else {
+        			fieldValue[i] = 996;
+    		    }
+    		    fieldLabel[i] = "Ltarget";
+        		fieldFormat[i] = "power";
+        	} else if (metric[i] == 118) {
+	            if (hasWorkoutStep == true) {
+	            fieldValue[i] = (workoutTarget != null) ? (workoutTarget.step.targetValueHigh.toNumber() - 1000)/PwrCorrFactor : 0;
+	            } else {
+        			fieldValue[i] = 996;
+        		}
+        		fieldLabel[i] = "Htarget";
+        	    fieldFormat[i] = "power";
+        	} else if (metric[i] == 119) {
+	            if (hasWorkoutStep == true) {
+	            	fieldValue[i] = (workoutTarget != null) ? (workoutTarget.step.targetValueLow.toNumber() - 1000)/PwrCorrFactor : 0;
+	            	fieldValue[i] = (uFTP != 0) ? fieldValue[i]*100/uFTP : 0;
+    	        } else {
+        			fieldValue[i] = 998;
+        		}
+        		fieldLabel[i] = "L%target";
+        	    fieldFormat[i] = "power";
+        	} else if (metric[i] == 120) {
+	            if (hasWorkoutStep == true) {
+		            fieldValue[i] = (workoutTarget != null) ? (workoutTarget.step.targetValueHigh.toNumber() - 1000)/PwrCorrFactor : 0;
+		            fieldValue[i] = (uFTP != 0) ? fieldValue[i]*100/uFTP : 0;
+    	        } else {
+        			fieldValue[i] = 999;
+        		}
+        		fieldLabel[i] = "H%target";
         	    fieldFormat[i] = "power";
         	} 
         	//!einde invullen field metrics

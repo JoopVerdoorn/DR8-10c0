@@ -86,7 +86,13 @@ class PowerView extends CiqView {
         var mPowerWarningunder = uRequiredPower.substring(0, 3);
         var mPowerWarningupper = uRequiredPower.substring(4, 7);
         mPowerWarningunder = mPowerWarningunder.toNumber();
-        mPowerWarningupper = mPowerWarningupper.toNumber(); 
+        mPowerWarningupper = mPowerWarningupper.toNumber();
+        
+        if (Activity has :getCurrentWorkoutStep) {
+        	mPowerWarningunder = WorkoutStepLowBoundary;
+        	mPowerWarningupper = WorkoutStepHighBoundary;
+        }
+         
 		var vibrateData = [
 			new Attention.VibeProfile( 100, 100 )
 		];

@@ -79,7 +79,7 @@
     <!-- Beta name:
     <string id="AppName">Datarun Ultimate</string>
     -->
-    <string id="lDummysetting4version">Version 2.04b of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 2.04c of Datarun ultimate, main version (dummy setting)</string>
     <string id="lTempeCalibration">Calibration factor for Tempe temperature in tenths of degrees (3 means 0.3 added, -4 means 0.4 subtracted)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>

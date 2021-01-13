@@ -18,6 +18,7 @@ class PowerView extends CiqView {
 	var vibrateseconds 							= 0;  
 	hidden var uLapPwr4alerts 					= false;
 	hidden var runPower							= 0;
+	var overruleWourkout						= false;
 
     
     function initialize() {
@@ -26,7 +27,8 @@ class PowerView extends CiqView {
          uRequiredPower		 = mApp.getProperty("pRequiredPower");
          uWarningFreq		 = mApp.getProperty("pWarningFreq");
          uAlertbeep			 = mApp.getProperty("pAlertbeep");
-         uLapPwr4alerts    = mApp.getProperty("pLapPwr4alerts");       
+         uLapPwr4alerts      = mApp.getProperty("pLapPwr4alerts");
+         overruleWourkout	 = mApp.getProperty("poverruleWourkout");       
     }
 	
     //! Current activity is ended
@@ -88,9 +90,14 @@ class PowerView extends CiqView {
         mPowerWarningunder = mPowerWarningunder.toNumber();
         mPowerWarningupper = mPowerWarningupper.toNumber();
         
-        if (Activity has :getCurrentWorkoutStep) {
-        	mPowerWarningunder = WorkoutStepLowBoundary;
-        	mPowerWarningupper = (WorkoutStepHighBoundary > 0) ? WorkoutStepHighBoundary : 999;
+        if (Activity has :getCurrentWorkoutStep and overruleWourkout == false) {
+        	if (WorkoutStepHighBoundary > 0) {
+        		mPowerWarningunder = WorkoutStepLowBoundary;
+   	    		mPowerWarningupper = WorkoutStepHighBoundary; 
+       		} else {
+       			mPowerWarningunder = 0;
+       			mPowerWarningupper = 999;
+       		}
         }
          
 		var vibrateData = [

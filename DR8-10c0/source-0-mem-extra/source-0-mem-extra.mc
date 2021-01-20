@@ -464,14 +464,6 @@ class ExtramemView extends DatarunpremiumView {
 	            CFMValue = Averagespeedinmpersec;
     	        CFMLabel = "Pc ..sec";
         	    CFMFormat = "pace";            	
-			} else if (uClockFieldMetric == 55) {   
-            	if (info.currentSpeed != null or info.currentSpeed!=0) {
-            		CFMValue = (jTimertime > 0) ? 100/info.currentSpeed : 0;
-            	} else {
-            		CFMValue = 0;
-            	}
-            	CFMLabel = "s/100m";
-        	    CFMFormat = "2decimal";
 	        } else if (uClockFieldMetric == 28) {
     	        CFMValue = LapEfficiencyFactor;
         	    CFMLabel = "Lap EF";

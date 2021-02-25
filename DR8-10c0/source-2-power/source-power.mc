@@ -19,6 +19,8 @@ class PowerView extends CiqView {
 	hidden var uLapPwr4alerts 					= false;
 	hidden var runPower							= 0;
 	var overruleWourkout						= false;
+	hidden var mPowerWarningunder				= 0;
+    hidden var mPowerWarningupper 				= 999;
 
     
     function initialize() {

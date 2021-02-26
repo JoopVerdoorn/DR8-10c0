@@ -288,7 +288,7 @@
     <string id="lLperctarget">Lower power boundary of a workout step in % van FTP, from Training peaks etc, corrected by temperature/humidity/altitude if set in settings</string> 
     <string id="lHperctarget">Upper power boundary of a workout step in % van FTP, from Training peaks etc, corrected by temperature/humidity/altitude if set in settings</string>
     <string id="lStepnumber">Current step number of a workout</string>
-    <string id="lReamingTimeOfStep">Remaining time of the current step of a workout</string>
+    <string id="lReamingTimeOfStep">Remaining time or distance of the current step of a workout</string>
     <string id="loverruleWourkout">Use a static powerzone for alerts, not powerzones from workout steps</string> 
  </strings>
 

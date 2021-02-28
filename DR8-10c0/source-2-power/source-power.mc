@@ -95,9 +95,9 @@ class PowerView extends CiqView {
 		} else if ( uLapPwr4alerts == 3 ) {
 	    	runalertPower 	 = AveragePower10sec;
 		} else if ( uLapPwr4alerts == 4 ) {
-	    	runalertPower 	 = AveragePower3sec;
-		} else if ( uLapPwr4alerts == 5 ) {
 	    	runalertPower 	 = Averagepowerpersec;
+		} else if ( uLapPwr4alerts == 5 ) {
+	    	runalertPower 	 = LapPower;
 		} else if ( uLapPwr4alerts == 6 ) {
 	    	runalertPower 	 = AveragePower;
 		}

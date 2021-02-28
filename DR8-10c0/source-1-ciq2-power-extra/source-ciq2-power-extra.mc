@@ -48,7 +48,12 @@ class CiqView extends ExtramemView {
     var RemainingWorkoutTime  				= 0;
     var RemainingWorkoutDistance			= 0;
     var WorkoutStepDurationType  			= 9;
-    
+    hidden var AveragePower5sec  	 		= 0;
+    hidden var AveragePower10sec  	 		= 0;
+    hidden var mFontalertColorLow			= Graphics.COLOR_RED;
+    var uFontalertColorLow					= 5;
+    hidden var mFontalertColorHigh			= Graphics.COLOR_PURPLE;
+    var uFontalertColorHigh					= 4;
 		
     function initialize() {
         ExtramemView.initialize();
@@ -72,6 +77,8 @@ class CiqView extends ExtramemView {
     	uPwrAlticorrect  = mApp.getProperty("pPwrAlticorrect");
     	uRealAltitude 	 = mApp.getProperty("pRealAltitude");
     	uFTPAltitude	 = mApp.getProperty("pFTPAltitude");
+    	uFontalertColorLow = mApp.getProperty("pFontalertColorLow");
+    	uFontalertColorHigh = mApp.getProperty("pFontalertColorHigh");
 	
 		uRealHumid = (uRealHumid != 0 ) ? uRealHumid : 1;
 		uFTPHumid = (uFTPHumid != 0 ) ? uFTPHumid : 1;
@@ -82,6 +89,41 @@ class CiqView extends ExtramemView {
 		}
 		
 		labelFontOffset = (uLfont240big == true) ? 1 : 0;
+		
+		//! Choose fontcolor for alert when power value is under or above powerzone
+        if ( uFontalertColorLow == 0 ) {
+	    	mFontalertColorLow 	 = Graphics.COLOR_GREEN;
+	    } else if ( uFontalertColorLow == 1 ) {
+	    	mFontalertColorLow 	 = Graphics.COLOR_BLUE;
+		} else if ( uFontalertColorLow == 2 ) {
+	    	mFontalertColorLow 	 = Graphics.COLOR_DK_GRAY;
+		} else if ( uFontalertColorLow == 3 ) {
+	    	mFontalertColorLow 	 = Graphics.COLOR_WHITE;
+		} else if ( uFontalertColorLow == 4 ) {
+	    	mFontalertColorLow 	 = Graphics.COLOR_PURPLE;
+		} else if ( uFontalertColorLow == 5 ) {
+	    	mFontalertColorLow 	 = Graphics.COLOR_RED;
+		} else if ( uFontalertColorLow == 6 ) {
+	    	mFontalertColorLow 	 = Graphics.COLOR_BLACK;
+		}
+		
+		if ( uFontalertColorHigh == 0 ) {
+	    	mFontalertColorHigh 	 = Graphics.COLOR_GREEN;
+	    } else if ( uFontalertColorHigh == 1 ) {
+	    	mFontalertColorHigh 	 = Graphics.COLOR_BLUE;
+		} else if ( uFontalertColorHigh == 2 ) {
+	    	mFontalertColorHigh 	 = Graphics.COLOR_DK_GRAY;
+		} else if ( uFontalertColorHigh == 3 ) {
+	    	mFontalertColorHigh 	 = Graphics.COLOR_WHITE;
+		} else if ( uFontalertColorHigh == 4 ) {
+	    	mFontalertColorHigh 	 = Graphics.COLOR_PURPLE;
+		} else if ( uFontalertColorHigh == 5 ) {
+	    	mFontalertColorHigh 	 = Graphics.COLOR_RED;
+		} else if ( uFontalertColorHigh == 6 ) {
+	    	mFontalertColorHigh 	 = Graphics.COLOR_BLACK;
+		}
+		
+		
 		
 		for (i = 1; i < 11; ++i) {
 			Power[i] = 0;
@@ -468,10 +510,8 @@ class CiqView extends ExtramemView {
 		//!Calculate HR-metrics
 		var info = Activity.getActivityInfo();
 				
-		//!Calculate 10sec averaged power
-        var AveragePower5sec  	 			= 0;
-        var AveragePower10sec  	 			= 0;
-        var currentPowertest				= 0;
+		//!Calculate 3, 5 and 10 sec averaged power
+		var currentPowertest				= 0;
 		if (info.currentSpeed != null) {
         	currentPowertest = runPower; 
         }
@@ -857,7 +897,8 @@ class CiqView extends ExtramemView {
         yh = yh.toNumber();
         xl = xl.toNumber();
         yl = yl.toNumber();
-
+        
+		//! Show zone metric instead of real value
 		fieldvalue = (metric[counter]==38) ? mZone[counter] : fieldvalue;
 		fieldvalue = (metric[counter]==99) ? mZone[counter] : fieldvalue;
 		fieldvalue = (metric[counter]==100) ? mZone[counter] : fieldvalue;
@@ -893,9 +934,9 @@ class CiqView extends ExtramemView {
         	PowerWarning = (setPowerWarning == 1) ? 1 : PowerWarning;    	
         	PowerWarning = (setPowerWarning == 2) ? 2 : PowerWarning;
         	if (PowerWarning == 1) { 
-        		mColourFont = Graphics.COLOR_PURPLE;
+        		mColourFont = mFontalertColorHigh;
         	} else if (PowerWarning == 2) { 
-        		mColourFont = Graphics.COLOR_RED;
+        		mColourFont = mFontalertColorLow;
         	} else if (PowerWarning == 0) { 
         		mColourFont = originalFontcolor;
         	}

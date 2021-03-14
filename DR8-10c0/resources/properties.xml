@@ -73,6 +73,7 @@
     <property id="pFTPAltitude" type="number">200</property>
     <property id="pTempeCalibration" type="number">0</property>
     <property id="poverruleWourkout" type="boolean">false</property>
+    <property id="pShowRedClock" type="boolean">false</property>
   </properties>
 
 	
@@ -82,7 +83,7 @@
     <!-- Beta name:
     <string id="AppName">Datarun Ultimate</string>
     -->
-    <string id="lDummysetting4version">Version 2.06c of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 2.07 of Datarun ultimate, main version (dummy setting)</string>
     <string id="lTempeCalibration">Calibration factor for Tempe temperature in tenths of degrees (3 means 0.3 added, -4 means 0.4 subtracted)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>
@@ -308,6 +309,7 @@
     <string id="lStepnumber">Current step number of a workout</string>
     <string id="lReamingTimeOfStep">Remaining time or distance of the current step of a workout</string>
     <string id="loverruleWourkout">Use a static powerzone for alerts, not powerzones from workout steps</string> 
+    <string id="lShowRedClock">Show red clock over all metrics before the start of an activity (useful for a race when the normal clock isn't visible)</string>
  </strings>
 
   <settings>
@@ -456,6 +458,9 @@
     </setting>
     <setting propertyKey="@Properties.prolavPowmaxsecs" title="@Strings.lrolavPowmaxsecs">
       <settingConfig type="numeric" errorMessage="@Strings.lrolavPowmaxsecsError" />
+    </setting>
+    <setting propertyKey="@Properties.pShowRedClock" title="@Strings.lShowRedClock">
+      <settingConfig type="boolean" required="false" />
     </setting>
     <setting propertyKey="@Properties.pMilClockAltern" title="@Strings.lMilClockAltern">
       <settingConfig type="list" required="true">

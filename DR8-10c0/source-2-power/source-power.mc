@@ -70,7 +70,7 @@ class PowerView extends CiqView {
         var mPowerWarningupper = uRequiredPower.substring(4, 7);
         mPowerWarningunder = mPowerWarningunder.toNumber();
         mPowerWarningupper = mPowerWarningupper.toNumber();
-        
+          
         if (Activity has :getCurrentWorkoutStep and overruleWourkout == false) {
         	if (WorkoutStepHighBoundary > 0) {
         		mPowerWarningunder = WorkoutStepLowBoundary;
@@ -80,7 +80,7 @@ class PowerView extends CiqView {
        			mPowerWarningupper = 999;
        		}
         }
-         
+           
 		var vibrateData = [
 			new Attention.VibeProfile( 100, 200 )
 		];
@@ -101,13 +101,12 @@ class PowerView extends CiqView {
 		} else if ( uLapPwr4alerts == 6 ) {
 	    	runalertPower 	 = AveragePower;
 		}
-		PowerWarning = 0;
+		
 		if (jTimertime != 0) {
 		  if (runalertPower>mPowerWarningupper or runalertPower<mPowerWarningunder) {	 
 			 if (Toybox.Attention has :vibrate && uNoAlerts == false) {
 			 	vibrateseconds = vibrateseconds + 1;	 		  			
     			if (runalertPower>mPowerWarningupper) {
-    				PowerWarning = 1;
     				if (vibrateseconds == uWarningFreq) {
     					Toybox.Attention.vibrate(vibrateData);
     					if (uAlertbeep == true) {
@@ -117,9 +116,7 @@ class PowerView extends CiqView {
     					vibrateseconds = 0;
     				}
     			} else if (runalertPower<mPowerWarningunder){
-    				PowerWarning = 2;
-    				if (vibrateseconds == uWarningFreq) {
-    					
+    				if (vibrateseconds == uWarningFreq) {    					
     						if (uAlertbeep == true) {
     							Attention.playTone(Attention.TONE_ALERT_LO);
     						}

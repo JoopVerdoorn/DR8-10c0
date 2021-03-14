@@ -16,7 +16,6 @@ class CiqView extends ExtramemView {
 	var mIntensityFactor					= 0;
 	var mTTS								= 0;
 	var i 									= 0;
-	var setPowerWarning 					= 0;
 	var Garminfont 							= Ui.loadResource(Rez.Fonts.Garmin1);
 	var Garminfontbig 						= Ui.loadResource(Rez.Fonts.Garmin1big);
 	hidden var Labelfont					= Graphics.FONT_XTINY;
@@ -654,7 +653,7 @@ class CiqView extends ExtramemView {
             	fieldFormat[i] = "1decimal";          	
 			} else if (metric[i] == 17) {
 	            fieldValue[i] = Averagespeedinmpersec;
-    	        fieldLabel[i] = "Pc ..sec";
+    	        fieldLabel[i] = "Pc " + rolavPacmaxsecs + "s";
         	    fieldFormat[i] = "pace";            	
 			} else if (metric[i] == 55) {   
             	if (info.currentSpeed == null or info.currentSpeed==0) {
@@ -722,7 +721,7 @@ class CiqView extends ExtramemView {
             	fieldFormat[i] = "power";
 			} else if (metric[i] == 37) {
 	            fieldValue[i] = Averagepowerpersec;
-    	        fieldLabel[i] = "Pw ..sec";
+    	        fieldLabel[i] = "Pw " + rolavPowmaxsecs + "s";
         	    fieldFormat[i] = "power";
 			} else if (metric[i] == 57) {
 	            fieldValue[i] = mNormalizedPow;
@@ -867,9 +866,9 @@ class CiqView extends ExtramemView {
 						fieldLabel[i] = "Remain D";
         	    		fieldFormat[i] = "2decimal";
         	    	} else if (WorkoutStepDurationType == 5) {
-						fieldValue[i] = 0;
+						fieldValue[i] = jTimertime-StartTimeNewStep;
 						fieldLabel[i] = "Button";
-        	    		fieldFormat[i] = "0decimal";
+        	    		fieldFormat[i] = "time";
 					}     
     	        } else {
         			fieldValue[i] = 0;
@@ -910,7 +909,7 @@ class CiqView extends ExtramemView {
         yh = yh.toNumber();
         xl = xl.toNumber();
         yl = yl.toNumber();
-        
+       
 		//! Show zone metric instead of real value
 		fieldvalue = (metric[counter]==38) ? mZone[counter] : fieldvalue;
 		fieldvalue = (metric[counter]==99) ? mZone[counter] : fieldvalue;
@@ -920,6 +919,12 @@ class CiqView extends ExtramemView {
 		fieldvalue = (metric[counter]==103) ? mZone[counter] : fieldvalue;
 		fieldvalue = (metric[counter]==104) ? mZone[counter] : fieldvalue;  
 		fieldvalue = (metric[counter]==46) ? mZone[counter] : fieldvalue;
+
+		//Onduidelijk waarom ondestaande hier ook moet staan, staat ook in source-power.mc
+		var mPowerWarningunder = uRequiredPower.substring(0, 3);
+        var mPowerWarningupper = uRequiredPower.substring(4, 7);
+        mPowerWarningunder = mPowerWarningunder.toNumber();
+        mPowerWarningupper = mPowerWarningupper.toNumber();
 		
         if ( fieldformat.equals("0decimal" ) == true ) {
         	fieldvalue = fieldvalue.format("%.0f");  
@@ -942,17 +947,19 @@ class CiqView extends ExtramemView {
         } else if ( fieldformat.equals("pace" ) == true ) {
         	Temp = (fieldvalue != 0 ) ? (unitP/fieldvalue).toLong() : 0;
         	fieldvalue = (Temp / 60).format("%0d") + ":" + Math.round(Temp % 60).format("%02d");
-        } else if ( fieldformat.equals("power" ) == true ) {   
+        } else if ( fieldformat.equals("power" ) == true ) {         
         	fieldvalue = Math.round(fieldvalue).toNumber();
-        	PowerWarning = (setPowerWarning == 1) ? 1 : PowerWarning;    	
-        	PowerWarning = (setPowerWarning == 2) ? 2 : PowerWarning;
-        	if (PowerWarning == 1) { 
-        		mColourFont = mFontalertColorHigh;
-        	} else if (PowerWarning == 2) { 
-        		mColourFont = mFontalertColorLow;
-        	} else if (PowerWarning == 0) { 
-        		mColourFont = originalFontcolor;
-        	}
+			if (jTimertime != 0) {		  
+				if (fieldvalue>mPowerWarningupper or fieldvalue<mPowerWarningunder) {				 
+	    			if (fieldvalue>mPowerWarningupper) {
+    					mColourFont = mFontalertColorHigh;
+    				} else if (fieldvalue<mPowerWarningunder){
+    					mColourFont = mFontalertColorLow;
+    				} else  { 
+        				mColourFont = originalFontcolor;
+    				}
+    			} 
+			}
         } else if ( fieldformat.equals("timeshort" ) == true  ) {
         	Temp = (fieldvalue != 0 ) ? (fieldvalue).toLong() : 0;
         	fieldvalue = (Temp /60000 % 60).format("%02d") + ":" + (Temp /1000 % 60).format("%02d");

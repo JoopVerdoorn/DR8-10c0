@@ -108,6 +108,7 @@ class DatarunpremiumView extends Ui.DataField {
 	hidden var LastLapHeartrate				= 0;
 	hidden var AverageHeartrate 			= 0; 
 	hidden var mLapElapsedDistance 			= 0;
+	hidden var uShowRedClock 				= false;
 
 	function initialize() {
          DataField.initialize();
@@ -134,6 +135,7 @@ class DatarunpremiumView extends Ui.DataField {
          uRacetime			 = mApp.getProperty("pRacetime");
          uETAfromLap		 = mApp.getProperty("pETAfromLap");
          var uHrZones = UserProfile.getHeartRateZones(UserProfile.getCurrentSport());
+         uShowRedClock = mApp.getProperty("pShowRedClock");
    
         
  
@@ -317,23 +319,23 @@ class DatarunpremiumView extends Ui.DataField {
 			} else if (metric[i] == 40) {
     	        fieldValue[i] = (info.currentSpeed != null) ? 3.6*info.currentSpeed*1000/unitP : 0;
         	    fieldLabel[i] = "Speed";
-            	fieldFormat[i] = "2decimal";   
+            	fieldFormat[i] = "1decimal";   
 	        } else if (metric[i] == 41) {
     	        fieldValue[i] = (info.currentSpeed != null) ? 3.6*((Pace1+Pace2+Pace3+Pace4+Pace5)/5)*1000/unitP : 0;
         	    fieldLabel[i] = "Spd 5s";
-            	fieldFormat[i] = "2decimal";
+            	fieldFormat[i] = "1decimal";
 	        } else if (metric[i] == 42) {
     	        fieldValue[i] = (mLapSpeed != null) ? 3.6*mLapSpeed*1000/unitP  : 0;
         	    fieldLabel[i] = "L Spd";
-            	fieldFormat[i] = "2decimal";
+            	fieldFormat[i] = "1decimal";
 			} else if (metric[i] == 43) {
     	        fieldValue[i] = (mLastLapSpeed != null) ? 3.6*mLastLapSpeed*1000/unitP : 0;
         	    fieldLabel[i] = "LL Spd";
-            	fieldFormat[i] = "2decimal";
+            	fieldFormat[i] = "1decimal";
 			} else if (metric[i] == 44) {
 	            fieldValue[i] = (info.averageSpeed != null) ? 3.6*info.averageSpeed*1000/unitP : 0;
     	        fieldLabel[i] = "Avg Spd";
-        	    fieldFormat[i] = "2decimal";
+        	    fieldFormat[i] = "1decimal";
 			} else if (metric[i] == 47) {
     	        fieldValue[i] = LapHeartrate;
         	    fieldLabel[i] = "Lap HR";

@@ -761,7 +761,7 @@ class CiqView extends ExtramemView {
             	fieldFormat[i] = "power";
 			} else if (metric[i] == 78) {
 	            fieldValue[i] = (uFTP != 0) ? Averagepowerpersec*100/uFTP : 0;
-    	        fieldLabel[i] = "%FTP ..sec";
+    	        fieldLabel[i] = "%FTP ..sec"; 
         	    fieldFormat[i] = "power";
 			} else if (metric[i] == 58) {
 	            fieldValue[i] = mIntensityFactor;
@@ -921,11 +921,9 @@ class CiqView extends ExtramemView {
 		fieldvalue = (metric[counter]==46) ? mZone[counter] : fieldvalue;
 
 		//Onduidelijk waarom ondestaande hier ook moet staan, staat ook in source-power.mc
-		var mPowerWarningunder = uRequiredPower.substring(0, 3);
-        var mPowerWarningupper = uRequiredPower.substring(4, 7);
-        mPowerWarningunder = mPowerWarningunder.toNumber();
-        mPowerWarningupper = mPowerWarningupper.toNumber();
-		
+        mPowerWarningunder = mPowerWarningunderhelper;
+        mPowerWarningupper = mPowerWarningupperhelper;
+
         if ( fieldformat.equals("0decimal" ) == true ) {
         	fieldvalue = fieldvalue.format("%.0f");  
         } else if ( fieldformat.equals("1decimal" ) == true ) {

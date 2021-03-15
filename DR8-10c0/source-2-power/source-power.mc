@@ -21,7 +21,8 @@ class PowerView extends CiqView {
 	var overruleWourkout						= false;
 	hidden var mPowerWarningunder				= 0;
     hidden var mPowerWarningupper 				= 999;
-
+	hidden var mPowerWarningunderhelper			= 0;   // waarom nodig?
+	hidden var mPowerWarningupperhelper			= 999;  // waarom nodig?
     
     function initialize() {
         CiqView.initialize();
@@ -80,6 +81,10 @@ class PowerView extends CiqView {
        			mPowerWarningupper = 999;
        		}
         }
+
+		// Waarom nodig?
+		mPowerWarningunderhelper = mPowerWarningunder;
+		mPowerWarningupperhelper = mPowerWarningupper;
            
 		var vibrateData = [
 			new Attention.VibeProfile( 100, 200 )

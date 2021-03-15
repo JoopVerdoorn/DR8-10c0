@@ -211,7 +211,7 @@ class ExtramemView extends DatarunpremiumView {
 	    for (i = 1; i < 11; ++i) {
 	        if (metric[i] == 17) {
 	            fieldValue[i] = Averagespeedinmpersec;
-    	        fieldLabel[i] = "Pc ..sec";
+    	        fieldLabel[i] = "Pa " + rolavPacmaxsecs + "s";
         	    fieldFormat[i] = "pace";  
         	} else if (metric[i] == 81) {
 	        	if (Toybox.Activity.Info has :distanceToNextPoint) {
@@ -267,7 +267,7 @@ class ExtramemView extends DatarunpremiumView {
             	fieldFormat[i] = "1decimal";           	
         	}  else if (metric[i] == 63) {
            		fieldValue[i] = 3.6*Averagespeedinmpersec*1000/unitP ;
-            	fieldLabel[i] = "Spd ..s";
+            	fieldLabel[i] = "Sp " + rolavPacmaxsecs + "s";
             	fieldFormat[i] = "1decimal";           	
         	}  else if (metric[i] == 67) {
            		fieldValue[i] = (unitD == 1609.344) ? AverageVertspeedinmper30sec*3.2808 : AverageVertspeedinmper30sec;

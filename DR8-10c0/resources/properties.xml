@@ -83,7 +83,7 @@
     <!-- Beta name:
     <string id="AppName">Datarun Ultimate</string>
     -->
-    <string id="lDummysetting4version">Version 2.07c of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 2.08 of Datarun ultimate, main version (dummy setting)</string>
     <string id="lTempeCalibration">Calibration factor for Tempe temperature in tenths of degrees (3 means 0.3 added, -4 means 0.4 subtracted)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>
@@ -181,6 +181,7 @@
     <string id="lFontalertPurple">Purple</string>
     <string id="lFontalertRed">Red</string>
     <string id="lFontalertBlack">Black</string>
+    <string id="lFontalertDarkBlue">Dark blue</string>
 	<string id="lPacefield">Pace field on middle row</string>
 	<string id="lPaceper3km">Pace averaged over the last 3 seconds</string>
 	<string id="lPaceper5km">Pace averaged over the last 5 seconds</string>
@@ -275,7 +276,7 @@
     <string id="lLfont240big">Use large label font for smaller watch diameter (Fenix 5+, FR945, Fenix 6s etc)</string>
     <string id="ltempunits">Use Fahrenheit instead of Celsius for temperature metrics (Celsius is default)</string>
     <string id="lPowerTarget">Powertarget in Watt, useful when power correction is set only to influence powertarget</string>
-    <string id="lPtargetcorrect">Powertarget in Watt as set in settings, corrected by temperature/humidity/altitude if set in settings</string>
+    <string id="lPtargetcorrect">Powertarget in Watt as set in settings or defined by a workout, corrected by temperature/humidity/altitude if set in settings</string>
     <string id="lOnlyPwrCorrFactor">Use correction factors for running power only to change powertarget</string>
     <string id="lPwrTempcorrect">Power correction based on temperature</string>
     <string id="lNoPwrTempcorrect">No correction</string>
@@ -302,13 +303,13 @@
     <string id="lverticalOscillation">RunningDynamics instantaneous vertical oscillation (in mm, requires running pod, HRM-run or HRM-tri)</string>
     <string id="lverticalRatio">RunningDynamics vertical ratio (0 - 100%, requires running pod, HRM-run or HRM-tri)</string>
     <string id="lCCnumber">C-Code generated on the watch by the corresponding main Datarun premium datafield</string>
-     <string id="lLtarget">Lower power boundary of a workout step, from Training peaks etc, corrected by temperature/humidity/altitude if set in settings</string> 
-    <string id="lHtarget">Upper power boundary of a workout step, from Training peaks etc, corrected by temperature/humidity/altitude if set in settings</string>
-    <string id="lLperctarget">Lower power boundary of a workout step in % van FTP, from Training peaks etc, corrected by temperature/humidity/altitude if set in settings</string> 
-    <string id="lHperctarget">Upper power boundary of a workout step in % van FTP, from Training peaks etc, corrected by temperature/humidity/altitude if set in settings</string>
-    <string id="lStepnumber">Current step number of a workout</string>
-    <string id="lReamingTimeOfStep">Remaining time or distance of the current step of a workout</string>
-    <string id="loverruleWourkout">Use a static powerzone for alerts, not powerzones from workout steps</string> 
+     <string id="lLtarget">Lower power boundary of a workout step (not for F5x), from Training peaks etc, corrected by temperature/humidity/altitude if set in settings</string> 
+    <string id="lHtarget">Upper power boundary of a workout step (not for F5x), from Training peaks etc, corrected by temperature/humidity/altitude if set in settings</string>
+    <string id="lLperctarget">Lower power boundary of a workout step in % van FTP (not for F5x), from Training peaks etc, corrected by temperature/humidity/altitude if set in settings</string> 
+    <string id="lHperctarget">Upper power boundary of a workout step in % van FTP (not for F5x), from Training peaks etc, corrected by temperature/humidity/altitude if set in settings</string>
+    <string id="lStepnumber">Current step number of a workout (not for F5x)</string>
+    <string id="lReamingTimeOfStep">Remaining time or distance of the current step of a workout (not for F5x)</string>
+    <string id="loverruleWourkout">Use a static powerzone for alerts, not powerzones from workout steps  (not for F5x)</string> 
     <string id="lShowRedClock">Show red clock over all metrics before the start of an activity (useful for a race when the normal clock isn't visible)</string>
  </strings>
 
@@ -434,6 +435,7 @@
         <listEntry value="4">@Strings.lFontalertPurple</listEntry>
         <listEntry value="5">@Strings.lFontalertRed</listEntry>
         <listEntry value="6">@Strings.lFontalertBlack</listEntry>
+        <listEntry value="7">@Strings.lFontalertDarkBlue</listEntry>
       </settingConfig>
     </setting>
     <setting propertyKey="@Properties.pFontalertColorHigh" title="@Strings.lFontalertColorHigh">
@@ -445,6 +447,7 @@
         <listEntry value="4">@Strings.lFontalertPurple</listEntry>
         <listEntry value="5">@Strings.lFontalertRed</listEntry>
         <listEntry value="6">@Strings.lFontalertBlack</listEntry>
+        <listEntry value="7">@Strings.lFontalertDarkBlue</listEntry>
       </settingConfig>
     </setting>
     <setting propertyKey="@Properties.pRacedistance" title="@Strings.lRacedistanceTitle">
@@ -1858,6 +1861,11 @@
         <listEntry value="84">@Strings.lLpercMaxHR</listEntry>
         <listEntry value="85">@Strings.lLLpercMaxHR</listEntry>
         <listEntry value="86">@Strings.lApercMaxHR</listEntry>
+        
+        <listEntry value="1000">@Strings.lWorkoutMenu</listEntry>
+		<listEntry value="107">@Strings.lPtargetcorrect</listEntry>
+        <listEntry value="121">@Strings.lStepnumber</listEntry>
+        <listEntry value="122">@Strings.lReamingTimeOfStep</listEntry>
         
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
         <listEntry value="51">@Strings.lAltitude</listEntry>

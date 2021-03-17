@@ -521,6 +521,13 @@ class ExtramemView extends DatarunpremiumView {
 	            CFMValue = tempeTemp;
 	            CFMValue = (utempunits == false) ? CFMValue+utempcalibration : CFMValue*1.8+32+utempcalibration;
         	    CFMFormat = "1decimal";
+        	} else if (uClockFieldMetric == 107) {
+	            if (workoutTarget != null) {
+        			CFMValue = (uOnlyPwrCorrFactor == false) ? (mPowerWarningunder + mPowerWarningupper)/2 : (mPowerWarningunder + mPowerWarningupper)/2/PwrCorrFactor;
+        		} else {
+	            	CFMValue = (uOnlyPwrCorrFactor == false) ? uPowerTarget : uPowerTarget/PwrCorrFactor;
+	            }
+        	    CFMFormat = "power";
         	}  else if (uClockFieldMetric == 108) {
            		CFMValue = (unitD == 1609.344) ? AverageVertspeedinmper30sec*3.2808*3600 : AverageVertspeedinmper30sec*3600;
             	CFMFormat = "0decimal";
@@ -546,6 +553,25 @@ class ExtramemView extends DatarunpremiumView {
             } else if (uClockFieldMetric == 115) {			
 				CFMValue = AveragerollverticalRatio10sec;
             	CFMFormat = "1decimal";
+            } else if (uClockFieldMetric == 121) {
+	            CFMValue = (workoutTarget != null) ? WorkoutStepNr : 0;
+        	    CFMFormat = "0decimal";
+        	} else if (uClockFieldMetric == 122) {
+	            if (workoutTarget != null) {
+		            if (WorkoutStepDurationType == 0) {
+						CFMValue = RemainingWorkoutTime;
+        	    		CFMFormat = "time";
+					} else if (WorkoutStepDurationType == 1) {
+						CFMValue = RemainingWorkoutDistance;
+        	    		CFMFormat = "2decimal";
+        	    	} else if (WorkoutStepDurationType == 5) {
+						CFMValue = jTimertime-StartTimeNewStep;
+        	    		CFMFormat = "time";
+					}     
+    	        } else {
+        			CFMValue = 0;
+        	    	CFMFormat = "0decimal";
+        		}
 			}		 
 
 		//! Conditions for showing the demoscreen       

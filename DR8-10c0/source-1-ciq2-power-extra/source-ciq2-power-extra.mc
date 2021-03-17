@@ -104,6 +104,8 @@ class CiqView extends ExtramemView {
 	    	mFontalertColorLow 	 = Graphics.COLOR_RED;
 		} else if ( uFontalertColorLow == 6 ) {
 	    	mFontalertColorLow 	 = Graphics.COLOR_BLACK;
+	    } else if ( uFontalertColorLow == 7 ) {
+	    	mFontalertColorLow 	 = Graphics.COLOR_DK_BLUE;
 		}
 		
 		if ( uFontalertColorHigh == 0 ) {
@@ -120,6 +122,8 @@ class CiqView extends ExtramemView {
 	    	mFontalertColorHigh 	 = Graphics.COLOR_RED;
 		} else if ( uFontalertColorHigh == 6 ) {
 	    	mFontalertColorHigh 	 = Graphics.COLOR_BLACK;
+	    } else if ( uFontalertColorLow == 7 ) {
+	    	mFontalertColorHigh 	 = Graphics.COLOR_DK_BLUE;
 		}
 		
 		

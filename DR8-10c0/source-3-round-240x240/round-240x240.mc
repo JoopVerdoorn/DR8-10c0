@@ -148,6 +148,7 @@ class DeviceView extends PowerView {
 			dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
 			dc.drawText(132-12*(50-pwr)/50, 229, Labelfont2, pwr.format("%0d") + "%", Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
 		}
+		
 
 	   } else {
 	   //! Display demo screen

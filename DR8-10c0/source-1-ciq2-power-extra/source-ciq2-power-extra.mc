@@ -597,6 +597,8 @@ class CiqView extends ExtramemView {
 			hasWorkoutStep = true;
 			WorkoutStepLowBoundary = (workoutTarget != null) ? (workoutTarget.step.targetValueLow.toNumber() - 1000) : 0;
 			WorkoutStepHighBoundary = (workoutTarget != null) ? (workoutTarget.step.targetValueHigh.toNumber() - 1000) : 999;
+			WorkoutStepLowBoundary = (WorkoutStepLowBoundary == -1000) ? WorkoutStepLowBoundary+1000 : WorkoutStepLowBoundary; 
+			WorkoutStepHighBoundary = (WorkoutStepHighBoundary == -1000) ? WorkoutStepHighBoundary+1000 : WorkoutStepHighBoundary;
 			WorkoutStepLowBoundary = (uOnlyPwrCorrFactor == false) ? WorkoutStepLowBoundary : WorkoutStepLowBoundary/PwrCorrFactor;
 			WorkoutStepHighBoundary = (uOnlyPwrCorrFactor == false) ? WorkoutStepHighBoundary : WorkoutStepHighBoundary/PwrCorrFactor;
 			WorkoutStepDurationType = (workoutTarget != null) ? workoutTarget.step.durationType.toNumber() : 0;
@@ -834,11 +836,11 @@ class CiqView extends ExtramemView {
         	} else if (metric[i] == 117) {
 	            fieldValue[i] = (workoutTarget != null) ? WorkoutStepLowBoundary : 0;
     		    fieldLabel[i] = "Ltarget";
-        		fieldFormat[i] = "power";
+        		fieldFormat[i] = "0decimal";
         	} else if (metric[i] == 118) {
 	            fieldValue[i] = (workoutTarget != null) ? WorkoutStepHighBoundary : 0;
         		fieldLabel[i] = "Htarget";
-        	    fieldFormat[i] = "power";
+        	    fieldFormat[i] = "0decimal";
         	} else if (metric[i] == 119) {
 	            if (workoutTarget != null) {
 	            	fieldValue[i] = (uFTP != 0) ? WorkoutStepLowBoundary*100/uFTP : 0;
@@ -846,7 +848,7 @@ class CiqView extends ExtramemView {
         			fieldValue[i] = 0;
         		}
         		fieldLabel[i] = "L%target";
-        	    fieldFormat[i] = "power";
+        	    fieldFormat[i] = "0decimal";
         	} else if (metric[i] == 120) {
 	            if (workoutTarget != null) {
 		            fieldValue[i] = (uFTP != 0) ? WorkoutStepHighBoundary*100/uFTP : 100;
@@ -854,7 +856,7 @@ class CiqView extends ExtramemView {
         			fieldValue[i] = 100;
         		}
         		fieldLabel[i] = "H%target";
-        	    fieldFormat[i] = "power";
+        	    fieldFormat[i] = "0decimal";
         	} else if (metric[i] == 121) {
 	            fieldValue[i] = (workoutTarget != null) ? WorkoutStepNr : 0;
         		fieldLabel[i] = "Step nr";

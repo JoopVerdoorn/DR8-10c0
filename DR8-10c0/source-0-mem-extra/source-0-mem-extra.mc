@@ -248,7 +248,7 @@ class ExtramemView extends DatarunpremiumView {
         	} else if (metric[i] == 54) {
     	        fieldValue[i] = (info.trainingEffect != null) ? info.trainingEffect : 0;
         	    fieldLabel[i] = "T effect";
-            	fieldFormat[i] = "2decimal";           	
+            	fieldFormat[i] = "1decimal";           	
 			} else if (metric[i] == 52) {
            		fieldValue[i] = valueAsc;
             	fieldLabel[i] = "EL gain";

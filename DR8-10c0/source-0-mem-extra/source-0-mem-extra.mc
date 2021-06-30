@@ -1,3 +1,4 @@
+using Toybox.System as Sys;
 using Toybox.SensorHistory;
 using Toybox.Lang;
 using Toybox.System;
@@ -359,6 +360,11 @@ class ExtramemView extends DatarunpremiumView {
 				fieldValue[i] = fieldValue[i] - elapsTcorr;
 				fieldLabel[i] = "ElapsT";
             	fieldFormat[i] = "time";
+            } else if (metric[i] == 123) {			
+				var stats = Sys.getSystemStats();
+				fieldValue[i] = stats.battery;
+				fieldLabel[i] = "Battery";
+            	fieldFormat[i] = "0decimal";
             }
 		}
 

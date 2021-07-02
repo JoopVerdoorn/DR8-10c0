@@ -364,7 +364,11 @@ class ExtramemView extends DatarunpremiumView {
 				var stats = Sys.getSystemStats();
 				fieldValue[i] = stats.battery;
 				fieldLabel[i] = "Battery";
-            	fieldFormat[i] = "0decimal";
+				if (ZoltanRequest.equals("z" ) == true) {
+					fieldFormat[i] = "1decimal";
+				} else {
+            		fieldFormat[i] = "0decimal";
+            	}
             }
 		}
 

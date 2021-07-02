@@ -23,6 +23,7 @@ class PowerView extends CiqView {
     hidden var mPowerWarningupper 				= 999;
 	hidden var mPowerWarningunderhelper			= 0;   // waarom nodig?
 	hidden var mPowerWarningupperhelper			= 999;  // waarom nodig?
+	hidden var ZoltanRequest					= "a";
     
     function initialize() {
         CiqView.initialize();
@@ -69,6 +70,8 @@ class PowerView extends CiqView {
 		//! Alert when out of predefined powerzone
         var mPowerWarningunder = uRequiredPower.substring(0, 3);
         var mPowerWarningupper = uRequiredPower.substring(4, 7);
+        ZoltanRequest = uRequiredPower.substring(7, 8);
+System.println(uRequiredPower.substring(7, 8));
         mPowerWarningunder = mPowerWarningunder.toNumber();
         mPowerWarningupper = mPowerWarningupper.toNumber();
           

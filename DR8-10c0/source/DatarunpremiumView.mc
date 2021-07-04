@@ -83,7 +83,7 @@ class DatarunpremiumView extends Ui.DataField {
     hidden var uRacedistance                = 42195;
     hidden var uRacetime					= "03:59:48";
 	hidden var mRacetime  					= 0;
-	var mETA								= 0;
+	hidden var mETA								= 0;
 	var uETAfromLap 						= true;	
     hidden var mLastLapDistMarker           = 0;
     hidden var mLastLapTimeMarker           = 0;

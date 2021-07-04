@@ -71,7 +71,6 @@ class PowerView extends CiqView {
         var mPowerWarningunder = uRequiredPower.substring(0, 3);
         var mPowerWarningupper = uRequiredPower.substring(4, 7);
         ZoltanRequest = uRequiredPower.substring(7, 8);
-System.println(uRequiredPower.substring(7, 8));
         mPowerWarningunder = mPowerWarningunder.toNumber();
         mPowerWarningupper = mPowerWarningupper.toNumber();
           

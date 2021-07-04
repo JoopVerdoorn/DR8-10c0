@@ -968,7 +968,16 @@ class CiqView extends ExtramemView {
         	Temp = (fieldvalue != 0 ) ? (fieldvalue).toLong() : 0;
         	fieldvalue = (Temp /60000 % 60).format("%02d") + ":" + (Temp /1000 % 60).format("%02d");
         }
-      		
+      	
+      	//! Make ETA related metrics green if ETA is as desired or better, otherwise red
+      	if (metric[counter] == 13 or metric[counter] == 14 or metric[counter] == 15) {
+	      	if (mETA < mRacetime) {
+    	    	mColourFont = Graphics.COLOR_GREEN;
+        	} else {
+        		mColourFont = Graphics.COLOR_RED;
+        	}
+        }
+      	
 		dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
         if ( fieldformat.equals("time" ) == true ) {    	    	  
 	    		var fTimerSecs = (fieldvalue % 60).format("%02d");
@@ -982,40 +991,56 @@ class CiqView extends ExtramemView {
             		fTimer = (fieldvalue / 60 % 60).format("%02d") + ":" + fTimerSecs;  
         		}
       			dc.drawText(xx, y, Garminfont, fTimer, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
+      			mColourFont = originalFontcolor;
+      			dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
       			dc.drawText(xl, yl, Labelfont,  fieldlabel, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
         } else {      	
        		if (uUpperMiddleRowBig == true and uLowerMiddleRowBig == true) {
       			if ( counter == 3 or counter == 5 or counter == 6 or counter == 8) {
 	      			dc.drawText(x, y, Garminfontbig, fieldvalue, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
+   					mColourFont = originalFontcolor;
+      				dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
     	  			dc.drawText(xl, yl, Labelfont,  fieldlabel.substring(0,1) , Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
    					dc.drawText(xl, yl+17, Labelfont,  fieldlabel.substring(1,2), Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
    					dc.drawText(xl, yl+34, Labelfont,  fieldlabel.substring(2,3), Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
    				} else {
    					dc.drawText(x, y, Garminfont, fieldvalue, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
+   					mColourFont = originalFontcolor;
+      				dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
        				dc.drawText(xl, yl-labelFontOffset, Labelfont,  fieldlabel, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
         		}
        		} else if (uUpperMiddleRowBig == true ) {
       			if ( counter == 3 or counter == 5) {
 	      			dc.drawText(x, y, Garminfontbig, fieldvalue, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
+   					mColourFont = originalFontcolor;
+      				dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
     	  			dc.drawText(xl, yl, Labelfont,  fieldlabel.substring(0,1) , Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
    					dc.drawText(xl, yl+17, Labelfont,  fieldlabel.substring(1,2), Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
    					dc.drawText(xl, yl+34, Labelfont,  fieldlabel.substring(2,3), Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
    				} else {
    					dc.drawText(x, y, Garminfont, fieldvalue, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
+   					mColourFont = originalFontcolor;
+      				dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
        				dc.drawText(xl, yl-labelFontOffset, Labelfont,  fieldlabel, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
         		}
    			} else if (uLowerMiddleRowBig == true) {
    				if ( counter == 6 or counter == 8) {
    					dc.drawText(x, y, Garminfontbig, fieldvalue, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
+   					mColourFont = originalFontcolor;
+      				dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
     	  			dc.drawText(xl, yl, Labelfont,  fieldlabel.substring(0,1) , Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
    					dc.drawText(xl, yl+17, Labelfont,  fieldlabel.substring(1,2), Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
    					dc.drawText(xl, yl+34, Labelfont,  fieldlabel.substring(2,3), Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
    				} else {	    	
        				dc.drawText(x, y, Garminfont, fieldvalue, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
+   					mColourFont = originalFontcolor;
+      				dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
        				dc.drawText(xl, yl-labelFontOffset, Labelfont,  fieldlabel, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
        			}
        		} else {
        			dc.drawText(x, y, Garminfont, fieldvalue, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
+   				mColourFont = originalFontcolor;
+      			dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
        			dc.drawText(xl, yl-labelFontOffset, Labelfont,  fieldlabel, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
        		}
         }        

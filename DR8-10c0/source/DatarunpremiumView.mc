@@ -136,6 +136,7 @@ class DatarunpremiumView extends Ui.DataField {
          uETAfromLap		 = mApp.getProperty("pETAfromLap");
          var uHrZones = UserProfile.getHeartRateZones(UserProfile.getCurrentSport());
          uShowRedClock = mApp.getProperty("pShowRedClock");
+         var uCCnumber	     = mApp.getProperty("pCCnumber");
    
         
  

@@ -324,9 +324,13 @@ class ExtramemView extends DatarunpremiumView {
 	            fieldValue[i] = (utempunits == false) ? fieldValue[i]+utempcalibration : fieldValue[i]*1.8+32+utempcalibration;
     	        fieldLabel[i] = "Tempe T";
         	    fieldFormat[i] = "1decimal";
+        	} else if (metric[i] == 124) {
+           		fieldValue[i] = (unitD == 1609.344) ? AverageVertspeedinmper30sec*3.2808*60 : AverageVertspeedinmper30sec*60;
+            	fieldLabel[i] = "VAM-min";
+            	fieldFormat[i] = "0decimal";
         	} else if (metric[i] == 108) {
            		fieldValue[i] = (unitD == 1609.344) ? AverageVertspeedinmper30sec*3.2808*3600 : AverageVertspeedinmper30sec*3600;
-            	fieldLabel[i] = "VAM";
+            	fieldLabel[i] = "VAM-hour";
             	fieldFormat[i] = "0decimal";
 			} else if (metric[i] == 109) {			
 				fieldValue[i] = AveragerollgroundContactBalance10sec;
@@ -369,6 +373,14 @@ class ExtramemView extends DatarunpremiumView {
 				} else {
             		fieldFormat[i] = "0decimal";
             	}
+            } else if (metric[i] == 125) {
+            	if (jTimertime > 0) {
+           			fieldValue[i] = (unitD == 1609.344) ? TotalVertSpeedinmpersec*3.2808*3600/jTimertime : TotalVertSpeedinmpersec*3600/jTimertime;
+           		} else {
+           			fieldValue[i] = 0;
+           		}
+            	fieldLabel[i] = "Avg-VAM";
+            	fieldFormat[i] = "0decimal";
             }
 		}
 
@@ -538,6 +550,9 @@ class ExtramemView extends DatarunpremiumView {
 	            	CFMValue = (uOnlyPwrCorrFactor == false) ? uPowerTarget : uPowerTarget/PwrCorrFactor;
 	            }
         	    CFMFormat = "power";
+        	}  else if (uClockFieldMetric == 124) {
+           		CFMValue = (unitD == 1609.344) ? AverageVertspeedinmper30sec*3.2808*60 : AverageVertspeedinmper30sec*60;
+            	CFMFormat = "0decimal";
         	}  else if (uClockFieldMetric == 108) {
            		CFMValue = (unitD == 1609.344) ? AverageVertspeedinmper30sec*3.2808*3600 : AverageVertspeedinmper30sec*3600;
             	CFMFormat = "0decimal";
@@ -582,7 +597,14 @@ class ExtramemView extends DatarunpremiumView {
         			CFMValue = 0;
         	    	CFMFormat = "0decimal";
         		}
-			}		 
+			} else if (uClockFieldMetric == 125) {
+	        	if (jTimertime > 0) {
+    	       			CFMValue = (unitD == 1609.344) ? TotalVertSpeedinmpersec*3.2808*3600/jTimertime : TotalVertSpeedinmpersec*3600/jTimertime;
+        	   		} else {
+           				CFMValue = 0;
+           			}
+           		CFMFormat = "0decimal";
+           	}		 
 
 		//! Conditions for showing the demoscreen       
         if (uShowDemo == false) {

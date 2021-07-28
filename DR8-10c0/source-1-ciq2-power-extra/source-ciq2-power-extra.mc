@@ -53,6 +53,7 @@ class CiqView extends ExtramemView {
     var uFontalertColorLow					= 5;
     hidden var mFontalertColorHigh			= Graphics.COLOR_PURPLE;
     var uFontalertColorHigh					= 4;
+    hidden var TotalVertSpeedinmpersec		= 0;
 		
     function initialize() {
         ExtramemView.initialize();
@@ -227,6 +228,7 @@ class CiqView extends ExtramemView {
     	    valueDesclast = valueDesc;
         	valueAsclast = valueAsc;
 	        CurrentVertSpeedinmpersec = Diff2-Diff1;
+	        TotalVertSpeedinmpersec = TotalVertSpeedinmpersec + CurrentVertSpeedinmpersec;
     	    for (i = 1; i < 11; ++i) {
 	    	    if (metric[i] == 67 or metric[i] == 108) {
 					for (var j = 1; j < 30; ++j) {			

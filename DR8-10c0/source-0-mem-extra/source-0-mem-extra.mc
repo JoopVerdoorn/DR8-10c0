@@ -22,7 +22,7 @@ class ExtramemView extends DatarunpremiumView {
 	var HRzone								= 0;
 	hidden var Powerzone					= 0;
 	var totalVertPace 						= 0;
-	hidden var VertPace		 					= new [33];
+	hidden var VertPace		 				= new [33];
 	var AverageVertspeedinmper30sec			= 0;
 	var CurrentVertSpeedinmpersec 			= 0; 
 	var uGarminColors 						= false;
@@ -375,18 +375,29 @@ class ExtramemView extends DatarunpremiumView {
             	}
             } else if (metric[i] == 125) {
             	if (jTimertime > 0) {
-           			fieldValue[i] = (unitD == 1609.344) ? TotalVertSpeedinmpersec*3.2808*3600/jTimertime : TotalVertSpeedinmpersec*3600/jTimertime;
+           			fieldValue[i] = (info.totalAscent != null) ? info.totalAscent*60/jTimertime : 0;
+           			fieldValue[i] = (unitD == 1609.344) ? fieldValue[i]*3.2808 : fieldValue[i];
            		} else {
            			fieldValue[i] = 0;
            		}
-            	fieldLabel[i] = "Avg-VAM";
+System.println(info.totalAscent);
+            	fieldLabel[i] = "T-Asc-m";
+            	fieldFormat[i] = "0decimal";
+            } else if (metric[i] == 126) {
+            	if (jTimertime > 0) {
+           			fieldValue[i] = (info.totalAscent != null) ? info.totalAscent*3600/jTimertime : 0;
+           			fieldValue[i] = (unitD == 1609.344) ? fieldValue[i]*3.2808 : fieldValue[i];
+           		} else {
+           			fieldValue[i] = 0;
+           		}
+            	fieldLabel[i] = "T-Asc-h";
             	fieldFormat[i] = "0decimal";
             }
 		}
 
+		//!Choice for metric in Clockfield
 		var CFMValue = 0;
         var CFMFormat = "decimal";  
-		//!Choice for metric in Clockfield
         	if (uClockFieldMetric == 4) {
     	        CFMValue = (info.elapsedDistance != null) ? info.elapsedDistance / unitD : 0;
             	CFMFormat = "2decimal";   
@@ -599,12 +610,24 @@ class ExtramemView extends DatarunpremiumView {
         		}
 			} else if (uClockFieldMetric == 125) {
 	        	if (jTimertime > 0) {
-    	       			CFMValue = (unitD == 1609.344) ? TotalVertSpeedinmpersec*3.2808*3600/jTimertime : TotalVertSpeedinmpersec*3600/jTimertime;
+    	       			CFMValue = (info.totalAscent != null) ? info.totalAscent*60/jTimertime : 0;
+    	       			CFMValue = (unitD == 1609.344) ? CFMValue*3.2808 : CFMValue;
+        	   		} else {
+           				CFMValue = 0;
+           			}
+           		CFMFormat = "0decimal";
+           	} else if (uClockFieldMetric == 126) {
+	        	if (jTimertime > 0) {
+    	       			CFMValue = (info.totalAscent != null) ? info.totalAscent*3660/jTimertime : 0;
+    	       			CFMValue = (unitD == 1609.344) ? CFMValue*3.2808 : CFMValue;
         	   		} else {
            				CFMValue = 0;
            			}
            		CFMFormat = "0decimal";
            	}		 
+
+
+
 
 		//! Conditions for showing the demoscreen       
         if (uShowDemo == false) {

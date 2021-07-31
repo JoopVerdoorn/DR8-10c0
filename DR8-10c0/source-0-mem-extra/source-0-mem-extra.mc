@@ -380,7 +380,6 @@ class ExtramemView extends DatarunpremiumView {
            		} else {
            			fieldValue[i] = 0;
            		}
-System.println(info.totalAscent);
             	fieldLabel[i] = "T-Asc-m";
             	fieldFormat[i] = "0decimal";
             } else if (metric[i] == 126) {
@@ -618,7 +617,7 @@ System.println(info.totalAscent);
            		CFMFormat = "0decimal";
            	} else if (uClockFieldMetric == 126) {
 	        	if (jTimertime > 0) {
-    	       			CFMValue = (info.totalAscent != null) ? info.totalAscent*3660/jTimertime : 0;
+    	       			CFMValue = (info.totalAscent != null) ? info.totalAscent*3600/jTimertime : 0;
     	       			CFMValue = (unitD == 1609.344) ? CFMValue*3.2808 : CFMValue;
         	   		} else {
            				CFMValue = 0;

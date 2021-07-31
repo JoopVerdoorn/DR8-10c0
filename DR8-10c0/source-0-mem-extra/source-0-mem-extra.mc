@@ -113,7 +113,7 @@ class ExtramemView extends DatarunpremiumView {
 		disablelabel9 						= mApp.getProperty("pdisablelabel9");
 		disablelabel10 						= mApp.getProperty("pdisablelabel10");
 		
-		startTime = Toybox.System.getClockTime();
+		startTime = (jTimertime == 0) ? Toybox.System.getClockTime() : startTime;
 		
 		if(Toybox.AntPlus has :RunningDynamics) {
     		dynamics = new Toybox.AntPlus.RunningDynamics(null);
@@ -359,9 +359,7 @@ class ExtramemView extends DatarunpremiumView {
             	fieldFormat[i] = "1decimal";
             } else if (metric[i] == 116) {			
 				var myTime = Toybox.System.getClockTime();
-				fieldValue[i] = (jTimertime == 0) ? 0 : (myTime.hour.toNumber()*3600 + myTime.min.toNumber()*60 + myTime.sec.toNumber()) - (startTime.hour.toNumber()*3600 + startTime.min.toNumber()*60 + startTime.sec.toNumber());
-				var elapsTcorr = (jTimertime == 5 and info.timerTime != null) ? (fieldValue[i] - info.timerTime/1000) : 0;
-				fieldValue[i] = fieldValue[i] - elapsTcorr;
+				fieldValue[i] = (jTimertime == 0) ? 0 : (1+myTime.hour.toNumber()*3600 + myTime.min.toNumber()*60 + myTime.sec.toNumber()) - (startTime.hour.toNumber()*3600 + startTime.min.toNumber()*60 + startTime.sec.toNumber());
 				fieldLabel[i] = "ElapsT";
             	fieldFormat[i] = "time";
             } else if (metric[i] == 123) {			

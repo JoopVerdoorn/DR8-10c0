@@ -25,6 +25,7 @@ class ExtramemView extends DatarunpremiumView {
 	hidden var VertPace		 				= new [33];
 	var AverageVertspeedinmper30sec			= 0;
 	var CurrentVertSpeedinmpersec 			= 0; 
+	hidden var totalAscSeconds 			    = 0;
 	var uGarminColors 						= false;
 	var Z1color 							= Graphics.COLOR_LT_GRAY;
 	var Z2color 							= Graphics.COLOR_YELLOW;
@@ -249,12 +250,13 @@ class ExtramemView extends DatarunpremiumView {
         	    fieldLabel[i] = "T effect";
             	fieldFormat[i] = "1decimal";           	
 			} else if (metric[i] == 52) {
-           		fieldValue[i] = valueAsc;
+           		fieldValue[i] = (info.totalAscent != null) ? info.totalAscent : 0;
+           		fieldValue[i] = (unitD == 1609.344) ? Math.round(fieldValue[i]*3.2808) : Math.round(fieldValue[i]);
             	fieldLabel[i] = "EL gain";
             	fieldFormat[i] = "0decimal";
         	}  else if (metric[i] == 53) {
-           		fieldValue[i] = valueDesc;
-            	fieldLabel[i] = "EL loss";
+           		fieldValue[i] = (info.totalDescent != null) ? info.totalDescent : 0;
+           		fieldValue[i] = (unitD == 1609.344) ? Math.round(fieldValue[i]*3.2808) : Math.round(fieldValue[i]);
             	fieldFormat[i] = "0decimal";                 	     	
         	}  else if (metric[i] == 61) {
            		fieldValue[i] = (info.currentCadence != null) ? Math.round(info.currentCadence/2) : 0;
@@ -324,8 +326,8 @@ class ExtramemView extends DatarunpremiumView {
         	    fieldFormat[i] = "1decimal";
         	} else if (metric[i] == 124) {
            		fieldValue[i] = (unitD == 1609.344) ? AverageVertspeedinmper30sec*3.2808*60 : AverageVertspeedinmper30sec*60;
-            	fieldLabel[i] = "VAM-min";
-            	fieldFormat[i] = "0decimal";
+            	fieldLabel[i] = "VAM-min";        	
+            	fieldFormat[i] = "1decimal";
         	} else if (metric[i] == 108) {
            		fieldValue[i] = (unitD == 1609.344) ? AverageVertspeedinmper30sec*3.2808*3600 : AverageVertspeedinmper30sec*3600;
             	fieldLabel[i] = "VAM-hour";
@@ -370,18 +372,18 @@ class ExtramemView extends DatarunpremiumView {
             		fieldFormat[i] = "0decimal";
             	}
             } else if (metric[i] == 125) {
-            	if (jTimertime > 0) {
-           			fieldValue[i] = (info.totalAscent != null) ? info.totalAscent*60/jTimertime : 0;
-           			fieldValue[i] = (unitD == 1609.344) ? fieldValue[i]*3.2808 : fieldValue[i];
+            	if (totalAscSeconds > 0) {
+           			fieldValue[i] = (info.totalAscent != null) ? info.totalAscent*60/totalAscSeconds : 0;
+           			fieldValue[i] = (unitD == 1609.344) ? Math.round(fieldValue[i]*3.2808) : Math.round(fieldValue[i]);
            		} else {
            			fieldValue[i] = 0;
            		}
             	fieldLabel[i] = "T-Asc-m";
-            	fieldFormat[i] = "0decimal";
+            	fieldFormat[i] = "1decimal";
             } else if (metric[i] == 126) {
-            	if (jTimertime > 0) {
-           			fieldValue[i] = (info.totalAscent != null) ? info.totalAscent*3600/jTimertime : 0;
-           			fieldValue[i] = (unitD == 1609.344) ? fieldValue[i]*3.2808 : fieldValue[i];
+            	if (totalAscSeconds > 0) {
+           			fieldValue[i] = (info.totalAscent != null) ? info.totalAscent*3600/totalAscSeconds : 0;
+           			fieldValue[i] = (unitD == 1609.344) ? Math.round(fieldValue[i]*3.2808) : Math.round(fieldValue[i]);
            		} else {
            			fieldValue[i] = 0;
            		}
@@ -483,11 +485,13 @@ class ExtramemView extends DatarunpremiumView {
     	        CFMValue = (info.trainingEffect != null) ? info.trainingEffect : 0;
             	CFMFormat = "2decimal";           	
 			} else if (uClockFieldMetric == 52) {
-           		CFMValue = valueAsc;
+           		CFMValue = (info.totalAscent != null) ? info.totalAscent : 0;
+            	CFMValue = (unitD == 1609.344) ? Math.round(fieldValue[i]*3.2808) : Math.round(fieldValue[i]);
             	CFMFormat = "0decimal";
         	}  else if (uClockFieldMetric == 53) {
-           		CFMValue = valueDesc; 
-            	CFMFormat = "0decimal";           	
+           		CFMValue = (info.totalDescent != null) ? info.totalDescent : 0; 
+           		CFMValue = (unitD == 1609.344) ? Math.round(fieldValue[i]*3.2808) : Math.round(fieldValue[i]);
+            	CFMFormat = "0decimal";
         	}  else if (uClockFieldMetric == 61) {
            		CFMValue = (info.currentCadence != null) ? Math.round(info.currentCadence/2) : 0;
             	CFMFormat = "0decimal";           	
@@ -558,7 +562,7 @@ class ExtramemView extends DatarunpremiumView {
         	    CFMFormat = "power";
         	}  else if (uClockFieldMetric == 124) {
            		CFMValue = (unitD == 1609.344) ? AverageVertspeedinmper30sec*3.2808*60 : AverageVertspeedinmper30sec*60;
-            	CFMFormat = "0decimal";
+            	CFMFormat = "1decimal";
         	}  else if (uClockFieldMetric == 108) {
            		CFMValue = (unitD == 1609.344) ? AverageVertspeedinmper30sec*3.2808*3600 : AverageVertspeedinmper30sec*3600;
             	CFMFormat = "0decimal";
@@ -605,22 +609,21 @@ class ExtramemView extends DatarunpremiumView {
         		}
 			} else if (uClockFieldMetric == 125) {
 	        	if (jTimertime > 0) {
-    	       			CFMValue = (info.totalAscent != null) ? info.totalAscent*60/jTimertime : 0;
-    	       			CFMValue = (unitD == 1609.344) ? CFMValue*3.2808 : CFMValue;
+    	       			CFMValue = (info.totalAscent != null) ? info.totalAscent*60/totalAscSeconds : 0;
+    	       			CFMValue = (unitD == 1609.344) ? Math.round(CFMValue*3.2808) : Math.round(CFMValue);
         	   		} else {
            				CFMValue = 0;
            			}
            		CFMFormat = "0decimal";
            	} else if (uClockFieldMetric == 126) {
 	        	if (jTimertime > 0) {
-    	       			CFMValue = (info.totalAscent != null) ? info.totalAscent*3600/jTimertime : 0;
-    	       			CFMValue = (unitD == 1609.344) ? CFMValue*3.2808 : CFMValue;
+    	       			CFMValue = (info.totalAscent != null) ? info.totalAscent*3600/totalAscSeconds : 0;
+    	       			CFMValue = (unitD == 1609.344) ? Math.round(CFMValue*3.2808) : Math.round(CFMValue);
         	   		} else {
            				CFMValue = 0;
            			}
            		CFMFormat = "0decimal";
            	}		 
-
 
 
 

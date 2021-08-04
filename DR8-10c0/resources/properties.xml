@@ -80,7 +80,7 @@
 	
   <strings>
     <string id="lCCnumber">C-Code generated on the watch by the corresponding main Datarun premium datafield</string>
-    <string id="lDummysetting4version">Version 2.11d of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 2.11e of Datarun ultimate, main version (dummy setting)</string>
     <string id="lTempeCalibration">Calibration factor for Tempe temperature in tenths of degrees (3 means 0.3 added, -4 means 0.4 subtracted)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>
@@ -129,8 +129,8 @@
     <string id="lETAfrompace">Estimated finished time based on average or last lap pace </string>
 	<string id="lETAdeviation">Deviation from required finish in hours, minutes and seconds </string>
 	<string id="lETArequiredpace">Required pace to meet required finish time</string>
-    <string id="lElevationGain">Elevation gain </string>
-    <string id="lElevationLoss">Elevation loss </string>
+    <string id="lElevationGain">Total elevation gain (total ascent in meters/hour or feet/hour depending on watch settings) </string>
+    <string id="lElevationLoss">Total elevation loss (total descent in meters/hour or feet/hour depending on watch settings)</string>
     <string id="lRoundedPace">Show current pace as Rounded Pace</string>
     <string id="lMaxColoringPace">Use 5 colors for coloring of pace field in middle row, instead of 3 colors</string>
     <string id="lColoringPaceFromAver">Use average pace for coloring of the pace field in middle row, instead of pace based on desired finish time</string>
@@ -185,8 +185,8 @@
 	<string id="lPaceper5km">Pace averaged over the last 5 seconds</string>
 	<string id="lPaceper300km">Pace averaged over the last .. seconds (max is 300 seconds)</string>
 	<string id="lVertpace">Vertical speed averaged over the last 30 seconds (in meters/seconds or feet/seconds depending on watch settings)</string>
-	<string id="lVAM_hour">Vertical speed averaged over the last 30 seconds (in meters/hour or feet/hour depending on watch settings)</string>
-	<string id="lVAM_min">Vertical speed averaged over the last 30 seconds (in meters/minute or feet/minute depending on watch settings)</string>
+	<string id="lVAM_hour">Vertical speed averaged over the last 30 seconds (sum of ascent and descent in meters/hour or feet/hour depending on watch settings)</string>
+	<string id="lVAM_min">Vertical speed averaged over the last 30 seconds (sum of ascent and descent in meters/minute or feet/minute depending on watch settings)</string>
 	<string id="lVertpacekm">Vertical speed in meters/seconds averaged over the last 5 seconds </string>
 	<string id="lrolavPacmaxsecs">Pace or/and speed averaged over the last ... seconds (max is 300 seconds)</string>
 	<string id="lrolavPacmaxsecsError">This needs to be a number from 2 too 300</string>
@@ -309,8 +309,8 @@
     <string id="loverruleWourkout">Use a static powerzone for alerts, not powerzones from workout steps  (not for F5x)</string> 
     <string id="lShowRedClock">Show red clock over all metrics before the start of an activity (useful for a race when the normal clock isn't visible)</string>
     <string id="lBatteryPerc">Battery percentage</string>
-    <string id="lTotalAscentinmpermin">Vertical ascent averaged over the whole activity (in meters/minute or feet/minute depending on watch settings)</string>
-    <string id="lTotalAscentinmperhour">Vertical ascent averaged over the whole activity (in meters/hour or feet/hour depending on watch settings)</string>
+    <string id="lTotalAscentinmpermin">Vertical ascent averaged over the time one is ascending (in meters/minute or feet/minute depending on watch settings)</string>
+    <string id="lTotalAscentinmperhour">Vertical ascent averaged over the time one is ascending (in meters/hour or feet/hour depending on watch settings)</string>
  </strings>
 
   <settings>

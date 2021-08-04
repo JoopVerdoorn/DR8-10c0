@@ -221,12 +221,13 @@ class CiqView extends ExtramemView {
     	    valueDesc = (info.totalDescent != null) ? info.totalDescent : 0;
         	Diff1 = valueDesc - valueDesclast;
     	    valueAsc = (info.totalAscent != null) ? info.totalAscent : 0;
-        	Diff2 = valueAsc - valueAsclast;        
+        	Diff2 = valueAsc - valueAsclast;  
+        	totalAscSeconds = (Diff2>0) ? totalAscSeconds + 1 : totalAscSeconds;      
     	    valueDesclast = valueDesc;
         	valueAsclast = valueAsc;
 	        CurrentVertSpeedinmpersec = Diff2-Diff1;
     	    for (i = 1; i < 11; ++i) {
-	    	    if (metric[i] == 67 or metric[i] == 108) {
+	    	    if (metric[i] == 67 or metric[i] == 108 or metric[i] == 124) {
 					for (var j = 1; j < 30; ++j) {			
 						VertPace[31-j] = VertPace[30-j];
 					}

@@ -80,7 +80,7 @@
 	
   <strings>
     <string id="lCCnumber">C-Code generated on the watch by the corresponding main Datarun premium datafield</string>
-    <string id="lDummysetting4version">Version 2.11e of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 2.12 of Datarun ultimate, main version (dummy setting)</string>
     <string id="lTempeCalibration">Calibration factor for Tempe temperature in tenths of degrees (3 means 0.3 added, -4 means 0.4 subtracted)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>
@@ -185,9 +185,10 @@
 	<string id="lPaceper5km">Pace averaged over the last 5 seconds</string>
 	<string id="lPaceper300km">Pace averaged over the last .. seconds (max is 300 seconds)</string>
 	<string id="lVertpace">Vertical speed averaged over the last 30 seconds (in meters/seconds or feet/seconds depending on watch settings)</string>
-	<string id="lVAM_hour">Vertical speed averaged over the last 30 seconds (sum of ascent and descent in meters/hour or feet/hour depending on watch settings)</string>
-	<string id="lVAM_min">Vertical speed averaged over the last 30 seconds (sum of ascent and descent in meters/minute or feet/minute depending on watch settings)</string>
-	<string id="lVertpacekm">Vertical speed in meters/seconds averaged over the last 5 seconds </string>
+	<string id="lVertpaceMin">Vertical speed averaged over the last 30 seconds (sum of ascent and descentin meters/minutes or feet/minutes depending on watch settings)</string>
+	<string id="lVertpaceHour">Vertical speed averaged over the last 30 seconds (sum of ascent and descentin meters/hour or feet/hours depending on watch settings)</string>	
+	<string id="lVAM_hour">Vertical speed averaged over the last 30 seconds (ascent in meters/hour or feet/hour depending on watch settings)</string>
+	<string id="lVAM_min">Vertical speed averaged over the last 30 seconds (ascent in meters/minute or feet/minute depending on watch settings)</string>
 	<string id="lrolavPacmaxsecs">Pace or/and speed averaged over the last ... seconds (max is 300 seconds)</string>
 	<string id="lrolavPacmaxsecsError">This needs to be a number from 2 too 300</string>
 	<string id="lPaceper100m">Pace in seconds per 100 meter (for track running)</string>
@@ -311,6 +312,7 @@
     <string id="lBatteryPerc">Battery percentage</string>
     <string id="lTotalAscentinmpermin">Vertical ascent averaged over the time one is ascending (in meters/minute or feet/minute depending on watch settings)</string>
     <string id="lTotalAscentinmperhour">Vertical ascent averaged over the time one is ascending (in meters/hour or feet/hour depending on watch settings)</string>
+    <string id="lDailySteps">Total number of steps today</string>
  </strings>
 
   <settings>
@@ -525,6 +527,7 @@
         <listEntry value="113">@Strings.lstepLength</listEntry>
         <listEntry value="114">@Strings.lverticalOscillation</listEntry>
         <listEntry value="115">@Strings.lverticalRatio</listEntry>
+        <listEntry value="127">@Strings.lDailySteps</listEntry>
 
         <listEntry value="993">@Strings.lETAMenu</listEntry>
         <listEntry value="13">@Strings.lETArequiredpace</listEntry>
@@ -608,10 +611,10 @@
         <listEntry value="52">@Strings.lElevationGain</listEntry>
         <listEntry value="53">@Strings.lElevationLoss</listEntry>
         <listEntry value="67">@Strings.lVertpace</listEntry>
-        <listEntry value="124">@Strings.lVAM_min</listEntry>
-        <listEntry value="108">@Strings.lVAM_hour</listEntry>
-        <listEntry value="125">@Strings.lTotalAscentinmpermin</listEntry>
-        <listEntry value="126">@Strings.lTotalAscentinmperhour</listEntry>
+        <listEntry value="124">@Strings.lVertpaceMin</listEntry>
+        <listEntry value="108">@Strings.lVertpaceHour</listEntry>
+        <listEntry value="125">@Strings.lVAM_min</listEntry>
+        <listEntry value="126">@Strings.lVAM_hour</listEntry>
         <listEntry value="89">@Strings.lTemp</listEntry>
         <listEntry value="105">@Strings.lTempeTemp</listEntry>
         
@@ -668,6 +671,7 @@
         <listEntry value="113">@Strings.lstepLength</listEntry>
         <listEntry value="114">@Strings.lverticalOscillation</listEntry>
         <listEntry value="115">@Strings.lverticalRatio</listEntry>
+        <listEntry value="127">@Strings.lDailySteps</listEntry>
 
         <listEntry value="993">@Strings.lETAMenu</listEntry>
         <listEntry value="13">@Strings.lETArequiredpace</listEntry>
@@ -751,10 +755,10 @@
         <listEntry value="52">@Strings.lElevationGain</listEntry>
         <listEntry value="53">@Strings.lElevationLoss</listEntry>
         <listEntry value="67">@Strings.lVertpace</listEntry>
-        <listEntry value="124">@Strings.lVAM_min</listEntry>
-        <listEntry value="108">@Strings.lVAM_hour</listEntry>
-        <listEntry value="125">@Strings.lTotalAscentinmpermin</listEntry>
-        <listEntry value="126">@Strings.lTotalAscentinmperhour</listEntry>
+        <listEntry value="124">@Strings.lVertpaceMin</listEntry>
+        <listEntry value="108">@Strings.lVertpaceHour</listEntry>
+        <listEntry value="125">@Strings.lVAM_min</listEntry>
+        <listEntry value="126">@Strings.lVAM_hour</listEntry>
         <listEntry value="89">@Strings.lTemp</listEntry>
         <listEntry value="105">@Strings.lTempeTemp</listEntry>
         
@@ -804,7 +808,8 @@
         <listEntry value="111">@Strings.lstanceTime</listEntry>       
         <listEntry value="113">@Strings.lstepLength</listEntry>
         <listEntry value="114">@Strings.lverticalOscillation</listEntry>
-        <listEntry value="115">@Strings.lverticalRatio</listEntry>   
+        <listEntry value="115">@Strings.lverticalRatio</listEntry> 
+        <listEntry value="127">@Strings.lDailySteps</listEntry>  
         
         <listEntry value="993">@Strings.lETAMenu</listEntry>
         <listEntry value="13">@Strings.lETArequiredpace</listEntry>
@@ -887,10 +892,10 @@
         <listEntry value="52">@Strings.lElevationGain</listEntry>
         <listEntry value="53">@Strings.lElevationLoss</listEntry>
         <listEntry value="67">@Strings.lVertpace</listEntry> 
-        <listEntry value="124">@Strings.lVAM_min</listEntry>
-        <listEntry value="108">@Strings.lVAM_hour</listEntry>
-        <listEntry value="125">@Strings.lTotalAscentinmpermin</listEntry>
-        <listEntry value="126">@Strings.lTotalAscentinmperhour</listEntry>
+        <listEntry value="124">@Strings.lVertpaceMin</listEntry>
+        <listEntry value="108">@Strings.lVertpaceHour</listEntry>
+        <listEntry value="125">@Strings.lVAM_min</listEntry>
+        <listEntry value="126">@Strings.lVAM_hour</listEntry>
         <listEntry value="89">@Strings.lTemp</listEntry>  
         <listEntry value="105">@Strings.lTempeTemp</listEntry>  
         
@@ -942,7 +947,8 @@
         <listEntry value="111">@Strings.lstanceTime</listEntry>
         <listEntry value="113">@Strings.lstepLength</listEntry>
         <listEntry value="114">@Strings.lverticalOscillation</listEntry>
-        <listEntry value="115">@Strings.lverticalRatio</listEntry>       
+        <listEntry value="115">@Strings.lverticalRatio</listEntry> 
+        <listEntry value="127">@Strings.lDailySteps</listEntry>      
         
         <listEntry value="993">@Strings.lETAMenu</listEntry>
         <listEntry value="13">@Strings.lETArequiredpace</listEntry>
@@ -1025,10 +1031,10 @@
         <listEntry value="52">@Strings.lElevationGain</listEntry>
         <listEntry value="53">@Strings.lElevationLoss</listEntry>
         <listEntry value="67">@Strings.lVertpace</listEntry> 
-        <listEntry value="124">@Strings.lVAM_min</listEntry>
-        <listEntry value="108">@Strings.lVAM_hour</listEntry>
-        <listEntry value="125">@Strings.lTotalAscentinmpermin</listEntry>
-        <listEntry value="126">@Strings.lTotalAscentinmperhour</listEntry>
+        <listEntry value="124">@Strings.lVertpaceMin</listEntry>
+        <listEntry value="108">@Strings.lVertpaceHour</listEntry>
+        <listEntry value="125">@Strings.lVAM_min</listEntry>
+        <listEntry value="126">@Strings.lVAM_hour</listEntry>
         <listEntry value="89">@Strings.lTemp</listEntry>  
         <listEntry value="105">@Strings.lTempeTemp</listEntry>
         
@@ -1077,7 +1083,8 @@
         <listEntry value="111">@Strings.lstanceTime</listEntry>       
         <listEntry value="113">@Strings.lstepLength</listEntry>
         <listEntry value="114">@Strings.lverticalOscillation</listEntry>
-        <listEntry value="115">@Strings.lverticalRatio</listEntry>      
+        <listEntry value="115">@Strings.lverticalRatio</listEntry>    
+        <listEntry value="127">@Strings.lDailySteps</listEntry>  
         
         <listEntry value="993">@Strings.lETAMenu</listEntry>
         <listEntry value="13">@Strings.lETArequiredpace</listEntry>
@@ -1160,10 +1167,10 @@
         <listEntry value="52">@Strings.lElevationGain</listEntry>
         <listEntry value="53">@Strings.lElevationLoss</listEntry>
         <listEntry value="67">@Strings.lVertpace</listEntry> 
-        <listEntry value="124">@Strings.lVAM_min</listEntry>
-        <listEntry value="108">@Strings.lVAM_hour</listEntry>
-        <listEntry value="125">@Strings.lTotalAscentinmpermin</listEntry>
-        <listEntry value="126">@Strings.lTotalAscentinmperhour</listEntry>
+        <listEntry value="124">@Strings.lVertpaceMin</listEntry>
+        <listEntry value="108">@Strings.lVertpaceHour</listEntry>
+        <listEntry value="125">@Strings.lVAM_min</listEntry>
+        <listEntry value="126">@Strings.lVAM_hour</listEntry>
         <listEntry value="89">@Strings.lTemp</listEntry>  
         <listEntry value="105">@Strings.lTempeTemp</listEntry>
         
@@ -1213,7 +1220,8 @@
         <listEntry value="111">@Strings.lstanceTime</listEntry>       
         <listEntry value="113">@Strings.lstepLength</listEntry>
         <listEntry value="114">@Strings.lverticalOscillation</listEntry>
-        <listEntry value="115">@Strings.lverticalRatio</listEntry>      
+        <listEntry value="115">@Strings.lverticalRatio</listEntry>   
+        <listEntry value="127">@Strings.lDailySteps</listEntry>   
         
         <listEntry value="993">@Strings.lETAMenu</listEntry>
         <listEntry value="13">@Strings.lETArequiredpace</listEntry>
@@ -1296,10 +1304,10 @@
         <listEntry value="52">@Strings.lElevationGain</listEntry>
         <listEntry value="53">@Strings.lElevationLoss</listEntry>
         <listEntry value="67">@Strings.lVertpace</listEntry> 
-        <listEntry value="124">@Strings.lVAM_min</listEntry>
-        <listEntry value="108">@Strings.lVAM_hour</listEntry>
-        <listEntry value="125">@Strings.lTotalAscentinmpermin</listEntry>
-        <listEntry value="126">@Strings.lTotalAscentinmperhour</listEntry>
+        <listEntry value="124">@Strings.lVertpaceMin</listEntry>
+        <listEntry value="108">@Strings.lVertpaceHour</listEntry>
+        <listEntry value="125">@Strings.lVAM_min</listEntry>
+        <listEntry value="126">@Strings.lVAM_hour</listEntry>
         <listEntry value="89">@Strings.lTemp</listEntry>  
         <listEntry value="105">@Strings.lTempeTemp</listEntry>  
         
@@ -1351,7 +1359,8 @@
         <listEntry value="111">@Strings.lstanceTime</listEntry>      
         <listEntry value="113">@Strings.lstepLength</listEntry>
         <listEntry value="114">@Strings.lverticalOscillation</listEntry>
-        <listEntry value="115">@Strings.lverticalRatio</listEntry>      
+        <listEntry value="115">@Strings.lverticalRatio</listEntry>  
+        <listEntry value="127">@Strings.lDailySteps</listEntry>    
         
         <listEntry value="993">@Strings.lETAMenu</listEntry>
         <listEntry value="13">@Strings.lETArequiredpace</listEntry>
@@ -1434,10 +1443,10 @@
         <listEntry value="52">@Strings.lElevationGain</listEntry>
         <listEntry value="53">@Strings.lElevationLoss</listEntry>
         <listEntry value="67">@Strings.lVertpace</listEntry> 
-        <listEntry value="124">@Strings.lVAM_min</listEntry>
-        <listEntry value="108">@Strings.lVAM_hour</listEntry>
-        <listEntry value="125">@Strings.lTotalAscentinmpermin</listEntry>
-        <listEntry value="126">@Strings.lTotalAscentinmperhour</listEntry>
+        <listEntry value="124">@Strings.lVertpaceMin</listEntry>
+        <listEntry value="108">@Strings.lVertpaceHour</listEntry>
+        <listEntry value="125">@Strings.lVAM_min</listEntry>
+        <listEntry value="126">@Strings.lVAM_hour</listEntry>
         <listEntry value="89">@Strings.lTemp</listEntry>  
         <listEntry value="105">@Strings.lTempeTemp</listEntry> 
         
@@ -1487,7 +1496,8 @@
         <listEntry value="111">@Strings.lstanceTime</listEntry>     
         <listEntry value="113">@Strings.lstepLength</listEntry>
         <listEntry value="114">@Strings.lverticalOscillation</listEntry>
-        <listEntry value="115">@Strings.lverticalRatio</listEntry>     
+        <listEntry value="115">@Strings.lverticalRatio</listEntry>  
+        <listEntry value="127">@Strings.lDailySteps</listEntry>   
         
         <listEntry value="993">@Strings.lETAMenu</listEntry>
         <listEntry value="13">@Strings.lETArequiredpace</listEntry>
@@ -1570,10 +1580,10 @@
         <listEntry value="52">@Strings.lElevationGain</listEntry>
         <listEntry value="53">@Strings.lElevationLoss</listEntry>
         <listEntry value="67">@Strings.lVertpace</listEntry> 
-        <listEntry value="124">@Strings.lVAM_min</listEntry>
-        <listEntry value="108">@Strings.lVAM_hour</listEntry>
-        <listEntry value="125">@Strings.lTotalAscentinmpermin</listEntry>
-        <listEntry value="126">@Strings.lTotalAscentinmperhour</listEntry>
+        <listEntry value="124">@Strings.lVertpaceMin</listEntry>
+        <listEntry value="108">@Strings.lVertpaceHour</listEntry>
+        <listEntry value="125">@Strings.lVAM_min</listEntry>
+        <listEntry value="126">@Strings.lVAM_hour</listEntry>
         <listEntry value="89">@Strings.lTemp</listEntry>  
         <listEntry value="105">@Strings.lTempeTemp</listEntry>
         
@@ -1631,6 +1641,7 @@
         <listEntry value="113">@Strings.lstepLength</listEntry>
         <listEntry value="114">@Strings.lverticalOscillation</listEntry>
         <listEntry value="115">@Strings.lverticalRatio</listEntry>
+        <listEntry value="127">@Strings.lDailySteps</listEntry>
 
         <listEntry value="993">@Strings.lETAMenu</listEntry>
         <listEntry value="13">@Strings.lETArequiredpace</listEntry>
@@ -1714,10 +1725,10 @@
         <listEntry value="52">@Strings.lElevationGain</listEntry>
         <listEntry value="53">@Strings.lElevationLoss</listEntry>
         <listEntry value="67">@Strings.lVertpace</listEntry>
-        <listEntry value="124">@Strings.lVAM_min</listEntry>
-        <listEntry value="108">@Strings.lVAM_hour</listEntry>
-        <listEntry value="125">@Strings.lTotalAscentinmpermin</listEntry>
-        <listEntry value="126">@Strings.lTotalAscentinmperhour</listEntry>
+        <listEntry value="124">@Strings.lVertpaceMin</listEntry>
+        <listEntry value="108">@Strings.lVertpaceHour</listEntry>
+        <listEntry value="125">@Strings.lVAM_min</listEntry>
+        <listEntry value="126">@Strings.lVAM_hour</listEntry>
         <listEntry value="89">@Strings.lTemp</listEntry>
         <listEntry value="105">@Strings.lTempeTemp</listEntry>
         
@@ -1775,6 +1786,7 @@
         <listEntry value="113">@Strings.lstepLength</listEntry>
         <listEntry value="114">@Strings.lverticalOscillation</listEntry>
         <listEntry value="115">@Strings.lverticalRatio</listEntry>
+        <listEntry value="127">@Strings.lDailySteps</listEntry>
 
         <listEntry value="993">@Strings.lETAMenu</listEntry>
         <listEntry value="13">@Strings.lETArequiredpace</listEntry>
@@ -1858,10 +1870,10 @@
         <listEntry value="52">@Strings.lElevationGain</listEntry>
         <listEntry value="53">@Strings.lElevationLoss</listEntry>
         <listEntry value="67">@Strings.lVertpace</listEntry>
-        <listEntry value="124">@Strings.lVAM_min</listEntry>
-        <listEntry value="108">@Strings.lVAM_hour</listEntry>
-        <listEntry value="125">@Strings.lTotalAscentinmpermin</listEntry>
-        <listEntry value="126">@Strings.lTotalAscentinmperhour</listEntry>
+        <listEntry value="124">@Strings.lVertpaceMin</listEntry>
+        <listEntry value="108">@Strings.lVertpaceHour</listEntry>
+        <listEntry value="125">@Strings.lVAM_min</listEntry>
+        <listEntry value="126">@Strings.lVAM_hour</listEntry>
         <listEntry value="89">@Strings.lTemp</listEntry>
         <listEntry value="105">@Strings.lTempeTemp</listEntry>
         
@@ -1912,6 +1924,7 @@
         <listEntry value="113">@Strings.lstepLength</listEntry>
         <listEntry value="114">@Strings.lverticalOscillation</listEntry>
         <listEntry value="115">@Strings.lverticalRatio</listEntry>
+        <listEntry value="127">@Strings.lDailySteps</listEntry>
         
         <listEntry value="995">@Strings.lHRMenu</listEntry>
         <listEntry value="45">@Strings.lHeartrate</listEntry>
@@ -1934,10 +1947,10 @@
         <listEntry value="52">@Strings.lElevationGain</listEntry>
         <listEntry value="53">@Strings.lElevationLoss</listEntry>
         <listEntry value="67">@Strings.lVertpace</listEntry>
-        <listEntry value="124">@Strings.lVAM_min</listEntry>
-        <listEntry value="108">@Strings.lVAM_hour</listEntry>
-        <listEntry value="125">@Strings.lTotalAscentinmpermin</listEntry>
-        <listEntry value="126">@Strings.lTotalAscentinmperhour</listEntry>
+        <listEntry value="124">@Strings.lVertpaceMin</listEntry>
+        <listEntry value="108">@Strings.lVertpaceHour</listEntry>
+        <listEntry value="125">@Strings.lVAM_min</listEntry>
+        <listEntry value="126">@Strings.lVAM_hour</listEntry>
         <listEntry value="89">@Strings.lTemp</listEntry>
         <listEntry value="105">@Strings.lTempeTemp</listEntry>
         

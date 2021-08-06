@@ -22,8 +22,11 @@ class ExtramemView extends DatarunpremiumView {
 	var HRzone								= 0;
 	hidden var Powerzone					= 0;
 	var totalVertPace 						= 0;
+	var totalDiff2							= 0;
 	hidden var VertPace		 				= new [33];
-	var AverageVertspeedinmper30sec			= 0;
+	hidden var Diffasc2		 				= new [33];
+	hidden var AverageVertspeedinmper30sec	= 0;
+	hidden var totalAscent30sec				= 0;
 	var CurrentVertSpeedinmpersec 			= 0; 
 	hidden var totalAscSeconds 			    = 0;
 	var uGarminColors 						= false;
@@ -64,7 +67,6 @@ class ExtramemView extends DatarunpremiumView {
 	hidden var valueAsclast					= 0;
 	hidden var valueDesclast				= 0;
 	hidden var Diff1 						= 0;
-	hidden var Diff2 						= 0;
 	hidden var startTime;
 	hidden var groundContactBalance			= 0;
 	hidden var rollgroundContactBalance		= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
@@ -120,6 +122,7 @@ class ExtramemView extends DatarunpremiumView {
 		
 		for (var i = 1; i<33; ++i) {
 				VertPace[i] = 0; 
+				Diffasc2[i] = 0;
 		}
 		
 		for (i = 1; i < 11; ++i) {
@@ -385,7 +388,7 @@ class ExtramemView extends DatarunpremiumView {
            		} else {
            			fieldValue[i] = 0;
            		}
-            	fieldLabel[i] = "VAM-min";
+            	fieldLabel[i] = "Av-asc-m";
             	fieldFormat[i] = "1decimal";
             } else if (metric[i] == 126) {
             	if (totalAscSeconds > 0) {
@@ -394,13 +397,21 @@ class ExtramemView extends DatarunpremiumView {
            		} else {
            			fieldValue[i] = 0;
            		}
-            	fieldLabel[i] = "VAM-hour";
+            	fieldLabel[i] = "Av-asc-h";
             	fieldFormat[i] = "0decimal";
             } else if (metric[i] == 127) {
 	        	fieldValue[i] = (Toybox has :ActivityMonitor) ? steps : 0;
     	       	fieldLabel[i] = "Day steps";
     	       	fieldFormat[i] = "0decimal";
-           	}
+    	    } else if (metric[i] == 128) {
+           		fieldValue[i] = (unitD == 1609.344) ? totalAscent30sec*3.2808*60 : totalAscent30sec*60;
+            	fieldLabel[i] = "VAM-min";        	
+            	fieldFormat[i] = "1decimal";
+        	} else if (metric[i] == 129) {
+           		fieldValue[i] = (unitD == 1609.344) ? totalAscent30sec*3.2808*3600 : totalAscent30sec*3600;
+            	fieldLabel[i] = "VAM-hour";
+            	fieldFormat[i] = "0decimal";
+			} 	
 		}
 
 		//!Choice for metric in Clockfield
@@ -636,6 +647,12 @@ class ExtramemView extends DatarunpremiumView {
            		CFMFormat = "0decimal";
            	} else if (uClockFieldMetric == 127) {
 	        	CFMValue = (Toybox has :ActivityMonitor) ? steps : 0;
+    	       	CFMFormat = "0decimal";
+    	    } else if (uClockFieldMetric == 128) {
+	        	CFMValue = (unitD == 1609.344) ? totalAscent30sec*3.2808*60 : totalAscent30sec*60;
+    	       	CFMFormat = "1decimal";
+    	    } else if (uClockFieldMetric == 129) {
+	        	CFMValue = (unitD == 1609.344) ? totalAscent30sec*3.2808*3600 : totalAscent30sec*3600;
     	       	CFMFormat = "0decimal";
            	}		 
 

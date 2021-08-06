@@ -53,6 +53,7 @@ class CiqView extends ExtramemView {
     var uFontalertColorLow					= 5;
     hidden var mFontalertColorHigh			= Graphics.COLOR_PURPLE;
     var uFontalertColorHigh					= 4;
+    hidden var Diff2						= 0;
 		
     function initialize() {
         ExtramemView.initialize();
@@ -227,21 +228,25 @@ class CiqView extends ExtramemView {
         	valueAsclast = valueAsc;
 	        CurrentVertSpeedinmpersec = Diff2-Diff1;
     	    for (i = 1; i < 11; ++i) {
-	    	    if (metric[i] == 67 or metric[i] == 108 or metric[i] == 124) {
+	    	    if (metric[i] == 67 or metric[i] == 108 or metric[i] == 124 or metric[i] == 125 or metric[i] == 126 or metric[i] == 128 or metric[i] == 129 or uClockFieldMetric == 67 or uClockFieldMetric == 108 or uClockFieldMetric == 124 or uClockFieldMetric == 125 or uClockFieldMetric == 126 or uClockFieldMetric == 128 or uClockFieldMetric == 129) {
 					for (var j = 1; j < 30; ++j) {			
 						VertPace[31-j] = VertPace[30-j];
+						Diffasc2[31-j] = Diffasc2[30-j];
 					}
 					VertPace[1]	= CurrentVertSpeedinmpersec;
+					Diffasc2[1] = Diff2;
 					for (var j = 1; j < 31; ++j) {
 						totalVertPace = VertPace[j] + totalVertPace;
+						totalDiff2 = Diffasc2[j] + totalDiff2;
 					}
 					if (jTimertime>0) {		
-						AverageVertspeedinmper30sec= (jTimertime<31) ? totalVertPace/jTimertime : totalVertPace/30;
+						AverageVertspeedinmper30sec = (jTimertime<31) ? totalVertPace/jTimertime : totalVertPace/30;
 						totalVertPace = 0;
+						totalAscent30sec = (jTimertime<31) ? totalDiff2/jTimertime : totalDiff2/30; 
+						totalDiff2 = 0;
 					}
 				}
 			}
-
 
 			//! Calculate temperature compensation, B-variables reference cell number from cells of conversion excelsheet  		
             var B6 = 22; 			//! is cell B6

@@ -54,6 +54,12 @@ class CiqView extends ExtramemView {
     hidden var mFontalertColorHigh			= Graphics.COLOR_PURPLE;
     var uFontalertColorHigh					= 4;
     hidden var Diff2						= 0;
+    hidden var mNormalizedPow 				= 0;
+	hidden var rollingPwr30s 				= 0;
+	hidden var calculateNrmPwr				= false; 
+	hidden var calculateRolavPow			= false;
+	hidden var calculateVertSpeed			= false;
+	hidden var calculateRolavPace			= false;
 		
     function initialize() {
         ExtramemView.initialize();
@@ -136,9 +142,28 @@ class CiqView extends ExtramemView {
 		i = 0; 
 	    for (i = 1; i < 11; ++i) {		
 			if (metric[i] == 57 or metric[i] == 58 or metric[i] == 59) {
-				rolavPowmaxsecs = (rolavPowmaxsecs < 30) ? 30 : rolavPowmaxsecs;
+				rolavPowmaxsecs = (rolavPowmaxsecs < 30) ? 30 : rolavPowmaxsecs; //! Force 30 seconds, as it is needed for normalized power, TSS and IF
+				calculateNrmPwr = true; //!Only calculate normalized power, TSS and IF when needed
 			}
 		}	
+			
+	    for (i = 1; i < 11; ++i) {
+			if (metric[i] ==  37 or metric[i] == 57 or metric[i] == 58 or metric[i] == 59 or metric[i] == 78 or uLapPwr4alerts == 4) {
+				calculateRolavPow = true; //!Only calculate rolling power for max 300 seconds if needed
+			}
+		}
+
+		for (i = 1; i < 11; ++i) {
+			if (metric[i] ==  17 or metric[i] == 63) {
+				calculateRolavPace = true; //!Only calculate rolling pace for max 300 seconds if needed
+			}
+		}
+		
+		for (i = 1; i < 11; ++i) {
+	    	if (metric[i] == 67 or metric[i] == 108 or metric[i] == 124 or metric[i] == 125 or metric[i] == 126 or metric[i] == 128 or metric[i] == 129 or uClockFieldMetric == 67 or uClockFieldMetric == 108 or uClockFieldMetric == 124 or uClockFieldMetric == 125 or uClockFieldMetric == 126 or uClockFieldMetric == 128 or uClockFieldMetric == 129) {
+				calculateVertSpeed = true; //!Only calculate vertical speed if needed
+			}
+		}
 				
 		if (mySettings.screenWidth == 260 and mySettings.screenHeight == 260) {
 			Garminfont = Ui.loadResource(Rez.Fonts.Garmin2);
@@ -226,25 +251,24 @@ class CiqView extends ExtramemView {
         	totalAscSeconds = (Diff2>0) ? totalAscSeconds + 1 : totalAscSeconds;      
     	    valueDesclast = valueDesc;
         	valueAsclast = valueAsc;
-	        CurrentVertSpeedinmpersec = Diff2-Diff1;
-    	    for (i = 1; i < 11; ++i) {
-	    	    if (metric[i] == 67 or metric[i] == 108 or metric[i] == 124 or metric[i] == 125 or metric[i] == 126 or metric[i] == 128 or metric[i] == 129 or uClockFieldMetric == 67 or uClockFieldMetric == 108 or uClockFieldMetric == 124 or uClockFieldMetric == 125 or uClockFieldMetric == 126 or uClockFieldMetric == 128 or uClockFieldMetric == 129) {
-					for (var j = 1; j < 30; ++j) {			
-						VertPace[31-j] = VertPace[30-j];
-						Diffasc2[31-j] = Diffasc2[30-j];
-					}
-					VertPace[1]	= CurrentVertSpeedinmpersec;
-					Diffasc2[1] = Diff2;
-					for (var j = 1; j < 31; ++j) {
-						totalVertPace = VertPace[j] + totalVertPace;
-						totalDiff2 = Diffasc2[j] + totalDiff2;
-					}
-					if (jTimertime>0) {		
-						AverageVertspeedinmper30sec = (jTimertime<31) ? totalVertPace/jTimertime : totalVertPace/30;
-						totalVertPace = 0;
-						totalAscent30sec = (jTimertime<31) ? totalDiff2/jTimertime : totalDiff2/30; 
-						totalDiff2 = 0;
-					}
+	        CurrentVertSpeedinmpersec = Diff2-Diff1;	        
+	        var j;
+	        if (calculateVertSpeed == true) {
+   				for (j = 1; j < 30; ++j) {			
+					VertPace[31-j] = VertPace[30-j];
+					Diffasc2[31-j] = Diffasc2[30-j];
+				}
+				VertPace[1]	= CurrentVertSpeedinmpersec;
+				Diffasc2[1] = Diff2;
+				for (j = 1; j < 31; ++j) {
+					totalVertPace = VertPace[j] + totalVertPace;
+					totalDiff2 = Diffasc2[j] + totalDiff2;
+				}
+				if (jTimertime>0) {		
+					AverageVertspeedinmper30sec = (jTimertime<31) ? totalVertPace/jTimertime : totalVertPace/30;
+					totalVertPace = 0;
+					totalAscent30sec = (jTimertime<31) ? totalDiff2/jTimertime : totalDiff2/30; 
+					totalDiff2 = 0;
 				}
 			}
 
@@ -359,7 +383,51 @@ class CiqView extends ExtramemView {
 					PwrCorrFactor = 1- (B24 - B25) - (B39-B38)/100;
 				}
 			}
-        	
+
+			//! Calculation of rolling average of power 			
+			if (calculateRolavPow == true) {
+				var zeroValueSecs = 0;
+				if (counterPower < 1) {
+					for (var i = 1; i < rolavPowmaxsecs+2; ++i) {
+						rollingPwrValue [i] = 0; 
+					}
+				}
+				counterPower = counterPower + 1;
+				rollingPwrValue [rolavPowmaxsecs+1] = runPower; 
+				for (var i = 1; i < rolavPowmaxsecs+1; ++i) {
+					rollingPwrValue[i] = rollingPwrValue[i+1];
+				}
+				for (var i = 1; i < rolavPowmaxsecs+1; ++i) {
+					totalRPw = rollingPwrValue[i] + totalRPw;	
+					if (mPowerTime < rolavPowmaxsecs) {
+						zeroValueSecs = (rollingPwrValue[i] != 0) ? zeroValueSecs : zeroValueSecs + 1;
+					}
+				}
+				if (rolavPowmaxsecs-zeroValueSecs == 0) {
+					Averagepowerpersec = 0;
+				} else {
+					Averagepowerpersec = (mPowerTime < rolavPowmaxsecs) ? totalRPw/(rolavPowmaxsecs-zeroValueSecs) : totalRPw/rolavPowmaxsecs;
+				}
+				totalRPw = 0;  
+			}     
+
+			//!Calculate normalized power, IF and TTS
+			if (calculateNrmPwr == true) {
+				if (jTimertime > 30) {
+					for (var i = 1; i < 31; ++i) {
+						rollingPwr30s = rollingPwr30s + rollingPwrValue [rolavPowmaxsecs+2-i];
+					}
+					rollingPwr30s = rollingPwr30s/30;
+					if (mTimerRunning == true) {
+						sum4thPowers = sum4thPowers + Math.pow(rollingPwr30s,4);
+						fourthPowercounter = fourthPowercounter + 1; 
+					}
+				mNormalizedPow = Math.round(Math.pow(sum4thPowers/fourthPowercounter,0.25));				
+				}
+			mIntensityFactor = (uFTP != 0) ? mNormalizedPow / uFTP : 0;
+			mTTS = (uFTP != 0) ? (jTimertime * mNormalizedPow * mIntensityFactor)/(uFTP * 3600) * 100 : 999;
+			}		
+       	
             //!Calculate lappower
             mPowerTime		 = (info.currentPower != null) ? mPowerTime+1 : mPowerTime;
             if (uOnlyPwrCorrFactor == false) {
@@ -378,7 +446,35 @@ class CiqView extends ExtramemView {
 					RSS = RSS + + 0.03 * Math.pow(((runPower+0.001)/uCP),3.5);
 				}
 			}
+
+			//! Calculation of rolling average of pace
+			if (calculateRolavPace == true) {
+				var zeroValueSecs = 0;
+				if (counterPace < 1) {
+					for (var i = 1; i < rolavPacmaxsecs+2; ++i) {
+						rollingPaceValue [i] = 0; 
+					}
+				}
+				counterPace = counterPace + 1;
+				rollingPaceValue [rolavPacmaxsecs+1] = (info.currentSpeed != null) ? info.currentSpeed : 0;
+				for (var i = 1; i < rolavPacmaxsecs+1; ++i) {
+					rollingPaceValue [i] = rollingPaceValue [i+1];
+				}
+				for (var i = 1; i < rolavPacmaxsecs+1; ++i) {
+					totalRPa = rollingPaceValue [i] + totalRPa;
+					if (mHeartrateTime < rolavPacmaxsecs) {
+						zeroValueSecs = (rollingPaceValue[i] != 0) ? zeroValueSecs : zeroValueSecs + 1;
+					}
+				}
+				if (rolavPacmaxsecs-zeroValueSecs == 0) {
+					Averagespeedinmpersec = 0;
+				} else {
+					Averagespeedinmpersec = (mHeartrateTime < rolavPacmaxsecs) ? totalRPa/(rolavPacmaxsecs-zeroValueSecs) : totalRPa/rolavPacmaxsecs;
+				}
+				totalRPa = 0;
+			}
 			
+			//! Calculation of running dynamics		
 			if (dynamics != null) {
 	 		    var data = dynamics.getRunningDynamics(); 
 	 		    if (data != null) {
@@ -544,56 +640,7 @@ class CiqView extends ExtramemView {
 			}
  		}
 
-		//! Calculation of rolling average of power 
-		var zeroValueSecs = 0;
-		if (counterPower < 1) {
-			for (var i = 1; i < rolavPowmaxsecs+2; ++i) {
-				rollingPwrValue [i] = 0; 
-			}
-		}
-		counterPower = counterPower + 1;
-		rollingPwrValue [rolavPowmaxsecs+1] = runPower; 
-		for (var i = 1; i < rolavPowmaxsecs+1; ++i) {
-			rollingPwrValue[i] = rollingPwrValue[i+1];
-		}
-		for (var i = 1; i < rolavPowmaxsecs+1; ++i) {
-			totalRPw = rollingPwrValue[i] + totalRPw;
-		
-			if (mPowerTime < rolavPowmaxsecs) {
-				zeroValueSecs = (rollingPwrValue[i] != 0) ? zeroValueSecs : zeroValueSecs + 1;
-			}
-		}
-		if (rolavPowmaxsecs-zeroValueSecs == 0) {
-			Averagepowerpersec = 0;
-		} else {
-			Averagepowerpersec = (mPowerTime < rolavPowmaxsecs) ? totalRPw/(rolavPowmaxsecs-zeroValueSecs) : totalRPw/rolavPowmaxsecs;
-		}
-		totalRPw = 0;       
 
-		//!Calculate normalized power
-		var mNormalizedPow = 0;
-		var rollingPwr30s = 0;
-		var j = 0; 		
-	    for (j = 1; j < 8; ++j) {
-			if (metric[j] == 57 or metric[j] == 58 or metric[j] == 59) {
-				if (jTimertime > 30) {
-					for (var i = 1; i < 31; ++i) {
-						rollingPwr30s = rollingPwr30s + rollingPwrValue [rolavPowmaxsecs+2-i];
-					}
-					rollingPwr30s = rollingPwr30s/30;
-					if (mTimerRunning == true) {
-						sum4thPowers = sum4thPowers + Math.pow(rollingPwr30s,4);
-						fourthPowercounter = fourthPowercounter + 1; 
-					}
-				mNormalizedPow = Math.round(Math.pow(sum4thPowers/fourthPowercounter,0.25));				
-				}
-			}
-		}		
-
-
-		//! Calculate IF and TTS
-		mIntensityFactor = (uFTP != 0) ? mNormalizedPow / uFTP : 0;
-		mTTS = (uFTP != 0) ? (jTimertime * mNormalizedPow * mIntensityFactor)/(uFTP * 3600) * 100 : 999;
 
 		var ElapsedDistance = (info.elapsedDistance != null) ? info.elapsedDistance / unitD : 0;
 		if (Activity has :getCurrentWorkoutStep) {

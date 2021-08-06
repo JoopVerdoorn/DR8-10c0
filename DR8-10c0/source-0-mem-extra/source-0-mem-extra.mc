@@ -162,34 +162,7 @@ class ExtramemView extends DatarunpremiumView {
 		LapCadence 				= (mLapTimerTimeCadence != 0) ? Math.round(mLapElapsedCadence/mLapTimerTimeCadence) : 0; 					
 		LastLapCadence			= (mLastLapTimerTime != 0) ? Math.round(mLastLapElapsedCadence/mLastLapTimerTime) : 0;
 
-       
-		//! Calculation of rolling average of pace
-		var info = Activity.getActivityInfo();
-		var zeroValueSecs = 0;
-
-		if (counterPace < 1) {
-			for (var i = 1; i < rolavPacmaxsecs+2; ++i) {
-				rollingPaceValue [i] = 0; 
-			}
-		}
-		counterPace = counterPace + 1;
-		rollingPaceValue [rolavPacmaxsecs+1] = (info.currentSpeed != null) ? info.currentSpeed : 0;
-		for (var i = 1; i < rolavPacmaxsecs+1; ++i) {
-			rollingPaceValue [i] = rollingPaceValue [i+1];
-		}
-		for (var i = 1; i < rolavPacmaxsecs+1; ++i) {
-			totalRPa = rollingPaceValue [i] + totalRPa;
-			if (mHeartrateTime < rolavPacmaxsecs) {
-				zeroValueSecs = (rollingPaceValue[i] != 0) ? zeroValueSecs : zeroValueSecs + 1;
-			}
-		}
-		if (rolavPacmaxsecs-zeroValueSecs == 0) {
-			Averagespeedinmpersec = 0;
-		} else {
-			Averagespeedinmpersec = (mHeartrateTime < rolavPacmaxsecs) ? totalRPa/(rolavPacmaxsecs-zeroValueSecs) : totalRPa/rolavPacmaxsecs;
-		}
-		totalRPa = 0;
-
+ 		//!Calculate EF
 		var CurrentEfficiencyFactor		= (info.currentHeartRate != null && info.currentHeartRate != 0) ? mLapSpeed*60/info.currentHeartRate : 0;
 		var AverageEfficiencyFactor   	= (info.averageSpeed != null && AverageHeartrate != 0) ? info.averageSpeed*60/AverageHeartrate : 0; 
 		var LapEfficiencyFactor   		= (LapHeartrate != 0) ? mLapSpeed*60/LapHeartrate : 0;
@@ -203,7 +176,6 @@ class ExtramemView extends DatarunpremiumView {
         mRacemin = mRacemin.toNumber();
         mRacesec = mRacesec.toNumber();
         mRacetime = mRacehour*3600 + mRacemin*60 + mRacesec;
-
 
 		//! Get number of steps of today
 		var info2;

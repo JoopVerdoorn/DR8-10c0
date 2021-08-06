@@ -298,7 +298,7 @@ class DatarunpremiumView extends Ui.DataField {
     	        fieldLabel[i] = "AvgPace";
         	    fieldFormat[i] = "pace";
             } else if (metric[i] == 13) {
-        		fieldLabel[i]  = "Req pace ";
+        		fieldLabel[i]  = "Req pace";
         		fieldFormat[i] = "pace";
         		if (info.elapsedDistance != null and mRacetime != jTimertime and mRacetime > jTimertime) {
         			fieldValue[i] = (uRacedistance - info.elapsedDistance) / (mRacetime - jTimertime);

@@ -686,15 +686,15 @@ class CiqView extends ExtramemView {
             	fieldFormat[i] = "1decimal";
             } else if (metric[i] == 99) {
     	        fieldValue[i] =  AveragePower3sec;     	        
-        	    fieldLabel[i] = "3s P zone";
+        	    fieldLabel[i] = "3s Pzone";
             	fieldFormat[i] = "1decimal";
             } else if (metric[i] == 100) {
     	        fieldValue[i] =  AveragePower5sec;     	        
-        	    fieldLabel[i] = "5s P zone";
+        	    fieldLabel[i] = "5s Pzone";
             	fieldFormat[i] = "1decimal"; 
             } else if (metric[i] == 101) {
     	        fieldValue[i] =  AveragePower10sec;     	        
-        	    fieldLabel[i] = "10s P zone";
+        	    fieldLabel[i] = "10s Pzone";
             	fieldFormat[i] = "1decimal";  
             } else if (metric[i] == 102) {
     	        fieldValue[i] =  LapPower;     	        
@@ -707,11 +707,7 @@ class CiqView extends ExtramemView {
             } else if (metric[i] == 104) {
     	        fieldValue[i] =  AveragePower;     	        
         	    fieldLabel[i] = "Av Pzone";
-            	fieldFormat[i] = "1decimal";          	
-			} else if (metric[i] == 17) {
-	            fieldValue[i] = Averagespeedinmpersec;
-    	        fieldLabel[i] = "Pc " + rolavPacmaxsecs + "s";
-        	    fieldFormat[i] = "pace";            	
+            	fieldFormat[i] = "1decimal";          	           	
 			} else if (metric[i] == 55) {   
             	if (info.currentSpeed == null or info.currentSpeed==0) {
             		fieldValue[i] = 0;
@@ -758,7 +754,7 @@ class CiqView extends ExtramemView {
 				} else {
 					fieldValue[i]= 0;
 				}
-    	        fieldLabel[i] = "A  P2HR";
+    	        fieldLabel[i] = "A P2HR";
         	    fieldFormat[i] = "2decimal";
 			} else if (metric[i] == 36) {
 				if (info.currentHeartRate != null && info.currentHeartRate != 0) {
@@ -820,6 +816,7 @@ class CiqView extends ExtramemView {
 	            fieldValue[i] = (uFTP != 0) ? Averagepowerpersec*100/uFTP : 0;
     	        fieldLabel[i] = "%FTP ..sec"; 
         	    fieldFormat[i] = "power";
+//! Tot hier gekomen
 			} else if (metric[i] == 58) {
 	            fieldValue[i] = mIntensityFactor;
     	        fieldLabel[i] = "IF";

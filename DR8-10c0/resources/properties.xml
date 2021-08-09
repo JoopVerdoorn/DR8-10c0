@@ -80,7 +80,7 @@
 	
   <strings>
     <string id="lCCnumber">C-Code generated on the watch by the corresponding main Datarun premium datafield</string>
-    <string id="lDummysetting4version">Version 3.00b of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 3.00c of Datarun ultimate, main version (dummy setting)</string>
     <string id="lTempeCalibration">Calibration factor for Tempe temperature in tenths of degrees (3 means 0.3 added, -4 means 0.4 subtracted)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>
@@ -153,9 +153,9 @@
 	<string id="lLLHeartrate">'LL HR', last lap heartrate</string>   
 	<string id="lFTP">Functional treshold power, needed for Intensity factor and Training stress score</string>
 	<string id="lCP">Critical power, needed for Running Stress Score</string>
-	<string id="lIntensityFactor">Intensity Factor</string>
-	<string id="lTTS">Training Stress Score</string>
-	<string id="lRSS">Running Stress Score</string>
+	<string id="lIntensityFactor">'IF', intensity factor</string>
+	<string id="lTSS">'TSS', training stress score</string>
+	<string id="lRSS">'RSS', running stress Score</string>
     <string id="lRequiredPower">Boundaries of a static powerzone for warning signal, a format required like (227:284)</string> 
     <string id="lWarningFreq">Frequency for the warning signal for operating out of powerzone</string>
     <string id="lAlertbeep">Play sound as warning signal for operating out of powerzone</string> 
@@ -211,17 +211,17 @@
 	<string id="lTemp">'Temp', current watch temperature</string>
 	<string id="lTempeTemp">'Tempe T', current Tempe temperature (requires Tempe!)</string>
 	<string id="lGarminColors">Use Garmin color scheme for label colors (not applicable for Palladino 10 powerzones)</string>
-    <string id="lSPower">Current running power</string>
-    <string id="lAsecPower">Power averaged over the last 3 seconds</string>
+    <string id="lPower">'Power', current running power</string>
+    <string id="lPowper3sec">'Pwr 3s', Power averaged over the last 3 seconds</string>
     <string id="lPowper5sec">'Pwr 5s', power averaged over the last 5 seconds</string>
     <string id="lPowper10sec">'Pwr 10s', power averaged over the last 10 seconds</string>
     <string id="lPowpermax300s">'Pw ..s', power averaged over the last .. seconds</string>
     <string id="lrolavPowmaxsecs">Power averaged over the last .. seconds (choose the number of seconds, max is 300 seconds)</string>
     <string id="lrolavPowmaxsecsError">This needs to be a number from 2 too 300</string>
     <string id="lNPower">'N Power', normalized power</string>
-    <string id="lAPower">Average running power</string>
-	<string id="lLPower">Current lap running power</string>
-	<string id="lLLPower">Last lap running power</string>
+    <string id="lAPower">'A Power', average running power</string>
+	<string id="lLPower">'L Power', current lap running power</string>
+	<string id="lLLPower">'LL Pwr', last lap running power</string>
 	<string id="lMaxPwr">'Max Pwr', maximum produced power during activity</string>
     <string id="lPowerZones">Power zones, a format required like 184:Z1:227:Z2:255:Z3:284:Z4:326:Z5:369</string>
     <string id="l10Powerzones">Use 10 power zones  instead of 5</string>
@@ -266,14 +266,14 @@
     <string id="lkCalories">'kCal', used kilocalories</string>
     <string id="lLLPaceper100m">'LL s/100m', pace of last lap in seconds per 100 meter (for track running)</string>
     <string id="lWeight">Weight in kilo's (needed for Running Effectiveness as used by Steve Palladino)</string>
-    <string id="lCurRE">Current Running Effectiveness (as used by Steve Palladino)</string>
-    <string id="l3secRE">Rolling average over the last 3 seconds of Running Effectiveness (as used by Steve Palladino)</string>
-    <string id="l5secRE">Rolling average over the last 5 seconds of Running Effectiveness (as used by Steve Palladino)</string>
-    <string id="lLapE">Lap Running Effectiveness (as used by Steve Palladino)</string>
-    <string id="lAverRE">Average Running Effectiveness (as used by Steve Palladino)</string>
+    <string id="lCurRE">'RE cur', current Running Effectiveness (as used by Steve Palladino)</string>
+    <string id="l3secRE">'RE 3sec', rolling average over the last 3 seconds of Running Effectiveness (as used by Steve Palladino)</string>
+    <string id="l5secRE">'RE 5sec', rolling average over the last 5 seconds of Running Effectiveness (as used by Steve Palladino)</string>
+    <string id="lLapE">'RE lap', current lap Running Effectiveness (as used by Steve Palladino)</string>
+    <string id="lAverRE">'RE Aver', average Running Effectiveness (as used by Steve Palladino)</string>
     <string id="lLfont240big">Use large label font for smaller watch diameter (Fenix 5+, FR945, Fenix 6s etc)</string>
     <string id="ltempunits">Use Fahrenheit instead of Celsius for temperature metrics (Celsius is default)</string>
-    <string id="lPowerTarget">Powertarget in Watt, useful when power correction is set only to influence powertarget</string>
+    <string id="lPowerTarget">'P target, powertarget in Watt, useful when power correction is set only to influence powertarget</string>
     <string id="lPtargetcorrect">Powertarget in Watt as set in settings or defined by a workout, corrected by temperature/humidity/altitude if set in settings</string>
     <string id="lOnlyPwrCorrFactor">Use correction factors for running power only to change powertarget</string>
     <string id="lPwrTempcorrect">Power correction based on temperature</string>
@@ -282,7 +282,7 @@
     <string id="lManPwrTempcorrect">Correction based on manual set temperature (manually set in settings)</string>
     <string id="lFTPTemp">Temperature in F or C by which Critical power or FTP is determined, for power correction based on temperature</string>
     <string id="lManTemp">Current temperature in F or C, for power correction based on temperature (manual setting instead of being delivered by Tempe)</string>
-    <string id="lCalcPwrTempcorrect">Calculated power correction percentage based on temperature</string>
+    <string id="lCalcPwrTempcorrect">'Pw cor%', calculated power correction percentage based on temperature</string>
     <string id="lPwrHumidcorrect">Power correction based on humidity</string>
     <string id="lNoPwrHumidcorrect">No correction</string>
     <string id="lManPwrHumidcorrect">Correction based on manual set humidity</string>
@@ -299,12 +299,12 @@
     <string id="lstepLength">'StepL', runningDynamics step length (requires running, in meters or feet depending on watch settings , requires running pod, HRM-run or HRM-tri)</string>
     <string id="lverticalOscillation">'VertOsc', runningDynamics instantaneous vertical oscillation (in mm, requires running pod, HRM-run or HRM-tri)</string>
     <string id="lverticalRatio">'VertRat', runningDynamics vertical ratio (0 - 100%, requires running pod, HRM-run or HRM-tri)</string>
-    <string id="lLtarget">Lower power boundary of a workout step (not for F5x), from Training peaks etc, corrected by temperature/humidity/altitude if set in settings</string> 
-    <string id="lHtarget">Upper power boundary of a workout step (not for F5x), from Training peaks etc, corrected by temperature/humidity/altitude if set in settings</string>
-    <string id="lLperctarget">Lower power boundary of a workout step in % van FTP (not for F5x), from Training peaks etc, corrected by temperature/humidity/altitude if set in settings</string> 
-    <string id="lHperctarget">Upper power boundary of a workout step in % van FTP (not for F5x), from Training peaks etc, corrected by temperature/humidity/altitude if set in settings</string>
-    <string id="lStepnumber">Current step number of a workout (not for F5x)</string>
-    <string id="lReamingTimeOfStep">Remaining time or distance of the current step of a workout (not for F5x)</string>
+    <string id="lLtarget">'L Wtarget', lower power boundary of a workout step (not for F5x), from Training peaks etc, corrected by temperature/humidity/altitude if set in settings</string> 
+    <string id="lHtarget">'U Wtarget', upper power boundary of a workout step (not for F5x), from Training peaks etc, corrected by temperature/humidity/altitude if set in settings</string>
+    <string id="lLperctarget">'L%target', lower power boundary of a workout step in % van FTP (not for F5x), from Training peaks etc, corrected by temperature/humidity/altitude if set in settings</string> 
+    <string id="lHperctarget">'U%target', upper power boundary of a workout step in % van FTP (not for F5x), from Training peaks etc, corrected by temperature/humidity/altitude if set in settings</string>
+    <string id="lStepnumber">'Step nr', current step number of a workout (not for F5x)</string>
+    <string id="lReamingTimeOfStep">'Remain T' or 'Remain D' or 'Button', remaining time or distance of the current step of a workout, shows "button" as label when it has to be ended by a button click (not for F5x)</string>
     <string id="loverruleWourkout">Use a static powerzone for alerts, not powerzones from workout steps  (not for F5x)</string> 
     <string id="lShowRedClock">Show red clock over all metrics before the start of an activity (useful for a race when the normal clock isn't visible)</string>
     <string id="lBatteryPerc">'Battery', current battery status (percentage)</string>
@@ -545,10 +545,10 @@
                 
         <listEntry value="996">@Strings.lSPowerMenu</listEntry>
         <listEntry value="106">@Strings.lCalcPwrTempcorrect</listEntry>
-        <listEntry value="20">@Strings.lSPower</listEntry>
+        <listEntry value="20">@Strings.lPower</listEntry>
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
-		<listEntry value="21">@Strings.lAsecPower</listEntry>
+		<listEntry value="21">@Strings.lPowper3sec</listEntry>
         <listEntry value="99">@Strings.l3secPowerzone</listEntry>
         <listEntry value="70">@Strings.lPowper5sec</listEntry>
         <listEntry value="100">@Strings.l5secPowerzone</listEntry>
@@ -601,7 +601,7 @@
         <listEntry value="54">@Strings.lTEffect</listEntry>
         <listEntry value="87">@Strings.lkCalories</listEntry>
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
-        <listEntry value="59">@Strings.lTTS</listEntry>
+        <listEntry value="59">@Strings.lTSS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
         
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
@@ -691,10 +691,10 @@
                 
         <listEntry value="996">@Strings.lSPowerMenu</listEntry>
         <listEntry value="106">@Strings.lCalcPwrTempcorrect</listEntry>
-        <listEntry value="20">@Strings.lSPower</listEntry>
+        <listEntry value="20">@Strings.lPower</listEntry>
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
-		<listEntry value="21">@Strings.lAsecPower</listEntry>
+		<listEntry value="21">@Strings.lPowper3sec</listEntry>
         <listEntry value="99">@Strings.l3secPowerzone</listEntry>
         <listEntry value="70">@Strings.lPowper5sec</listEntry>
         <listEntry value="100">@Strings.l5secPowerzone</listEntry>
@@ -747,7 +747,7 @@
         <listEntry value="54">@Strings.lTEffect</listEntry>
         <listEntry value="87">@Strings.lkCalories</listEntry>
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
-        <listEntry value="59">@Strings.lTTS</listEntry>
+        <listEntry value="59">@Strings.lTSS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
         
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
@@ -829,10 +829,10 @@
                 
         <listEntry value="996">@Strings.lSPowerMenu</listEntry>
         <listEntry value="106">@Strings.lCalcPwrTempcorrect</listEntry>
-        <listEntry value="20">@Strings.lSPower</listEntry>
+        <listEntry value="20">@Strings.lPower</listEntry>
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
-		<listEntry value="21">@Strings.lAsecPower</listEntry>
+		<listEntry value="21">@Strings.lPowper3sec</listEntry>
         <listEntry value="99">@Strings.l3secPowerzone</listEntry>
         <listEntry value="70">@Strings.lPowper5sec</listEntry>
         <listEntry value="100">@Strings.l5secPowerzone</listEntry>
@@ -885,7 +885,7 @@
         <listEntry value="54">@Strings.lTEffect</listEntry>
         <listEntry value="87">@Strings.lkCalories</listEntry>
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
-        <listEntry value="59">@Strings.lTTS</listEntry>
+        <listEntry value="59">@Strings.lTSS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
         
 
@@ -970,10 +970,10 @@
                 
         <listEntry value="996">@Strings.lSPowerMenu</listEntry>
         <listEntry value="106">@Strings.lCalcPwrTempcorrect</listEntry>
-        <listEntry value="20">@Strings.lSPower</listEntry>
+        <listEntry value="20">@Strings.lPower</listEntry>
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
-		<listEntry value="21">@Strings.lAsecPower</listEntry>
+		<listEntry value="21">@Strings.lPowper3sec</listEntry>
         <listEntry value="99">@Strings.l3secPowerzone</listEntry>
         <listEntry value="70">@Strings.lPowper5sec</listEntry>
         <listEntry value="100">@Strings.l5secPowerzone</listEntry>
@@ -1026,7 +1026,7 @@
         <listEntry value="54">@Strings.lTEffect</listEntry>
         <listEntry value="87">@Strings.lkCalories</listEntry>
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
-        <listEntry value="59">@Strings.lTTS</listEntry>
+        <listEntry value="59">@Strings.lTSS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
         
 
@@ -1108,10 +1108,10 @@
                 
         <listEntry value="996">@Strings.lSPowerMenu</listEntry>
         <listEntry value="106">@Strings.lCalcPwrTempcorrect</listEntry>
-        <listEntry value="20">@Strings.lSPower</listEntry>
+        <listEntry value="20">@Strings.lPower</listEntry>
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
-		<listEntry value="21">@Strings.lAsecPower</listEntry>
+		<listEntry value="21">@Strings.lPowper3sec</listEntry>
         <listEntry value="99">@Strings.l3secPowerzone</listEntry>
         <listEntry value="70">@Strings.lPowper5sec</listEntry>
         <listEntry value="100">@Strings.l5secPowerzone</listEntry>
@@ -1164,7 +1164,7 @@
         <listEntry value="54">@Strings.lTEffect</listEntry>
         <listEntry value="87">@Strings.lkCalories</listEntry>
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
-        <listEntry value="59">@Strings.lTTS</listEntry>
+        <listEntry value="59">@Strings.lTSS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
         
 
@@ -1247,10 +1247,10 @@
                 
         <listEntry value="996">@Strings.lSPowerMenu</listEntry>
         <listEntry value="106">@Strings.lCalcPwrTempcorrect</listEntry>
-        <listEntry value="20">@Strings.lSPower</listEntry>
+        <listEntry value="20">@Strings.lPower</listEntry>
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
-		<listEntry value="21">@Strings.lAsecPower</listEntry>
+		<listEntry value="21">@Strings.lPowper3sec</listEntry>
         <listEntry value="99">@Strings.l3secPowerzone</listEntry>
         <listEntry value="70">@Strings.lPowper5sec</listEntry>
         <listEntry value="100">@Strings.l5secPowerzone</listEntry>
@@ -1303,7 +1303,7 @@
         <listEntry value="54">@Strings.lTEffect</listEntry>
         <listEntry value="87">@Strings.lkCalories</listEntry>
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
-        <listEntry value="59">@Strings.lTTS</listEntry>
+        <listEntry value="59">@Strings.lTSS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
         
 
@@ -1388,10 +1388,10 @@
                 
         <listEntry value="996">@Strings.lSPowerMenu</listEntry>
         <listEntry value="106">@Strings.lCalcPwrTempcorrect</listEntry>
-        <listEntry value="20">@Strings.lSPower</listEntry>
+        <listEntry value="20">@Strings.lPower</listEntry>
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
-		<listEntry value="21">@Strings.lAsecPower</listEntry>
+		<listEntry value="21">@Strings.lPowper3sec</listEntry>
         <listEntry value="99">@Strings.l3secPowerzone</listEntry>
         <listEntry value="70">@Strings.lPowper5sec</listEntry>
         <listEntry value="100">@Strings.l5secPowerzone</listEntry>
@@ -1444,7 +1444,7 @@
         <listEntry value="54">@Strings.lTEffect</listEntry>
         <listEntry value="87">@Strings.lkCalories</listEntry>
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
-        <listEntry value="59">@Strings.lTTS</listEntry>
+        <listEntry value="59">@Strings.lTSS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
         
 
@@ -1527,10 +1527,10 @@
                 
         <listEntry value="996">@Strings.lSPowerMenu</listEntry>
         <listEntry value="106">@Strings.lCalcPwrTempcorrect</listEntry>
-        <listEntry value="20">@Strings.lSPower</listEntry>
+        <listEntry value="20">@Strings.lPower</listEntry>
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
-		<listEntry value="21">@Strings.lAsecPower</listEntry>
+		<listEntry value="21">@Strings.lPowper3sec</listEntry>
         <listEntry value="99">@Strings.l3secPowerzone</listEntry>
         <listEntry value="70">@Strings.lPowper5sec</listEntry>
         <listEntry value="100">@Strings.l5secPowerzone</listEntry>
@@ -1583,7 +1583,7 @@
         <listEntry value="54">@Strings.lTEffect</listEntry>
         <listEntry value="87">@Strings.lkCalories</listEntry>
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
-        <listEntry value="59">@Strings.lTTS</listEntry>
+        <listEntry value="59">@Strings.lTSS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
         
 
@@ -1675,10 +1675,10 @@
                 
         <listEntry value="996">@Strings.lSPowerMenu</listEntry>
         <listEntry value="106">@Strings.lCalcPwrTempcorrect</listEntry>
-        <listEntry value="20">@Strings.lSPower</listEntry>
+        <listEntry value="20">@Strings.lPower</listEntry>
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
-		<listEntry value="21">@Strings.lAsecPower</listEntry>
+		<listEntry value="21">@Strings.lPowper3sec</listEntry>
         <listEntry value="99">@Strings.l3secPowerzone</listEntry>
         <listEntry value="70">@Strings.lPowper5sec</listEntry>
         <listEntry value="100">@Strings.l5secPowerzone</listEntry>
@@ -1731,7 +1731,7 @@
         <listEntry value="54">@Strings.lTEffect</listEntry>
         <listEntry value="87">@Strings.lkCalories</listEntry>
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
-        <listEntry value="59">@Strings.lTTS</listEntry>
+        <listEntry value="59">@Strings.lTSS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
         
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>
@@ -1822,10 +1822,10 @@
                 
         <listEntry value="996">@Strings.lSPowerMenu</listEntry>
         <listEntry value="106">@Strings.lCalcPwrTempcorrect</listEntry>
-        <listEntry value="20">@Strings.lSPower</listEntry>
+        <listEntry value="20">@Strings.lPower</listEntry>
         <listEntry value="57">@Strings.lNPower</listEntry>
         <listEntry value="38">@Strings.lSPowerzone</listEntry>
-		<listEntry value="21">@Strings.lAsecPower</listEntry>
+		<listEntry value="21">@Strings.lPowper3sec</listEntry>
         <listEntry value="99">@Strings.l3secPowerzone</listEntry>
         <listEntry value="70">@Strings.lPowper5sec</listEntry>
         <listEntry value="100">@Strings.l5secPowerzone</listEntry>
@@ -1878,7 +1878,7 @@
         <listEntry value="54">@Strings.lTEffect</listEntry>
         <listEntry value="87">@Strings.lkCalories</listEntry>
         <listEntry value="58">@Strings.lIntensityFactor</listEntry>
-        <listEntry value="59">@Strings.lTTS</listEntry>
+        <listEntry value="59">@Strings.lTSS</listEntry>
         <listEntry value="60">@Strings.lRSS</listEntry>
         
         <listEntry value="998">@Strings.lAltitudeMenu</listEntry>

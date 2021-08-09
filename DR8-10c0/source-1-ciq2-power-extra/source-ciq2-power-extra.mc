@@ -814,16 +814,15 @@ class CiqView extends ExtramemView {
             	fieldFormat[i] = "power";
 			} else if (metric[i] == 78) {
 	            fieldValue[i] = (uFTP != 0) ? Averagepowerpersec*100/uFTP : 0;
-    	        fieldLabel[i] = "%FTP ..sec"; 
+    	        fieldLabel[i] = "%FTP " + rolavPowmaxsecs + "s"; 
         	    fieldFormat[i] = "power";
-//! Tot hier gekomen
 			} else if (metric[i] == 58) {
 	            fieldValue[i] = mIntensityFactor;
     	        fieldLabel[i] = "IF";
         	    fieldFormat[i] = "2decimal";
 			} else if (metric[i] == 59) {
 	            fieldValue[i] = mTTS;
-    	        fieldLabel[i] = "TTS";
+    	        fieldLabel[i] = "TSS";
         	    fieldFormat[i] = "0decimal";
 			} else if (metric[i] == 60) {
 	            fieldValue[i] = RSS;
@@ -879,15 +878,15 @@ class CiqView extends ExtramemView {
         		} else {
 	            	fieldValue[i] = (uOnlyPwrCorrFactor == false) ? uPowerTarget : uPowerTarget/PwrCorrFactor;
 	            }
-    	        fieldLabel[i] = "Ptarget";
+    	        fieldLabel[i] = "P target";
         	    fieldFormat[i] = "power";
         	} else if (metric[i] == 117) {
 	            fieldValue[i] = (workoutTarget != null) ? WorkoutStepLowBoundary : 0;
-    		    fieldLabel[i] = "Ltarget";
+    		    fieldLabel[i] = "L Wtarget";
         		fieldFormat[i] = "0decimal";
         	} else if (metric[i] == 118) {
 	            fieldValue[i] = (workoutTarget != null) ? WorkoutStepHighBoundary : 0;
-        		fieldLabel[i] = "Htarget";
+        		fieldLabel[i] = "U Wtarget";
         	    fieldFormat[i] = "0decimal";
         	} else if (metric[i] == 119) {
 	            if (workoutTarget != null) {
@@ -903,7 +902,7 @@ class CiqView extends ExtramemView {
     	        } else {
         			fieldValue[i] = 100;
         		}
-        		fieldLabel[i] = "H%target";
+        		fieldLabel[i] = "U%target";
         	    fieldFormat[i] = "0decimal";
         	} else if (metric[i] == 121) {
 	            fieldValue[i] = (workoutTarget != null) ? WorkoutStepNr : 0;

@@ -88,7 +88,10 @@ class ExtramemView extends DatarunpremiumView {
 	hidden var rollverticalRatio			= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 	hidden var AveragerollverticalRatio10sec= 0;
 	var utempcalibration					= 0;
-	var hrRest;
+	var hrRest								   ;
+	var HR1									= 0; 
+    var HR2									= 0;
+    var HR3									= 0;
 	
     function initialize() {
         DatarunpremiumView.initialize();
@@ -185,6 +188,12 @@ class ExtramemView extends DatarunpremiumView {
 			info2 = ActivityMonitor.getInfo();
 			steps = info2.steps;
 		}
+
+		//!Calculate 3 sec rolling HR
+        		HR3 					= HR2;
+        		HR2 					= HR1;
+				HR1						= currentHR; 
+		var	AverageHR3sec= (HR1+HR2+HR3)/3;
 
 		//! Options for metrics
 		var sensorIter = getIterator();
@@ -384,7 +393,11 @@ class ExtramemView extends DatarunpremiumView {
            		fieldValue[i] = (unitD == 1609.344) ? totalAscent30sec*3.2808*3600 : totalAscent30sec*3600;
             	fieldLabel[i] = "VAM-hour";
             	fieldFormat[i] = "0decimal";
-			} 	
+			} else if (metric[i] == 130) {
+           		fieldValue[i] = AverageHR3sec;
+            	fieldLabel[i] = "HR 3s";
+            	fieldFormat[i] = "0decimal";
+			}	
 		}
 
 		//!Choice for metric in Clockfield
@@ -627,8 +640,10 @@ class ExtramemView extends DatarunpremiumView {
     	    } else if (uClockFieldMetric == 129) {
 	        	CFMValue = (unitD == 1609.344) ? totalAscent30sec*3.2808*3600 : totalAscent30sec*3600;
     	       	CFMFormat = "0decimal";
+           	} else if (uClockFieldMetric == 130) {
+	        	CFMValue = AverageHR3sec;
+    	       	CFMFormat = "0decimal";
            	}		 
-
 
 		//! Conditions for showing the demoscreen       
         if (uShowDemo == false) {

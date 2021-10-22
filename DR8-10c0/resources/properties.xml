@@ -75,12 +75,13 @@
     <property id="poverruleWourkout" type="boolean">false</property>
     <property id="pShowRedClock" type="boolean">false</property>
     <property id="pCCnumber" type="number">9999999</property>
+    <property id="pcadenceWorkaround" type="boolean">false</property>
   </properties>
 
 	
   <strings>
     <string id="lCCnumber">C-Code generated on the watch by the corresponding main Datarun premium datafield</string>
-    <string id="lDummysetting4version">Version 3.01 of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 3.02 of Datarun ultimate, main version (dummy setting)</string>
     <string id="lTempeCalibration">Calibration factor for Tempe temperature in tenths of degrees (3 means 0.3 added, -4 means 0.4 subtracted)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>
@@ -312,6 +313,7 @@
     <string id="lTotalAscentinmpermin">Vertical ascent averaged over the time one is ascending (in meters/minute or feet/minute depending on watch settings)</string>
     <string id="lTotalAscentinmperhour">Vertical ascent averaged over the time one is ascending (in meters/hour or feet/hour depending on watch settings)</string>
     <string id="lDailySteps">Total number of steps today</string>
+    <string id="lcadenceWorkaround">Apply workaround for bug in cadance metrics being halved (currently for Fenix 6 and FR945 LTE)</string>
  </strings>
 
   <settings>
@@ -465,6 +467,9 @@
     </setting>
     <setting propertyKey="@Properties.pShowRedClock" title="@Strings.lShowRedClock">
       <settingConfig type="boolean" required="false" />
+    </setting>
+    <setting propertyKey="@Properties.pcadenceWorkaround" title="@Strings.lcadenceWorkaround">
+      <settingConfig type="boolean" required="true" />
     </setting>
     <setting propertyKey="@Properties.pMilClockAltern" title="@Strings.lMilClockAltern">
       <settingConfig type="list" required="true">

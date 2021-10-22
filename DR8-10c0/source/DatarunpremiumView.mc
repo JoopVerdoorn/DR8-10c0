@@ -110,6 +110,7 @@ class DatarunpremiumView extends Ui.DataField {
 	hidden var AverageHeartrate 			= 0; 
 	hidden var mLapElapsedDistance 			= 0;
 	hidden var uShowRedClock 				= false;
+	hidden var ucadenceWorkaround 			= false;
 
 	function initialize() {
          DataField.initialize();
@@ -138,7 +139,7 @@ class DatarunpremiumView extends Ui.DataField {
          var uHrZones = UserProfile.getHeartRateZones(UserProfile.getCurrentSport());
          uShowRedClock = mApp.getProperty("pShowRedClock");
          var uCCnumber	     = mApp.getProperty("pCCnumber");
-   
+   		 ucadenceWorkaround = mApp.getProperty("pcadenceWorkaround");
         
  
 
@@ -354,6 +355,7 @@ class DatarunpremiumView extends Ui.DataField {
         	    fieldFormat[i] = "0decimal";
 			} else if (metric[i] == 50) {
 				fieldValue[i] = (info.currentCadence != null) ? info.currentCadence : 0; 
+				fieldValue[i] = (ucadenceWorkaround == true) ? fieldValue[i]*2 : fieldValue[i]; //! workaround multiply by two for FR945LTE and Fenix 6 series
     	        fieldLabel[i] = "Cadence";
         	    fieldFormat[i] = "0decimal";
 			} else if (metric[i] == 51) {

@@ -3,6 +3,7 @@ using Toybox.SensorHistory;
 using Toybox.Lang;
 using Toybox.System;
 using Toybox.Application.Storage;
+using Toybox.Position;
 
 class ExtramemView extends DatarunpremiumView {   
 	hidden var uHrZones   			        = [ 93, 111, 130, 148, 167, 185 ];	
@@ -194,6 +195,7 @@ class ExtramemView extends DatarunpremiumView {
         		HR2 					= HR1;
 				HR1						= currentHR; 
 		var	AverageHR3sec= (HR1+HR2+HR3)/3;
+		
 
 		//! Options for metrics
 		var sensorIter = getIterator();

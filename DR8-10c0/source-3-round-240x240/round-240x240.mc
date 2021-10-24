@@ -5,6 +5,7 @@ using Toybox.System as Sys;
 class DeviceView extends PowerView {
 	var myTime;
 	var strTime;
+	var mGPScolor;
 
 	//! it's good practice to always have an initialize, make sure to call your parent class here!
     function initialize() {
@@ -25,6 +26,8 @@ class DeviceView extends PowerView {
 	   //! Check whether demoscreen is showed or the metrics 
 	   if (uShowDemo == false ) {
 
+		var info = Activity.getActivityInfo();
+		
 		//! Draw separator lines
         dc.setColor(mColourLine, Graphics.COLOR_TRANSPARENT);
         dc.setPenWidth(2);
@@ -51,6 +54,19 @@ class DeviceView extends PowerView {
         	dc.drawLine(119, 125,  119, 173);
         }
         dc.drawLine(119, 173, 119, 219);
+ 
+ 		//! Show GPS accuracy
+        if (info.currentLocationAccuracy == null or info.currentLocationAccuracy == 1) {
+        	mGPScolor = Graphics.COLOR_LT_GRAY;
+        } else {
+			mGPScolor = (info.currentLocationAccuracy == 2) ? Graphics.COLOR_RED : mGPScolor;
+			mGPScolor = (info.currentLocationAccuracy == 3) ? Graphics.COLOR_PURPLE : mGPScolor;
+		}
+		dc.setColor(mGPScolor, Graphics.COLOR_TRANSPARENT);
+		dc.fillRectangle(10, 5, 63, 22); 
+		dc.fillRectangle(164, 5, 55, 22); 
+		
+		dc.setColor(mColourLine, Graphics.COLOR_TRANSPARENT);
         
 		//! Display metrics
         dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);

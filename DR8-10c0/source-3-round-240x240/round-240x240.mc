@@ -5,7 +5,7 @@ using Toybox.System as Sys;
 class DeviceView extends PowerView {
 	var myTime;
 	var strTime;
-	var mGPScolor;
+	var mGPScolor 				= mColourBackGround;
 
 	//! it's good practice to always have an initialize, make sure to call your parent class here!
     function initialize() {

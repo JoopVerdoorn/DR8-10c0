@@ -5,7 +5,7 @@ using Toybox.System as Sys;
 class DeviceView extends PowerView {
 	var myTime;
 	var strTime;
-	var mGPScolor;
+	var mGPScolor 				= mColourBackGround;
 
 	//! it's good practice to always have an initialize, make sure to call your parent class here!
     function initialize() {
@@ -63,7 +63,7 @@ class DeviceView extends PowerView {
 			mGPScolor = (info.currentLocationAccuracy == 3) ? Graphics.COLOR_PURPLE : mGPScolor;
 		}
 		dc.setColor(mGPScolor, Graphics.COLOR_TRANSPARENT);
-		dc.fillRectangle(12, 6, 74, 26); 
+		dc.fillRectangle(12, 6, 77, 26); 
 		dc.fillRectangle(191, 6, 64, 26); 
 		
 		dc.setColor(mColourLine, Graphics.COLOR_TRANSPARENT);

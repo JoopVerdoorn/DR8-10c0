@@ -3,7 +3,6 @@ using Toybox.SensorHistory;
 using Toybox.Lang;
 using Toybox.System;
 using Toybox.Application.Storage;
-using Toybox.Position;
 
 class ExtramemView extends DatarunpremiumView {   
 	hidden var uHrZones   			        = [ 93, 111, 130, 148, 167, 185 ];	

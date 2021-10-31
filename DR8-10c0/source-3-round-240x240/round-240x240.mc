@@ -6,6 +6,7 @@ class DeviceView extends PowerView {
 	var myTime;
 	var strTime;
 	var mGPScolor 				= mColourBackGround;
+	var GPSAccuracy				= "null";
 
 	//! it's good practice to always have an initialize, make sure to call your parent class here!
     function initialize() {
@@ -56,11 +57,15 @@ class DeviceView extends PowerView {
         dc.drawLine(119, 173, 119, 219);
  
  		//! Show GPS accuracy
-        if (info.currentLocationAccuracy == null or info.currentLocationAccuracy == 1) {
+        GPSAccuracy=info.currentLocationAccuracy;
+        if (GPSAccuracy == null or GPSAccuracy == 1) {
         	mGPScolor = Graphics.COLOR_LT_GRAY;
-        } else {
-			mGPScolor = (info.currentLocationAccuracy == 2) ? Graphics.COLOR_RED : mGPScolor;
-			mGPScolor = (info.currentLocationAccuracy == 3) ? Graphics.COLOR_PURPLE : mGPScolor;
+        } else if (GPSAccuracy == 2) {
+        	mGPScolor = Graphics.COLOR_RED;
+        } else if (GPSAccuracy == 3) {
+        	mGPScolor = Graphics.COLOR_PURPLE;
+        } else if (GPSAccuracy == 4) {
+			mGPScolor = mColourBackGround;
 		}
 		dc.setColor(mGPScolor, Graphics.COLOR_TRANSPARENT);
 		dc.fillRectangle(10, 5, 63, 22); 

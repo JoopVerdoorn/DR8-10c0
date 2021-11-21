@@ -60,6 +60,12 @@ class CiqView extends ExtramemView {
 	hidden var calculateRolavPow			= false;
 	hidden var calculateVertSpeed			= false;
 	hidden var calculateRolavPace			= false;
+	hidden var calculateVertGrade           = false;
+	var DistforGrade                        = new[303];
+	var ElevforGrade                        = new[303];
+	var Vertgrade                           = 0;
+	var stopiteration                       = false;
+	var uVertgradeDist                      = 0.1;
 		
     function initialize() {
         ExtramemView.initialize();
@@ -85,6 +91,7 @@ class CiqView extends ExtramemView {
     	uFTPAltitude	 = mApp.getProperty("pFTPAltitude");
     	uFontalertColorLow = mApp.getProperty("pFontalertColorLow");
     	uFontalertColorHigh = mApp.getProperty("pFontalertColorHigh");
+    	uVertgradeDist   = mApp.getProperty("pVertgradeDist");
 	
 		uRealHumid = (uRealHumid != 0 ) ? uRealHumid : 1;
 		uFTPHumid = (uFTPHumid != 0 ) ? uFTPHumid : 1;
@@ -134,6 +141,10 @@ class CiqView extends ExtramemView {
 		}
 		
 		
+		for (i = 1; i < 301; ++i) {
+		    DistforGrade[i] = 0;
+		    ElevforGrade[i] = 0;
+		}
 		
 		for (i = 1; i < 11; ++i) {
 			Power[i] = 0;
@@ -162,6 +173,12 @@ class CiqView extends ExtramemView {
 		for (i = 1; i < 11; ++i) {
 	    	if (metric[i] == 67 or metric[i] == 108 or metric[i] == 124 or metric[i] == 125 or metric[i] == 126 or metric[i] == 128 or metric[i] == 129 or uClockFieldMetric == 67 or uClockFieldMetric == 108 or uClockFieldMetric == 124 or uClockFieldMetric == 125 or uClockFieldMetric == 126 or uClockFieldMetric == 128 or uClockFieldMetric == 129) {
 				calculateVertSpeed = true; //!Only calculate vertical speed if needed
+			}
+		}
+		
+		for (i = 1; i < 11; ++i) {
+	    	if (metric[i] == 131) {
+				calculateVertGrade = true; //!Only calculate vertical grade if needed
 			}
 		}
 				
@@ -231,9 +248,30 @@ class CiqView extends ExtramemView {
         if (uBacklight) {
              Attention.backlight(true);
         }
-		//! We only do some calculations if the timer is running
 		startTime = (jTimertime == 0) ? Toybox.System.getClockTime() : startTime;
 		
+		//! Calculating vertical grade
+        var k;
+	    if (calculateVertGrade == true) {
+   				for (k = 1; k < 300; ++k) {			
+					DistforGrade[301-k] = DistforGrade[300-k];
+					ElevforGrade[301-k] = ElevforGrade[300-k];
+				}
+				DistforGrade[1]	= (info.elapsedDistance != null) ? info.elapsedDistance : 0;	
+				ElevforGrade[1] = (info.altitude != null) ? info.altitude : 0;
+				stopiteration = false;
+				for (k = 1; k < 301; ++k) {
+					if ((DistforGrade[1] - DistforGrade[k])>(uVertgradeDist/1000)) {
+					   if (stopiteration == false) {
+					       Vertgrade=100*((ElevforGrade[1]-ElevforGrade[k])/1000)/(DistforGrade[1]-DistforGrade[k]);
+					       stopiteration = true;
+					   }
+					}
+				}
+	
+		}
+		
+		//! We only do some calculations if the timer is running		
 		if (mTimerRunning) {  
 			//! Calculate lap time
     	    mLapTimerTime = jTimertime - mLastLapTimeMarker;
@@ -263,7 +301,7 @@ class CiqView extends ExtramemView {
 	        CurrentVertSpeedinmpersec = Diff2-Diff1;	        
 	        var j;
 	        if (calculateVertSpeed == true) {
-   				for (j = 1; j < 30; ++j) {			
+   				for (j = 1; j < 300; ++j) {			
 					VertPace[31-j] = VertPace[30-j];
 					Diffasc2[31-j] = Diffasc2[30-j];
 				}
@@ -937,7 +975,11 @@ class CiqView extends ExtramemView {
         			fieldLabel[i] = "No workout";
         	    	fieldFormat[i] = "0decimal";
         		}
-        	}
+        	} else if (metric[i] == 131) {
+           		fieldValue[i] = Vertgrade;
+            	fieldLabel[i] = "V grade";
+            	fieldFormat[i] = "1decimal";
+			}
         	//!einde invullen field metrics
 		}
 		//! Conditions for showing the demoscreen       

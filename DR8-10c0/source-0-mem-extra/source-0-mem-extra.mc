@@ -95,6 +95,7 @@ class ExtramemView extends DatarunpremiumView {
     var mGPScolor							= Graphics.COLOR_LT_GRAY;
     var GPSAccuracy							= "null";
     var screenWidth 						= mySettings.screenWidth;
+    
     	
     function initialize() {
         DatarunpremiumView.initialize();
@@ -678,7 +679,10 @@ class ExtramemView extends DatarunpremiumView {
            	} else if (uClockFieldMetric == 130) {
 	        	CFMValue = AverageHR3sec;
     	       	CFMFormat = "0decimal";
-           	}		 
+           	} else if (uClockFieldMetric == 131) {
+           		CFMValue = Vertgrade;
+            	CFMFormat = "1decimal";
+			}
 
 		//! Conditions for showing the demoscreen       
         if (uShowDemo == false) {

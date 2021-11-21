@@ -5,8 +5,6 @@ using Toybox.System as Sys;
 class DeviceView extends PowerView {
 	var myTime;
 	var strTime;
-	var mGPScolor 				= mColourBackGround;
-	var GPSAccuracy				= "null";
 
 	//! it's good practice to always have an initialize, make sure to call your parent class here!
     function initialize() {
@@ -56,22 +54,6 @@ class DeviceView extends PowerView {
         }
         dc.drawLine(139, 202, 139, 256);
 
- 		//! Show GPS accuracy
-        GPSAccuracy=info.currentLocationAccuracy;
-        if (GPSAccuracy == null or GPSAccuracy == 1) {
-        	mGPScolor = Graphics.COLOR_LT_GRAY;
-        } else if (GPSAccuracy == 2) {
-        	mGPScolor = Graphics.COLOR_RED;
-        } else if (GPSAccuracy == 3) {
-        	mGPScolor = Graphics.COLOR_PURPLE;
-        } else if (GPSAccuracy == 4) {
-			mGPScolor = mColourBackGround;
-		}
-		dc.setColor(mGPScolor, Graphics.COLOR_TRANSPARENT);
-		dc.fillRectangle(12, 6, 77, 26); 
-		dc.fillRectangle(191, 6, 64, 26); 
-		
-		dc.setColor(mColourLine, Graphics.COLOR_TRANSPARENT);
 		//! Display metrics
         dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
 

@@ -92,7 +92,10 @@ class ExtramemView extends DatarunpremiumView {
 	var HR1									= 0; 
     var HR2									= 0;
     var HR3									= 0;
-	
+    var mGPScolor							= Graphics.COLOR_LT_GRAY;
+    var GPSAccuracy							= "null";
+    var screenWidth 						= mySettings.screenWidth;
+    	
     function initialize() {
         DatarunpremiumView.initialize();
 		
@@ -401,6 +404,35 @@ class ExtramemView extends DatarunpremiumView {
             	fieldFormat[i] = "0decimal";
 			}	
 		}
+
+		//! Show GPS accuracy
+        GPSAccuracy=info.currentLocationAccuracy;
+        if (GPSAccuracy == null or GPSAccuracy == 1) {
+        	mGPScolor = Graphics.COLOR_LT_GRAY;
+        } else if (GPSAccuracy == 2) {
+        	mGPScolor = Graphics.COLOR_RED;
+        } else if (GPSAccuracy == 3) {
+        	mGPScolor = Graphics.COLOR_PURPLE;
+        } else if (GPSAccuracy == 4) {
+			mGPScolor = mColourBackGround;
+		} else {
+		    mGPScolor = Graphics.COLOR_LT_GRAY;
+		}
+		dc.setColor(mGPScolor, Graphics.COLOR_TRANSPARENT);
+		
+		if (screenWidth == 240) {
+			dc.fillRectangle(10, 5, 64, 22); 
+			dc.fillRectangle(164, 5, 55, 22);
+		} else if (screenWidth == 260) { 
+			dc.fillRectangle(11, 5, 69, 24); 
+			dc.fillRectangle(178, 5, 60, 24);
+		} else if (screenWidth == 280) {
+			dc.fillRectangle(12, 6, 77, 26); 
+			dc.fillRectangle(191, 6, 64, 26);
+		}
+
+		dc.setColor(mColourLine, Graphics.COLOR_TRANSPARENT);
+
 
 		//!Choice for metric in Clockfield
 		var CFMValue = 0;

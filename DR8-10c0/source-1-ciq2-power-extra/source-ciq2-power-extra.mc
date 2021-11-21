@@ -66,6 +66,8 @@ class CiqView extends ExtramemView {
 	var Vertgrade                           = 0;
 	var stopiteration                       = false;
 	var uVertgradeDist                      = 0.1;
+	var Vertgradsmooth  	        		= new[6]; 
+    var Vertgradsmoothed                    = 0;
 		
     function initialize() {
         ExtramemView.initialize();
@@ -92,6 +94,8 @@ class CiqView extends ExtramemView {
     	uFontalertColorLow = mApp.getProperty("pFontalertColorLow");
     	uFontalertColorHigh = mApp.getProperty("pFontalertColorHigh");
     	uVertgradeDist   = mApp.getProperty("pVertgradeDist");
+
+        uVertgradeDist = (uVertgradeDist<50) ? 0.050 : uVertgradeDist; 
 	
 		uRealHumid = (uRealHumid != 0 ) ? uRealHumid : 1;
 		uFTPHumid = (uFTPHumid != 0 ) ? uFTPHumid : 1;
@@ -144,6 +148,9 @@ class CiqView extends ExtramemView {
 		for (i = 1; i < 301; ++i) {
 		    DistforGrade[i] = 0;
 		    ElevforGrade[i] = 0;
+		}
+		for (i = 1; i < 6; ++i) {
+		    Vertgradsmooth[i] = 0;
 		}
 		
 		for (i = 1; i < 11; ++i) {
@@ -261,15 +268,22 @@ class CiqView extends ExtramemView {
 				ElevforGrade[1] = (info.altitude != null) ? info.altitude : 0;
 				stopiteration = false;
 				for (k = 1; k < 301; ++k) {
-					if ((DistforGrade[1] - DistforGrade[k])>(uVertgradeDist/1000)) {
+					if ((DistforGrade[1] - DistforGrade[k])>(uVertgradeDist)) {
 					   if (stopiteration == false) {
-					       Vertgrade=100*((ElevforGrade[1]-ElevforGrade[k])/1000)/(DistforGrade[1]-DistforGrade[k]);
+					       Vertgrade=100*(ElevforGrade[1]-ElevforGrade[k])/(DistforGrade[1]-DistforGrade[k]);
 					       stopiteration = true;
 					   }
 					}
 				}
-	
 		}
+		
+        //!Smoothing of vertical grade over 5 seonds
+        Vertgradsmooth[5] 								= Vertgradsmooth[4];
+        Vertgradsmooth[4] 								= Vertgradsmooth[3];
+        Vertgradsmooth[3] 								= Vertgradsmooth[2];
+        Vertgradsmooth[2] 								= Vertgradsmooth[1];
+		Vertgradsmooth[1]								= Vertgrade; 
+        Vertgradsmoothed = (Vertgradsmooth[1]+Vertgradsmooth[2]+Vertgradsmooth[3]+Vertgradsmooth[4]+Vertgradsmooth[5])/5;
 		
 		//! We only do some calculations if the timer is running		
 		if (mTimerRunning) {  
@@ -976,7 +990,7 @@ class CiqView extends ExtramemView {
         	    	fieldFormat[i] = "0decimal";
         		}
         	} else if (metric[i] == 131) {
-           		fieldValue[i] = Vertgrade;
+           		fieldValue[i] = Vertgradsmoothed;
             	fieldLabel[i] = "V grade";
             	fieldFormat[i] = "1decimal";
 			}

@@ -315,7 +315,7 @@ class CiqView extends ExtramemView {
 	        CurrentVertSpeedinmpersec = Diff2-Diff1;	        
 	        var j;
 	        if (calculateVertSpeed == true) {
-   				for (j = 1; j < 300; ++j) {			
+   				for (j = 1; j < 30; ++j) {			
 					VertPace[31-j] = VertPace[30-j];
 					Diffasc2[31-j] = Diffasc2[30-j];
 				}

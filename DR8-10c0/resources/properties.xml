@@ -6,7 +6,10 @@
     	<font id="Garmin1big" filename="fonts/Roadway53-alleencijfers.fnt" antialias="true"/>
     	<font id="Garmin2big" filename="fonts/Roadway57-alleencijfers.fnt" antialias="true"/>
     	<font id="Garmin3big" filename="fonts/Roadway62-alleencijfers.fnt" antialias="true"/>
-    	<font id="Labels1" filename="fonts/RobotoCondensed-Regular_16.fnt" antialias="true"/>
+    	<font id="Labels1" filename="fonts/RobotoCondensed-Regular_19.fnt" antialias="true"/>
+    	<font id="Labels2" filename="fonts/RobotoCondensed-Regular_21.fnt" antialias="true"/>
+    	<font id="Labels3" filename="fonts/RobotoCondensed-Regular_22.fnt" antialias="true"/>
+    	
 	</fonts>
   <properties>
     <property id="pUpperLeftMetric" type="number">0</property>
@@ -58,7 +61,7 @@
     <property id="pdisablelabel9" type="boolean">false</property>
     <property id="pdisablelabel10" type="boolean">false</property>
     <property id="pWeight" type="number">70</property>
-    <property id="pLfont240big" type="boolean">true</property>
+    <property id="pLabelfontbig" type="boolean">true</property>
     <property id="ptempunits" type="boolean">false</property>
     <property id="pPowerTarget" type="number">225</property>
     <property id="pOnlyPwrCorrFactor" type="boolean">false</property>
@@ -82,7 +85,7 @@
 	
   <strings>
     <string id="lCCnumber">C-Code generated on the watch by the corresponding main Datarun premium datafield</string>
-    <string id="lDummysetting4version">Version 3.05d of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 3.06 of Datarun ultimate, main version (dummy setting)</string>
     <string id="lTempeCalibration">Calibration factor for Tempe temperature in tenths of degrees (3 means 0.3 added, -4 means 0.4 subtracted)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>
@@ -274,7 +277,7 @@
     <string id="l5secRE">'RE 5sec', rolling average over the last 5 seconds of Running Effectiveness (as used by Steve Palladino)</string>
     <string id="lLapE">'RE lap', current lap Running Effectiveness (as used by Steve Palladino)</string>
     <string id="lAverRE">'RE Aver', average Running Effectiveness (as used by Steve Palladino)</string>
-    <string id="lLfont240big">Use large label font for smaller watch diameter (Fenix 5+, FR945, Fenix 6s etc)</string>
+    <string id="lLabelfontbig">Use large label font (default is on)</string>
     <string id="ltempunits">Use Fahrenheit instead of Celsius for temperature metrics (Celsius is default)</string>
     <string id="lPowerTarget">'P target, powertarget in Watt, useful when power correction is set only to influence powertarget</string>
     <string id="lPtargetcorrect">Powertarget in Watt as set in settings or defined by a workout, corrected by temperature/humidity/altitude if set in settings</string>
@@ -486,7 +489,7 @@
         <listEntry value="3">@Strings.lShowmetric</listEntry>
       </settingConfig>
     </setting>
-    <setting propertyKey="@Properties.pLfont240big" title="@Strings.lLfont240big">
+    <setting propertyKey="@Properties.pLabelfontbig" title="@Strings.lLabelfontbig">
       <settingConfig type="boolean" required="true" />
     </setting>
     <setting propertyKey="@Properties.pUpperLeftMetric" title="@Strings.lUpperLeftMetric">

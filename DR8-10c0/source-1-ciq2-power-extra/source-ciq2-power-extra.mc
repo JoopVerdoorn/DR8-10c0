@@ -22,7 +22,7 @@ class CiqView extends ExtramemView {
 	hidden var Labelfont2 					= Ui.loadResource(Rez.Fonts.Labels1);
 	var Power 								= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     var uWeight								= 70;
-    var uLfont240big						= true;
+    var uLabelfontbig						= true;
     hidden var labelFontOffset				= 0; 
     var uPowerTarget						= 225;
     var uOnlyPwrCorrFactor					= false;
@@ -79,7 +79,7 @@ class CiqView extends ExtramemView {
 		uFTP		 	 = mApp.getProperty("pFTP");
 		uCP		 	 	 = mApp.getProperty("pCP");
 		uWeight			 = mApp.getProperty("pWeight");
-		uLfont240big 	 = mApp.getProperty("pLfont240big");
+		uLabelfontbig 	 = mApp.getProperty("pLabelfontbig");
 		uPowerTarget	 = mApp.getProperty("pPowerTarget");
 		uOnlyPwrCorrFactor= mApp.getProperty("pOnlyPwrCorrFactor");
 		uPwrTempcorrect	 = mApp.getProperty("pPwrTempcorrect");
@@ -105,7 +105,7 @@ class CiqView extends ExtramemView {
 			uManTemp = (uManTemp-32)/1.8;
 		}
 		
-		labelFontOffset = (uLfont240big == true) ? 1 : 0;
+		labelFontOffset = (uLabelfontbig == true) ? 1 : 0;
 		
 		//! Choose fontcolor for alert when power value is under or above powerzone
         if ( uFontalertColorLow == 0 ) {
@@ -188,26 +188,32 @@ class CiqView extends ExtramemView {
 				calculateVertGrade = true; //!Only calculate vertical grade if needed
 			}
 		}
-				
+			
 		if (mySettings.screenWidth == 260 and mySettings.screenHeight == 260) {
 			Garminfont = Ui.loadResource(Rez.Fonts.Garmin2);
 			Garminfontbig = Ui.loadResource(Rez.Fonts.Garmin2big);
+			if (uLabelfontbig == true) {
+				Labelfont = Ui.loadResource(Rez.Fonts.Labels2);
+			} else {
+				Labelfont = Graphics.FONT_XTINY;
+			}
 		} else if (mySettings.screenWidth == 280 and mySettings.screenHeight == 280) {
 			Garminfont = Ui.loadResource(Rez.Fonts.Garmin3);
 			Garminfontbig = Ui.loadResource(Rez.Fonts.Garmin3big);
+			if (uLabelfontbig == true) {
+				Labelfont = Ui.loadResource(Rez.Fonts.Labels3);
+			} else {
+				Labelfont = Graphics.FONT_XTINY;
+			}
 		}  else {
 			Garminfont = Ui.loadResource(Rez.Fonts.Garmin1);
 			Garminfontbig = Ui.loadResource(Rez.Fonts.Garmin1big);
-		}	
-		if (mySettings.screenWidth == 260 or mySettings.screenWidth == 280) {
-			Labelfont = Graphics.FONT_XTINY;
-		} else {
-			if (uLfont240big == true) {
-				Labelfont = Graphics.FONT_XTINY;
-			} else {
+			if (uLabelfontbig == true) {
 				Labelfont = Ui.loadResource(Rez.Fonts.Labels1);
+			} else {
+				Labelfont = Graphics.FONT_XTINY;
 			}
-		}
+		}	
     }
 
     //! Timer transitions from stopped to running state

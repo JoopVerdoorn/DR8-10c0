@@ -22,7 +22,7 @@ class CiqView extends ExtramemView {
 	hidden var Labelfont2 					= Ui.loadResource(Rez.Fonts.Labels1);
 	var Power 								= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     var uWeight								= 70;
-    var uLabelfontbig						= true;
+    hidden var uLabelfontbig				= true;
     hidden var labelFontOffset				= 0; 
     var uPowerTarget						= 225;
     var uOnlyPwrCorrFactor					= false;
@@ -192,26 +192,26 @@ class CiqView extends ExtramemView {
 		if (mySettings.screenWidth == 260 and mySettings.screenHeight == 260) {
 			Garminfont = Ui.loadResource(Rez.Fonts.Garmin2);
 			Garminfontbig = Ui.loadResource(Rez.Fonts.Garmin2big);
-			if (uLabelfontbig == true) {
+			if (uLabelfontbig == false) {
 				Labelfont = Ui.loadResource(Rez.Fonts.Labels2);
 			} else {
-				Labelfont = Graphics.FONT_XTINY;
+				Labelfont = Graphics.FONT_TINY;
 			}
 		} else if (mySettings.screenWidth == 280 and mySettings.screenHeight == 280) {
 			Garminfont = Ui.loadResource(Rez.Fonts.Garmin3);
 			Garminfontbig = Ui.loadResource(Rez.Fonts.Garmin3big);
-			if (uLabelfontbig == true) {
+			if (uLabelfontbig == false) {
 				Labelfont = Ui.loadResource(Rez.Fonts.Labels3);
 			} else {
-				Labelfont = Graphics.FONT_XTINY;
+				Labelfont = Graphics.FONT_TINY;
 			}
 		}  else {
 			Garminfont = Ui.loadResource(Rez.Fonts.Garmin1);
 			Garminfontbig = Ui.loadResource(Rez.Fonts.Garmin1big);
-			if (uLabelfontbig == true) {
+			if (uLabelfontbig == false) {
 				Labelfont = Ui.loadResource(Rez.Fonts.Labels1);
 			} else {
-				Labelfont = Graphics.FONT_XTINY;
+				Labelfont = Graphics.FONT_TINY;
 			}
 		}	
     }

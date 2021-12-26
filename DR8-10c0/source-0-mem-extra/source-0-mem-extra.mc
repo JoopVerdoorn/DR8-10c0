@@ -423,13 +423,25 @@ class ExtramemView extends DatarunpremiumView {
 		
 		if (screenWidth == 240) {
 			dc.fillRectangle(10, 5, 64, 22); 
-			dc.fillRectangle(164, 5, 55, 22);
+			if (uMilClockAltern == 1) {
+			   dc.fillRectangle(183, 5, 55, 22);
+		    } else {
+		       dc.fillRectangle(165, 5, 55, 22);
+		    }
 		} else if (screenWidth == 260) { 
 			dc.fillRectangle(11, 5, 69, 24); 
-			dc.fillRectangle(178, 5, 60, 24);
+			if (uMilClockAltern == 1) {
+			   dc.fillRectangle(197, 5, 60, 24);
+		    } else {
+		       dc.fillRectangle(178, 5, 60, 24);
+		    }
 		} else if (screenWidth == 280) {
-			dc.fillRectangle(12, 6, 77, 26); 
-			dc.fillRectangle(191, 6, 64, 26);
+			dc.fillRectangle(12, 6, 77, 25); 
+			if (uMilClockAltern == 1) {
+			   dc.fillRectangle(211, 6, 64, 25);
+			} else {
+			   dc.fillRectangle(191, 6, 64, 25);
+			}
 		}
 
 		dc.setColor(mColourLine, Graphics.COLOR_TRANSPARENT);
@@ -773,45 +785,45 @@ class ExtramemView extends DatarunpremiumView {
 		       	} else if ( i == 3 ) {  //!uppermiddle row, left
 		    		if (disablelabel3 == false) {
 		    			if (uUpperMiddleRowBig == false) {
-		    				Coloring(dc,i,fieldValue[i],"004,090,082,016");
+		    				Coloring(dc,i,fieldValue[i],"004,089,082,017");
 		    			} else {
-		    				Coloring(dc,i,fieldValue[i],"000,090,035,055");
+		    				Coloring(dc,i,fieldValue[i],"000,089,035,056");
 		    			}
 		    		}
 			   	} else if ( i == 4 ) {	//!uppermiddle row, middle
 		 			if (disablelabel4 == false) {
 		 				if (uUpperMiddleRowBig == false) {
-		 					Coloring(dc,i,fieldValue[i],"086,090,105,016");
+		 					Coloring(dc,i,fieldValue[i],"086,089,105,017");
 		 				}
 		 			}
 		      	} else if ( i == 5 ) {  //!uppermiddle row, right
 		    		if (disablelabel5 == false) {
 		    			if (uUpperMiddleRowBig == false) {
-		    				Coloring(dc,i,fieldValue[i],"191,090,097,016");
+		    				Coloring(dc,i,fieldValue[i],"191,089,097,017");
 		    			} else {
-		    				Coloring(dc,i,fieldValue[i],"251,090,041,055");
+		    				Coloring(dc,i,fieldValue[i],"251,089,041,056");
 		    			}
 		    		}
 			   	} else if ( i == 6 ) {	//!lowermiddle row, left
 		   			if (disablelabel6 == false) {
 		   				if (uLowerMiddleRowBig == false) {
-		   					Coloring(dc,i,fieldValue[i],"000,146,086,016");
+		   					Coloring(dc,i,fieldValue[i],"000,145,086,017");
 		   				} else {
-		   					Coloring(dc,i,fieldValue[i],"000,146,035,055");
+		   					Coloring(dc,i,fieldValue[i],"000,145,035,056");
 		   				}
 		   			}
 		      	} else if ( i == 7 ) {	//!lowermiddle row, middle
 		    		if (disablelabel7 == false) {
 		    			if (uLowerMiddleRowBig == false) {
-		    				Coloring(dc,i,fieldValue[i],"086,146,105,016");
+		    				Coloring(dc,i,fieldValue[i],"086,145,105,017");
 		    			}
 		    		}
 		      	} else if ( i == 8 ) {  //!lowermiddle row, right
 		    		if (disablelabel8 == false) {
 		    			if (uLowerMiddleRowBig == false) {
-		    				Coloring(dc,i,fieldValue[i],"191,146,097,016");
+		    				Coloring(dc,i,fieldValue[i],"191,145,097,017");
 		    			} else {
-		    				Coloring(dc,i,fieldValue[i],"251,146,041,055");
+		    				Coloring(dc,i,fieldValue[i],"251,145,041,056");
 		    			}
 		    		}
 			   	} else if ( i == 9 ) {	//!lower row, left
@@ -895,10 +907,10 @@ class ExtramemView extends DatarunpremiumView {
 		dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
 		if (uMilClockAltern == 2) { //! Show number of laps 
 			if (mySettings.screenWidth == 260 and mySettings.screenHeight == 260) {
-				 dc.drawText(113, -3, Graphics.FONT_MEDIUM, mLaps, Graphics.TEXT_JUSTIFY_CENTER);
+				 dc.drawText(113, -4, Graphics.FONT_MEDIUM, mLaps, Graphics.TEXT_JUSTIFY_CENTER);
 				 dc.drawText(150, -1, Graphics.FONT_XTINY, "lap", Graphics.TEXT_JUSTIFY_CENTER);
 			} else if (mySettings.screenWidth == 280 and mySettings.screenHeight == 280) {
-				 dc.drawText(123, -2, Graphics.FONT_MEDIUM, mLaps, Graphics.TEXT_JUSTIFY_CENTER);
+				 dc.drawText(123, -5, Graphics.FONT_MEDIUM, mLaps, Graphics.TEXT_JUSTIFY_CENTER);
 				 dc.drawText(160, -1, Graphics.FONT_XTINY, "lap", Graphics.TEXT_JUSTIFY_CENTER);		
 			} else {	
 				 dc.drawText(103, -4, Graphics.FONT_MEDIUM, mLaps, Graphics.TEXT_JUSTIFY_CENTER);
@@ -915,11 +927,11 @@ class ExtramemView extends DatarunpremiumView {
 			}
 	    	var strTime = AmPmhour + ":" + myTime.min.format("%02d") + " " + AmPm;
 	    	if (mySettings.screenWidth == 260 and mySettings.screenHeight == 260) {
-				dc.drawText(140, -3, Graphics.FONT_MEDIUM, strTime, Graphics.TEXT_JUSTIFY_CENTER);
+				dc.drawText(140, -4, Graphics.FONT_MEDIUM, strTime, Graphics.TEXT_JUSTIFY_CENTER);
 	    	} else if (mySettings.screenWidth == 280 and mySettings.screenHeight == 280) {
-				dc.drawText(150, -2, Graphics.FONT_MEDIUM, strTime, Graphics.TEXT_JUSTIFY_CENTER);
+				dc.drawText(150, -3, Graphics.FONT_MEDIUM, strTime, Graphics.TEXT_JUSTIFY_CENTER);
 	    	} else {
-				dc.drawText(130, -4, Graphics.FONT_MEDIUM, strTime, Graphics.TEXT_JUSTIFY_CENTER);
+				dc.drawText(130, -3, Graphics.FONT_MEDIUM, strTime, Graphics.TEXT_JUSTIFY_CENTER);
 			}
 		} else if (uMilClockAltern == 3) {		//! Display of metric in Clock field
 			var originalFontcolor = mColourFont;

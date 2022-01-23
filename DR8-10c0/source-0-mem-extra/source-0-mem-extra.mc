@@ -148,19 +148,35 @@ class ExtramemView extends DatarunpremiumView {
 		tempeTemp = (Storage.getValue("mytemp") != null) ? Storage.getValue("mytemp") : 0;
 
     	//! Setup back- and foregroundcolours
-		if (uBlackBackground == true ){
-			mColourFont = Graphics.COLOR_WHITE;
-			mColourFont1 = Graphics.COLOR_WHITE;
-			mColourLine = Graphics.COLOR_GREEN;
-			mColourBackGround = Graphics.COLOR_BLACK;
+		if (mySettings.screenWidth == 416 and mySettings.screenHeight == 416 ) {
+			if (uBlackBackground == true ){
+				mColourFont = Graphics.COLOR_WHITE;
+				mColourFont1 = Graphics.COLOR_WHITE;
+				mColourLine = Graphics.COLOR_GREEN;
+				mColourBackGround = Graphics.COLOR_BLACK;
+			} else {
+				mColourFont = Graphics.COLOR_BLACK;
+				mColourFont1 = Graphics.COLOR_BLACK;
+				mColourLine = Graphics.COLOR_BLUE;
+				mColourBackGround = Graphics.COLOR_WHITE;
+			}
+			dc.setColor(mColourBackGround, Graphics.COLOR_TRANSPARENT);
+			dc.fillRectangle (0, 0, 416, 416);
 		} else {
-			mColourFont = Graphics.COLOR_BLACK;
-			mColourFont1 = Graphics.COLOR_BLACK;
-			mColourLine = Graphics.COLOR_BLUE;
-			mColourBackGround = Graphics.COLOR_WHITE;
-		}
-		dc.setColor(mColourBackGround, Graphics.COLOR_TRANSPARENT);
-        dc.fillRectangle (0, 0, 280, 280);
+			if (uBlackBackground == true ){
+				mColourFont = Graphics.COLOR_WHITE;
+				mColourFont1 = Graphics.COLOR_WHITE;
+				mColourLine = Graphics.COLOR_GREEN;
+				mColourBackGround = Graphics.COLOR_BLACK;
+			} else {
+				mColourFont = Graphics.COLOR_BLACK;
+				mColourFont1 = Graphics.COLOR_BLACK;
+				mColourLine = Graphics.COLOR_BLUE;
+				mColourBackGround = Graphics.COLOR_WHITE;
+			}
+			dc.setColor(mColourBackGround, Graphics.COLOR_TRANSPARENT);
+			dc.fillRectangle (0, 0, 280, 280);
+        }
 
         //! Calculate lap (Cadence) time
         mLapTimerTimeCadence 	= mCadenceTime - mLastLapTimeCadenceMarker;

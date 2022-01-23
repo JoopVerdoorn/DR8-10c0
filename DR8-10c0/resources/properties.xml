@@ -3,12 +3,15 @@
     	<font id="Garmin1" filename="fonts/Roadway40-alleencijfers.fnt" antialias="true"/>
     	<font id="Garmin2" filename="fonts/Roadway43-alleencijfers.fnt" antialias="true"/>
     	<font id="Garmin3" filename="fonts/Roadway47-alleencijfers.fnt" antialias="true"/>
+    	<font id="Garmin4" filename="fonts/Roadway70-alleencijfers.fnt" antialias="true"/>
     	<font id="Garmin1big" filename="fonts/Roadway53-alleencijfers.fnt" antialias="true"/>
     	<font id="Garmin2big" filename="fonts/Roadway57-alleencijfers.fnt" antialias="true"/>
     	<font id="Garmin3big" filename="fonts/Roadway62-alleencijfers.fnt" antialias="true"/>
+    	<font id="Garmin4big" filename="fonts/Roadway92-alleencijfers.fnt" antialias="true"/>
     	<font id="Labels1" filename="fonts/RobotoCondensed-Regular_19.fnt" antialias="true"/>
     	<font id="Labels2" filename="fonts/RobotoCondensed-Regular_21.fnt" antialias="true"/>
     	<font id="Labels3" filename="fonts/RobotoCondensed-Regular_22.fnt" antialias="true"/>
+    	<font id="Labels4" filename="fonts/RobotoCondensed-Regular_33.fnt" antialias="true"/>
     	
 	</fonts>
   <properties>
@@ -85,7 +88,7 @@
 	
   <strings>
     <string id="lCCnumber">C-Code generated on the watch by the corresponding main Datarun premium datafield</string>
-    <string id="lDummysetting4version">Version 3.07 of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 3.08 of Datarun ultimate, main version (dummy setting)</string>
     <string id="lTempeCalibration">Calibration factor for Tempe temperature in tenths of degrees (3 means 0.3 added, -4 means 0.4 subtracted)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>
@@ -139,7 +142,7 @@
     <string id="lColoringPaceFromAver">Use average pace for coloring of the pace field in middle row, instead of pace based on desired finish time</string>
     <string id="lShowDemo">Show demo view for ID's and check license</string>
     <string id="lBlackBackground">Use black background instead of white</string>
-    <string id="lBacklight">Force backlight on, regardless of device settings</string>
+    <string id="lBacklight">Force backlight on, regardless of device settings (not for Epix 2)</string>
     <string id="lMilClockAltern">Alternative for default military clock in upper field</string>
     <string id="lShowMilClock">Keep clock with military time</string>
     <string id="lShowlaps">Show number of laps </string>

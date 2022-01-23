@@ -205,6 +205,14 @@ class CiqView extends ExtramemView {
 			} else {
 				Labelfont = Graphics.FONT_TINY;
 			}
+		} else if (mySettings.screenWidth == 416 and mySettings.screenHeight == 416) {
+			Garminfont = Ui.loadResource(Rez.Fonts.Garmin4);
+			Garminfontbig = Ui.loadResource(Rez.Fonts.Garmin4big);
+			if (uLabelfontbig == false) {
+				Labelfont = Ui.loadResource(Rez.Fonts.Labels4);
+			} else {
+				Labelfont = Graphics.FONT_TINY;
+			}
 		}  else {
 			Garminfont = Ui.loadResource(Rez.Fonts.Garmin1);
 			Garminfontbig = Ui.loadResource(Rez.Fonts.Garmin1big);

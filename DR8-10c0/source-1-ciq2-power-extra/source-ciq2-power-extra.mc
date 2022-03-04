@@ -65,7 +65,7 @@ class CiqView extends ExtramemView {
 	var ElevforGrade                        = new[303];
 	var Vertgrade                           = 0;
 	var stopiteration                       = false;
-	var uVertgradeDist                      = 0.1;
+	var uVertgradeDist                      = 100;
 	var Vertgradsmooth  	        		= new[6]; 
     var Vertgradsmoothed                    = 0;
 		

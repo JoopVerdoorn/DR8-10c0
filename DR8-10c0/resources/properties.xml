@@ -88,7 +88,7 @@
 	
   <strings>
     <string id="lCCnumber">C-Code generated on the watch by the corresponding main Datarun premium datafield</string>
-    <string id="lDummysetting4version">Version 3.08c of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 3.08d of Datarun ultimate, main version (dummy setting)</string>
     <string id="lTempeCalibration">Calibration factor for Tempe temperature in tenths of degrees (3 means 0.3 added, -4 means 0.4 subtracted)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>
@@ -322,7 +322,7 @@
     <string id="lDailySteps">Total number of steps today</string>
     <string id="lcadenceWorkaround">Apply workaround for bug in cadance metrics being halved (currently for Fenix 6 and FR945 LTE)</string>
     <string id="lVertgrade">Vertical grade in percentages over a certain distance (any distance is allowed, see elsewhere in the settings, but maximum time observed is 5 minutes)</string>
-    <string id="lVertgradeDist">Distance in kilometers for the calculation of vertical grade (any distance is allowed, but maximum time observed is 5 minutes)</string>
+    <string id="lVertgradeDist">Distance in meters for the calculation of vertical grade (any distance is allowed, but maximum time observed is 5 minutes)</string>
     <string id="lVertgradeDisterror">Invalid value</string>
  </strings>
 

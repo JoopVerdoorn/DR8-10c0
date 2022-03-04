@@ -206,7 +206,7 @@ class DatarunpremiumView extends Ui.DataField {
         		Pace3 								= Pace2;
         		Pace2 								= Pace1;
         		Pace1								= CurrentSpeedinmpersec; 
-				Averagespeedinmper5sec= (Pace1+Pace2+Pace3+Pace4+Pace5)/5;
+				Averagespeedinmper5sec= (uRoundedPace) ? unitP/(Math.round( (unitP/(Pace1+Pace2+Pace3+Pace4+Pace5)*5) / 5 ) * 5) : (Pace1+Pace2+Pace3+Pace4+Pace5)/5;
 				Averagespeedinmper3sec= (uRoundedPace) ? unitP/(Math.round( (unitP/(Pace1+Pace2+Pace3)*3) / 5 ) * 5) : (Pace1+Pace2+Pace3)/3;
 				CurrentSpeedinmpersec= (uRoundedPace) ? unitP/(Math.round( unitP/CurrentSpeedinmpersec / 5 ) * 5) : CurrentSpeedinmpersec;
 		}

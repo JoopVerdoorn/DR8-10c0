@@ -88,7 +88,7 @@
 	
   <strings>
     <string id="lCCnumber">C-Code generated on the watch by the corresponding main Datarun premium datafield</string>
-    <string id="lDummysetting4version">Version 3.08d of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 3.09 of Datarun ultimate, main version (dummy setting)</string>
     <string id="lTempeCalibration">Calibration factor for Tempe temperature in tenths of degrees (3 means 0.3 added, -4 means 0.4 subtracted)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>
@@ -185,6 +185,8 @@
     <string id="lFontalertRed">Red</string>
     <string id="lFontalertBlack">Black</string>
     <string id="lFontalertDarkBlue">Dark blue</string>
+    <string id="lFontalertYellow">Yellow</string>
+    <string id="lFontalertOrange">Orange</string>
 	<string id="lPaceper3sec">'Pace 3s', pace averaged over the last 3 seconds</string>
 	<string id="lPaceper5sec">'Pace 5s', pace averaged over the last 5 seconds</string>
 	<string id="lPacepermax300sec">'Pa ..s', pace averaged over the last .. seconds (max is 300 seconds)</string>
@@ -449,6 +451,8 @@
         <listEntry value="5">@Strings.lFontalertRed</listEntry>
         <listEntry value="6">@Strings.lFontalertBlack</listEntry>
         <listEntry value="7">@Strings.lFontalertDarkBlue</listEntry>
+        <listEntry value="8">@Strings.lFontalertYellow</listEntry>
+        <listEntry value="9">@Strings.lFontalertOrange</listEntry>
       </settingConfig>
     </setting>
     <setting propertyKey="@Properties.pFontalertColorHigh" title="@Strings.lFontalertColorHigh">
@@ -461,6 +465,8 @@
         <listEntry value="5">@Strings.lFontalertRed</listEntry>
         <listEntry value="6">@Strings.lFontalertBlack</listEntry>
         <listEntry value="7">@Strings.lFontalertDarkBlue</listEntry>
+        <listEntry value="8">@Strings.lFontalertYellow</listEntry>
+        <listEntry value="9">@Strings.lFontalertOrange</listEntry>
       </settingConfig>
     </setting>
     <setting propertyKey="@Properties.pVertgradeDist" title="@Strings.lVertgradeDist">

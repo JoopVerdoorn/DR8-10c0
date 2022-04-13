@@ -95,6 +95,7 @@ class ExtramemView extends DatarunpremiumView {
     var mGPScolor							= Graphics.COLOR_LT_GRAY;
     var GPSAccuracy							= "null";
     var screenWidth 						= mySettings.screenWidth;
+    var uLinecolor                          = 1;
     
     	
     function initialize() {
@@ -122,6 +123,7 @@ class ExtramemView extends DatarunpremiumView {
 		disablelabel8 						= mApp.getProperty("pdisablelabel8");
 		disablelabel9 						= mApp.getProperty("pdisablelabel9");
 		disablelabel10 						= mApp.getProperty("pdisablelabel10");
+		uLinecolor                          = mApp.getProperty("pLinecolor");
 		
 		if(Toybox.AntPlus has :RunningDynamics) {
     		dynamics = new Toybox.AntPlus.RunningDynamics(null);
@@ -140,40 +142,63 @@ class ExtramemView extends DatarunpremiumView {
 			rollverticalOscillation[i] = 0;
 			rollverticalRatio[i] = 0;
 		}
+		
+		//! Setup back- and foregroundcolours
+		if ( uLinecolor == 0 ) {
+	    	mColourLine 	 = Graphics.COLOR_GREEN;
+	    } else if ( uLinecolor == 1 ) {
+	    	mColourLine 	 = Graphics.COLOR_BLUE;
+		} else if ( uLinecolor == 2 ) {
+	    	mColourLine 	 = Graphics.COLOR_DK_GRAY;
+		} else if ( uLinecolor == 3 ) {
+	    	mColourLine 	 = Graphics.COLOR_WHITE;
+		} else if ( uLinecolor == 4 ) {
+	    	mColourLine 	 = Graphics.COLOR_PURPLE;
+		} else if ( uLinecolor == 5 ) {
+	    	mColourLine 	 = Graphics.COLOR_RED;
+		} else if ( uLinecolor == 6 ) {
+	    	mColourLine 	 = Graphics.COLOR_BLACK;
+	    } else if ( uLinecolor == 7 ) {
+	    	mColourLine 	 = Graphics.COLOR_DK_BLUE;
+		} else if ( uLinecolor == 8 ) {
+	    	mColourLine 	 = Graphics.COLOR_YELLOW;
+		} else if ( uLinecolor == 9 ) {
+	    	mColourLine 	 = Graphics.COLOR_ORANGE;
+		}
+		
+		if (mySettings.screenWidth == 416 and mySettings.screenHeight == 416 ) {
+			if (uBlackBackground == true ){
+				mColourFont = Graphics.COLOR_WHITE;
+				mColourFont1 = Graphics.COLOR_WHITE;
+				mColourBackGround = Graphics.COLOR_BLACK;
+			} else {
+				mColourFont = Graphics.COLOR_BLACK;
+				mColourFont1 = Graphics.COLOR_BLACK;
+				mColourBackGround = Graphics.COLOR_WHITE;
+			}
+		} else {
+			if (uBlackBackground == true ){
+				mColourFont = Graphics.COLOR_WHITE;
+				mColourFont1 = Graphics.COLOR_WHITE;
+				mColourBackGround = Graphics.COLOR_BLACK;
+			} else {
+				mColourFont = Graphics.COLOR_BLACK;
+				mColourFont1 = Graphics.COLOR_BLACK;
+				mColourBackGround = Graphics.COLOR_WHITE;
+			}
+        }
     }
 
 	function onUpdate(dc) {
 		//! call the parent onUpdate to do the base logic
 		DatarunpremiumView.onUpdate(dc);		
 		tempeTemp = (Storage.getValue("mytemp") != null) ? Storage.getValue("mytemp") : 0;
-
-    	//! Setup back- and foregroundcolours
-		if (mySettings.screenWidth == 416 and mySettings.screenHeight == 416 ) {
-			if (uBlackBackground == true ){
-				mColourFont = Graphics.COLOR_WHITE;
-				mColourFont1 = Graphics.COLOR_WHITE;
-				mColourLine = Graphics.COLOR_GREEN;
-				mColourBackGround = Graphics.COLOR_BLACK;
-			} else {
-				mColourFont = Graphics.COLOR_BLACK;
-				mColourFont1 = Graphics.COLOR_BLACK;
-				mColourLine = Graphics.COLOR_BLUE;
-				mColourBackGround = Graphics.COLOR_WHITE;
-			}
+		
+		//! Paint background
+        if (mySettings.screenWidth == 416 and mySettings.screenHeight == 416 ) {
 			dc.setColor(mColourBackGround, Graphics.COLOR_TRANSPARENT);
 			dc.fillRectangle (0, 0, 416, 416);
 		} else {
-			if (uBlackBackground == true ){
-				mColourFont = Graphics.COLOR_WHITE;
-				mColourFont1 = Graphics.COLOR_WHITE;
-				mColourLine = Graphics.COLOR_GREEN;
-				mColourBackGround = Graphics.COLOR_BLACK;
-			} else {
-				mColourFont = Graphics.COLOR_BLACK;
-				mColourFont1 = Graphics.COLOR_BLACK;
-				mColourLine = Graphics.COLOR_BLUE;
-				mColourBackGround = Graphics.COLOR_WHITE;
-			}
 			dc.setColor(mColourBackGround, Graphics.COLOR_TRANSPARENT);
 			dc.fillRectangle (0, 0, 280, 280);
         }
@@ -422,7 +447,7 @@ class ExtramemView extends DatarunpremiumView {
 			}	
 		}
 
-		//! Show GPS accuracy
+		//! Determine GPS accuracy
         GPSAccuracy=info.currentLocationAccuracy;
         if (GPSAccuracy == null or GPSAccuracy == 1) {
         	mGPScolor = Graphics.COLOR_LT_GRAY;
@@ -436,39 +461,6 @@ class ExtramemView extends DatarunpremiumView {
 		    mGPScolor = Graphics.COLOR_LT_GRAY;
 		}
 		dc.setColor(mGPScolor, Graphics.COLOR_TRANSPARENT);
-		
-		if (screenWidth == 240) {
-			dc.fillRectangle(10, 5, 64, 22); 
-			if (uMilClockAltern == 1) {
-			   dc.fillRectangle(183, 5, 55, 22);
-		    } else {
-		       dc.fillRectangle(165, 5, 55, 22);
-		    }
-		} else if (screenWidth == 260) { 
-			dc.fillRectangle(11, 5, 69, 24); 
-			if (uMilClockAltern == 1) {
-			   dc.fillRectangle(197, 5, 60, 24);
-		    } else {
-		       dc.fillRectangle(178, 5, 60, 24);
-		    }
-		} else if (screenWidth == 280) {
-			dc.fillRectangle(12, 6, 77, 25); 
-			if (uMilClockAltern == 1) {
-			   dc.fillRectangle(211, 6, 64, 25);
-			} else {
-			   dc.fillRectangle(191, 6, 64, 25);
-			}
-		} else if (screenWidth == 416) {
-			dc.fillRectangle(18, 9, 114, 39); 
-			if (uMilClockAltern == 1) {
-			   dc.fillRectangle(313, 9, 95, 39);
-			} else {
-			   dc.fillRectangle(284, 9, 95, 39);
-			}
-		}
-
-		dc.setColor(mColourLine, Graphics.COLOR_TRANSPARENT);
-
 
 		//!Choice for metric in Clockfield
 		var CFMValue = 0;

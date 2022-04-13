@@ -83,12 +83,13 @@
     <property id="pCCnumber" type="number">9999999</property>
     <property id="pcadenceWorkaround" type="boolean">false</property>
     <property id="pVertgradeDist" type="number">100</property>
+    <property id="pLinecolor" type="number">1</property>
   </properties>
 
 	
   <strings>
     <string id="lCCnumber">C-Code generated on the watch by the corresponding main Datarun premium datafield</string>
-    <string id="lDummysetting4version">Version 3.09 of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 3.10 of Datarun ultimate, main version (dummy setting)</string>
     <string id="lTempeCalibration">Calibration factor for Tempe temperature in tenths of degrees (3 means 0.3 added, -4 means 0.4 subtracted)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>
@@ -326,6 +327,17 @@
     <string id="lVertgrade">Vertical grade in percentages over a certain distance (any distance is allowed, see elsewhere in the settings, but maximum time observed is 5 minutes)</string>
     <string id="lVertgradeDist">Distance in meters for the calculation of vertical grade (any distance is allowed, but maximum time observed is 5 minutes)</string>
     <string id="lVertgradeDisterror">Invalid value</string>
+    <string id="lLinecolorGreen">Green</string>
+    <string id="lLinecolorBlue">Blue</string>
+    <string id="lLinecolorGray">Dark gray</string>
+    <string id="lLinecolorWhite">White</string>
+    <string id="lLinecolorPurple">Purple</string>
+    <string id="lLinecolorRed">Red</string>
+    <string id="lLinecolorBlack">Black</string>  
+    <string id="lLinecolorDarkBlue">Dark blue</string>
+    <string id="lLinecolorYellow">Yellow</string>
+    <string id="lLinecolorOrange">Orange</string>
+    <string id="lLinecolor">Color of the lines that separate the metrics</string>
  </strings>
 
   <settings>
@@ -337,6 +349,20 @@
     </setting>
     <setting propertyKey="@Properties.pBlackBackground" title="@Strings.lBlackBackground">
       <settingConfig type="boolean" required="true" />
+    </setting>
+    <setting propertyKey="@Properties.pLinecolor" title="@Strings.lLinecolor">
+      <settingConfig type="list" required="true">
+        <listEntry value="0">@Strings.lLinecolorGreen</listEntry>
+        <listEntry value="1">@Strings.lLinecolorBlue</listEntry>
+        <listEntry value="2">@Strings.lLinecolorGray</listEntry>
+        <listEntry value="3">@Strings.lLinecolorWhite</listEntry>
+        <listEntry value="4">@Strings.lLinecolorPurple</listEntry>
+        <listEntry value="5">@Strings.lLinecolorRed</listEntry>
+        <listEntry value="6">@Strings.lLinecolorBlack</listEntry>
+        <listEntry value="7">@Strings.lLinecolorDarkBlue</listEntry>
+        <listEntry value="8">@Strings.lLinecolorYellow</listEntry>
+        <listEntry value="9">@Strings.lLinecolorOrange</listEntry>
+      </settingConfig>
     </setting>
     <setting propertyKey="@Properties.pBacklight" title="@Strings.lBacklight">
       <settingConfig type="boolean" required="true" />

@@ -639,7 +639,7 @@ class CiqView extends ExtramemView {
 		        var vibrateData = [
 			new Attention.VibeProfile( 100, 200 )
 		];
-System.println(mPowerWarningunder);
+
 		PowerWarning = 0;
 		if (jTimertime != 0) {
 		  if (runalertPower>mPowerWarningupper or runalertPower<mPowerWarningunder) {	 

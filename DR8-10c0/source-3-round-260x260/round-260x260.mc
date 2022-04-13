@@ -56,11 +56,11 @@ class DeviceView extends PowerView {
         
         //! Display GPS accuracy
 		dc.setColor(mGPScolor, Graphics.COLOR_TRANSPARENT);
-		dc.fillRectangle(11, 5, 69, 24); 
+		dc.fillRectangle(11, 5, 69, 25); 
 		if (uMilClockAltern == 1) {
-		   dc.fillRectangle(197, 5, 60, 24);
+		   dc.fillRectangle(197, 5, 60, 25);
 	    } else {
-	       dc.fillRectangle(178, 5, 60, 24);
+	       dc.fillRectangle(178, 5, 60, 25);
 	    }
 		
         dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
@@ -119,23 +119,15 @@ class DeviceView extends PowerView {
 	    		}
 	       	} else if ( i == 9 ) {	//!lower row, left
 	    		if ( fieldFormat[i].equals("time") == true and fieldValue[i] > 36000) { 
-	    			if (uLabelfontbig == true) {
-	    			    Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"080,202,096,029,206,087,229");
-	    			} else {
-	    			    Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"080,202,096,029,206,087,228");
-	    			}
+    			    Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"080,202,096,029,206,087,229");
 	    		} else {
-	    			if (uLabelfontbig == true) {
-	    			    Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"080,202,089,036,206,087,229");
-	    			} else {
-	    			    Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"080,202,089,036,206,087,228");
-	    			}
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"080,202,089,036,206,087,229");
 	    		}
 	       	} else if ( i == 10 ) {	//!lower row, right
 	    		if ( fieldFormat[i].equals("time") == true and fieldValue[i] > 36000) { 
 	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"179,202,193,126,206,170,229");
 	    		} else {
-	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"179,202,186,133,206,170,228");
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"179,202,186,133,206,170,229");
 	    		}
        		}       	
 		}

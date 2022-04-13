@@ -56,11 +56,11 @@ class DeviceView extends PowerView {
 
         //! Display GPS accuracy
         dc.setColor(mGPScolor, Graphics.COLOR_TRANSPARENT);
-        dc.fillRectangle(12, 6, 77, 25); 
+        dc.fillRectangle(12, 6, 77, 26); 
 		if (uMilClockAltern == 1) {
-		   dc.fillRectangle(211, 6, 64, 25);
+		   dc.fillRectangle(211, 6, 64, 26);
 		} else {
-		   dc.fillRectangle(191, 6, 64, 25);
+		   dc.fillRectangle(191, 6, 64, 26);
 		}
 		
         dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
@@ -125,9 +125,9 @@ class DeviceView extends PowerView {
 	    		}
 	       	} else if ( i == 10 ) {	//!lower row, right
 	    			    		if ( fieldFormat[i].equals("time") == true and fieldValue[i] > 36000) { 
-	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"198,218,209,137,222,183,246");
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"198,218,209,137,222,183,247");
 	    		} else {
-	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"193,218,201,144,222,183,246");
+	    			Formatting(dc,i,fieldValue[i],fieldFormat[i],fieldLabel[i],"193,218,201,144,222,183,247");
 	    		}
        		}       	
 		}

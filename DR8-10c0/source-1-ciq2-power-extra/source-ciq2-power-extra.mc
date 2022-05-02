@@ -91,8 +91,10 @@ class CiqView extends ExtramemView {
 	hidden var overruleWourkout					= false;
     hidden var mPowerWarningunder				= 0;
     hidden var mPowerWarningupper 				= 999;
-    var ElapsedDistance                         = 1;
+    hidden var ElapsedDistance                         = 1;
     var ZoltanRequest                           ="a";
+    hidden var BenvanAerschotRequest            = "a";
+    hidden var ScreenInBackground               = false;
 		
     function initialize() {
         ExtramemView.initialize();
@@ -577,6 +579,9 @@ class CiqView extends ExtramemView {
         ZoltanRequest = uRequiredPower.substring(7, 8);
         mPowerWarningunder = mPowerWarningunder.toNumber();
         mPowerWarningupper = mPowerWarningupper.toNumber(); 
+        
+        ElapsedDistance = (info.elapsedDistance != null) ? info.elapsedDistance / unitD : 0;
+        
 		if (Activity has :getCurrentWorkoutStep) {
 			workoutTarget = Toybox.Activity.getCurrentWorkoutStep();
 			hasWorkoutStep = true;
@@ -641,34 +646,40 @@ class CiqView extends ExtramemView {
 		];
 
 		PowerWarning = 0;
-		if (jTimertime != 0) {
-		  if (runalertPower>mPowerWarningupper or runalertPower<mPowerWarningunder) {	 
-			 if (Toybox.Attention has :vibrate && uNoAlerts == false) {
-			 	vibrateseconds = vibrateseconds + 1;	 		  			
-    			if (runalertPower>mPowerWarningupper) {
-    				PowerWarning = 1;
-    				if (vibrateseconds == uWarningFreq) {
-    					Toybox.Attention.vibrate(vibrateData);
-    					if (uAlertbeep == true) {
-    						Attention.playTone(Attention.TONE_ALERT_HI);
-    					}
-    					Toybox.Attention.vibrate(vibrateData);
-    					vibrateseconds = 0;
-    				}
-    			} else if (runalertPower<mPowerWarningunder){
-    				PowerWarning = 2;
-    				if (vibrateseconds == uWarningFreq) {
-    						if (uAlertbeep == true) {
-    							Attention.playTone(Attention.TONE_ALERT_LO);
-    						}
-    					Toybox.Attention.vibrate(vibrateData);
-    					vibrateseconds = 0;
-    				}
-    			} 
-			 }
-		  }	 
-
-		}	
+	    	if (jTimertime != 0) {
+		      if (runalertPower>mPowerWarningupper or runalertPower<mPowerWarningunder) {	 
+			     if (Toybox.Attention has :vibrate && uNoAlerts == false) {
+			 	    vibrateseconds = vibrateseconds + 1;	 		  			
+        			if (runalertPower>mPowerWarningupper) {
+        				PowerWarning = 1;
+    	    			if (vibrateseconds == uWarningFreq) {
+    		    			if (BenvanAerschotRequest.equals("b" ) == true and ScreenInBackground == false) {
+        		    			Toybox.Attention.vibrate(vibrateData);
+        		    		}
+    			    		if (uAlertbeep == true) {
+    				    		Attention.playTone(Attention.TONE_ALERT_HI);
+    					    }
+        					if (BenvanAerschotRequest.equals("b" ) == true and ScreenInBackground == false) {
+        		    			Toybox.Attention.vibrate(vibrateData);
+        		    		}
+        					vibrateseconds = 0;
+    	    			}
+    		    	} else if (runalertPower<mPowerWarningunder){
+    			    	PowerWarning = 2;
+    				    if (vibrateseconds == uWarningFreq) {
+        						if (uAlertbeep == true) {
+        							Attention.playTone(Attention.TONE_ALERT_LO);
+    	    					}
+    		    			if (BenvanAerschotRequest.equals("b" ) == true and ScreenInBackground == false) {
+        		    			Toybox.Attention.vibrate(vibrateData);
+        		    		}
+    			    		vibrateseconds = 0;
+    				    }
+        			} 
+	    		 }
+		      }	 
+    		}
+    		ScreenInBackground = true;		             	
 
 			//! Calculation of rolling average of pace
 			if (calculateRolavPace == true) {
@@ -880,10 +891,6 @@ class CiqView extends ExtramemView {
 			}
  		}
 
-
-
-		var ElapsedDistance = (info.elapsedDistance != null) ? info.elapsedDistance / unitD : 0;
-		
 		dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
 		
 		i = 0; 

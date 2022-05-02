@@ -111,6 +111,7 @@ class DatarunpremiumView extends Ui.DataField {
 	hidden var mLapElapsedDistance 			= 0;
 	hidden var uShowRedClock 				= false;
 	hidden var ucadenceWorkaround 			= false;
+	hidden var c0Version					= true;
 
 	function initialize() {
          DataField.initialize();
@@ -165,7 +166,11 @@ class DatarunpremiumView extends Ui.DataField {
 		CCode = CCode*hashfunction((uHrZones[2]*uHrZones[4]+uHrZones[1]+uHrZones[3]).toString())-4331;
         CCode = (CCode > 0) ? CCode : -CCode; 
         CCode = CCode % 346421 + 53263;   
-        licenseOK = (umyNumber == mtest) ? true : false;     
+        if (c0Version == true) {
+        	licenseOK = (umyNumber == mtest) ? true : false;
+        } else {
+        	licenseOK = (umyNumber == mtest or CCode == uCCnumber) ? true : false;
+        }     
     }
     
     //!! this is called whenever the screen needs to be updated

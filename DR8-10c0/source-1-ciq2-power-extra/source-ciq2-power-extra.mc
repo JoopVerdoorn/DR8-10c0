@@ -654,14 +654,22 @@ class CiqView extends ExtramemView {
         			if (runalertPower>mPowerWarningupper) {
         				PowerWarning = 1;
     	    			if (vibrateseconds == uWarningFreq) {
-    		    			if (uAlertsinBackground == true and ScreenInBackground == false) {
+    		    			if (ScreenInBackground == false) {  		//! scherm is op de voorgrond
         		    			Toybox.Attention.vibrate(vibrateData);
+        		    		} else { 									//! scherm is op de achtergrond
+        		    			if (uAlertsinBackground == true) { 		//! alerts mogen op de achtergrond
+        		    				Toybox.Attention.vibrate(vibrateData);
+        		    			}
         		    		}
     			    		if (uAlertbeep == true) {
     				    		Attention.playTone(Attention.TONE_ALERT_HI);
     					    }
-        					if (uAlertsinBackground == true and ScreenInBackground == false) {
+        					if (ScreenInBackground == false) {  		//! scherm is op de voorgrond
         		    			Toybox.Attention.vibrate(vibrateData);
+        		    		} else { 									//! scherm is op de achtergrond
+        		    			if (uAlertsinBackground == true) { 		//! alerts mogen op de achtergrond
+        		    				Toybox.Attention.vibrate(vibrateData);
+        		    			}
         		    		}
         					vibrateseconds = 0;
     	    			}
@@ -671,8 +679,12 @@ class CiqView extends ExtramemView {
         						if (uAlertbeep == true) {
         							Attention.playTone(Attention.TONE_ALERT_LO);
     	    					}
-    		    			if (uAlertsinBackground == true and ScreenInBackground == false) {
+    		    			if (ScreenInBackground == false) {  		//! scherm is op de voorgrond
         		    			Toybox.Attention.vibrate(vibrateData);
+        		    		} else { 									//! scherm is op de achtergrond
+        		    			if (uAlertsinBackground == true) { 		//! alerts mogen op de achtergrond
+        		    				Toybox.Attention.vibrate(vibrateData);
+        		    			}
         		    		}
     			    		vibrateseconds = 0;
     				    }

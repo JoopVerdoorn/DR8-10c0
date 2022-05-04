@@ -66,7 +66,7 @@
     <property id="pWeight" type="number">70</property>
     <property id="pLabelfontbig" type="boolean">true</property>
     <property id="ptempunits" type="boolean">false</property>
-    <property id="pPowerTarget" type="number">225</property>
+    <property id="pPowerTarget" type="number">0</property>
     <property id="pOnlyPwrCorrFactor" type="boolean">false</property>
     <property id="pPwrTempcorrect" type="number">0</property>
     <property id="pPwrHumidcorrect" type="number">0</property>
@@ -90,7 +90,7 @@
 	
   <strings>
     <string id="lCCnumber">C-Code generated on the watch by the corresponding main Datarun premium datafield</string>
-    <string id="lDummysetting4version">Version 3.10c of Datarun ultimate, main version (dummy setting)</string>
+    <string id="lDummysetting4version">Version 3.10d of Datarun ultimate, main version (dummy setting)</string>
     <string id="lTempeCalibration">Calibration factor for Tempe temperature in tenths of degrees (3 means 0.3 added, -4 means 0.4 subtracted)</string>
 	<string id="lTimeMenu">___Time items___</string>
 	<string id="lDistanceMenu">___Distance items___</string>

@@ -24,7 +24,7 @@ class CiqView extends ExtramemView {
     var uWeight								= 70;
     hidden var uLabelfontbig				= true;
     hidden var labelFontOffset				= 0; 
-    var uPowerTarget						= 225;
+    var uPowerTarget						= 0;
     var uOnlyPwrCorrFactor					= false;
     var uPwrTempcorrect 					= 0;
     var uPwrHumidcorrect 					= 0;
@@ -93,7 +93,7 @@ class CiqView extends ExtramemView {
     hidden var mPowerWarningupper 				= 999;
     hidden var ElapsedDistance                         = 1;
     var ZoltanRequest                           ="a";
-    hidden var BenvanAerschotRequest            = "a";
+    var uAlertsinBackground            			= true;
     hidden var ScreenInBackground               = false;
 		
     function initialize() {
@@ -126,6 +126,7 @@ class CiqView extends ExtramemView {
         uAlertbeep		 = mApp.getProperty("pAlertbeep");  
         uLapPwr4alerts   = mApp.getProperty("pLapPwr4alerts"); 
         overruleWourkout = mApp.getProperty("poverruleWourkout");
+        uAlertsinBackground = mApp.getProperty("pAlertsinBackground");
 
         uVertgradeDist = (uVertgradeDist<50) ? 0.050 : uVertgradeDist; 
 	
@@ -641,7 +642,7 @@ class CiqView extends ExtramemView {
 	    	runalertPower 	 = Math.round((mPowerTime != 0) ? mElapsedPower/mPowerTime : 0);
 		}
 		
-		        var vibrateData = [
+		var vibrateData = [
 			new Attention.VibeProfile( 100, 200 )
 		];
 
@@ -653,13 +654,13 @@ class CiqView extends ExtramemView {
         			if (runalertPower>mPowerWarningupper) {
         				PowerWarning = 1;
     	    			if (vibrateseconds == uWarningFreq) {
-    		    			if (BenvanAerschotRequest.equals("b" ) == true and ScreenInBackground == false) {
+    		    			if (uAlertsinBackground == true and ScreenInBackground == false) {
         		    			Toybox.Attention.vibrate(vibrateData);
         		    		}
     			    		if (uAlertbeep == true) {
     				    		Attention.playTone(Attention.TONE_ALERT_HI);
     					    }
-        					if (BenvanAerschotRequest.equals("b" ) == true and ScreenInBackground == false) {
+        					if (uAlertsinBackground == true and ScreenInBackground == false) {
         		    			Toybox.Attention.vibrate(vibrateData);
         		    		}
         					vibrateseconds = 0;
@@ -670,7 +671,7 @@ class CiqView extends ExtramemView {
         						if (uAlertbeep == true) {
         							Attention.playTone(Attention.TONE_ALERT_LO);
     	    					}
-    		    			if (BenvanAerschotRequest.equals("b" ) == true and ScreenInBackground == false) {
+    		    			if (uAlertsinBackground == true and ScreenInBackground == false) {
         		    			Toybox.Attention.vibrate(vibrateData);
         		    		}
     			    		vibrateseconds = 0;
@@ -860,6 +861,7 @@ class CiqView extends ExtramemView {
 	function onUpdate(dc) {
 		//! call the parent onUpdate to do the base logic
 		ExtramemView.onUpdate(dc);
+		ScreenInBackground = false;
         		
 		//!Calculate HR-metrics
 		var info = Activity.getActivityInfo();

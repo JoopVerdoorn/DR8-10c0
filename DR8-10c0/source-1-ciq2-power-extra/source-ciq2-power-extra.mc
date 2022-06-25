@@ -620,9 +620,12 @@ class CiqView extends ExtramemView {
 	        		mPowerWarningunder = WorkoutStepLowBoundary;
     	    		mPowerWarningupper = WorkoutStepHighBoundary; 
         		} else {
-        			mPowerWarningunder = mPowerWarningunder.toNumber();
-                    mPowerWarningupper = mPowerWarningupper.toNumber(); 
+        			mPowerWarningunder = 0;
+                    mPowerWarningupper = 999; 
         		}
+        } else if (Activity has :getCurrentWorkoutStep and overruleWourkout == true) {
+            mPowerWarningunder = mPowerWarningunder.toNumber();
+            mPowerWarningupper = mPowerWarningupper.toNumber(); 
         }
 
 		var runalertPower = 0;

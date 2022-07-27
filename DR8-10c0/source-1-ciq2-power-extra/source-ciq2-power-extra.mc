@@ -949,20 +949,32 @@ class CiqView extends ExtramemView {
             	fieldLabel[i] = "s/100m";
         	    fieldFormat[i] = "1decimal";
         	} else if (metric[i] == 25) {
-    	        fieldValue[i] = (LapPower != 0) ? mLapSpeed*60/LapPower : 0;
+        	    fieldValue[i] = (LapPower != 0) ? mLapSpeed*60/LapPower : 0;
+        	    if (uPwrTempcorrect != 0 or uPwrHumidcorrect != 0 or uPwrAlticorrect != 0) {
+            	  	fieldValue[i] = fieldValue[i] * PwrCorrFactor;
+            	}  	
         	    fieldLabel[i] = "Lap EI";
             	fieldFormat[i] = "2decimal";
 			} else if (metric[i] == 26) {
     	        fieldValue[i] = (LastLapPower != 0) ? mLastLapSpeed*60/LastLapPower : 0;
-        	    fieldLabel[i] = "LL EI";
+        	    if (uPwrTempcorrect != 0 or uPwrHumidcorrect != 0 or uPwrAlticorrect != 0) {
+            	  	fieldValue[i] = fieldValue[i] * PwrCorrFactor;
+            	}
+            	fieldLabel[i] = "LL EI";
             	fieldFormat[i] = "2decimal";
 			} else if (metric[i] == 27) {
 	            fieldValue[i] = (info.averageSpeed != null && AveragePower != 0) ? info.averageSpeed*60/AveragePower : 0;
-    	        fieldLabel[i] = "Avg EI";
+    	        if (uPwrTempcorrect != 0 or uPwrHumidcorrect != 0 or uPwrAlticorrect != 0) {
+            	  	fieldValue[i] = fieldValue[i] * PwrCorrFactor;
+            	}  	
+        	    fieldLabel[i] = "Avg EI";
         	    fieldFormat[i] = "2decimal";
 			} else if (metric[i] == 31) {
 	            fieldValue[i] = (runPower != 0) ? Averagespeedinmper3sec*60/runPower : 0;
-    	        fieldLabel[i] = "Cur EI";
+    	        if (uPwrTempcorrect != 0 or uPwrHumidcorrect != 0 or uPwrAlticorrect != 0) {
+            	  	fieldValue[i] = fieldValue[i] * PwrCorrFactor;
+            	}  	
+        	    fieldLabel[i] = "Cur EI";
         	    fieldFormat[i] = "2decimal";
 	        } else if (metric[i] == 33) {
 	        	if (LapHeartrate != 0) {
@@ -1066,7 +1078,10 @@ class CiqView extends ExtramemView {
             	} else {
             		fieldValue[i] = 0;
             	}
-            	fieldLabel[i] = "RE cur";
+            	if (uPwrTempcorrect != 0 or uPwrHumidcorrect != 0 or uPwrAlticorrect != 0) {
+            	  	fieldValue[i] = fieldValue[i] * PwrCorrFactor;
+            	}  	
+        	    fieldLabel[i] = "RE cur";
             	fieldFormat[i] = "2decimal";   
 			} else if (metric[i] == 94) {
 				if (AveragePower3sec != 0) {
@@ -1074,7 +1089,10 @@ class CiqView extends ExtramemView {
             	} else {
             		fieldValue[i] = 0;
             	}
-            	fieldLabel[i] = "RE 3sec";
+            	if (uPwrTempcorrect != 0 or uPwrHumidcorrect != 0 or uPwrAlticorrect != 0) {
+            	  	fieldValue[i] = fieldValue[i] * PwrCorrFactor;
+            	}  	
+        	    fieldLabel[i] = "RE 3sec";
             	fieldFormat[i] = "2decimal";
 			} else if (metric[i] == 95) {
 				if (AveragePower5sec != 0) {
@@ -1082,7 +1100,10 @@ class CiqView extends ExtramemView {
             	} else {
             		fieldValue[i] = 0;
             	}
-            	fieldLabel[i] = "RE 5sec";
+            	if (uPwrTempcorrect != 0 or uPwrHumidcorrect != 0 or uPwrAlticorrect != 0) {
+            	  	fieldValue[i] = fieldValue[i] * PwrCorrFactor;
+            	}  	
+        	    fieldLabel[i] = "RE 5sec";
             	fieldFormat[i] = "2decimal";
 			} else if (metric[i] == 96) {
 				if (LapPower != 0) {
@@ -1090,7 +1111,10 @@ class CiqView extends ExtramemView {
             	} else {
             		fieldValue[i] = 0;
             	}
-            	fieldLabel[i] = "RE lap";
+            	if (uPwrTempcorrect != 0 or uPwrHumidcorrect != 0 or uPwrAlticorrect != 0) {
+            	  	fieldValue[i] = fieldValue[i] * PwrCorrFactor;
+            	}  	
+        	    fieldLabel[i] = "RE lap";
             	fieldFormat[i] = "2decimal";
 			} else if (metric[i] == 98) {
 				if (AveragePower != 0) {
@@ -1098,7 +1122,10 @@ class CiqView extends ExtramemView {
             	} else {
             		fieldValue[i] = 0;
             	}
-            	fieldLabel[i] = "RE Aver";
+            	if (uPwrTempcorrect != 0 or uPwrHumidcorrect != 0 or uPwrAlticorrect != 0) {
+            	  	fieldValue[i] = fieldValue[i] * PwrCorrFactor;
+            	}  	
+        	    fieldLabel[i] = "RE Aver";
             	fieldFormat[i] = "2decimal";   
             } else if (metric[i] == 106) {
 	            fieldValue[i] = (PwrCorrFactor-1)*100;

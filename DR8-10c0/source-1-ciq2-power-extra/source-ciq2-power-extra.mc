@@ -345,7 +345,7 @@ class CiqView extends ExtramemView {
 			//! Calculate lap time
     	    mLapTimerTime = jTimertime - mLastLapTimeMarker;
     	    
-			jTimertime 		 = jTimertime + 1;
+			jTimertime 		 = (info.timerTime != null) ? info.timerTime/1000 : 0;
 			
 			//!Calculate lapheartrate
             mHeartrateTime	 = (info.currentHeartRate != null) ? mHeartrateTime+1 : mHeartrateTime;				
@@ -870,7 +870,71 @@ class CiqView extends ExtramemView {
         mLastLapTimerTimeHR     	= 0;   
         mLastLapPowerMarker      	= 0;
         mLastLapElapsedPower     	= 0; 
-        mLastLapTimerTimePwr     	= 0;  
+        mLastLapTimerTimePwr     	= 0;
+        HRzone= 0;
+        Powerzone= 0;
+        kCalories= 0;
+        mElapsedCadence   = 0;
+        mLastLapCadenceMarker  = 0;
+        mCurrentCadence= 0; 
+        mLastLapElapsedCadence= 0;
+        mCadenceTime= 0;
+        mLapTimerTimeCadence= 0;
+        mLastLapTimeCadenceMarker= 0;
+        mLastLapTimerTimeCadence= 0;
+        currentCadence= 0;
+        LapCadence= 0;
+        LastLapCadence= 0;
+        AverageCadence = 0; 
+        AveragerollgroundContactBalance10sec= 0;
+        AveragerollgroundContactTime10sec= 0;
+        AveragerollstanceTime10sec= 0;
+        AveragerollstepLength10sec= 0;
+        AveragerollverticalOscillation10sec= 0;
+        AveragerollverticalRatio10sec= 0;
+        Averagespeedinmper3sec = 0;
+        Averagespeedinmper5sec = 0;
+        mLapTimerTime   = 0;
+        mElapsedDistance= 0;
+        mTimerRunning= false;
+        mStartStopPushed = 0;//! Timer value when the start/stop button was last pushed
+        mPrevElapsedDistance = 0;
+        mRacetime  = 0;
+        mETA= 0;
+        mLastLapDistMarker   = 0;
+        mLastLapTimeMarker   = 0;
+        mLastLapStoppedTimeMarker= 0;
+        mLastLapStoppedDistMarker= 0;
+        mLastLapElapsedDistance  = 0;
+        mLastLapTimerTime= 0;
+        mLapSpeed = 0;
+        mLastLapSpeed = 0;
+        mLaps= 1;   
+        mElapsedHeartrate   = 0;
+        mLastLapHeartrateMarker  = 0;
+        mCurrentHeartrate= 0; 
+        mLastLapElapsedHeartrate= 0;
+        mHeartrateTime= 0;
+        mLapTimerTimeHR= 0;
+        mLastLapTimeHRMarker= 0;
+        mLastLapTimerTimeHR= 0;
+        currentHR= 0;
+        LapHeartrate= 0;
+        LastLapHeartrate= 0;
+        AverageHeartrate = 0; 
+        mLapElapsedDistance = 0;
+        mElapsedPower   = 0;
+        mLastLapElapsedPower= 0;
+        mPowerTime= 0;
+        mLastLapPowerMarker  = 0;
+        mLastLapStoppedPowerMarker   = 0;
+        mLastLapStoppedHeartrateMarker   = 0;
+        mLastLapTimePwrMarker= 0;
+        mLapTimerTimePwr= 0;
+        mLastLapTimerTimePwr= 0;
+        LapPower = 0; 
+        LastLapPower = 0;
+        runPower= 0;  
     }
 
 	function onUpdate(dc) {
@@ -1255,6 +1319,9 @@ class CiqView extends ExtramemView {
 		fieldvalue = (metric[counter]==103) ? mZone[counter] : fieldvalue;
 		fieldvalue = (metric[counter]==104) ? mZone[counter] : fieldvalue;  
 		fieldvalue = (metric[counter]==46) ? mZone[counter] : fieldvalue;
+		if (metric[counter]==38 or metric[counter]==99 or metric[counter]==100 or metric[counter]==101 or metric[counter]==102 or metric[counter]==103 or metric[counter]==104 or metric[counter]==46) {
+			fieldvalue = (fieldvalue > 0) ? fieldvalue : 0;
+		}
 
         if ( fieldformat.equals("0decimal" ) == true ) {
         	fieldvalue = fieldvalue.format("%.0f");  

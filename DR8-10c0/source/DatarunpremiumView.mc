@@ -104,13 +104,11 @@ class DatarunpremiumView extends Ui.DataField {
     hidden var mLapTimerTimeHR				= 0;    
 	hidden var mLastLapTimeHRMarker			= 0;
 	hidden var mLastLapTimerTimeHR			= 0;
-	hidden var currentHR					= 0;
 	hidden var LapHeartrate					= 0;
 	hidden var LastLapHeartrate				= 0;
 	hidden var AverageHeartrate 			= 0; 
 	hidden var mLapElapsedDistance 			= 0;
 	hidden var uShowRedClock 				= false;
-	hidden var ucadenceWorkaround 			= false;
 	hidden var c0Version					= true;
 
 	function initialize() {
@@ -140,7 +138,6 @@ class DatarunpremiumView extends Ui.DataField {
          var uHrZones = UserProfile.getHeartRateZones(UserProfile.getCurrentSport());
          uShowRedClock = mApp.getProperty("pShowRedClock");
          var uCCnumber	     = mApp.getProperty("pCCnumber");
-   		 ucadenceWorkaround = mApp.getProperty("pcadenceWorkaround");
         
           	 
         if (System.getDeviceSettings().paceUnits == System.UNIT_STATUTE) {
@@ -242,7 +239,6 @@ class DatarunpremiumView extends Ui.DataField {
         }
 
 		//!Fill field metrics
-		currentHR = (info.currentHeartRate != null) ? info.currentHeartRate : 0;
 		var i = 0; 
 	    for (i = 1; i < 11; ++i) {	    
         	if (metric[i] == 0) {
@@ -358,7 +354,6 @@ class DatarunpremiumView extends Ui.DataField {
         	    fieldFormat[i] = "0decimal";
 			} else if (metric[i] == 50) {
 				fieldValue[i] = (info.currentCadence != null) ? info.currentCadence : 0; 
-				fieldValue[i] = (ucadenceWorkaround == true) ? fieldValue[i]*2 : fieldValue[i]; //! workaround multiply by two for FR945LTE and Fenix 6 series
     	        fieldLabel[i] = "Cadence";
         	    fieldFormat[i] = "0decimal";
 			} else if (metric[i] == 51) {

@@ -570,7 +570,7 @@ class CiqView extends ExtramemView {
             }
 			mElapsedPower    = mElapsedPower + runPower;	
 			
-			maxPwr1 = (runPower > maxHR1) ? runPower : maxPwr1;
+			maxPwr1 = (runPower > maxPwr1) ? runPower : maxPwr1;
     	    if (runPower > 0 and minPwr1 == 0) {
         		minPwr1 = runPower;
 	        } else {

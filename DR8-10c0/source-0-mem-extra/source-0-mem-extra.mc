@@ -716,16 +716,6 @@ class ExtramemView extends DatarunpremiumView {
             	CFMFormat = "0decimal";   
 			}
 
-		//! Conditions for showing the demoscreen       
-        if (uShowDemo == false) {
-        	if (licenseOK == false && jTimertime > 900)  {
-        		uShowDemo = true;        		
-        	}
-        }
-
-	   //! Check whether demoscreen is showed or the metrics 
-	   if (uShowDemo == false ) {
-
 		//! Display colored labels on screen	
 		if (mySettings.screenWidth == 260 and mySettings.screenHeight == 260) {  //! Fenix 6 pro labels
 			for (i = 1; i < 11; ++i) {
@@ -1066,8 +1056,7 @@ class ExtramemView extends DatarunpremiumView {
     	    }
     	    mColourFont = originalFontcolor;
 	    	dc.setColor(mColourFont, Graphics.COLOR_TRANSPARENT);
-		}
-	   }		
+		}	
 	}
 
 	function Coloring(dc,counter,testvalue,CorString) {

@@ -234,7 +234,7 @@ class CiqView extends ExtramemView {
 		}
 		
 		for (i = 1; i < 11; ++i) {
-	    	if (metric[i] == 131) {
+	    	if (metric[i] == 131 or uClockFieldMetric == 131) {
 				calculateVertGrade = true; //!Only calculate vertical grade if needed
 			}
 		}

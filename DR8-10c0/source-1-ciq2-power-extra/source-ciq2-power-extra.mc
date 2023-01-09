@@ -79,7 +79,7 @@ class CiqView extends ExtramemView {
 	hidden var mLastLapTimePwrMarker			= 0;
     hidden var mLapTimerTimePwr					= 0;	
     hidden var mLastLapTimerTimePwr				= 0;
-//!	hidden var AveragePower 					= 0; 
+	var MaxPower 								= 0; 
 	hidden var LapPower 						= 0; 
 	hidden var LastLapPower 					= 0;
 	var Power1 									= 0;
@@ -576,6 +576,8 @@ class CiqView extends ExtramemView {
 	        } else {
     	    	minPwr1 = (runPower < minPwr1) ? runPower : minPwr1;
         	}
+			
+			MaxPower = (runPower > MaxPower) ? runPower : MaxPower;
 				 			             
 			if (uCP != 0) {
 				if ((runPower+0.001)/uCP < 0.5 ) {
@@ -1115,7 +1117,7 @@ class CiqView extends ExtramemView {
     	        fieldLabel[i] = "N Power";
         	    fieldFormat[i] = "0decimal";
 	        } else if (metric[i] == 80) {
-    	        fieldValue[i] = (info.maxPower != null) ? info.maxPower : 0;
+    	        fieldValue[i] = MaxPower;
         	    fieldLabel[i] = "Max Pwr";
             	fieldFormat[i] = "power";  
 			} else if (metric[i] == 71) {
